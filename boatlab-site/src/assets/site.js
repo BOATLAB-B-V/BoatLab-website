@@ -370,14 +370,17 @@ document.addEventListener("pointerdown", e => {
   const range = $("#lenRange"), ftOut = $("#lenFt"), mOut = $("#lenM");
   const locale = {nl:"nl-NL", de:"de-DE", en:"en-GB"}[lang] || "en-GB";
   const eur = new Intl.NumberFormat(locale, {style:"currency", currency:"EUR", maximumFractionDigits:0});
+  const eur2 = new Intl.NumberFormat(locale, {style:"currency", currency:"EUR", minimumFractionDigits:2, maximumFractionDigits:2});
   const num1 = new Intl.NumberFormat(locale, {maximumFractionDigits:1, minimumFractionDigits:1});
+  const vat = +calc.dataset.vat || 0;
   const shown = new WeakMap();
-  const tween = (el, to) => {
+  // whole euros excl. VAT; incl. VAT is computed in cents (euros x (100 + VAT)) so it never rounds oddly
+  const tween = (el, to, fmt = v => eur.format(Math.round(v))) => {
     const from = shown.get(el) ?? to; shown.set(el, to);
-    if (reduceMotion || from === to){ el.textContent = eur.format(to); return; }
+    if (reduceMotion || from === to){ el.textContent = fmt(to); return; }
     const t0 = performance.now();
     const tick = now => { const p = Math.min(1, (now-t0)/420), v = from + (to-from)*(1-Math.pow(1-p,3));
-      el.textContent = eur.format(Math.round(v)); if (p < 1) requestAnimationFrame(tick); };
+      el.textContent = fmt(p < 1 ? v : to); if (p < 1) requestAnimationFrame(tick); };
     requestAnimationFrame(tick);
   };
   const update = () => {
@@ -386,7 +389,9 @@ document.addEventListener("pointerdown", e => {
     range.style.setProperty("--fill", ((ft-range.min)/(range.max-range.min)*100)+"%");
     $$(".st-card", calc).forEach(c => {
       const rate = +c.dataset.rate, months = +calc.dataset.months;
+      const cents = v => eur2.format(Math.round(v)/100);
       tween($(".st-month", c), rate*ft); tween($(".st-season", c), rate*ft*months);
+      tween($(".st-month-incl", c), rate*ft*(100+vat), cents); tween($(".st-season-incl", c), rate*ft*months*(100+vat), cents);
     });
   };
   range.addEventListener("input", update);

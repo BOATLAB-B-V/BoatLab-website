@@ -497,6 +497,14 @@ input[type=range].st-range::-moz-range-thumb{width:24px;height:24px;border-radiu
 .st-calc .season{flex-wrap:wrap}
 .st-table thead th:first-child{text-align:left;vertical-align:bottom}
 
+.incl{display:block;font-size:.8rem;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.st-card>.incl{margin-top:-8px}
+.st-calc .season{display:grid;gap:2px;justify-content:start;margin-top:8px}
+.st-calc .season .tot{display:grid;justify-items:start}
+.st-calc .season b{font-size:1.05rem}
+.st-table td .incl{margin-top:4px;font:500 .78rem/1.2 var(--f-body)}
+.st-mini .incl{margin-top:-2px}
+
 /* comparison table */
 .st-compare{padding-top:0}
 .st-table-wrap{overflow-x:auto;border-radius:22px;border:1px solid var(--line)}

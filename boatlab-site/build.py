@@ -78,11 +78,11 @@ META = {
     },
     "storage": {
         "en": ("Boat Winter Storage in Wanssum 2026–27 · BoatLab",
-               "Winter storage for your boat on the Maas in Wanssum: afloat, outdoor, covered or indoor. From €4 per foot per month excl. VAT. Calculate your price online."),
+               "Winter storage for your boat on the Maas in Wanssum: afloat, outdoor, covered or indoor. From €4 per foot per month excl. VAT (€4.84 incl. VAT). Calculate your price online."),
         "nl": ("Winterstalling boot in Wanssum 2026–27 · BoatLab",
-               "Winterstalling voor uw boot aan de Maas in Wanssum: in het water, buiten, overdekt of binnen. Vanaf € 4 per voet per maand excl. btw. Bereken direct uw prijs."),
+               "Winterstalling voor uw boot aan de Maas in Wanssum: in het water, buiten, overdekt of binnen. Vanaf € 4 per voet per maand excl. btw (€ 4,84 incl. btw). Bereken direct uw prijs."),
         "de": ("Winterlager für Boote in Wanssum 2026/27 · BoatLab",
-               "Winterlager für Ihr Boot an der Maas in Wanssum (NL), nahe der Grenze: im Wasser, im Freien, überdacht oder in der Halle. Ab 4 € pro Fuß und Monat zzgl. MwSt."),
+               "Winterlager für Ihr Boot an der Maas in Wanssum (NL), nahe der Grenze: im Wasser, im Freien, überdacht oder in der Halle. Ab 4 € pro Fuß und Monat zzgl. MwSt. (4,84 € inkl. MwSt.)."),
     },
     "results": {
         "en": ("Before & After: Antifouling and Polishing · BoatLab",
@@ -132,6 +132,7 @@ STORAGE = [  # id, rate, icon, protection level 1-4
     ("indoor", 16, "i-hall", 4),
 ]
 STORAGE_MONTHS = 6                     # minimum booking
+VAT_PERCENT = 21                       # prices are shown excl. VAT, with the incl. VAT price under each one
 STORAGE_LEN = (15, 65, 35)             # slider min, max, start (feet)
 STORAGE_ROWS = [  # comparison table: text key, included per storage type (afloat, outdoor, covered, indoor)
     ("st.r1", (0, 1, 1, 1)), ("st.r2", (0, 1, 1, 1)), ("st.r3", (0, 1, 1, 1)),
@@ -260,6 +261,20 @@ def fmt_eur(v, lang):
     return f"€ {n}" if lang == "nl" else f"{n} €"
 
 
+def fmt_eur_cents(cents, lang):
+    """Two decimals, e.g. incl. VAT prices: en "€4.84", nl "€ 4,84", de "4,84 €"."""
+    n = f"{cents / 100:,.2f}"
+    if lang == "en":
+        return "€" + n
+    n = n.replace(",", " ").replace(".", ",").replace(" ", ".")
+    return f"€\u00a0{n}" if lang == "nl" else f"{n}\u00a0€"
+
+
+def incl_vat(euros, lang):
+    """Price including VAT for a whole-euro amount excl. VAT, computed in cents like site.js does."""
+    return fmt_eur_cents(euros * (100 + VAT_PERCENT), lang)
+
+
 def fmt_m(ft, lang):
     s = f"{ft * 0.3048:.1f}"
     return s if lang == "en" else s.replace(".", ",")
@@ -383,7 +398,7 @@ def storage_section(name, lang, tr, services):
     lo, hi, start = STORAGE_LEN
     if name == "storage-teaser":
         tiles = "".join(f'''
-          <a href="storage.html#prices"><svg><use href="#{icon}"/></svg><b data-i18n="st.{sid}"></b><em>{fmt_eur(rate, lang)}</em><span data-i18n="stT.unit"></span></a>'''
+          <a href="storage.html#prices"><svg><use href="#{icon}"/></svg><b data-i18n="st.{sid}"></b><em>{fmt_eur(rate, lang)}</em><span data-i18n="stT.unit"></span><small class="incl">{incl_vat(rate, lang)} <span data-i18n="st.incl"></span></small></a>'''
                         for sid, rate, icon, _ in STORAGE)
         return f'''<!-- WINTER STORAGE TEASER -->
   <section class="st-teaser" aria-labelledby="stTTitle">
@@ -427,18 +442,20 @@ def storage_section(name, lang, tr, services):
           <h3 data-i18n="st.{sid}"></h3>
           <p class="desc" data-i18n="st.{sid}.d"></p>
           <div class="rate"><b>{fmt_eur(rate, lang)}</b><span data-i18n="st.perFt"></span></div>
+          <small class="incl">{incl_vat(rate, lang)} <span data-i18n="st.incl"></span></small>
           <div class="meter"><small data-i18n="st.protect"></small><div class="bars" role="img" aria-label="{level}/4">{bars}</div></div>
           <div class="st-calc">
             <small data-i18n="st.month"></small>
             <b class="st-month">{fmt_eur(rate * start, lang)}</b>
-            <div class="season"><span data-i18n="st.season"></span><b class="st-season">{fmt_eur(rate * start * STORAGE_MONTHS, lang)}</b></div>
+            <small class="incl"><span class="st-month-incl">{incl_vat(rate * start, lang)}</span> <span data-i18n="st.incl"></span></small>
+            <div class="season"><span data-i18n="st.season"></span><span class="tot"><b class="st-season">{fmt_eur(rate * start * STORAGE_MONTHS, lang)}</b><small class="incl"><span class="st-season-incl">{incl_vat(rate * start * STORAGE_MONTHS, lang)}</span> <span data-i18n="st.incl"></span></small></span></div>
           </div>
         </article>'''
         fill = (start - lo) / (hi - lo) * 100
         return f'''<!-- WINTER STORAGE CALCULATOR -->
   <section class="storage" id="prices" aria-labelledby="calcTitle">
     <div class="wrap">
-      <div class="st-panel" id="storageCalc" data-months="{STORAGE_MONTHS}">
+      <div class="st-panel" id="storageCalc" data-months="{STORAGE_MONTHS}" data-vat="{VAT_PERCENT}">
         {snow()}
         <div class="st-head">
           <div class="section-head reveal">
@@ -470,7 +487,7 @@ def storage_section(name, lang, tr, services):
                 f'<td class="yes"><svg role="img" aria-label="{yes}"><use href="#i-check"/></svg></td>' if inc
                 else f'<td class="no"><span aria-hidden="true">–</span><span class="sr">{no}</span></td>' for inc in flags) + "</tr>"
             for key, flags in STORAGE_ROWS)
-        prices = "".join(f"<td>{fmt_eur(rate, lang)}</td>" for _, rate, _, _ in STORAGE)
+        prices = "".join(f'<td>{fmt_eur(rate, lang)}<small class="incl">{incl_vat(rate, lang)} <span data-i18n="st.incl"></span></small></td>' for _, rate, _, _ in STORAGE)
         notes = "".join(f'<li data-i18n="st.n{i}"></li>' for i in range(1, 7))
         return f'''<!-- WINTER STORAGE COMPARISON -->
   <section class="st-compare" aria-labelledby="cmpTitle">
