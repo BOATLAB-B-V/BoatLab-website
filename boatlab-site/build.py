@@ -78,11 +78,11 @@ META = {
     },
     "storage": {
         "en": ("Boat Winter Storage in Wanssum 2026–27 · BoatLab",
-               "Winter storage for your boat on the Maas in Wanssum: afloat, outdoor, covered or indoor. From €4 per foot per month including VAT. Calculate your price online."),
+               "Winter storage for your boat on the Maas in Wanssum: afloat, outdoor, covered or indoor. From €4 per foot per month excl. VAT. Calculate your price online."),
         "nl": ("Winterstalling boot in Wanssum 2026–27 · BoatLab",
-               "Winterstalling voor uw boot aan de Maas in Wanssum: in het water, buiten, overdekt of binnen. Vanaf € 4 per voet per maand incl. btw. Bereken direct uw prijs."),
+               "Winterstalling voor uw boot aan de Maas in Wanssum: in het water, buiten, overdekt of binnen. Vanaf € 4 per voet per maand excl. btw. Bereken direct uw prijs."),
         "de": ("Winterlager für Boote in Wanssum 2026/27 · BoatLab",
-               "Winterlager für Ihr Boot an der Maas in Wanssum (NL), nahe der Grenze: im Wasser, im Freien, überdacht oder in der Halle. Ab 4 € pro Fuß und Monat inkl. MwSt."),
+               "Winterlager für Ihr Boot an der Maas in Wanssum (NL), nahe der Grenze: im Wasser, im Freien, überdacht oder in der Halle. Ab 4 € pro Fuß und Monat zzgl. MwSt."),
     },
     "results": {
         "en": ("Before & After: Antifouling and Polishing · BoatLab",
@@ -124,7 +124,7 @@ META = {
 }
 
 # Winter storage 2026-27 (Focus Marine Center price list): euro per foot of length overall per month,
-# including 21% VAT. Cleaning is NOT included (on request, from 5 euro per foot; see pages.json).
+# EXCLUDING 21% VAT. Cleaning is NOT included (on request, from 5 euro per foot per chosen month; see pages.json).
 STORAGE = [  # id, rate, icon, protection level 1-4
     ("afloat", 4, "i-wave", 1),
     ("outdoor", 8, "i-sun", 2),
@@ -603,7 +603,7 @@ def structured_data(page, lang, cfg, tr):
     if page == "storage":
         offers = [{"@type": "Offer", "name": tr[f"st.{sid}"], "priceCurrency": "EUR",
                    "priceSpecification": {"@type": "UnitPriceSpecification", "price": rate, "priceCurrency": "EUR",
-                                          "unitText": tr["st.perFt"], "valueAddedTaxIncluded": True}}
+                                          "unitText": tr["st.perFt"], "valueAddedTaxIncluded": False}}
                   for sid, rate, _, _ in STORAGE]
         return ld({"@context": "https://schema.org", "@type": "Service", "name": tr["nav.storage"],
                    "serviceType": tr["nav.storage"], "description": META[page][lang][1], "url": url(page, lang),
