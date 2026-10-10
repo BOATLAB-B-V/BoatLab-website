@@ -11,7 +11,8 @@ in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and Tik
 - 21 pages x 3 languages = 63 pages, including one landing page per service (for SEO and Google Ads)
   and a winter storage page with a price calculator.
 - Style: bright white, logo blue `#0b8fd6` as accent only, full-width photos that fade into the page.
-- Preview link (shared, anyone with the link): https://claude.ai/artifact/DNrMyNRKgsKyXCE7mQN8yH (older one-URL version)
+- Preview link (shared, anyone with the link): https://claude.ai/artifact/DNrMyNRKgsKyXCE7mQN8yH
+  (all 63 pages; built from `boatlab-site/preview/`, where pages are flat files such as `nl-diensten.html`)
 - Plan: host on **Tilda** (paste-ready pages in `boatlab-site/tilda/`), or any static host (`boatlab-site/dist/`).
 
 ## Pages and addresses
@@ -44,6 +45,8 @@ boatlab-site/
   src/sections/       one file per page section; build.py lists which sections each page uses
   img/                web-ready photos
   dist/   (generated) the site for normal hosting, plus sitemap.xml and robots.txt
+  preview/ (generated) the same site as flat files with relative links, for the preview link;
+                      open preview/index.html in a browser to view it without a server
   tilda/  (generated) body-only pages per language to paste into a Tilda HTML block (T123),
                       and PAGES.md: page address, SEO title, description and HEAD code for each Tilda page
 ```

@@ -5,6 +5,8 @@
            with sitemap.xml and robots.txt. Preview locally: cd dist && python3 -m http.server
   tilda/   body-only pages to paste into a Tilda HTML block (T123), one folder per language,
            plus PAGES.md: page address, SEO title, description and HEAD code for every Tilda page
+  preview/ the same site as flat files with relative links (nl-diensten.html ...), for a
+           shareable preview link; open preview/index.html directly in a browser
 
 All text is written into the HTML at build time (search engines see it without running JavaScript).
   src/assets/site.js (T, T2)       shared site texts
@@ -233,12 +235,19 @@ def load_data(js):
 
 # ---------- URLs ----------
 
+FLAT_LINKS = False   # True while building preview/: links point to flat files such as nl-diensten.html
+
+
+def flat_name(page, lang):
+    return (SLUGS[page][lang].replace("/", "-") or "index") + ".html"
+
+
 def path(page, lang):
-    return "/" + SLUGS[page][lang]
+    return flat_name(page, lang) if FLAT_LINKS else "/" + SLUGS[page][lang]
 
 
 def url(page, lang):
-    return SITE + path(page, lang)
+    return SITE + "/" + SLUGS[page][lang]
 
 
 # ---------- formatting (matches Intl.NumberFormat in the browser) ----------
@@ -652,7 +661,7 @@ def render_body(page, nav_id, sections, lang, tr, cfg, services, content, has_re
     doc = localize_images(doc, img_base, img_map)
     if "{{" in doc:
         raise ValueError("unfilled placeholder: " + doc[doc.index("{{"):doc.index("{{") + 40])
-    if re.search(r'href="[a-z0-9-]+\.html', doc):
+    if not FLAT_LINKS and re.search(r'href="[a-z0-9-]+\.html', doc):
         raise ValueError("link to an unknown page: " + re.search(r'href="[a-z0-9-]+\.html[^"]*"', doc).group(0))
     return doc
 
@@ -776,8 +785,35 @@ def main():
                   f"{FONTS}\n<style>{css}</style>\n\n{tbody}\n\n<script>{tilda_js}</script>\n")
             count += 1
     write(os.path.join(tilda, "PAGES.md"), tilda_manifest(pages, cfg, tr))
+    build_preview(pages, css, js, tr, cfg, services, content, has_reviews)
     print(f"Built {count} pages ({len(pages)} pages x {len(LANGS)} languages) into dist/ and tilda/"
           + (" (preview mode)" if PREVIEW else ""))
+
+
+def build_preview(pages, css, js, tr, cfg, services, content, has_reviews):
+    """preview/: every page as a flat file with relative links. index.html (English home) is written
+    without <html>/<head>/<body> so it can be published as the main page of a preview link."""
+    global FLAT_LINKS
+    out = os.path.join(ROOT, "preview")
+    shutil.rmtree(out, ignore_errors=True)
+    os.makedirs(out)
+    shutil.copytree(os.path.join(ROOT, "img"), os.path.join(out, "img"))
+    write(os.path.join(out, "assets", "site.css"), css)
+    write(os.path.join(out, "assets", "site.js"), localize_images_js(js, "img/", {}))
+    FLAT_LINKS = True
+    try:
+        for page, nav_id, sections in pages:
+            for l in LANGS:
+                body = render_body(page, nav_id, sections, l, tr[l], cfg, services, content, has_reviews, "img/", {})
+                doc = full_page(page, l, cfg, tr[l], body, '<link rel="stylesheet" href="assets/site.css">',
+                                '<script src="assets/site.js"></script>').replace('href="/img/', 'href="img/')
+                if flat_name(page, l) == "index.html":
+                    doc = re.sub(r"<!doctype html>\s*<html[^>]*>\s*<head>\s*(<meta charset[^>]*>\s*<meta name=\"viewport\"[^>]*>\s*)?", "", doc)
+                    doc = doc.replace("</head>\n<body>\n", "").replace("</body>\n</html>\n", "")
+                    doc = re.sub(r"<title>.*?</title>", "<title>BoatLab Yacht Services · Wanssum</title>", doc, count=1)
+                write(os.path.join(out, flat_name(page, l)), doc)
+    finally:
+        FLAT_LINKS = False
 
 
 if __name__ == "__main__":
