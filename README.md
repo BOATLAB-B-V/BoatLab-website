@@ -1,53 +1,69 @@
 # BoatLab website (boatlabservice.nl)
 
-Website for **Boatlab BV / BoatLab Yacht Services**, Geijsterseweg 10, 5861 BL Wanssum (NL),
+Website for **Boatlab B.V. / BoatLab Yacht Services**, Geijsterseweg 10, 5861 BL Wanssum (NL),
 in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and TikTok: @boatlab.nl.
 
-- Languages: English (default), Dutch, German, switchable on every page.
+- Email: info@boatlabservice.nl (general and bookings), sales@boatlabservice.nl (sales inquiries)
+- KvK 42025956 · BTW NL869361193B01
+- Languages: English (site root), Dutch (`/nl/...`) and German (`/de/...`). Every page exists once per
+  language on its own URL, with the text written into the HTML, translated SEO title and description,
+  and `hreflang` links between the language versions.
 - Style: bright white, logo blue `#0b8fd6` as accent only, full-width photos that fade into the page.
-- Preview link (shared, anyone with the link): https://claude.ai/artifact/DNrMyNRKgsKyXCE7mQN8yH
-- Plan: host on **Tilda** (paste-ready files in `boatlab-site/tilda/`), or any static host (`boatlab-site/dist/`).
+- Preview link (shared, anyone with the link): https://claude.ai/artifact/DNrMyNRKgsKyXCE7mQN8yH (older one-URL version)
+- Plan: host on **Tilda** (paste-ready pages in `boatlab-site/tilda/`), or any static host (`boatlab-site/dist/`).
 
-## Pages
+## Pages and addresses
 
-| File | Tab | Contents |
-|---|---|---|
-| `index.html` | Home | Hero, 6 featured services, free 30 t crane lift, before/after slider, 3 reasons, reviews band, facility teaser, booking call to action |
-| `services.html` | Services | All 13 services with category tabs, "How it works" |
-| `results.html` | Results | Before/after slider (antifouling, polishing) |
-| `about.html` | Why BoatLab | 6 reasons, Focus Marine Center partnership, "How it works" |
-| `facility.html` | Facility | 30 t crane, full-width photo slider |
-| `contact.html` | Contact | Booking form (with GDPR checkbox), address, phone, email, socials |
-| `privacy.html` | Privacy | Privacy policy in EN/NL/DE |
+| Page | EN | NL | DE | Contents |
+|---|---|---|---|---|
+| Home | `/` | `/nl` | `/de` | Hero, 6 featured services, free 30 t crane lift, before/after slider, 3 reasons, reviews band, facility teaser, booking call to action |
+| Services | `/services` | `/nl/diensten` | `/de/leistungen` | All 13 services with category tabs, "How it works" |
+| Results | `/results` | `/nl/resultaten` | `/de/ergebnisse` | Before/after slider (antifouling, polishing) |
+| Why BoatLab | `/about` | `/nl/over-ons` | `/de/ueber-uns` | 6 reasons, Focus Marine Center partnership, "How it works" |
+| Facility | `/facility` | `/nl/werf` | `/de/werft` | 30 t crane, full-width photo slider |
+| Contact | `/contact` | `/nl/contact` | `/de/kontakt` | Booking form (with GDPR checkbox), address, phone, emails, socials |
+| Privacy | `/privacy` | `/nl/privacy` | `/de/datenschutz` | Privacy policy (not indexed) |
+
+Addresses, SEO titles and descriptions are set in `SLUGS` and `META` at the top of `boatlab-site/build.py`.
 
 ## Project layout
 
 ```
 boatlab-site/
-  build.py            builds every page from src/ (run: python3 build.py)
+  build.py            builds every page in every language from src/ (run: python3 build.py)
   src/assets/site.css all styles
   src/assets/site.js  settings (CONFIG), services list, all texts in 3 languages (T, T2), reviews (REVIEWS), page behaviour
   src/partials/       shared header, footer, icon sprite
   src/sections/       one file per page section; build.py lists which sections each page uses
   img/                web-ready photos
-  dist/   (generated) site for normal hosting, shared CSS/JS files
-  inline/ (generated) same pages with CSS/JS inside each page
-  tilda/  (generated) body-only pages to paste into a Tilda HTML block
+  dist/   (generated) the site for normal hosting, plus sitemap.xml and robots.txt
+  tilda/  (generated) body-only pages per language to paste into a Tilda HTML block (T123),
+                      and PAGES.md: page address, SEO title, description and HEAD code for each Tilda page
 ```
 
 Generated folders are not stored in git. Rebuild them with `cd boatlab-site && python3 build.py`
 (add `--preview` to show grey placeholder review cards for a design preview).
+Preview locally: `cd boatlab-site/dist && python3 -m http.server`, then open http://localhost:8000/nl/.
 
 To change text: edit the dictionaries in `src/assets/site.js` (keep EN, NL and DE in step), then rebuild.
+The build stops with an error if a text is missing in one of the languages.
+
+## Tilda
+
+Tilda's API is read-only (export only, Business plan), so pages cannot be pushed to Tilda from code.
+Each change is rebuilt here and then pasted into Tilda (by hand, or by Claude through the browser).
+Per page, `tilda/PAGES.md` lists the Tilda page address, SEO title and description, and the HEAD code
+(hreflang links, plus business details for Google on the home pages).
 
 ## Still to do
 
-- [ ] **Email address** for bookings and privacy questions. `CONFIG.email` is still the placeholder `info@boatlabservice.nl`.
-- [ ] **KvK and VAT (BTW) numbers**: fill `CONFIG.kvk` and `CONFIG.vat` (shown in the footer and privacy page, required by Dutch law).
+- [ ] **Tilda: confirm nested page addresses** (`nl/diensten`). If Tilda refuses a `/` in the page address, change `SLUGS` in `build.py` (e.g. `nl-diensten`) and rebuild.
+- [ ] **Tilda: images.** Upload the photos and put their Tilda URLs in `TILDA_IMAGES` in `build.py`; turn off Tilda statistics/tracking; sign data processing agreements with Tilda and the email provider.
 - [ ] **Booking delivery**: either rebuild the form as a native Tilda form (email + Google Sheets receivers), or set `CONFIG.formEndpoint` (e.g. Formspree). Until then the form shows the request for the visitor to email.
 - [ ] **Reviews**: paste real Google reviews into `REVIEWS` in `site.js`; the home page band stays hidden while it is empty.
 - [ ] **Before/after photos**: the originals were lost. The slider uses recovered halves (the right half of each "before" photo). Replace with new, ideally same-angle before/after shots.
+- [ ] **Image alt texts** are English on every language version; translate them for Dutch/German image search.
+- [ ] **Native check of the new Dutch and German SEO titles and descriptions** in `META` (`build.py`).
 - [ ] **Fonts (GDPR)**: self-host Archivo, Instrument Sans and IBM Plex Mono instead of loading them from Google Fonts. Awaiting the owner's OK to download them.
 - [ ] **Focus Marine Center**: confirm whether customer data is shared with them; if yes, name them in the privacy policy.
-- [ ] **Tilda**: upload photos and swap image paths for Tilda's URLs; turn off Tilda statistics/tracking; sign data processing agreements with Tilda and the email provider.
 - [ ] Have the privacy policy checked by a legal/privacy professional before going live.

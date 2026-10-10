@@ -20,9 +20,13 @@
         </a>
         <div class="c-item hov reveal">
           <span class="ic"><svg><use href="#i-mail"/></svg></span>
-          <span style="min-width:0"><small data-i18n="c.email">Email</small><b id="emailText" class="js-email">info@boatlabservice.nl</b></span>
+          <span style="min-width:0"><small data-i18n="c.email">Email</small><b id="emailText" class="js-email">{{email}}</b></span>
           <button class="copy" type="button" id="copyEmail" data-i18n="c.copy">Copy</button>
         </div>
+        <a class="c-item reveal js-sales-link" href="mailto:{{salesEmail}}">
+          <span class="ic"><svg><use href="#i-mail"/></svg></span>
+          <span style="min-width:0"><small data-i18n="c.sales">Sales inquiries</small><b class="js-sales">{{salesEmail}}</b></span>
+        </a>
         <a class="c-item reveal" id="igLink" href="https://www.instagram.com/boatlab.nl/" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-insta"/></svg></span><span><small>Instagram</small><b>@boatlab.nl</b></span></a>
         <a class="c-item reveal" id="ttLink" href="https://www.tiktok.com/@boatlab.nl" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-tiktok"/></svg></span><span><small>TikTok</small><b>@boatlab.nl</b></span></a>
       </div>

@@ -1,13 +1,15 @@
 /* ===== Settings: fill these in before going live ===== */
 const CONFIG = {
-  email: "info@boatlabservice.nl",              // TODO confirm address
+  email: "info@boatlabservice.nl",              // general questions and booking requests
+  salesEmail: "sales@boatlabservice.nl",        // sales inquiries
   // Paste a Formspree form URL (https://formspree.io/f/xxxx) to receive bookings by email.
   formEndpoint: "",
   instagram: "https://www.instagram.com/boatlab.nl/",
   tiktok: "https://www.tiktok.com/@boatlab.nl",
-  // Dutch law requires the KvK number (and VAT number) on the website. Shown in the footer once filled in.
-  kvk: "",                                      // TODO KvK number
-  vat: "",                                      // TODO BTW/VAT number, e.g. NL000000000B01
+  // Dutch law requires the legal name, KvK number and VAT number on the website (footer and privacy page).
+  legalName: "Boatlab B.V.",
+  kvk: "42025956",
+  vat: "NL869361193B01",
   maps: "https://maps.app.goo.gl/qaHuijy3DLmqtUjv5",
   // Shows grey placeholder cards in the reviews band until real reviews are added (preview only).
   reviewPlaceholders: false
@@ -60,7 +62,7 @@ en:{
  "f.name":"Name","f.email":"Email","f.phone":"Phone","f.optional":"(optional)","f.lang":"Preferred language","f.boat":"Boat make & model","f.length":"Length (m)","f.services":"Services","f.date":"Preferred date","f.where":"Where is the boat now?","f.w1":"In the water","f.w2":"On a trailer","f.w3":"In storage elsewhere","f.msg":"Anything else we should know?","f.note":"No payment needed. We only use your details to answer this request.","f.submit":"Send request",
  "f.errReq":"Please fill in your name, a valid email and your boat.","f.errSvc":"Choose at least one service.","f.errConsent":"Please confirm that you have read the privacy policy.","f.consent":"I have read the <a class=\"js-privacy\" href=\"privacy.html\">privacy policy</a> and agree that BoatLab uses my details to handle this request.","footer.privacy":"Privacy policy","footer.kvk":"KvK","footer.vat":"VAT","f.errSend":"The request could not be sent. Please email us directly at ",
  "done.title":"Request sent.","done.text":"Thank you. We'll reply personally within one working day.","done.readyTitle":"Your request is ready.","done.readyText":"Send it to us by email and we'll reply personally with a quote and a date.","done.copy":"Copy request","done.mail":"Open in email","done.new":"New request","done.copied":"Copied",
- "c.eyebrow":"Visit the yard","c.maps":"Open in Google Maps →","c.email":"Email","c.copy":"Copy","c.address":"Address","c.follow":"Follow us","c.watch":"Watch us work","c.phone":"Phone","c.call":"Call us →","c.focus":"In partnership with Focus Marine Center"
+ "c.eyebrow":"Visit the yard","c.maps":"Open in Google Maps →","c.email":"Email","c.sales":"Sales inquiries","c.copy":"Copy","c.address":"Address","c.follow":"Follow us","c.watch":"Watch us work","c.phone":"Phone","c.call":"Call us →","c.focus":"In partnership with Focus Marine Center"
 },
 nl:{
  "nav.services":"Diensten","nav.results":"Resultaten","nav.why":"Waarom BoatLab","nav.facility":"Werf","nav.contact":"Contact",
@@ -102,7 +104,7 @@ nl:{
  "f.name":"Naam","f.email":"E-mail","f.phone":"Telefoon","f.optional":"(optioneel)","f.lang":"Voorkeurstaal","f.boat":"Merk & type boot","f.length":"Lengte (m)","f.services":"Diensten","f.date":"Gewenste datum","f.where":"Waar ligt de boot nu?","f.w1":"In het water","f.w2":"Op een trailer","f.w3":"Elders in de stalling","f.msg":"Wat moeten we nog meer weten?","f.note":"U betaalt nu niets. We gebruiken uw gegevens alleen om deze aanvraag te beantworden.","f.submit":"Aanvraag versturen",
  "f.errReq":"Vul uw naam, een geldig e-mailadres en uw boot in.","f.errSvc":"Kies minstens één dienst.","f.errConsent":"Bevestig dat u de privacyverklaring heeft gelezen.","f.consent":"Ik heb de <a class=\"js-privacy\" href=\"privacy.html\">privacyverklaring</a> gelezen en ga ermee akkoord dat BoatLab mijn gegevens gebruikt om deze aanvraag af te handelen.","footer.privacy":"Privacyverklaring","footer.kvk":"KvK","footer.vat":"BTW","f.errSend":"De aanvraag kon niet worden verzonden. Mail ons direct via ",
  "done.title":"Aanvraag verstuurd.","done.text":"Bedankt. We reageren persoonlijk binnen één werkdag.","done.readyTitle":"Uw aanvraag staat klaar.","done.readyText":"Stuur hem per e-mail naar ons en we reageren persoonlijk met een offerte en een datum.","done.copy":"Aanvraag kopiëren","done.mail":"Openen in e-mail","done.new":"Nieuwe aanvraag","done.copied":"Gekopieerd",
- "c.eyebrow":"Bezoek de werf","c.maps":"Openen in Google Maps →","c.email":"E-mail","c.copy":"Kopiëren","c.address":"Adres","c.phone":"Telefoon","c.call":"Bel ons →","c.focus":"Gevestigd in samenwerking met Focus Marine Center","c.follow":"Volg ons","c.watch":"Kijk mee op de werf"
+ "c.eyebrow":"Bezoek de werf","c.maps":"Openen in Google Maps →","c.email":"E-mail","c.sales":"Verkoopvragen","c.copy":"Kopiëren","c.address":"Adres","c.phone":"Telefoon","c.call":"Bel ons →","c.focus":"Gevestigd in samenwerking met Focus Marine Center","c.follow":"Volg ons","c.watch":"Kijk mee op de werf"
 },
 de:{
  "nav.services":"Leistungen","nav.results":"Ergebnisse","nav.why":"Warum BoatLab","nav.facility":"Werft","nav.contact":"Kontakt",
@@ -144,7 +146,7 @@ de:{
  "f.name":"Name","f.email":"E-Mail","f.phone":"Telefon","f.optional":"(optional)","f.lang":"Bevorzugte Sprache","f.boat":"Bootsmarke & Modell","f.length":"Länge (m)","f.services":"Leistungen","f.date":"Wunschtermin","f.where":"Wo liegt das Boot jetzt?","f.w1":"Im Wasser","f.w2":"Auf einem Trailer","f.w3":"In einem anderen Winterlager","f.msg":"Was sollten wir noch wissen?","f.note":"Keine Zahlung nötig. Wir nutzen Ihre Daten nur zur Beantwortung dieser Anfrage.","f.submit":"Anfrage senden",
  "f.errReq":"Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und Ihr Boot an.","f.errSvc":"Bitte wählen Sie mindestens eine Leistung.","f.errConsent":"Bitte bestätigen Sie, dass Sie die Datenschutzerklärung gelesen haben.","f.consent":"Ich habe die <a class=\"js-privacy\" href=\"privacy.html\">Datenschutzerklärung</a> gelesen und bin einverstanden, dass BoatLab meine Daten zur Bearbeitung dieser Anfrage verwendet.","footer.privacy":"Datenschutz","footer.kvk":"KvK","footer.vat":"USt-IdNr.","f.errSend":"Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns direkt an ",
  "done.title":"Anfrage gesendet.","done.text":"Vielen Dank. Wir melden uns persönlich innerhalb eines Werktags.","done.readyTitle":"Ihre Anfrage ist bereit.","done.readyText":"Senden Sie sie uns per E-Mail, und wir melden uns persönlich mit Angebot und Termin.","done.copy":"Anfrage kopieren","done.mail":"In E-Mail öffnen","done.new":"Neue Anfrage","done.copied":"Kopiert",
- "c.eyebrow":"Besuchen Sie die Werft","c.maps":"In Google Maps öffnen →","c.email":"E-Mail","c.copy":"Kopieren","c.address":"Adresse","c.phone":"Telefon","c.call":"Rufen Sie uns an →","c.focus":"In Kooperation mit dem Focus Marine Center","c.follow":"Folgen Sie uns","c.watch":"Schauen Sie uns zu"
+ "c.eyebrow":"Besuchen Sie die Werft","c.maps":"In Google Maps öffnen →","c.email":"E-Mail","c.sales":"Vertriebsanfragen","c.copy":"Kopieren","c.address":"Adresse","c.phone":"Telefon","c.call":"Rufen Sie uns an →","c.focus":"In Kooperation mit dem Focus Marine Center","c.follow":"Folgen Sie uns","c.watch":"Schauen Sie uns zu"
 }};
 
 
@@ -199,13 +201,12 @@ de:{
 }};
 for (const l in T2) Object.assign(T[l], T2[l]);
 
-let lang = "en";
+// Every page is built in one language (main[data-lang], set by build.py); the switch links to the other versions.
+let lang = document.querySelector("main[data-lang]")?.dataset.lang || document.documentElement.lang || "en";
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const t = k => (T[lang] && T[lang][k]) ?? T.en[k] ?? k;
-const PAGE = ($("main[data-page]") || {dataset:{page:"home"}}).dataset.page;
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const PAGE_TITLE = {services:"nav.services", results:"nav.results", about:"nav.why", facility:"nav.facility", contact:"nav.contact", privacy:"footer.privacy"};
 const FEATURED = ["antifouling","polishing","osmosis","gelcoat","engine","refit"];
 
 /* ---------- services grid + booking chips ---------- */
@@ -253,7 +254,7 @@ function preselectAndScroll(id){
 $("#svcGrid")?.addEventListener("click", e => {
   const card = e.target.closest(".svc"); if (!card) return;
   if ($("#bookForm")) preselectAndScroll(card.dataset.id);
-  else location.href = "contact.html#book-" + card.dataset.id;   // booking lives on the contact page
+  else location.href = ($("main").dataset.contact || "contact.html") + "#book-" + card.dataset.id;   // booking lives on the contact page
 });
 
 /* ---------- reviews band ---------- */
@@ -289,20 +290,18 @@ function setLang(l){
   $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
   $$("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
   $$("[data-lang-block]").forEach(a => a.hidden = a.dataset.langBlock !== lang);
-  $$(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang===lang));
-  document.title = PAGE === "home" ? t("title.home") : t(PAGE_TITLE[PAGE]) + " · BoatLab";
   const fl = $("#f-lang"); if (fl) fl.value = {en:"English",nl:"Nederlands",de:"Deutsch"}[lang];
   renderServices(); renderReviews();
-  $$(".js-privacy").forEach(a => a.href = "privacy.html#"+lang);
   const reg = $("#regIds"); if (reg) reg.textContent = [CONFIG.kvk && t("footer.kvk")+" "+CONFIG.kvk, CONFIG.vat && t("footer.vat")+" "+CONFIG.vat].filter(Boolean).join(" · ");
   requestAnimationFrame(() => {
-    const lb = $(`.lang button[data-lang="${lang}"]`), th = $(".lang .thumb");
-    if (lb && th){ th.style.width = lb.offsetWidth+"px"; th.style.transform = `translateX(${lb.offsetLeft-3}px)`; }
+    placeLangThumb();
     moveThumb($("#svcTabs"), $('#svcTabs [aria-selected="true"]'));
   });
-  try { localStorage.setItem("boatlab-lang", lang); } catch(_){}
 }
-$$(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+function placeLangThumb(){
+  const lb = $(`.lang [data-lang="${lang}"]`), th = $(".lang .thumb");
+  if (lb && th){ th.style.width = lb.offsetWidth+"px"; th.style.transform = `translateX(${lb.offsetLeft-3}px)`; }
+}
 
 /* ---------- nav ---------- */
 const nav = $("#nav");
@@ -376,7 +375,8 @@ document.addEventListener("pointerdown", e => {
 /* ---------- contact details ---------- */
 $$(".js-email").forEach(e => e.textContent = CONFIG.email);
 $$(".js-email-link").forEach(a => a.href = "mailto:" + CONFIG.email);
-$$(".js-kvk").forEach(e => { if (CONFIG.kvk) e.innerHTML = "<br>KvK: " + CONFIG.kvk; });
+$$(".js-sales").forEach(e => e.textContent = CONFIG.salesEmail);
+$$(".js-sales-link").forEach(a => a.href = "mailto:" + CONFIG.salesEmail);
 $$(".js-ig").forEach(a => a.href = CONFIG.instagram);
 $$(".js-tt").forEach(a => a.href = CONFIG.tiktok);
 $$(".js-maps").forEach(a => a.href = CONFIG.maps);
@@ -450,14 +450,10 @@ $("#copyEmail")?.addEventListener("click", e => {
 /* ---------- start ---------- */
 (function(){
   const h = (location.hash||"").slice(1);
-  let l = T[h] ? h : null;
-  if (!l){ try { l = localStorage.getItem("boatlab-lang"); } catch(_){} }
-  if (!l){ const n = (navigator.language||"en").slice(0,2); l = T[n] ? n : "en"; }
-  setLang(l);
+  setLang(lang);
   if (h.startsWith("book-")) setTimeout(() => preselectAndScroll(h.slice(5)), 60);
   addEventListener("resize", () => {
     moveThumb($("#svcTabs"), $('#svcTabs [aria-selected="true"]'));
-    const lb = $(`.lang button[data-lang="${lang}"]`), th = $(".lang .thumb");
-    if (lb && th){ th.style.width = lb.offsetWidth+"px"; th.style.transform = `translateX(${lb.offsetLeft-3}px)`; }
+    placeLangThumb();
   });
 })();
