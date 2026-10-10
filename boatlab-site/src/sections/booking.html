@@ -1,0 +1,41 @@
+<!-- BOOKING -->
+  <section class="book" id="book" aria-labelledby="bookTitle">
+    <div class="wrap">
+      <div class="book-aside reveal">
+        <span class="eyebrow" data-i18n="book.eyebrow">Book a service</span>
+        <h2 id="bookTitle" data-i18n="book.title">Let's get your boat ready.</h2>
+        <p class="lede" data-i18n="book.lede">Send your request and we'll get back to you personally with a quote and a date.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="book.b1">Free crane lift included with every service</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="book.b2">Fixed, transparent quote before we start</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="book.b3">Reply in English, Dutch or German</span></li>
+        </ul>
+      </div>
+      <div id="bookWrap" class="reveal">
+        <form class="form" id="bookForm" novalidate>
+          <div class="field"><label for="f-name" data-i18n="f.name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email" data-i18n="f.email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-phone"><span data-i18n="f.phone">Phone</span> <span class="opt" data-i18n="f.optional">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-lang" data-i18n="f.lang">Preferred language</label>
+            <select id="f-lang" name="language"><option value="English">English</option><option value="Nederlands">Nederlands</option><option value="Deutsch">Deutsch</option></select></div>
+          <div class="field"><label for="f-boat" data-i18n="f.boat">Boat make &amp; model</label><input id="f-boat" name="boat" placeholder="e.g. Fairline Targa 43" required></div>
+          <div class="field"><label for="f-length" data-i18n="f.length">Length (m)</label><input id="f-length" name="length_m" type="number" min="2" max="40" step="0.1" inputmode="decimal" placeholder="12.5"></div>
+          <fieldset class="field full"><legend data-i18n="f.services">Services</legend><div class="chips" id="svcChips"></div></fieldset>
+          <div class="field"><label for="f-date" data-i18n="f.date">Preferred date</label><input id="f-date" name="date" type="date"></div>
+          <div class="field"><label for="f-where" data-i18n="f.where">Where is the boat now?</label>
+            <select id="f-where" name="location">
+              <option value="In the water" data-i18n="f.w1">In the water</option>
+              <option value="On a trailer" data-i18n="f.w2">On a trailer</option>
+              <option value="In storage elsewhere" data-i18n="f.w3">In storage elsewhere</option>
+            </select></div>
+          <div class="field full"><label for="f-msg"><span data-i18n="f.msg">Anything else we should know?</span> <span class="opt" data-i18n="f.optional">(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
+          <div class="field full consent"><label for="f-consent"><input type="checkbox" id="f-consent" name="privacy_consent" value="yes" required><span data-i18n-html="f.consent">I have read the <a class="js-privacy" href="privacy.html">privacy policy</a> and agree that BoatLab uses my details to handle this request.</span></label></div>
+          <p class="form-error" id="formError" hidden></p>
+          <div class="actions">
+            <p class="note" data-i18n="f.note">No payment needed. We only use your details to answer this request.</p>
+            <button class="btn" type="submit" id="submitBtn"><span data-i18n="f.submit">Send request</span><svg class="arrow-i"><use href="#i-arrow"/></svg><i class="spin"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>

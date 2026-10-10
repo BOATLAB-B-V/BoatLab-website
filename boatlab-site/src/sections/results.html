@@ -1,0 +1,21 @@
+<!-- BEFORE / AFTER -->
+  <section class="ba" id="results" aria-labelledby="baTitle">
+    <div class="wrap">
+      <div class="ba-copy reveal">
+        <span class="eyebrow" data-i18n="ba.eyebrow">Our work</span>
+        <h2 id="baTitle" data-i18n="ba.title">See the difference.</h2>
+        <p class="lede" data-i18n="ba.lede">Real boats from our yard. Drag the handle to compare before and after.</p>
+        <div class="ba-tabs">
+          <button class="pill" type="button" data-ba="antifouling" aria-pressed="true" data-i18n="ba.t1">Antifouling</button>
+          <button class="pill" type="button" data-ba="polish" aria-pressed="false" data-i18n="ba.t2">Polishing</button>
+        </div>
+      </div>
+      <div class="compare hint reveal" id="compare" style="--pos:50%">
+        <div class="layer before"><img src="img/antifouling-before.jpg" alt="Hull before treatment" loading="lazy"></div>
+        <div class="layer after"><img src="img/antifouling-after.jpg" alt="Hull after treatment" loading="lazy"></div>
+        <span class="tag b" data-i18n="ba.before">Before</span><span class="tag a" data-i18n="ba.after">After</span>
+        <div class="bar"><span class="knob"><svg><use href="#i-drag"/></svg></span></div>
+        <input type="range" min="0" max="100" value="50" id="compareRange" aria-label="Compare before and after">
+      </div>
+    </div>
+  </section>
