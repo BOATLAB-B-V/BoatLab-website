@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "gelcoat-repair", "nl": "gelcoat-reparatie", "de": "gelcoat-reparatur"},
+  "img": "hall-motor-yacht.jpg",
+  "related": ["lamination", "polishing", "painting"],
+  "en": {
+    "title": "Gelcoat Repair for Boats & Yachts in Wanssum · BoatLab",
+    "desc": "Gelcoat repair: chips, scratches, cracks and damage from mooring repaired and colour-matched, so the repair disappears. BoatLab Yacht Services, Wanssum.",
+    "h1": "Gelcoat repair you won't be able to find afterwards.",
+    "lede": "Chips from a jetty, scratches from fenders or star cracks on the deck: we repair the gelcoat, match the colour and polish the repair until it blends in.",
+    "intro_h": "Small damage, repaired before it grows.",
+    "intro": [
+      "Gelcoat is the hard outer layer that protects the laminate of a polyester boat. A chip or crack is more than a cosmetic problem: water can get in, and small damage grows. Star cracks often point to stress in the structure underneath, so we always look at the cause, not just the surface.",
+      "We grind the damage open, fill it, apply new gelcoat in the matching colour and then sand and polish it. On older boats, the existing gelcoat has often faded, so we mix the colour to match how your boat looks today, not how it looked when it was new."
+    ],
+    "included": [
+      "Inspection of the damage and the cause behind it",
+      "Grinding open and cleaning the damaged area",
+      "Filling and, where needed, reinforcing the laminate",
+      "Gelcoat mixed to match your boat's current colour",
+      "Wet sanding and polishing until the repair blends in",
+      "Advice if the damage points to a larger problem"
+    ],
+    "steps": [
+      ["Send us photos", "A few close-ups and an overview photo of the damage are enough for a first assessment."],
+      ["Assessment and fixed quote", "We tell you what's needed and send a fixed price and a date."],
+      ["Repair", "Grind, fill, apply gelcoat in the right colour, sand and polish."],
+      ["Check together", "You inspect the result. It should be hard to find where the damage was."]
+    ],
+    "factors": ["Number and size of the damaged areas", "Depth of the damage", "Colour and finish of the gelcoat", "Location on the boat", "Underlying laminate damage"],
+    "faq": [
+      ["Will I still see the repair?", "Our aim is that you won't. With careful colour matching and polishing, most repairs are almost invisible. On heavily faded or very dark gelcoat, a minimal difference can sometimes remain; we tell you that in advance."],
+      ["What are star cracks?", "Fine cracks in a star or spider pattern, often around fittings, stanchions or on the deck. They are usually caused by stress or a blow. We repair the gelcoat and check whether the structure underneath needs reinforcing."],
+      ["Can you repair gelcoat while the boat is in the water?", "Damage above the waterline can often be repaired with the boat in the water. Below the waterline, the boat has to come out; the crane lift is free."]
+    ]
+  },
+  "nl": {
+    "title": "Gelcoat reparatie boot in Wanssum · BoatLab",
+    "desc": "Gelcoatreparatie: beschadigingen, krassen, haarscheuren en aanvaarschade gerepareerd en op kleur gebracht, zodat de reparatie verdwijnt. BoatLab, Wanssum.",
+    "h1": "Gelcoatreparatie die u daarna niet meer terugvindt.",
+    "lede": "Een beschadiging van de steiger, krassen van fenders of stervormige haarscheuren op het dek: we repareren de gelcoat, brengen hem op kleur en poetsen de reparatie weg.",
+    "intro_h": "Kleine schade, gerepareerd voordat het groter wordt.",
+    "intro": [
+      "Gelcoat is de harde buitenlaag die het laminaat van een polyester boot beschermt. Een beschadiging of scheur is meer dan een schoonheidsfout: er kan water in komen en kleine schade wordt groter. Stervormige scheurtjes wijzen vaak op spanning in de constructie eronder, daarom kijken we altijd naar de oorzaak, niet alleen naar het oppervlak.",
+      "We frezen de schade open, plamuren, brengen nieuwe gelcoat aan in de juiste kleur en schuren en poetsen alles. Bij oudere boten is de gelcoat vaak verkleurd, dus we mengen de kleur zoals uw boot er nu uitziet, niet zoals hij nieuw was."
+    ],
+    "included": [
+      "Inspectie van de schade en de oorzaak erachter",
+      "Openfrezen en reinigen van de beschadigde plek",
+      "Plamuren en waar nodig het laminaat versterken",
+      "Gelcoat gemengd op de huidige kleur van uw boot",
+      "Nat schuren en poetsen tot de reparatie wegvalt",
+      "Advies als de schade op een groter probleem wijst"
+    ],
+    "steps": [
+      ["Stuur ons foto's", "Een paar close-ups en een overzichtsfoto van de schade zijn genoeg voor een eerste beoordeling."],
+      ["Beoordeling en vaste offerte", "We vertellen wat er nodig is en sturen een vaste prijs met een datum."],
+      ["Reparatie", "Frezen, plamuren, gelcoat in de juiste kleur, schuren en poetsen."],
+      ["Samen controleren", "U bekijkt het resultaat. De plek van de schade moet moeilijk terug te vinden zijn."]
+    ],
+    "factors": ["Aantal en grootte van de beschadigingen", "Diepte van de schade", "Kleur en afwerking van de gelcoat", "Plek op de boot", "Onderliggende laminaatschade"],
+    "faq": [
+      ["Zie ik de reparatie straks nog?", "Ons doel is dat u hem niet ziet. Met zorgvuldig kleurmengen en poetsen zijn de meeste reparaties vrijwel onzichtbaar. Bij sterk verkleurde of heel donkere gelcoat kan soms een minimaal verschil blijven; dat zeggen we vooraf."],
+      ["Wat zijn stervormige haarscheuren?", "Fijne scheurtjes in een ster- of spinnenwebpatroon, vaak rond beslag, scepters of op het dek. Meestal ontstaan ze door spanning of een klap. We repareren de gelcoat en controleren of de constructie eronder versterkt moet worden."],
+      ["Kunnen jullie gelcoat repareren terwijl de boot in het water ligt?", "Schade boven de waterlijn kunnen we vaak repareren met de boot in het water. Onder de waterlijn moet de boot eruit; het hijsen is gratis."]
+    ]
+  },
+  "de": {
+    "title": "Gelcoat-Reparatur für Boote in Wanssum · BoatLab",
+    "desc": "Gelcoat-Reparatur: Macken, Kratzer, Risse und Anlegeschäden repariert und farblich angepasst, sodass die Reparatur verschwindet. BoatLab, Wanssum (NL).",
+    "h1": "Gelcoat-Reparatur, die Sie danach nicht mehr finden.",
+    "lede": "Eine Macke vom Steg, Kratzer von Fendern oder Sternrisse an Deck: Wir reparieren das Gelcoat, passen die Farbe an und polieren die Stelle, bis sie verschwindet.",
+    "intro_h": "Kleine Schäden, repariert, bevor sie wachsen.",
+    "intro": [
+      "Gelcoat ist die harte Außenschicht, die das Laminat eines GFK-Bootes schützt. Eine Macke oder ein Riss ist mehr als ein Schönheitsfehler: Wasser kann eindringen, und kleine Schäden werden größer. Sternrisse deuten oft auf Spannungen in der Struktur darunter hin, deshalb schauen wir immer auf die Ursache, nicht nur auf die Oberfläche.",
+      "Wir fräsen den Schaden auf, spachteln, tragen neues Gelcoat im passenden Farbton auf und schleifen und polieren alles. Bei älteren Booten ist das Gelcoat oft verblasst, deshalb mischen wir die Farbe so, wie Ihr Boot heute aussieht, nicht wie es neu war."
+    ],
+    "included": [
+      "Inspektion des Schadens und seiner Ursache",
+      "Auffräsen und Reinigen der beschädigten Stelle",
+      "Spachteln und, wo nötig, Verstärken des Laminats",
+      "Gelcoat passend zum heutigen Farbton Ihres Bootes gemischt",
+      "Nassschleifen und Polieren, bis die Reparatur verschwindet",
+      "Beratung, falls der Schaden auf ein größeres Problem hinweist"
+    ],
+    "steps": [
+      ["Fotos senden", "Ein paar Nahaufnahmen und ein Übersichtsfoto reichen für eine erste Einschätzung."],
+      ["Einschätzung und Festpreis", "Wir sagen Ihnen, was nötig ist, und senden einen Festpreis mit Termin."],
+      ["Reparatur", "Fräsen, spachteln, Gelcoat im richtigen Farbton, schleifen und polieren."],
+      ["Gemeinsame Kontrolle", "Sie prüfen das Ergebnis. Die Schadstelle soll kaum noch zu finden sein."]
+    ],
+    "factors": ["Anzahl und Größe der Schäden", "Tiefe des Schadens", "Farbe und Finish des Gelcoats", "Lage am Boot", "Laminatschaden darunter"],
+    "faq": [
+      ["Sieht man die Reparatur später noch?", "Unser Ziel ist, dass man sie nicht sieht. Mit sorgfältigem Farbabgleich und Politur sind die meisten Reparaturen nahezu unsichtbar. Bei stark verblasstem oder sehr dunklem Gelcoat kann manchmal ein minimaler Unterschied bleiben; das sagen wir Ihnen vorher."],
+      ["Was sind Sternrisse?", "Feine Risse in Stern- oder Spinnennetzform, oft um Beschläge, Relingstützen oder an Deck. Meist entstehen sie durch Spannung oder einen Stoß. Wir reparieren das Gelcoat und prüfen, ob die Struktur darunter verstärkt werden muss."],
+      ["Geht eine Gelcoat-Reparatur auch im Wasser?", "Schäden über der Wasserlinie können wir oft reparieren, während das Boot im Wasser liegt. Unter der Wasserlinie muss das Boot raus; das Kranen ist kostenlos."]
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "boat-painting", "nl": "boot-schilderen", "de": "boot-lackieren"},
+  "img": "hall-motor-yacht.jpg",
+  "related": ["gelcoat", "polishing", "refit"],
+  "en": {
+    "title": "Boat Painting: Topsides, Deck & Details · BoatLab",
+    "desc": "Boat painting in Wanssum: topsides, decks, non-slip and details painted with professional marine paint systems, prepared properly for a lasting finish.",
+    "h1": "Boat painting with a finish that lasts.",
+    "lede": "Topsides, deck, non-slip or a new colour: we prepare and paint your boat with professional marine paint systems, for a finish that lasts for years.",
+    "intro_h": "A paint job is only as good as the preparation.",
+    "intro": [
+      "Most of the work in a good paint job is invisible: sanding, filling, fairing and priming. Skip a step and the paint will lift, show every imperfection, or fade early. That's why we take preparation seriously, and plan the work so the paint can cure under good conditions.",
+      "We paint topsides and decks, renew non-slip areas, and finish details such as hatches, handrails and boot tops. When gelcoat is beyond polishing, paint is often the best way to make the boat look new again, in the original colour or a new one."
+    ],
+    "included": [
+      "Assessment of the surface and advice on the paint system",
+      "Removing fittings and masking what stays",
+      "Sanding, filling and fairing for a smooth base",
+      "Primer and paint in the right number of coats",
+      "Non-slip areas renewed where needed",
+      "Fittings refitted and the work checked together"
+    ],
+    "steps": [
+      ["Your wishes", "Tell us what you want painted and in which colour. Photos of the current state help."],
+      ["Advice and fixed quote", "We advise on the paint system and send a fixed price and a planning."],
+      ["Preparation and painting", "Sanding, filling, priming and painting, with time to cure properly."],
+      ["Handover", "Fittings back on, everything checked, and you see the result."]
+    ],
+    "factors": ["Area to be painted", "Condition of the surface", "Paint system and number of coats", "Colour change or same colour", "Fittings to remove and refit"],
+    "faq": [
+      ["When is painting better than polishing?", "When the gelcoat is worn through, heavily crazed or so faded that polishing no longer helps. A test panel shows quickly which option makes sense."],
+      ["Can I change the colour of my boat?", "Yes. A colour change takes a little more preparation and paint, but gives a completely new look. We'll help you choose a colour that suits the boat."],
+      ["How long does a paint job last?", "That depends on the paint system, the preparation and how the boat is used and stored. With a professional system and good preparation, a paint job lasts for many years."]
+    ]
+  },
+  "nl": {
+    "title": "Boot schilderen: romp, dek en details · BoatLab",
+    "desc": "Boot laten schilderen in Wanssum: romp, dek, antislip en details geschilderd met professionele scheepsverf, goed voorbereid voor een duurzame afwerking.",
+    "h1": "Boot schilderen met een afwerking die blijft.",
+    "lede": "Romp, dek, antislip of een nieuwe kleur: we bereiden uw boot voor en schilderen hem met professionele scheepsverfsystemen, voor een afwerking die jaren mooi blijft.",
+    "intro_h": "Schilderwerk is zo goed als de voorbereiding.",
+    "intro": [
+      "Het meeste werk van goed schilderwerk ziet u niet: schuren, plamuren, vlakken en gronden. Slaat u een stap over, dan laat de verf los, ziet u elke oneffenheid of verkleurt hij te vroeg. Daarom nemen we de voorbereiding serieus en plannen we het werk zo dat de verf onder goede omstandigheden kan uitharden.",
+      "We schilderen rompen en dekken, vernieuwen antislip en werken details af zoals luiken, handrelingen en waterlijnen. Is de gelcoat niet meer te poetsen, dan is schilderen vaak de beste manier om de boot er weer als nieuw uit te laten zien, in de originele kleur of een nieuwe."
+    ],
+    "included": [
+      "Beoordeling van het oppervlak en advies over het verfsysteem",
+      "Beslag demonteren en afplakken wat blijft",
+      "Schuren, plamuren en vlakken voor een gladde basis",
+      "Grondlaag en verf in het juiste aantal lagen",
+      "Antislip vernieuwd waar nodig",
+      "Beslag teruggeplaatst en het werk samen gecontroleerd"
+    ],
+    "steps": [
+      ["Uw wensen", "Vertel wat u geschilderd wilt hebben en in welke kleur. Foto's van de huidige staat helpen."],
+      ["Advies en vaste offerte", "We adviseren het verfsysteem en sturen een vaste prijs met een planning."],
+      ["Voorbereiden en schilderen", "Schuren, plamuren, gronden en schilderen, met tijd om goed uit te harden."],
+      ["Oplevering", "Beslag terug, alles gecontroleerd, en u ziet het resultaat."]
+    ],
+    "factors": ["Te schilderen oppervlak", "Staat van de ondergrond", "Verfsysteem en aantal lagen", "Kleurwijziging of dezelfde kleur", "Beslag demonteren en monteren"],
+    "faq": [
+      ["Wanneer is schilderen beter dan poetsen?", "Als de gelcoat versleten is, sterk gecraqueleerd of zo verbleekt dat poetsen niet meer helpt. Een testvlak laat snel zien welke optie zinvol is."],
+      ["Kan ik de kleur van mijn boot veranderen?", "Ja. Een kleurwijziging vraagt iets meer voorbereiding en verf, maar geeft een compleet nieuwe uitstraling. We helpen u een kleur te kiezen die bij de boot past."],
+      ["Hoe lang gaat schilderwerk mee?", "Dat hangt af van het verfsysteem, de voorbereiding en hoe de boot gebruikt en gestald wordt. Met een professioneel systeem en goede voorbereiding gaat schilderwerk vele jaren mee."]
+    ]
+  },
+  "de": {
+    "title": "Boot lackieren: Rumpf, Deck und Details · BoatLab",
+    "desc": "Boot lackieren lassen in Wanssum (NL): Rumpf, Deck, Antirutsch und Details mit professionellen Yachtlacksystemen, sorgfältig vorbereitet für ein dauerhaftes Finish.",
+    "h1": "Boot lackieren mit einem Finish, das hält.",
+    "lede": "Rumpf, Deck, Antirutsch oder eine neue Farbe: Wir bereiten Ihr Boot vor und lackieren es mit professionellen Yachtlacksystemen, für ein Finish, das jahrelang schön bleibt.",
+    "intro_h": "Eine Lackierung ist nur so gut wie ihre Vorbereitung.",
+    "intro": [
+      "Den größten Teil guter Lackierarbeit sieht man nicht: Schleifen, Spachteln, Strakken und Grundieren. Wird ein Schritt ausgelassen, löst sich der Lack, zeigt jede Unebenheit oder verblasst zu früh. Deshalb nehmen wir die Vorbereitung ernst und planen so, dass der Lack unter guten Bedingungen aushärten kann.",
+      "Wir lackieren Rümpfe und Decks, erneuern Antirutschflächen und arbeiten Details wie Luken, Handläufe und Wasserpässe auf. Ist das Gelcoat nicht mehr zu polieren, ist Lackieren oft der beste Weg, das Boot wieder wie neu aussehen zu lassen, im Originalfarbton oder in einer neuen Farbe."
+    ],
+    "included": [
+      "Beurteilung der Oberfläche und Beratung zum Lacksystem",
+      "Beschläge demontieren und abkleben, was bleibt",
+      "Schleifen, Spachteln und Strakken für einen glatten Untergrund",
+      "Grundierung und Lack in der richtigen Schichtzahl",
+      "Antirutschflächen erneuert, wo nötig",
+      "Beschläge wieder montiert und die Arbeit gemeinsam geprüft"
+    ],
+    "steps": [
+      ["Ihre Wünsche", "Sagen Sie uns, was lackiert werden soll und in welcher Farbe. Fotos vom aktuellen Zustand helfen."],
+      ["Beratung und Festpreis", "Wir empfehlen das Lacksystem und senden einen Festpreis mit Zeitplan."],
+      ["Vorbereiten und lackieren", "Schleifen, spachteln, grundieren und lackieren, mit Zeit zum Aushärten."],
+      ["Übergabe", "Beschläge zurück, alles geprüft, und Sie sehen das Ergebnis."]
+    ],
+    "factors": ["Zu lackierende Fläche", "Zustand des Untergrunds", "Lacksystem und Schichtzahl", "Farbwechsel oder gleicher Farbton", "Beschläge demontieren und montieren"],
+    "faq": [
+      ["Wann ist Lackieren besser als Polieren?", "Wenn das Gelcoat abgetragen, stark von Haarrissen durchzogen oder so verblasst ist, dass Polieren nicht mehr hilft. Eine Testfläche zeigt schnell, welche Option sinnvoll ist."],
+      ["Kann ich die Farbe meines Bootes ändern?", "Ja. Ein Farbwechsel braucht etwas mehr Vorbereitung und Lack, gibt dem Boot aber einen ganz neuen Look. Wir helfen Ihnen, eine passende Farbe zu wählen."],
+      ["Wie lange hält eine Lackierung?", "Das hängt vom Lacksystem, der Vorbereitung sowie Nutzung und Lagerung ab. Mit einem professionellen System und guter Vorbereitung hält eine Lackierung viele Jahre."]
+    ]
+  }
+}

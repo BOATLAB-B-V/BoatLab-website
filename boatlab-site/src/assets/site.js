@@ -1,7 +1,7 @@
 /* ===== Settings: fill these in before going live ===== */
 const CONFIG = {
-  email: "info@boatlabservice.nl",              // general questions and booking requests
-  salesEmail: "sales@boatlabservice.nl",        // sales inquiries
+  email: "info@boatlabservice.nl",              // general questions
+  salesEmail: "sales@boatlabservice.nl",        // quote and service requests (the booking form goes here)
   // Paste a Formspree form URL (https://formspree.io/f/xxxx) to receive bookings by email.
   formEndpoint: "",
   instagram: "https://www.instagram.com/boatlab.nl/",
@@ -30,8 +30,8 @@ en:{
  "hero.f1":"Free 30 t crane lift","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Open since April 2026",
  "chip.lift":"free lift, every service","chip.finish":"Mirror finish","chip.finish2":"polish & coating","chip.personal":"One contact","chip.personal2":"from quote to launch",
  "lift.plate":"Max load 4 × 7,500 kg","lift.title":"Lifting is on us.","lift.text":"Our own 30-tonne crane lifts your boat out and back into the water. When you book any service with BoatLab, the lift costs you nothing.",
- "svc.eyebrow":"Services","svc.title":"Everything your boat needs, under one roof.","svc.lede":"From a spring antifouling to a complete refit. Tap a service to add it to your booking.",
- "svc.all":"All","svc.hull":"Hull & protection","svc.finish":"Finish & care","svc.tech":"Technical","svc.add":"Add to booking",
+ "svc.eyebrow":"Services","svc.title":"Everything your boat needs, under one roof.","svc.lede":"From a spring antifouling to a complete refit. Choose a service to see what we do.",
+ "svc.all":"All","svc.hull":"Hull & protection","svc.finish":"Finish & care","svc.tech":"Technical","svc.add":"Read more",
  "s.antifouling":"Antifouling","s.antifouling.d":"Hull cleaned, sanded and recoated for a clean, fast season.",
  "s.painting":"Painting","s.painting.d":"Topsides, decks and details painted to a lasting finish.",
  "s.polishing":"Polishing","s.polishing.d":"Machine polishing that brings oxidised gelcoat back to a deep gloss.",
@@ -44,7 +44,7 @@ en:{
  "s.inspection":"Technical inspection","s.inspection.d":"A full check before you buy, sell or start the season.",
  "s.refit":"Refits","s.refit.d":"Complete refits of yachts and boats, planned from start to handover.",
  "s.engine":"Annual engine service","s.engine.d":"Yearly engine service so you can run reliably all season.",
- "s.navigation":"Navigation & electronics","s.navigation.d":"Installation and repair of navigation and onboard electronics.",
+ "s.navigation":"Navigation & electronics","s.storage":"Winter storage","s.navigation.d":"Installation and repair of navigation and onboard electronics.",
  "ba.eyebrow":"Our work","ba.title":"See the difference.","ba.lede":"Real boats from our yard. Drag the handle to compare before and after.","ba.t1":"Antifouling","ba.t2":"Polishing","ba.before":"Before","ba.after":"After",
  "why.eyebrow":"Why BoatLab","why.statement":"A new yard with an old-school idea: <em>treat every boat like our own.</em>",
  "why.1t":"Personal approach","why.1p":"You speak with the people who work on your boat. Clear advice, honest planning, no call centre.",
@@ -62,7 +62,7 @@ en:{
  "f.name":"Name","f.email":"Email","f.phone":"Phone","f.optional":"(optional)","f.lang":"Preferred language","f.boat":"Boat make & model","f.length":"Length (m)","f.services":"Services","f.date":"Preferred date","f.where":"Where is the boat now?","f.w1":"In the water","f.w2":"On a trailer","f.w3":"In storage elsewhere","f.msg":"Anything else we should know?","f.note":"No payment needed. We only use your details to answer this request.","f.submit":"Send request",
  "f.errReq":"Please fill in your name, a valid email and your boat.","f.errSvc":"Choose at least one service.","f.errConsent":"Please confirm that you have read the privacy policy.","f.consent":"I have read the <a class=\"js-privacy\" href=\"privacy.html\">privacy policy</a> and agree that BoatLab uses my details to handle this request.","footer.privacy":"Privacy policy","footer.kvk":"KvK","footer.vat":"VAT","f.errSend":"The request could not be sent. Please email us directly at ",
  "done.title":"Request sent.","done.text":"Thank you. We'll reply personally within one working day.","done.readyTitle":"Your request is ready.","done.readyText":"Send it to us by email and we'll reply personally with a quote and a date.","done.copy":"Copy request","done.mail":"Open in email","done.new":"New request","done.copied":"Copied",
- "c.eyebrow":"Visit the yard","c.maps":"Open in Google Maps →","c.email":"Email","c.sales":"Sales inquiries","c.copy":"Copy","c.address":"Address","c.follow":"Follow us","c.watch":"Watch us work","c.phone":"Phone","c.call":"Call us →","c.focus":"In partnership with Focus Marine Center"
+ "c.eyebrow":"Visit the yard","c.maps":"Open in Google Maps →","c.email":"Email","c.sales":"Quote requests","c.copy":"Copy","c.address":"Address","c.follow":"Follow us","c.watch":"Watch us work","c.phone":"Phone","c.call":"Call us →","c.focus":"In partnership with Focus Marine Center"
 },
 nl:{
  "nav.services":"Diensten","nav.results":"Resultaten","nav.why":"Waarom BoatLab","nav.facility":"Werf","nav.contact":"Contact",
@@ -72,8 +72,8 @@ nl:{
  "hero.f1":"Gratis hijsen, 30 t kraan","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Geopend sinds april 2026",
  "chip.lift":"gratis hijsen bij elke service","chip.finish":"Spiegelglans","chip.finish2":"polijsten & coating","chip.personal":"Eén aanspreekpunt","chip.personal2":"van offerte tot te water",
  "lift.plate":"Max hijslast 4 × 7 500 kg","lift.title":"Hijsen doen wij gratis.","lift.text":"Met onze eigen 30-tons kraan halen we uw boot uit het water en zetten we hem weer terug. Boekt u een service bij BoatLab, dan kost het hijsen u niets.",
- "svc.eyebrow":"Diensten","svc.title":"Alles wat uw boot nodig heeft, onder één dak.","svc.lede":"Van antifouling in het voorjaar tot een complete refit. Tik op een dienst om hem aan uw aanvraag toe te voegen.",
- "svc.all":"Alles","svc.hull":"Romp & bescherming","svc.finish":"Afwerking & verzorging","svc.tech":"Techniek","svc.add":"Toevoegen aan aanvraag",
+ "svc.eyebrow":"Diensten","svc.title":"Alles wat uw boot nodig heeft, onder één dak.","svc.lede":"Van antifouling in het voorjaar tot een complete refit. Kies een dienst en zie wat we doen.",
+ "svc.all":"Alles","svc.hull":"Romp & bescherming","svc.finish":"Afwerking & verzorging","svc.tech":"Techniek","svc.add":"Meer informatie",
  "s.antifouling":"Antifouling","s.antifouling.d":"Onderwaterschip reinigen, schuren en opnieuw coaten voor een schoon, snel seizoen.",
  "s.painting":"Schilderwerk","s.painting.d":"Romp, dek en details geschilderd met een duurzame afwerking.",
  "s.polishing":"Polijsten","s.polishing.d":"Machinaal polijsten dat verweerde gelcoat weer diep laat glanzen.",
@@ -86,7 +86,7 @@ nl:{
  "s.inspection":"Technische keuring","s.inspection.d":"Een complete controle voor aankoop, verkoop of de start van het seizoen.",
  "s.refit":"Refits","s.refit.d":"Complete refits van jachten en boten, van planning tot oplevering.",
  "s.engine":"Jaarlijkse motorservice","s.engine.d":"Jaarlijks motoronderhoud, zodat u het hele seizoen zorgeloos vaart.",
- "s.navigation":"Navigatie & elektronica","s.navigation.d":"Installatie en reparatie van navigatie en boordelektronica.",
+ "s.navigation":"Navigatie & elektronica","s.storage":"Winterstalling","s.navigation.d":"Installatie en reparatie van navigatie en boordelektronica.",
  "ba.eyebrow":"Ons werk","ba.title":"Zie het verschil.","ba.lede":"Echte boten van onze werf. Sleep de schuif om voor en na te vergelijken.","ba.t1":"Antifouling","ba.t2":"Polijsten","ba.before":"Voor","ba.after":"Na",
  "why.eyebrow":"Waarom BoatLab","why.statement":"Een nieuwe werf met een ouderwets principe: <em>elke boot behandelen alsof hij van ons is.</em>",
  "why.1t":"Persoonlijke aanpak","why.1p":"U spreekt de mensen die aan uw boot werken. Helder advies, eerlijke planning, geen callcenter.",
@@ -104,7 +104,7 @@ nl:{
  "f.name":"Naam","f.email":"E-mail","f.phone":"Telefoon","f.optional":"(optioneel)","f.lang":"Voorkeurstaal","f.boat":"Merk & type boot","f.length":"Lengte (m)","f.services":"Diensten","f.date":"Gewenste datum","f.where":"Waar ligt de boot nu?","f.w1":"In het water","f.w2":"Op een trailer","f.w3":"Elders in de stalling","f.msg":"Wat moeten we nog meer weten?","f.note":"U betaalt nu niets. We gebruiken uw gegevens alleen om deze aanvraag te beantworden.","f.submit":"Aanvraag versturen",
  "f.errReq":"Vul uw naam, een geldig e-mailadres en uw boot in.","f.errSvc":"Kies minstens één dienst.","f.errConsent":"Bevestig dat u de privacyverklaring heeft gelezen.","f.consent":"Ik heb de <a class=\"js-privacy\" href=\"privacy.html\">privacyverklaring</a> gelezen en ga ermee akkoord dat BoatLab mijn gegevens gebruikt om deze aanvraag af te handelen.","footer.privacy":"Privacyverklaring","footer.kvk":"KvK","footer.vat":"BTW","f.errSend":"De aanvraag kon niet worden verzonden. Mail ons direct via ",
  "done.title":"Aanvraag verstuurd.","done.text":"Bedankt. We reageren persoonlijk binnen één werkdag.","done.readyTitle":"Uw aanvraag staat klaar.","done.readyText":"Stuur hem per e-mail naar ons en we reageren persoonlijk met een offerte en een datum.","done.copy":"Aanvraag kopiëren","done.mail":"Openen in e-mail","done.new":"Nieuwe aanvraag","done.copied":"Gekopieerd",
- "c.eyebrow":"Bezoek de werf","c.maps":"Openen in Google Maps →","c.email":"E-mail","c.sales":"Verkoopvragen","c.copy":"Kopiëren","c.address":"Adres","c.phone":"Telefoon","c.call":"Bel ons →","c.focus":"Gevestigd in samenwerking met Focus Marine Center","c.follow":"Volg ons","c.watch":"Kijk mee op de werf"
+ "c.eyebrow":"Bezoek de werf","c.maps":"Openen in Google Maps →","c.email":"E-mail","c.sales":"Offerteaanvragen","c.copy":"Kopiëren","c.address":"Adres","c.phone":"Telefoon","c.call":"Bel ons →","c.focus":"Gevestigd in samenwerking met Focus Marine Center","c.follow":"Volg ons","c.watch":"Kijk mee op de werf"
 },
 de:{
  "nav.services":"Leistungen","nav.results":"Ergebnisse","nav.why":"Warum BoatLab","nav.facility":"Werft","nav.contact":"Kontakt",
@@ -114,8 +114,8 @@ de:{
  "hero.f1":"Kostenlos kranen, 30 t","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Geöffnet seit April 2026",
  "chip.lift":"kostenlos kranen bei jedem Service","chip.finish":"Spiegelglanz","chip.finish2":"Politur & Versiegelung","chip.personal":"Ein Ansprechpartner","chip.personal2":"vom Angebot bis zum Einwassern",
  "lift.plate":"Max. Traglast 4 × 7.500 kg","lift.title":"Das Kranen übernehmen wir.","lift.text":"Mit unserem eigenen 30-Tonnen-Kran heben wir Ihr Boot aus dem Wasser und wieder hinein. Wenn Sie einen Service bei BoatLab buchen, kostet Sie das Kranen nichts.",
- "svc.eyebrow":"Leistungen","svc.title":"Alles, was Ihr Boot braucht, unter einem Dach.","svc.lede":"Vom Antifouling im Frühjahr bis zum kompletten Refit. Tippen Sie auf eine Leistung, um sie Ihrer Anfrage hinzuzufügen.",
- "svc.all":"Alle","svc.hull":"Rumpf & Schutz","svc.finish":"Finish & Pflege","svc.tech":"Technik","svc.add":"Zur Anfrage hinzufügen",
+ "svc.eyebrow":"Leistungen","svc.title":"Alles, was Ihr Boot braucht, unter einem Dach.","svc.lede":"Vom Antifouling im Frühjahr bis zum kompletten Refit. Wählen Sie eine Leistung und sehen Sie, was wir machen.",
+ "svc.all":"Alle","svc.hull":"Rumpf & Schutz","svc.finish":"Finish & Pflege","svc.tech":"Technik","svc.add":"Mehr erfahren",
  "s.antifouling":"Antifouling","s.antifouling.d":"Unterwasserschiff reinigen, schleifen und neu beschichten für eine saubere, schnelle Saison.",
  "s.painting":"Lackierung","s.painting.d":"Rumpf, Deck und Details lackiert, mit dauerhaftem Finish.",
  "s.polishing":"Polieren","s.polishing.d":"Maschinelles Polieren bringt oxidiertes Gelcoat zurück zu tiefem Glanz.",
@@ -128,7 +128,7 @@ de:{
  "s.inspection":"Technische Inspektion","s.inspection.d":"Ein kompletter Check vor Kauf, Verkauf oder Saisonstart.",
  "s.refit":"Refits","s.refit.d":"Komplette Refits von Yachten und Booten, von der Planung bis zur Übergabe.",
  "s.engine":"Jährlicher Motorservice","s.engine.d":"Jährliche Motorwartung, damit Sie die ganze Saison sorgenfrei fahren.",
- "s.navigation":"Navigation & Elektronik","s.navigation.d":"Einbau und Reparatur von Navigation und Bordelektronik.",
+ "s.navigation":"Navigation & Elektronik","s.storage":"Winterlager","s.navigation.d":"Einbau und Reparatur von Navigation und Bordelektronik.",
  "ba.eyebrow":"Unsere Arbeit","ba.title":"Sehen Sie den Unterschied.","ba.lede":"Echte Boote aus unserer Werft. Ziehen Sie den Regler, um vorher und nachher zu vergleichen.","ba.t1":"Antifouling","ba.t2":"Politur","ba.before":"Vorher","ba.after":"Nachher",
  "why.eyebrow":"Warum BoatLab","why.statement":"Eine neue Werft mit einem bewährten Prinzip: <em>jedes Boot so behandeln, als wäre es unser eigenes.</em>",
  "why.1t":"Persönlich","why.1p":"Sie sprechen direkt mit den Menschen, die an Ihrem Boot arbeiten. Klare Beratung, ehrliche Planung, kein Callcenter.",
@@ -146,7 +146,7 @@ de:{
  "f.name":"Name","f.email":"E-Mail","f.phone":"Telefon","f.optional":"(optional)","f.lang":"Bevorzugte Sprache","f.boat":"Bootsmarke & Modell","f.length":"Länge (m)","f.services":"Leistungen","f.date":"Wunschtermin","f.where":"Wo liegt das Boot jetzt?","f.w1":"Im Wasser","f.w2":"Auf einem Trailer","f.w3":"In einem anderen Winterlager","f.msg":"Was sollten wir noch wissen?","f.note":"Keine Zahlung nötig. Wir nutzen Ihre Daten nur zur Beantwortung dieser Anfrage.","f.submit":"Anfrage senden",
  "f.errReq":"Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und Ihr Boot an.","f.errSvc":"Bitte wählen Sie mindestens eine Leistung.","f.errConsent":"Bitte bestätigen Sie, dass Sie die Datenschutzerklärung gelesen haben.","f.consent":"Ich habe die <a class=\"js-privacy\" href=\"privacy.html\">Datenschutzerklärung</a> gelesen und bin einverstanden, dass BoatLab meine Daten zur Bearbeitung dieser Anfrage verwendet.","footer.privacy":"Datenschutz","footer.kvk":"KvK","footer.vat":"USt-IdNr.","f.errSend":"Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns direkt an ",
  "done.title":"Anfrage gesendet.","done.text":"Vielen Dank. Wir melden uns persönlich innerhalb eines Werktags.","done.readyTitle":"Ihre Anfrage ist bereit.","done.readyText":"Senden Sie sie uns per E-Mail, und wir melden uns persönlich mit Angebot und Termin.","done.copy":"Anfrage kopieren","done.mail":"In E-Mail öffnen","done.new":"Neue Anfrage","done.copied":"Kopiert",
- "c.eyebrow":"Besuchen Sie die Werft","c.maps":"In Google Maps öffnen →","c.email":"E-Mail","c.sales":"Vertriebsanfragen","c.copy":"Kopieren","c.address":"Adresse","c.phone":"Telefon","c.call":"Rufen Sie uns an →","c.focus":"In Kooperation mit dem Focus Marine Center","c.follow":"Folgen Sie uns","c.watch":"Schauen Sie uns zu"
+ "c.eyebrow":"Besuchen Sie die Werft","c.maps":"In Google Maps öffnen →","c.email":"E-Mail","c.sales":"Angebotsanfragen","c.copy":"Kopieren","c.address":"Adresse","c.phone":"Telefon","c.call":"Rufen Sie uns an →","c.focus":"In Kooperation mit dem Focus Marine Center","c.follow":"Folgen Sie uns","c.watch":"Schauen Sie uns zu"
 }};
 
 
@@ -213,7 +213,7 @@ const FEATURED = ["antifouling","polishing","osmosis","gelcoat","engine","refit"
 let currentFilter = "all";
 function renderServices(){
   const grid = $("#svcGrid"), chips = $("#svcChips");
-  if (grid){
+  if (grid && !grid.children.length){
     const list = grid.dataset.limit ? SERVICES.filter(s => FEATURED.includes(s.id)) : SERVICES;
     grid.innerHTML = list.map(s => `
       <button type="button" class="svc reveal" data-id="${s.id}" data-cat="${s.cat}">
@@ -223,9 +223,9 @@ function renderServices(){
       </button>`).join("");
     applyFilter(currentFilter, false);
   }
-  if (chips){
+  if (chips && !chips.children.length){
     const checked = new Set($$("input[name=services]:checked").map(i => i.value));
-    chips.innerHTML = SERVICES.map(s => `
+    chips.innerHTML = SERVICES.concat([{id:"storage"}]).map(s => `
       <label><input type="checkbox" name="services" value="${s.id}" id="svc-${s.id}" ${checked.has(s.id)?"checked":""}><span>${t("s."+s.id)}</span></label>`).join("");
   }
 }
@@ -251,11 +251,6 @@ function preselectAndScroll(id){
   const box = $("#svc-"+id); if (box) box.checked = true;
   $("#book")?.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth"});
 }
-$("#svcGrid")?.addEventListener("click", e => {
-  const card = e.target.closest(".svc"); if (!card) return;
-  if ($("#bookForm")) preselectAndScroll(card.dataset.id);
-  else location.href = ($("main").dataset.contact || "contact.html") + "#book-" + card.dataset.id;   // booking lives on the contact page
-});
 
 /* ---------- reviews band ---------- */
 function renderReviews(){
@@ -287,9 +282,6 @@ function renderReviews(){
 function setLang(l){
   lang = T[l] ? l : "en";
   document.documentElement.lang = lang;
-  $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
-  $$("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
-  $$("[data-lang-block]").forEach(a => a.hidden = a.dataset.langBlock !== lang);
   const fl = $("#f-lang"); if (fl) fl.value = {en:"English",nl:"Nederlands",de:"Deutsch"}[lang];
   renderServices(); renderReviews();
   const reg = $("#regIds"); if (reg) reg.textContent = [CONFIG.kvk && t("footer.kvk")+" "+CONFIG.kvk, CONFIG.vat && t("footer.vat")+" "+CONFIG.vat].filter(Boolean).join(" · ");
@@ -372,6 +364,38 @@ document.addEventListener("pointerdown", e => {
   lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
 })();
 
+/* ---------- winter storage calculator ---------- */
+(function(){
+  const calc = $("#storageCalc"); if (!calc) return;
+  const range = $("#lenRange"), ftOut = $("#lenFt"), mOut = $("#lenM");
+  const locale = {nl:"nl-NL", de:"de-DE", en:"en-GB"}[lang] || "en-GB";
+  const eur = new Intl.NumberFormat(locale, {style:"currency", currency:"EUR", maximumFractionDigits:0});
+  const num1 = new Intl.NumberFormat(locale, {maximumFractionDigits:1, minimumFractionDigits:1});
+  const shown = new WeakMap();
+  const tween = (el, to) => {
+    const from = shown.get(el) ?? to; shown.set(el, to);
+    if (reduceMotion || from === to){ el.textContent = eur.format(to); return; }
+    const t0 = performance.now();
+    const tick = now => { const p = Math.min(1, (now-t0)/420), v = from + (to-from)*(1-Math.pow(1-p,3));
+      el.textContent = eur.format(Math.round(v)); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  };
+  const update = () => {
+    const ft = +range.value;
+    ftOut.textContent = ft; mOut.textContent = num1.format(ft*0.3048);
+    range.style.setProperty("--fill", ((ft-range.min)/(range.max-range.min)*100)+"%");
+    $$(".st-card", calc).forEach(c => {
+      const rate = +c.dataset.rate, months = +calc.dataset.months;
+      tween($(".st-month", c), rate*ft); tween($(".st-season", c), rate*ft*months);
+    });
+  };
+  range.addEventListener("input", update);
+  $$("[data-step]", calc).forEach(b => b.addEventListener("click", () => {
+    range.value = Math.min(+range.max, Math.max(+range.min, +range.value + +b.dataset.step)); update();
+  }));
+  update();
+})();
+
 /* ---------- contact details ---------- */
 $$(".js-email").forEach(e => e.textContent = CONFIG.email);
 $$(".js-email-link").forEach(a => a.href = "mailto:" + CONFIG.email);
@@ -407,7 +431,7 @@ $("#copyEmail")?.addEventListener("click", e => {
       "Language: "+fd.get("language"),
       "Boat: "+fd.get("boat")+(fd.get("length_m") ? " ("+fd.get("length_m")+" m)" : ""),
       "Location: "+fd.get("location"),
-      "Services: "+svcs.map(id => T.en["s."+id]).join(", "),
+      "Services: "+svcs.map(id => T.en["s."+id] || id).join(", "),
       fd.get("date") ? "Preferred date: "+fd.get("date") : null,
       fd.get("message") ? "\nMessage:\n"+fd.get("message") : null,
       "\nPrivacy policy accepted: yes ("+new Date().toISOString().slice(0,16).replace("T"," ")+" UTC)"
@@ -416,24 +440,24 @@ $("#copyEmail")?.addEventListener("click", e => {
     let sent = false;
     if (CONFIG.formEndpoint){
       try {
-        fd.set("services", svcs.map(id => T.en["s."+id]).join(", "));
+        fd.set("services", svcs.map(id => T.en["s."+id] || id).join(", "));
         fd.set("_subject", "BoatLab booking: "+fd.get("boat"));
         const res = await fetch(CONFIG.formEndpoint, {method:"POST", body:fd, headers:{Accept:"application/json"}});
         sent = res.ok;
         if (!sent) throw new Error();
       } catch(_){
         btn.classList.remove("loading"); btn.disabled = false;
-        err.textContent = t("f.errSend")+CONFIG.email+"."; err.hidden = false; return;
+        err.textContent = t("f.errSend")+CONFIG.salesEmail+"."; err.hidden = false; return;
       }
     } else { await new Promise(r => setTimeout(r, 600)); }
     showDone(sent, summary);
   });
   function showDone(sent, summary){
-    const mail = `mailto:${CONFIG.email}?subject=${encodeURIComponent("BoatLab service request")}&body=${encodeURIComponent(summary)}`;
+    const mail = `mailto:${CONFIG.salesEmail}?subject=${encodeURIComponent("BoatLab service request")}&body=${encodeURIComponent(summary)}`;
     $("#bookWrap").innerHTML = `<div class="done" role="status">
         <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
         <h3 style="font-size:1.6rem;font-weight:800;font-stretch:110%">${t(sent ? "done.title" : "done.readyTitle")}</h3>
-        <p class="lede">${t(sent ? "done.text" : "done.readyText")} ${sent ? "" : "<b>"+CONFIG.email+"</b>"}</p>
+        <p class="lede">${t(sent ? "done.text" : "done.readyText")} ${sent ? "" : "<b>"+CONFIG.salesEmail+"</b>"}</p>
         ${sent ? "" : `<pre id="summary">${summary.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}</pre>
         <div class="row"><button class="btn" type="button" id="copySum">${t("done.copy")}</button><a class="btn ghost" href="${mail}">${t("done.mail")}</a></div>`}
         <button class="pill" type="button" id="newReq">${t("done.new")}</button>

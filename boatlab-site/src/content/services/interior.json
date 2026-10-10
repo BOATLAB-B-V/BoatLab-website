@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "interior-cleaning", "nl": "interieur-reiniging", "de": "innenreinigung"},
+  "img": "hall-motor-yacht.jpg",
+  "related": ["washing", "refit", "polishing"],
+  "en": {
+    "title": "Boat Interior Deep Cleaning in Wanssum · BoatLab",
+    "desc": "Interior deep cleaning for boats and yachts: cabins, upholstery, galley, heads and lockers cleaned thoroughly, mustiness and mould spots tackled. BoatLab, Wanssum.",
+    "h1": "Interior deep cleaning, fresh from bow to stern.",
+    "lede": "Cabins, upholstery, galley and heads, cleaned thoroughly. We tackle musty smells and mould spots, so your boat feels fresh again.",
+    "intro_h": "A boat interior needs a different approach.",
+    "intro": [
+      "Damp, small spaces and months without ventilation: a boat interior is quick to smell musty and show mould spots, especially after winter. A regular clean doesn't reach the places where it starts, such as lockers, under the floorboards and behind the upholstery.",
+      "We clean the interior from top to bottom with products that are safe for wood, upholstery and plastics. Cushions and upholstery are cleaned, the galley and heads are degreased and descaled, and we leave the interior dry and well ventilated."
+    ],
+    "included": [
+      "Cabins, saloon and lockers emptied and cleaned",
+      "Upholstery and cushions cleaned",
+      "Galley degreased, fridge and cupboards cleaned",
+      "Heads and shower cleaned and descaled",
+      "Mould spots and musty smells tackled",
+      "Windows, hatches and woodwork cleaned and cared for"
+    ],
+    "steps": [
+      ["Tell us about the boat", "Size, number of cabins and anything that needs extra attention."],
+      ["Fixed quote", "You get a clear price, so you know exactly where you stand."],
+      ["Deep cleaning", "We clean the interior thoroughly and leave it dry and fresh."],
+      ["Check together", "You walk through the boat and see the result."]
+    ],
+    "factors": ["Size of the interior", "Number of cabins and heads", "How dirty the interior is", "Upholstery and cushions", "Mould treatment needed"],
+    "faq": [
+      ["Can you get rid of a musty smell?", "In most cases, yes. We remove the source, such as mould and damp, clean thoroughly and dry the interior. We'll also give you advice on ventilation to stop it from coming back."],
+      ["Is my boat interior safe with your products?", "We use products suitable for boats, wood, upholstery and plastics, and test first on an inconspicuous spot."],
+      ["When is the best time for an interior clean?", "Many owners choose spring, before the season, or autumn, before winter storage, so the boat goes into winter clean and dry."]
+    ]
+  },
+  "nl": {
+    "title": "Interieur van uw boot laten reinigen · BoatLab Wanssum",
+    "desc": "Interieur dieptereiniging voor boten en jachten: kajuiten, bekleding, kombuis, toilet en kasten grondig gereinigd, muffe geur en schimmelplekken aangepakt.",
+    "h1": "Interieur dieptereiniging, fris van boeg tot spiegel.",
+    "lede": "Kajuiten, bekleding, kombuis en toilet, grondig gereinigd. We pakken muffe geuren en schimmelplekken aan, zodat uw boot weer fris aanvoelt.",
+    "intro_h": "Een bootinterieur vraagt een andere aanpak.",
+    "intro": [
+      "Vocht, kleine ruimtes en maanden zonder ventilatie: een bootinterieur ruikt snel muf en krijgt schimmelplekken, zeker na de winter. Een gewone schoonmaak komt niet op de plekken waar het begint, zoals kasten, onder de vloerluiken en achter de bekleding.",
+      "We reinigen het interieur van boven naar beneden met middelen die veilig zijn voor hout, bekleding en kunststof. Kussens en bekleding worden gereinigd, kombuis en toilet ontvet en ontkalkt, en we laten het interieur droog en goed geventileerd achter."
+    ],
+    "included": [
+      "Kajuiten, salon en kasten leeggehaald en gereinigd",
+      "Bekleding en kussens gereinigd",
+      "Kombuis ontvet, koelkast en kastjes gereinigd",
+      "Toilet en douche gereinigd en ontkalkt",
+      "Schimmelplekken en muffe geur aangepakt",
+      "Ramen, luiken en houtwerk gereinigd en verzorgd"
+    ],
+    "steps": [
+      ["Vertel ons over de boot", "Grootte, aantal kajuiten en wat extra aandacht nodig heeft."],
+      ["Vaste offerte", "U krijgt een heldere prijs, zodat u precies weet waar u aan toe bent."],
+      ["Dieptereiniging", "We reinigen het interieur grondig en laten het droog en fris achter."],
+      ["Samen controleren", "U loopt door de boot en ziet het resultaat."]
+    ],
+    "factors": ["Grootte van het interieur", "Aantal kajuiten en toiletten", "Hoe vuil het interieur is", "Bekleding en kussens", "Schimmelbehandeling nodig"],
+    "faq": [
+      ["Krijgen jullie een muffe geur weg?", "In de meeste gevallen wel. We verwijderen de bron, zoals schimmel en vocht, reinigen grondig en drogen het interieur. We geven u ook advies over ventilatie, zodat het niet terugkomt."],
+      ["Is mijn interieur veilig met jullie middelen?", "We gebruiken middelen die geschikt zijn voor boten, hout, bekleding en kunststof, en testen eerst op een onopvallende plek."],
+      ["Wanneer is het beste moment voor een interieurreiniging?", "Veel eigenaren kiezen het voorjaar, voor het seizoen, of de herfst, voor de winterstalling, zodat de boot schoon en droog de winter in gaat."]
+    ]
+  },
+  "de": {
+    "title": "Innenreinigung für Boote und Yachten · BoatLab",
+    "desc": "Innen-Tiefenreinigung für Boote und Yachten: Kabinen, Polster, Pantry, Nasszelle und Staufächer gründlich gereinigt, Muffgeruch und Schimmelflecken beseitigt.",
+    "h1": "Innen-Tiefenreinigung, frisch vom Bug bis zum Heck.",
+    "lede": "Kabinen, Polster, Pantry und Nasszelle, gründlich gereinigt. Wir beseitigen Muffgeruch und Schimmelflecken, damit sich Ihr Boot wieder frisch anfühlt.",
+    "intro_h": "Ein Bootsinnenraum braucht einen anderen Ansatz.",
+    "intro": [
+      "Feuchtigkeit, kleine Räume und monatelang keine Lüftung: Ein Bootsinnenraum riecht schnell muffig und bekommt Schimmelflecken, besonders nach dem Winter. Eine normale Reinigung erreicht die Stellen nicht, an denen es anfängt, wie Staufächer, unter den Bodenbrettern und hinter den Polstern.",
+      "Wir reinigen den Innenraum von oben nach unten mit Mitteln, die für Holz, Polster und Kunststoff geeignet sind. Kissen und Polster werden gereinigt, Pantry und Nasszelle entfettet und entkalkt, und wir hinterlassen den Innenraum trocken und gut gelüftet."
+    ],
+    "included": [
+      "Kabinen, Salon und Staufächer ausgeräumt und gereinigt",
+      "Polster und Kissen gereinigt",
+      "Pantry entfettet, Kühlschrank und Schränke gereinigt",
+      "Nasszelle und Dusche gereinigt und entkalkt",
+      "Schimmelflecken und Muffgeruch beseitigt",
+      "Fenster, Luken und Holzwerk gereinigt und gepflegt"
+    ],
+    "steps": [
+      ["Erzählen Sie uns vom Boot", "Größe, Anzahl der Kabinen und was besondere Aufmerksamkeit braucht."],
+      ["Festpreisangebot", "Sie erhalten einen klaren Preis und wissen genau, woran Sie sind."],
+      ["Tiefenreinigung", "Wir reinigen den Innenraum gründlich und hinterlassen ihn trocken und frisch."],
+      ["Gemeinsame Kontrolle", "Sie gehen durch das Boot und sehen das Ergebnis."]
+    ],
+    "factors": ["Größe des Innenraums", "Anzahl der Kabinen und Toiletten", "Verschmutzungsgrad", "Polster und Kissen", "Schimmelbehandlung nötig"],
+    "faq": [
+      ["Bekommen Sie einen Muffgeruch weg?", "In den meisten Fällen ja. Wir beseitigen die Ursache, etwa Schimmel und Feuchtigkeit, reinigen gründlich und trocknen den Innenraum. Dazu bekommen Sie Tipps zur Lüftung, damit er nicht zurückkommt."],
+      ["Sind Ihre Mittel sicher für meinen Innenraum?", "Wir verwenden Mittel, die für Boote, Holz, Polster und Kunststoff geeignet sind, und testen zuerst an einer unauffälligen Stelle."],
+      ["Wann ist der beste Zeitpunkt für eine Innenreinigung?", "Viele Eigner wählen das Frühjahr vor der Saison oder den Herbst vor dem Winterlager, damit das Boot sauber und trocken in den Winter geht."]
+    ]
+  }
+}

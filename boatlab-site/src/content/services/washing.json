@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "boat-cleaning", "nl": "boot-reinigen", "de": "bootsreinigung"},
+  "img": "crane-quay.jpg",
+  "related": ["polishing", "interior", "coating"],
+  "en": {
+    "title": "Boat Cleaning & Exterior Wash in Wanssum · BoatLab",
+    "desc": "Professional boat cleaning: a thorough exterior wash from waterline to flybridge, including deck, windows and stainless steel. BoatLab Yacht Services, Wanssum.",
+    "h1": "Boat cleaning from waterline to flybridge.",
+    "lede": "A thorough exterior wash of hull, deck, windows and stainless steel, so your boat is clean and ready for the water. Before the season, after it, or in between.",
+    "intro_h": "More than a quick rinse.",
+    "intro": [
+      "River water, leaves, bird droppings and algae leave their mark on a boat. A proper wash removes the dirt without damaging the gelcoat, the windows or the canvas. We use products made for boats and work from top to bottom, so the dirty water never runs over parts that are already clean.",
+      "A clean boat is also the starting point for polishing or a coating, and it lets you spot small damage early. Combine a wash with other work, or book it on its own before a trip or a sale."
+    ],
+    "included": [
+      "Pre-wash and dirt removal from top to bottom",
+      "Hull and topsides, including the waterline stripe",
+      "Deck, non-slip, cockpit and flybridge",
+      "Windows and stainless steel cleaned streak-free",
+      "Fenders and lines rinsed",
+      "Boat-friendly products, gentle on gelcoat and canvas"
+    ],
+    "steps": [
+      ["Tell us what you need", "A one-off wash or regular cleaning? Let us know the boat and the date."],
+      ["Fixed quote", "You get a clear price for the scope you choose."],
+      ["Cleaning", "We wash the boat thoroughly, from top to bottom."],
+      ["Ready to sail", "You come back to a clean boat, ready for the water."]
+    ],
+    "factors": ["Length and height of the boat", "How dirty the boat is", "Flybridge and superstructure", "One-off or regular cleaning", "Waterline and algae removal"],
+    "faq": [
+      ["Do you also clean boats during winter storage?", "Yes. Cleaning during winter storage is available on request and is not included in the storage price. It costs from €5 per foot, depending on the boat."],
+      ["Can you remove the brown waterline stain?", "In most cases, yes. The yellow-brown waterline stain from river water can be removed with the right product, without damaging the gelcoat."],
+      ["Should I clean the boat before polishing?", "No need: a thorough wash is always the first step of our polishing and coating work."]
+    ]
+  },
+  "nl": {
+    "title": "Boot laten reinigen en wassen in Wanssum · BoatLab",
+    "desc": "Professioneel boot laten reinigen: een grondige buitenwas van waterlijn tot flybridge, inclusief dek, ramen en rvs. BoatLab Yacht Services, Wanssum.",
+    "h1": "Boot reinigen van waterlijn tot flybridge.",
+    "lede": "Een grondige buitenwas van romp, dek, ramen en rvs, zodat uw boot schoon en klaar voor het water is. Voor het seizoen, erna of tussendoor.",
+    "intro_h": "Meer dan even afspuiten.",
+    "intro": [
+      "Rivierwater, bladeren, vogelpoep en algen laten sporen na op een boot. Een goede was verwijdert het vuil zonder de gelcoat, de ramen of het tuig te beschadigen. We gebruiken producten die voor boten gemaakt zijn en werken van boven naar beneden, zodat vuil water nooit over al schone delen loopt.",
+      "Een schone boot is ook het startpunt voor poetsen of een coating, en u ziet kleine schade op tijd. Combineer een wasbeurt met ander werk, of boek hem los, voor een vaartocht of een verkoop."
+    ],
+    "included": [
+      "Voorwas en vuil verwijderen van boven naar beneden",
+      "Romp en bovenwerk, inclusief de waterlijn",
+      "Dek, antislip, kuip en flybridge",
+      "Ramen en rvs streeploos schoon",
+      "Fenders en lijnen afgespoeld",
+      "Bootvriendelijke middelen, mild voor gelcoat en kap"
+    ],
+    "steps": [
+      ["Vertel wat u nodig heeft", "Eenmalige wasbeurt of regelmatig schoonmaken? Laat ons de boot en de datum weten."],
+      ["Vaste offerte", "U krijgt een heldere prijs voor wat u kiest."],
+      ["Reinigen", "We wassen de boot grondig, van boven naar beneden."],
+      ["Klaar om te varen", "U komt terug bij een schone boot, klaar voor het water."]
+    ],
+    "factors": ["Lengte en hoogte van de boot", "Hoe vuil de boot is", "Flybridge en opbouw", "Eenmalig of regelmatig", "Waterlijn en algen verwijderen"],
+    "faq": [
+      ["Reinigen jullie boten ook tijdens de winterstalling?", "Ja. Reinigen tijdens de winterstalling kan op aanvraag en is niet inbegrepen in de stallingsprijs. Het kost vanaf € 5 per voet, afhankelijk van de boot."],
+      ["Kunnen jullie de bruine waterlijn verwijderen?", "In de meeste gevallen wel. De geelbruine rand van rivierwater is met het juiste middel te verwijderen, zonder de gelcoat te beschadigen."],
+      ["Moet ik de boot zelf schoonmaken voor het poetsen?", "Niet nodig: een grondige wasbeurt is altijd de eerste stap van ons poets- en coatingwerk."]
+    ]
+  },
+  "de": {
+    "title": "Bootsreinigung und Außenwäsche in Wanssum · BoatLab",
+    "desc": "Professionelle Bootsreinigung: gründliche Außenwäsche von der Wasserlinie bis zur Flybridge, inklusive Deck, Fenstern und Edelstahl. BoatLab, Wanssum (NL).",
+    "h1": "Bootsreinigung von der Wasserlinie bis zur Flybridge.",
+    "lede": "Eine gründliche Außenwäsche von Rumpf, Deck, Fenstern und Edelstahl, damit Ihr Boot sauber und startklar ist. Vor der Saison, danach oder zwischendurch.",
+    "intro_h": "Mehr als kurz abspritzen.",
+    "intro": [
+      "Flusswasser, Laub, Vogelkot und Algen hinterlassen Spuren an einem Boot. Eine gute Wäsche entfernt den Schmutz, ohne Gelcoat, Fenster oder Persenning zu beschädigen. Wir verwenden Produkte für Boote und arbeiten von oben nach unten, damit Schmutzwasser nie über bereits saubere Teile läuft.",
+      "Ein sauberes Boot ist auch der Ausgangspunkt für Politur oder Versiegelung, und kleine Schäden fallen früh auf. Kombinieren Sie die Wäsche mit anderen Arbeiten oder buchen Sie sie einzeln, vor einem Törn oder einem Verkauf."
+    ],
+    "included": [
+      "Vorwäsche und Schmutzentfernung von oben nach unten",
+      "Rumpf und Aufbau, inklusive Wasserpass",
+      "Deck, Antirutsch, Cockpit und Flybridge",
+      "Fenster und Edelstahl streifenfrei gereinigt",
+      "Fender und Leinen abgespült",
+      "Bootsschonende Mittel, mild zu Gelcoat und Persenning"
+    ],
+    "steps": [
+      ["Sagen Sie uns, was Sie brauchen", "Einmalige Wäsche oder regelmäßige Reinigung? Nennen Sie uns Boot und Termin."],
+      ["Festpreisangebot", "Sie erhalten einen klaren Preis für den gewählten Umfang."],
+      ["Reinigung", "Wir waschen das Boot gründlich, von oben nach unten."],
+      ["Startklar", "Sie kommen zu einem sauberen Boot zurück, bereit fürs Wasser."]
+    ],
+    "factors": ["Länge und Höhe des Bootes", "Verschmutzungsgrad", "Flybridge und Aufbau", "Einmalig oder regelmäßig", "Wasserlinie und Algen entfernen"],
+    "faq": [
+      ["Reinigen Sie Boote auch im Winterlager?", "Ja. Die Reinigung im Winterlager gibt es auf Wunsch, sie ist nicht im Lagerpreis enthalten. Sie kostet ab 5 € pro Fuß, je nach Boot."],
+      ["Können Sie den braunen Wasserrand entfernen?", "In den meisten Fällen ja. Der gelbbraune Rand vom Flusswasser lässt sich mit dem richtigen Mittel entfernen, ohne das Gelcoat zu beschädigen."],
+      ["Muss ich das Boot vor dem Polieren selbst reinigen?", "Nicht nötig: Eine gründliche Wäsche ist immer der erste Schritt unserer Polier- und Versiegelungsarbeiten."]
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "boat-polishing", "nl": "boot-poetsen", "de": "boot-polieren"},
+  "img": "bow-fenders.jpg",
+  "related": ["coating", "washing", "gelcoat"],
+  "en": {
+    "title": "Boat Polishing in Wanssum, Limburg · BoatLab",
+    "desc": "Machine polishing for boats and yachts: dull, oxidised gelcoat brought back to a deep gloss in several steps, finished with wax or a coating. BoatLab, Wanssum.",
+    "h1": "Polishing that brings back the deep gloss.",
+    "lede": "Dull, chalky gelcoat? We machine-polish your hull and superstructure in several steps until the colour is deep and glossy again.",
+    "intro_h": "Your gelcoat isn't worn out. It's oxidised.",
+    "intro": [
+      "Over the years, UV light and weather oxidise the top layer of gelcoat. The hull turns dull and chalky, and coloured gelcoat fades. In most cases the gloss is still there underneath: a professional machine polish removes the oxidised layer and brings back the original colour.",
+      "We work in steps, from a cutting compound for heavy oxidation to a fine polish for depth and clarity, and finish with wax or a protective coating. You can see the result in our before and after photos."
+    ],
+    "included": [
+      "Thorough wash so no dirt gets into the polish",
+      "Assessment of the gelcoat and a test panel",
+      "Machine polishing in several steps, from cutting to finishing",
+      "Extra attention for dark and coloured gelcoat",
+      "Finish with wax, or with a ceramic coating if you choose",
+      "Fenders, fittings and decals carefully masked"
+    ],
+    "steps": [
+      ["Photos or a visit", "Show us the hull, ideally in daylight. We can see quickly how far the oxidation goes."],
+      ["Test panel and quote", "On the boat we polish a test panel, so you can see the result before you decide."],
+      ["Polishing", "Wash, polish in steps and protect, panel by panel."],
+      ["Handover", "We go over the boat with you in daylight. The difference speaks for itself."]
+    ],
+    "factors": ["Length and height of the boat", "Degree of oxidation", "Colour of the gelcoat", "Hull only or superstructure too", "Wax or coating as finish"],
+    "faq": [
+      ["What's the difference between polishing and waxing?", "Polishing removes a very thin oxidised layer and restores the gloss. Wax only protects; it doesn't remove anything. That's why we polish first and then protect with wax or a coating."],
+      ["How often should a boat be polished?", "That depends on the colour, the sun and how the boat is stored. Many owners polish once a year or every two years. With a coating on top, the gloss lasts much longer."],
+      ["Can very dull gelcoat still be saved?", "In most cases, yes. Only when the gelcoat is worn through does polishing stop working. Then painting is an option. A test panel shows what's possible."]
+    ]
+  },
+  "nl": {
+    "title": "Boot poetsen en polijsten in Wanssum · BoatLab",
+    "desc": "Boot laten poetsen: doffe, verweerde gelcoat machinaal gepolijst in meerdere stappen tot een diepe glans, afgewerkt met was of coating. BoatLab, Wanssum (Limburg).",
+    "h1": "Boot poetsen die de diepe glans terugbrengt.",
+    "lede": "Doffe, krijtende gelcoat? We polijsten uw romp en opbouw machinaal in meerdere stappen, tot de kleur weer diep en glanzend is.",
+    "intro_h": "Uw gelcoat is niet versleten. Hij is verweerd.",
+    "intro": [
+      "Door de jaren heen verweert de bovenste laag gelcoat door UV-licht en weer. De romp wordt dof en krijtend, gekleurde gelcoat verbleekt. Meestal zit de glans er nog onder: een professionele machinale poetsbeurt verwijdert de verweerde laag en brengt de originele kleur terug.",
+      "We werken in stappen, van een grove polijstpasta bij zware verwering tot een fijne polish voor diepte en helderheid, en werken af met was of een beschermende coating. Het resultaat ziet u op onze voor- en na-foto's."
+    ],
+    "included": [
+      "Grondige was, zodat er geen vuil in de polish komt",
+      "Beoordeling van de gelcoat en een testvlak",
+      "Machinaal polijsten in meerdere stappen, van grof tot fijn",
+      "Extra aandacht voor donkere en gekleurde gelcoat",
+      "Afwerking met was, of met een keramische coating als u dat wilt",
+      "Fenders, beslag en stickers zorgvuldig afgeplakt"
+    ],
+    "steps": [
+      ["Foto's of een bezoek", "Laat ons de romp zien, het liefst bij daglicht. We zien snel hoe ver de verwering gaat."],
+      ["Testvlak en offerte", "Op de boot polijsten we een testvlak, zodat u het resultaat ziet voordat u beslist."],
+      ["Poetsen", "Wassen, in stappen polijsten en beschermen, paneel voor paneel."],
+      ["Oplevering", "We lopen de boot samen bij daglicht na. Het verschil spreekt voor zich."]
+    ],
+    "factors": ["Lengte en hoogte van de boot", "Mate van verwering", "Kleur van de gelcoat", "Alleen romp of ook opbouw", "Was of coating als afwerking"],
+    "faq": [
+      ["Wat is het verschil tussen polijsten en waxen?", "Polijsten verwijdert een heel dunne verweerde laag en herstelt de glans. Was beschermt alleen; het verwijdert niets. Daarom polijsten we eerst en beschermen daarna met was of een coating."],
+      ["Hoe vaak moet een boot gepoetst worden?", "Dat hangt af van de kleur, de zon en hoe de boot gestald wordt. Veel eigenaren laten één keer per jaar of om het jaar poetsen. Met een coating erop blijft de glans veel langer."],
+      ["Is heel doffe gelcoat nog te redden?", "In de meeste gevallen wel. Alleen als de gelcoat versleten is tot op het laminaat, werkt poetsen niet meer. Dan is schilderen een optie. Een testvlak laat zien wat mogelijk is."]
+    ]
+  },
+  "de": {
+    "title": "Boot polieren in Wanssum, nahe der Grenze · BoatLab",
+    "desc": "Boot polieren lassen: mattes, oxidiertes Gelcoat maschinell in mehreren Schritten auf Hochglanz gebracht, mit Wachs oder Versiegelung. BoatLab, Wanssum (NL).",
+    "h1": "Polieren, das den tiefen Glanz zurückbringt.",
+    "lede": "Mattes, kreidiges Gelcoat? Wir polieren Rumpf und Aufbau maschinell in mehreren Schritten, bis die Farbe wieder tief und glänzend ist.",
+    "intro_h": "Ihr Gelcoat ist nicht verbraucht. Es ist oxidiert.",
+    "intro": [
+      "Mit den Jahren oxidiert die oberste Gelcoatschicht durch UV-Licht und Wetter. Der Rumpf wird matt und kreidig, farbiges Gelcoat verblasst. Meist ist der Glanz darunter noch da: Eine professionelle Maschinenpolitur entfernt die oxidierte Schicht und bringt die ursprüngliche Farbe zurück.",
+      "Wir arbeiten in Schritten, von einer groben Schleifpaste bei starker Oxidation bis zur feinen Politur für Tiefe und Klarheit, und schließen mit Wachs oder einer Schutzversiegelung ab. Das Ergebnis sehen Sie auf unseren Vorher-Nachher-Fotos."
+    ],
+    "included": [
+      "Gründliche Wäsche, damit kein Schmutz in die Politur kommt",
+      "Beurteilung des Gelcoats und eine Testfläche",
+      "Maschinelles Polieren in mehreren Schritten, von grob bis fein",
+      "Besondere Sorgfalt bei dunklem und farbigem Gelcoat",
+      "Finish mit Wachs oder auf Wunsch mit einer Keramikversiegelung",
+      "Fender, Beschläge und Aufkleber sorgfältig abgeklebt"
+    ],
+    "steps": [
+      ["Fotos oder Besuch", "Zeigen Sie uns den Rumpf, am besten bei Tageslicht. Wir sehen schnell, wie weit die Oxidation geht."],
+      ["Testfläche und Angebot", "Am Boot polieren wir eine Testfläche, damit Sie das Ergebnis sehen, bevor Sie entscheiden."],
+      ["Polieren", "Waschen, in Schritten polieren und schützen, Feld für Feld."],
+      ["Übergabe", "Wir gehen das Boot gemeinsam bei Tageslicht durch. Der Unterschied spricht für sich."]
+    ],
+    "factors": ["Länge und Höhe des Bootes", "Grad der Oxidation", "Farbe des Gelcoats", "Nur Rumpf oder auch Aufbau", "Wachs oder Versiegelung als Finish"],
+    "faq": [
+      ["Was ist der Unterschied zwischen Polieren und Wachsen?", "Polieren entfernt eine sehr dünne oxidierte Schicht und stellt den Glanz wieder her. Wachs schützt nur, es entfernt nichts. Deshalb polieren wir zuerst und schützen danach mit Wachs oder einer Versiegelung."],
+      ["Wie oft sollte ein Boot poliert werden?", "Das hängt von Farbe, Sonne und Lagerung ab. Viele Eigner lassen einmal im Jahr oder alle zwei Jahre polieren. Mit einer Versiegelung hält der Glanz deutlich länger."],
+      ["Ist sehr mattes Gelcoat noch zu retten?", "In den meisten Fällen ja. Erst wenn das Gelcoat bis aufs Laminat abgetragen ist, hilft Polieren nicht mehr. Dann ist Lackieren eine Option. Eine Testfläche zeigt, was möglich ist."]
+    ]
+  }
+}

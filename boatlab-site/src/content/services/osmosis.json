@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "osmosis-treatment", "nl": "osmosebehandeling", "de": "osmosebehandlung"},
+  "img": "crane-quay.jpg",
+  "related": ["antifouling", "gelcoat", "lamination"],
+  "en": {
+    "title": "Osmosis Treatment for Polyester Boats · BoatLab",
+    "desc": "Osmosis treatment for polyester boats in Wanssum: moisture measurement, removing the gelcoat, controlled drying and a new epoxy barrier. Free crane lift.",
+    "h1": "Osmosis treatment that stops the problem at the source.",
+    "lede": "Blisters on the underwater hull? We measure, diagnose and treat osmosis step by step, and protect the hull with a new epoxy barrier.",
+    "intro_h": "Not every blister is osmosis, so we measure first.",
+    "intro": [
+      "Osmosis happens when water slowly works its way into the polyester laminate of a hull. Blisters appear under the gelcoat, often filled with an acidic liquid. Left alone, it weakens the laminate. But not every blister is osmosis: sometimes it's just paint layers coming loose. That's why we always start with a moisture measurement and an inspection.",
+      "If treatment is needed, we remove the affected gelcoat, clean the laminate, and let the hull dry in a controlled way. Drying takes time, which is why many owners combine osmosis treatment with winter storage. Then we build up a new epoxy barrier and finish with antifouling."
+    ],
+    "included": [
+      "Moisture measurement and inspection of the underwater hull",
+      "Removing the affected gelcoat down to the laminate",
+      "Cleaning and rinsing the exposed laminate",
+      "Controlled drying, with measurements along the way",
+      "Filling and building up an epoxy barrier in several layers",
+      "New antifouling and the boat back in the water"
+    ],
+    "steps": [
+      ["Inspection and measurement", "We lift the boat out, measure the moisture content and tell you honestly what we find."],
+      ["Plan and fixed quote", "You get a clear plan with the steps, the expected drying time and a fixed price."],
+      ["Treatment and drying", "Gelcoat off, laminate cleaned and dried until the measurements are right."],
+      ["Barrier and finish", "Epoxy layers, antifouling, and your hull is protected for years to come."]
+    ],
+    "factors": ["Length of the boat", "How much of the hull is affected", "Moisture content and drying time", "Number of barrier layers", "Combined with winter storage or not"],
+    "faq": [
+      ["How do I know if my boat has osmosis?", "Typical signs are small blisters on the underwater hull, sometimes with a vinegar-like smell when they are opened. Only a moisture measurement and an inspection give certainty. We do this when the boat is out of the water."],
+      ["How long does an osmosis treatment take?", "Mostly that depends on the drying time, which can run from several weeks to a few months. That is why winter is the ideal season: the boat dries while it is in storage anyway."],
+      ["Is osmosis dangerous for my boat?", "Not immediately, but it gets worse over time and weakens the laminate. Treating it early is usually less work and cheaper than waiting. Osmosis can also affect the value when you sell the boat."]
+    ]
+  },
+  "nl": {
+    "title": "Osmosebehandeling polyester boot · BoatLab Wanssum",
+    "desc": "Osmosebehandeling voor polyester boten in Wanssum: vochtmeting, gelcoat verwijderen, gecontroleerd drogen en een nieuwe epoxy barrièrelaag. Gratis hijsen.",
+    "h1": "Osmosebehandeling die het probleem bij de bron aanpakt.",
+    "lede": "Blaasjes op het onderwaterschip? We meten, stellen de diagnose en behandelen osmose stap voor stap, en beschermen de romp met een nieuwe epoxy barrière.",
+    "intro_h": "Niet elk blaasje is osmose, daarom meten we eerst.",
+    "intro": [
+      "Osmose ontstaat als water langzaam het polyester laminaat van een romp binnendringt. Onder de gelcoat ontstaan blaasjes, vaak gevuld met een zure vloeistof. Laat u het gaan, dan verzwakt het laminaat. Maar niet elk blaasje is osmose: soms laten alleen verflagen los. Daarom beginnen we altijd met een vochtmeting en een inspectie.",
+      "Is behandeling nodig, dan verwijderen we de aangetaste gelcoat, reinigen het laminaat en laten de romp gecontroleerd drogen. Drogen kost tijd, daarom combineren veel eigenaren een osmosebehandeling met winterstalling. Daarna bouwen we een nieuwe epoxy barrièrelaag op en werken af met antifouling."
+    ],
+    "included": [
+      "Vochtmeting en inspectie van het onderwaterschip",
+      "Verwijderen van de aangetaste gelcoat tot op het laminaat",
+      "Reinigen en spoelen van het blootgelegde laminaat",
+      "Gecontroleerd drogen, met tussentijdse metingen",
+      "Plamuren en opbouwen van een epoxy barrière in meerdere lagen",
+      "Nieuwe antifouling en de boot weer te water"
+    ],
+    "steps": [
+      ["Inspectie en meting", "We hijsen de boot uit, meten het vochtgehalte en vertellen u eerlijk wat we zien."],
+      ["Plan en vaste offerte", "U krijgt een helder plan met de stappen, de verwachte droogtijd en een vaste prijs."],
+      ["Behandelen en drogen", "Gelcoat eraf, laminaat gereinigd en gedroogd tot de metingen goed zijn."],
+      ["Barrière en afwerking", "Epoxylagen, antifouling, en uw romp is weer jaren beschermd."]
+    ],
+    "factors": ["Lengte van de boot", "Hoeveel van de romp is aangetast", "Vochtgehalte en droogtijd", "Aantal barrièrelagen", "Gecombineerd met winterstalling of niet"],
+    "faq": [
+      ["Hoe weet ik of mijn boot osmose heeft?", "Typische tekenen zijn kleine blaasjes op het onderwaterschip, soms met een azijnachtige geur als ze open gaan. Alleen een vochtmeting en inspectie geven zekerheid. Dat doen we als de boot uit het water is."],
+      ["Hoe lang duurt een osmosebehandeling?", "Dat hangt vooral af van de droogtijd, die kan variëren van enkele weken tot een paar maanden. Daarom is de winter het ideale seizoen: de boot droogt terwijl hij toch gestald staat."],
+      ["Is osmose gevaarlijk voor mijn boot?", "Niet direct, maar het wordt erger en verzwakt het laminaat. Vroeg behandelen is meestal minder werk en goedkoper dan wachten. Osmose kan ook de waarde drukken als u de boot verkoopt."]
+    ]
+  },
+  "de": {
+    "title": "Osmosebehandlung für GFK-Boote · BoatLab Wanssum",
+    "desc": "Osmosebehandlung für GFK-Boote in Wanssum (NL): Feuchtigkeitsmessung, Gelcoat entfernen, kontrollierte Trocknung und neue Epoxid-Sperrschicht. Kranen kostenlos.",
+    "h1": "Osmosebehandlung, die das Problem an der Wurzel packt.",
+    "lede": "Blasen am Unterwasserschiff? Wir messen, stellen die Diagnose und behandeln Osmose Schritt für Schritt, mit einer neuen Epoxid-Sperrschicht als Schutz.",
+    "intro_h": "Nicht jede Blase ist Osmose, deshalb messen wir zuerst.",
+    "intro": [
+      "Osmose entsteht, wenn Wasser langsam in das Polyesterlaminat eines Rumpfes eindringt. Unter dem Gelcoat bilden sich Blasen, oft gefüllt mit einer sauren Flüssigkeit. Bleibt sie unbehandelt, schwächt sie das Laminat. Aber nicht jede Blase ist Osmose: Manchmal lösen sich nur Farbschichten. Deshalb beginnen wir immer mit einer Feuchtigkeitsmessung und einer Inspektion.",
+      "Ist eine Behandlung nötig, entfernen wir das befallene Gelcoat, reinigen das Laminat und lassen den Rumpf kontrolliert trocknen. Das braucht Zeit, deshalb kombinieren viele Eigner die Osmosebehandlung mit dem Winterlager. Danach bauen wir eine neue Epoxid-Sperrschicht auf und schließen mit Antifouling ab."
+    ],
+    "included": [
+      "Feuchtigkeitsmessung und Inspektion des Unterwasserschiffs",
+      "Entfernen des befallenen Gelcoats bis auf das Laminat",
+      "Reinigen und Spülen des freigelegten Laminats",
+      "Kontrollierte Trocknung mit Zwischenmessungen",
+      "Spachteln und Aufbau einer Epoxid-Sperrschicht in mehreren Lagen",
+      "Neues Antifouling und das Boot zurück ins Wasser"
+    ],
+    "steps": [
+      ["Inspektion und Messung", "Wir kranen das Boot aus, messen die Feuchtigkeit und sagen Ihnen ehrlich, was wir sehen."],
+      ["Plan und Festpreis", "Sie erhalten einen klaren Plan mit den Schritten, der erwarteten Trocknungszeit und einem Festpreis."],
+      ["Behandlung und Trocknung", "Gelcoat runter, Laminat gereinigt und getrocknet, bis die Messwerte stimmen."],
+      ["Sperrschicht und Finish", "Epoxidschichten, Antifouling, und Ihr Rumpf ist wieder für Jahre geschützt."]
+    ],
+    "factors": ["Länge des Bootes", "Wie viel vom Rumpf befallen ist", "Feuchtigkeit und Trocknungszeit", "Anzahl der Sperrschichten", "Kombiniert mit Winterlager oder nicht"],
+    "faq": [
+      ["Woran erkenne ich, ob mein Boot Osmose hat?", "Typisch sind kleine Blasen am Unterwasserschiff, manchmal mit essigartigem Geruch, wenn sie geöffnet werden. Sicherheit geben nur eine Feuchtigkeitsmessung und eine Inspektion. Das machen wir, wenn das Boot aus dem Wasser ist."],
+      ["Wie lange dauert eine Osmosebehandlung?", "Das hängt vor allem von der Trocknungszeit ab, die einige Wochen bis einige Monate dauern kann. Deshalb ist der Winter die ideale Jahreszeit: Das Boot trocknet, während es ohnehin im Winterlager steht."],
+      ["Ist Osmose gefährlich für mein Boot?", "Nicht sofort, aber sie schreitet fort und schwächt das Laminat. Eine frühe Behandlung ist meist weniger Arbeit und günstiger als Warten. Osmose kann auch den Wert beim Verkauf mindern."]
+    ]
+  }
+}

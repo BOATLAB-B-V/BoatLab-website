@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "yacht-refit", "nl": "jacht-refit", "de": "yacht-refit"},
+  "img": "workshop.jpg",
+  "related": ["painting", "navigation", "interior"],
+  "en": {
+    "title": "Yacht & Boat Refit in Wanssum, Limburg · BoatLab",
+    "desc": "Complete refits of yachts and boats: from a fresh interior and new electronics to paint and technical renewal, planned from start to handover. BoatLab, Wanssum.",
+    "h1": "A refit, planned from first idea to handover.",
+    "lede": "From a fresh interior and new electronics to paint and technical renewal: we plan and carry out your refit, with one contact person from start to finish.",
+    "intro_h": "Give your boat a second life.",
+    "intro": [
+      "A refit can make an older boat better than new, often for a fraction of the price of a replacement. It can be cosmetic, such as paint, upholstery and woodwork, or technical, such as engine, electrics and systems, or both. The key is a good plan: what is necessary, what is desirable, and in which order.",
+      "We draw up the plan with you, give a clear quote per part, and keep you informed throughout the work. Our indoor halls make it possible to work on a refit regardless of the weather, and you have one contact person from start to finish."
+    ],
+    "included": [
+      "Inspection and an honest assessment of the boat",
+      "A refit plan with priorities and budget per part",
+      "Coordination of all work under one roof",
+      "Indoor work, regardless of the weather",
+      "Regular updates with photos of the progress",
+      "Handover with a test run and an explanation of everything new"
+    ],
+    "steps": [
+      ["Your wishes", "Tell us what you have in mind and what bothers you about the boat now."],
+      ["Plan and quote", "Together we draw up a refit plan with a clear quote per part."],
+      ["Refit", "We carry out the work in a logical order and keep you informed."],
+      ["Handover", "Test run, an explanation of the new systems, and your boat is ready for the water."]
+    ],
+    "factors": ["Scope of the refit", "Condition of the boat", "Materials and equipment chosen", "Planning and time frame", "Indoor storage during the work"],
+    "faq": [
+      ["Can a refit be done in phases?", "Yes. Many owners spread a refit over several winters, starting with what's most important. We make a plan that allows for that."],
+      ["Is a refit worth it for an older boat?", "Often, yes. A well-built older boat with a solid hull can be better than new after a refit, for much less than a new boat. We'll tell you honestly if we think it isn't worth it."],
+      ["Will I be kept informed during the refit?", "Yes. You have one contact person and receive regular updates with photos, so you always know where things stand."]
+    ]
+  },
+  "nl": {
+    "title": "Jacht- en boot refit in Wanssum (Limburg) · BoatLab",
+    "desc": "Complete refits van jachten en boten: van een fris interieur en nieuwe elektronica tot schilderwerk en technische vernieuwing, van planning tot oplevering.",
+    "h1": "Een refit, gepland van eerste idee tot oplevering.",
+    "lede": "Van een fris interieur en nieuwe elektronica tot schilderwerk en technische vernieuwing: we plannen en voeren uw refit uit, met één aanspreekpunt van begin tot eind.",
+    "intro_h": "Geef uw boot een tweede leven.",
+    "intro": [
+      "Een refit kan een oudere boot beter maken dan nieuw, vaak voor een fractie van de prijs van een vervanger. Het kan cosmetisch zijn, zoals schilderwerk, bekleding en houtwerk, of technisch, zoals motor, elektra en systemen, of allebei. De sleutel is een goed plan: wat is nodig, wat is wenselijk en in welke volgorde.",
+      "We stellen het plan samen met u op, geven een heldere offerte per onderdeel en houden u tijdens het werk op de hoogte. In onze binnenhallen kunnen we aan een refit werken, ongeacht het weer, en u heeft één aanspreekpunt van begin tot eind."
+    ],
+    "included": [
+      "Inspectie en een eerlijke beoordeling van de boot",
+      "Een refitplan met prioriteiten en budget per onderdeel",
+      "Coördinatie van al het werk onder één dak",
+      "Werken binnen, ongeacht het weer",
+      "Regelmatig updates met foto's van de voortgang",
+      "Oplevering met proefvaart en uitleg over alles wat nieuw is"
+    ],
+    "steps": [
+      ["Uw wensen", "Vertel wat u voor ogen heeft en wat u nu aan de boot stoort."],
+      ["Plan en offerte", "Samen maken we een refitplan met een heldere offerte per onderdeel."],
+      ["Refit", "We voeren het werk in een logische volgorde uit en houden u op de hoogte."],
+      ["Oplevering", "Proefvaart, uitleg over de nieuwe systemen, en uw boot is klaar voor het water."]
+    ],
+    "factors": ["Omvang van de refit", "Staat van de boot", "Gekozen materialen en apparatuur", "Planning en doorlooptijd", "Binnenstalling tijdens het werk"],
+    "faq": [
+      ["Kan een refit in fases?", "Ja. Veel eigenaren spreiden een refit over meerdere winters en beginnen met wat het belangrijkst is. We maken een plan dat daar rekening mee houdt."],
+      ["Is een refit de moeite waard voor een oudere boot?", "Vaak wel. Een goed gebouwde oudere boot met een gezonde romp kan na een refit beter zijn dan nieuw, voor veel minder dan een nieuwe boot. We zeggen het eerlijk als we denken dat het niet de moeite waard is."],
+      ["Word ik tijdens de refit op de hoogte gehouden?", "Ja. U heeft één aanspreekpunt en krijgt regelmatig updates met foto's, zodat u altijd weet hoe het ervoor staat."]
+    ]
+  },
+  "de": {
+    "title": "Yacht- und Boots-Refit in Wanssum (NL) · BoatLab",
+    "desc": "Komplette Refits von Yachten und Booten: vom frischen Innenraum und neuer Elektronik bis zu Lackierung und technischer Erneuerung, von der Planung bis zur Übergabe.",
+    "h1": "Ein Refit, geplant von der ersten Idee bis zur Übergabe.",
+    "lede": "Vom frischen Innenraum und neuer Elektronik bis zu Lackierung und technischer Erneuerung: Wir planen und führen Ihr Refit durch, mit einem Ansprechpartner von Anfang bis Ende.",
+    "intro_h": "Geben Sie Ihrem Boot ein zweites Leben.",
+    "intro": [
+      "Ein Refit kann ein älteres Boot besser als neu machen, oft für einen Bruchteil des Preises eines Ersatzes. Es kann kosmetisch sein, etwa Lack, Polster und Holzwerk, oder technisch, etwa Motor, Elektrik und Systeme, oder beides. Entscheidend ist ein guter Plan: Was ist nötig, was ist wünschenswert und in welcher Reihenfolge.",
+      "Wir erstellen den Plan gemeinsam mit Ihnen, geben ein klares Angebot pro Teil und halten Sie während der Arbeiten auf dem Laufenden. In unseren Hallen können wir unabhängig vom Wetter am Refit arbeiten, und Sie haben einen Ansprechpartner von Anfang bis Ende."
+    ],
+    "included": [
+      "Inspektion und ehrliche Einschätzung des Bootes",
+      "Ein Refit-Plan mit Prioritäten und Budget pro Teil",
+      "Koordination aller Arbeiten unter einem Dach",
+      "Arbeiten in der Halle, unabhängig vom Wetter",
+      "Regelmäßige Updates mit Fotos vom Fortschritt",
+      "Übergabe mit Probefahrt und Erklärung aller Neuerungen"
+    ],
+    "steps": [
+      ["Ihre Wünsche", "Erzählen Sie uns, was Ihnen vorschwebt und was Sie am Boot heute stört."],
+      ["Plan und Angebot", "Gemeinsam erstellen wir einen Refit-Plan mit einem klaren Angebot pro Teil."],
+      ["Refit", "Wir führen die Arbeiten in sinnvoller Reihenfolge aus und halten Sie auf dem Laufenden."],
+      ["Übergabe", "Probefahrt, Einweisung in die neuen Systeme, und Ihr Boot ist bereit fürs Wasser."]
+    ],
+    "factors": ["Umfang des Refits", "Zustand des Bootes", "Gewählte Materialien und Geräte", "Planung und Dauer", "Hallenlager während der Arbeiten"],
+    "faq": [
+      ["Kann ein Refit in Etappen erfolgen?", "Ja. Viele Eigner verteilen ein Refit über mehrere Winter und beginnen mit dem Wichtigsten. Wir erstellen einen Plan, der das berücksichtigt."],
+      ["Lohnt sich ein Refit bei einem älteren Boot?", "Oft ja. Ein gut gebautes älteres Boot mit gesundem Rumpf kann nach einem Refit besser als neu sein, für deutlich weniger als ein neues Boot. Wir sagen Ihnen ehrlich, wenn es sich unserer Meinung nach nicht lohnt."],
+      ["Werde ich während des Refits informiert?", "Ja. Sie haben einen Ansprechpartner und erhalten regelmäßig Updates mit Fotos, damit Sie immer wissen, wo es steht."]
+    ]
+  }
+}

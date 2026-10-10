@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "antifouling", "nl": "antifouling", "de": "antifouling"},
+  "img": "hero-crane-lift.jpg",
+  "related": ["polishing", "gelcoat", "osmosis"],
+  "en": {
+    "title": "Antifouling for Boats & Yachts in Wanssum · BoatLab",
+    "desc": "Antifouling done properly: hull cleaned, sanded and recoated with approved antifouling, for fresh water or sea. Free crane lift at BoatLab in Wanssum.",
+    "h1": "Antifouling that keeps your hull clean all season.",
+    "lede": "We clean, sand and recoat your underwater hull with the right antifouling for where you sail, from the Maas to the North Sea. The crane lift is free.",
+    "intro_h": "A clean hull sails faster and uses less fuel.",
+    "intro": [
+      "Weed, slime and shells on the hull cost speed and fuel and can damage the gelcoat underneath. A good antifouling layer stops growth before it starts. How well it works depends on the preparation: old, loose layers have to come off, and the new coating must suit the layers already on the hull.",
+      "We check the existing system, advise on the right product for fresh water or salt water, and apply it in the right thickness. We only use antifouling approved for use in the Netherlands, and we collect the sanding dust and old paint residue responsibly."
+    ],
+    "included": [
+      "Lifting out with our 30-tonne crane and high-pressure cleaning of the hull",
+      "Inspection of the existing antifouling and the gelcoat underneath",
+      "Sanding and removing loose or flaking layers",
+      "Primer where needed, so the new layer bonds properly",
+      "Antifouling in the right thickness, suited to fresh or salt water",
+      "Waterline taped neatly, and the boat back in the water"
+    ],
+    "steps": [
+      ["Tell us about your boat", "Make, length, where you sail and when the antifouling was last done. Photos of the hull help."],
+      ["Advice and fixed quote", "We advise on the right antifouling system and send a fixed quote and a date."],
+      ["Lift, clean and coat", "The boat comes out of the water for free, is cleaned, prepared and recoated."],
+      ["Back in the water", "After drying time the boat goes back in, ready for a clean season."]
+    ],
+    "factors": ["Length and type of boat", "Condition of the old layers", "Number of coats", "Fresh or salt water", "Primer or full strip needed"],
+    "faq": [
+      ["How often does a boat need new antifouling?", "On most boats once a year, before the season. On the Maas the growth is lower than at sea, but a yearly check and touch-up keeps the hull clean. We tell you honestly when a new coat isn't needed yet."],
+      ["Which antifouling do you use?", "That depends on your hull, the existing layers and where you sail. We only use products approved for use in the Netherlands and make sure the new layer is compatible with the old one."],
+      ["Can you remove all the old antifouling?", "Yes. If the old layers are too thick or flaking, we strip the hull back to the gelcoat. This is also the moment to check for osmosis. We discuss this with you first, because it is more work than a regular coat."]
+    ]
+  },
+  "nl": {
+    "title": "Antifouling laten aanbrengen in Wanssum · BoatLab",
+    "desc": "Antifouling vakkundig aangebracht: onderwaterschip gereinigd, geschuurd en opnieuw gecoat met toegelaten antifouling, voor zoet of zout water. Gratis hijsen.",
+    "h1": "Antifouling die uw onderwaterschip het hele seizoen schoon houdt.",
+    "lede": "We reinigen, schuren en coaten uw onderwaterschip met de antifouling die past bij uw vaargebied, van de Maas tot de Noordzee. Het hijsen is gratis.",
+    "intro_h": "Een schone romp vaart sneller en verbruikt minder brandstof.",
+    "intro": [
+      "Wier, slijm en schelpen op het onderwaterschip kosten snelheid en brandstof en kunnen de gelcoat eronder beschadigen. Een goede antifoulinglaag voorkomt aangroei voordat die begint. Hoe goed die werkt, hangt af van de voorbereiding: oude, losse lagen moeten eraf en de nieuwe coating moet passen bij wat er al op de romp zit.",
+      "We controleren het bestaande systeem, adviseren het juiste product voor zoet of zout water en brengen het aan in de juiste laagdikte. We gebruiken alleen antifouling die in Nederland is toegelaten en voeren schuurstof en oude verfresten verantwoord af."
+    ],
+    "included": [
+      "Uithijsen met onze 30-tons kraan en hogedrukreiniging van het onderwaterschip",
+      "Controle van de bestaande antifouling en de gelcoat eronder",
+      "Schuren en verwijderen van losse of afbladderende lagen",
+      "Primer waar nodig, zodat de nieuwe laag goed hecht",
+      "Antifouling in de juiste laagdikte, geschikt voor zoet of zout water",
+      "Waterlijn netjes afgeplakt en de boot weer te water"
+    ],
+    "steps": [
+      ["Vertel ons over uw boot", "Merk, lengte, vaargebied en wanneer de antifouling voor het laatst is gedaan. Foto's van het onderwaterschip helpen."],
+      ["Advies en vaste offerte", "We adviseren het juiste antifoulingsysteem en sturen een vaste offerte met een datum."],
+      ["Hijsen, reinigen en coaten", "De boot gaat gratis uit het water, wordt gereinigd, voorbereid en opnieuw gecoat."],
+      ["Weer te water", "Na de droogtijd gaat de boot terug het water in, klaar voor een schoon seizoen."]
+    ],
+    "factors": ["Lengte en type boot", "Staat van de oude lagen", "Aantal lagen", "Zoet of zout water", "Primer of volledig afbijten nodig"],
+    "faq": [
+      ["Hoe vaak heeft een boot nieuwe antifouling nodig?", "Bij de meeste boten één keer per jaar, voor het seizoen. Op de Maas is de aangroei lager dan op zee, maar een jaarlijkse controle en bijwerking houdt de romp schoon. We zeggen het eerlijk als een nieuwe laag nog niet nodig is."],
+      ["Welke antifouling gebruiken jullie?", "Dat hangt af van uw romp, de bestaande lagen en uw vaargebied. We gebruiken alleen in Nederland toegelaten producten en zorgen dat de nieuwe laag past bij de oude."],
+      ["Kunnen jullie alle oude antifouling verwijderen?", "Ja. Zijn de oude lagen te dik of bladderen ze af, dan halen we het onderwaterschip terug tot op de gelcoat. Dat is meteen het moment om op osmose te controleren. We overleggen dit eerst met u, omdat het meer werk is dan een gewone laag."]
+    ]
+  },
+  "de": {
+    "title": "Antifouling für Boote und Yachten in Wanssum · BoatLab",
+    "desc": "Antifouling fachgerecht: Unterwasserschiff gereinigt, geschliffen und neu beschichtet mit zugelassenem Antifouling, für Süß- oder Salzwasser. Kranen kostenlos.",
+    "h1": "Antifouling, das Ihr Unterwasserschiff die ganze Saison sauber hält.",
+    "lede": "Wir reinigen, schleifen und beschichten Ihr Unterwasserschiff mit dem passenden Antifouling für Ihr Revier, von der Maas bis zur Nordsee. Das Kranen ist kostenlos.",
+    "intro_h": "Ein sauberer Rumpf fährt schneller und verbraucht weniger Kraftstoff.",
+    "intro": [
+      "Algen, Schleim und Muscheln am Rumpf kosten Geschwindigkeit und Kraftstoff und können das Gelcoat darunter beschädigen. Eine gute Antifouling-Schicht verhindert Bewuchs, bevor er entsteht. Wie gut sie wirkt, hängt von der Vorbereitung ab: alte, lose Schichten müssen runter, und die neue Beschichtung muss zu dem passen, was schon auf dem Rumpf ist.",
+      "Wir prüfen das vorhandene System, empfehlen das richtige Produkt für Süß- oder Salzwasser und tragen es in der richtigen Schichtdicke auf. Wir verwenden nur in den Niederlanden zugelassenes Antifouling und entsorgen Schleifstaub und alte Farbreste fachgerecht."
+    ],
+    "included": [
+      "Auskranen mit unserem 30-Tonnen-Kran und Hochdruckreinigung des Unterwasserschiffs",
+      "Prüfung des vorhandenen Antifoulings und des Gelcoats darunter",
+      "Schleifen und Entfernen loser oder abblätternder Schichten",
+      "Primer, wo nötig, damit die neue Schicht gut haftet",
+      "Antifouling in der richtigen Schichtdicke, passend für Süß- oder Salzwasser",
+      "Wasserlinie sauber abgeklebt und das Boot zurück ins Wasser"
+    ],
+    "steps": [
+      ["Erzählen Sie uns von Ihrem Boot", "Marke, Länge, Revier und wann das Antifouling zuletzt gemacht wurde. Fotos vom Unterwasserschiff helfen."],
+      ["Beratung und Festpreis", "Wir empfehlen das passende Antifouling-System und senden ein Festpreisangebot mit Termin."],
+      ["Kranen, reinigen, beschichten", "Das Boot kommt kostenlos aus dem Wasser, wird gereinigt, vorbereitet und neu beschichtet."],
+      ["Zurück ins Wasser", "Nach der Trocknungszeit geht das Boot zurück ins Wasser, bereit für eine saubere Saison."]
+    ],
+    "factors": ["Länge und Bootstyp", "Zustand der alten Schichten", "Anzahl der Schichten", "Süß- oder Salzwasser", "Primer oder komplettes Abbeizen nötig"],
+    "faq": [
+      ["Wie oft braucht ein Boot neues Antifouling?", "Bei den meisten Booten einmal im Jahr, vor der Saison. Auf der Maas ist der Bewuchs geringer als auf See, aber eine jährliche Kontrolle und Ausbesserung hält den Rumpf sauber. Wir sagen Ihnen ehrlich, wenn eine neue Schicht noch nicht nötig ist."],
+      ["Welches Antifouling verwenden Sie?", "Das hängt von Ihrem Rumpf, den vorhandenen Schichten und Ihrem Revier ab. Wir verwenden nur in den Niederlanden zugelassene Produkte und achten darauf, dass die neue Schicht zur alten passt."],
+      ["Können Sie das gesamte alte Antifouling entfernen?", "Ja. Wenn die alten Schichten zu dick sind oder abblättern, legen wir das Unterwasserschiff bis auf das Gelcoat frei. Das ist auch der Moment, auf Osmose zu prüfen. Wir besprechen das vorher mit Ihnen, weil es mehr Arbeit ist als ein normaler Anstrich."]
+    ]
+  }
+}

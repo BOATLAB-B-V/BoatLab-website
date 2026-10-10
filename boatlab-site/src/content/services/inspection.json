@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "boat-inspection", "nl": "bootkeuring", "de": "technische-inspektion"},
+  "img": "boat-mover.jpg",
+  "related": ["engine", "osmosis", "navigation"],
+  "en": {
+    "title": "Technical Boat Inspection Before Buying or Selling · BoatLab",
+    "desc": "Technical inspection of your boat before you buy, sell or start the season: hull, engine, electrics and systems checked, with a clear report. BoatLab, Wanssum.",
+    "h1": "A technical inspection, so you know what you're buying.",
+    "lede": "Before you buy, sell or start the season: we check hull, engine, electrics and onboard systems, and give you a clear report of what we find.",
+    "intro_h": "Know the condition before you decide.",
+    "intro": [
+      "A boat can look great on the outside and still hide expensive problems: moisture in the hull, a tired engine, worn-out wiring. A technical inspection gives you a clear picture before you make a decision, whether you're buying, selling or just want to start the season without surprises.",
+      "We lift the boat out of the water (free of charge), check the underwater hull, and go through the engine, electrics and onboard systems. You get a written report with photos, what needs attention now and what can wait."
+    ],
+    "included": [
+      "Lifting out and inspecting the underwater hull",
+      "Moisture measurement of the hull for signs of osmosis",
+      "Check of engine, cooling system and propulsion",
+      "Electrics, batteries and onboard systems checked",
+      "Deck, fittings, windows and hatches inspected",
+      "Written report with photos and priorities"
+    ],
+    "steps": [
+      ["Request the inspection", "Tell us which boat, where it is and what the inspection is for."],
+      ["Fixed quote and date", "You get a fixed price and a date, coordinated with the seller if needed."],
+      ["Inspection", "We lift the boat out and go through hull, engine and systems."],
+      ["Report", "You receive a clear report, so you can decide with confidence."]
+    ],
+    "factors": ["Length and type of boat", "Number of engines", "Scope of the inspection", "Lift out needed or not", "Report for purchase, sale or own use"],
+    "faq": [
+      ["Is this an official survey for insurance or a loan?", "Our inspection is a technical check by our own technicians. If your insurer or bank requires a valuation report from a certified surveyor, let us know; we can prepare the boat and share our findings with the surveyor."],
+      ["Can you inspect a boat I'm thinking of buying?", "Yes. That's one of the most common reasons for an inspection. We arrange the date with you and, if needed, with the seller."],
+      ["How long does an inspection take?", "For most boats, the inspection itself takes a few hours. The report follows soon after."]
+    ]
+  },
+  "nl": {
+    "title": "Technische bootkeuring bij aankoop of verkoop · BoatLab",
+    "desc": "Technische keuring van uw boot voor aankoop, verkoop of de start van het seizoen: romp, motor, elektra en systemen gecontroleerd, met een helder rapport.",
+    "h1": "Een technische keuring, zodat u weet wat u koopt.",
+    "lede": "Voor aankoop, verkoop of de start van het seizoen: we controleren romp, motor, elektra en boordsystemen en geven u een helder rapport van wat we vinden.",
+    "intro_h": "Ken de staat voordat u beslist.",
+    "intro": [
+      "Een boot kan er van buiten prachtig uitzien en toch dure problemen verbergen: vocht in de romp, een vermoeide motor, versleten bekabeling. Een technische keuring geeft u een helder beeld voordat u een beslissing neemt, of u nu koopt, verkoopt of gewoon zonder verrassingen het seizoen wilt beginnen.",
+      "We hijsen de boot uit het water (gratis), controleren het onderwaterschip en lopen motor, elektra en boordsystemen na. U krijgt een schriftelijk rapport met foto's: wat nu aandacht nodig heeft en wat kan wachten."
+    ],
+    "included": [
+      "Uithijsen en inspectie van het onderwaterschip",
+      "Vochtmeting van de romp op tekenen van osmose",
+      "Controle van motor, koelsysteem en aandrijving",
+      "Elektra, accu's en boordsystemen gecontroleerd",
+      "Dek, beslag, ramen en luiken geïnspecteerd",
+      "Schriftelijk rapport met foto's en prioriteiten"
+    ],
+    "steps": [
+      ["Keuring aanvragen", "Vertel welke boot, waar hij ligt en waarvoor de keuring is."],
+      ["Vaste offerte en datum", "U krijgt een vaste prijs en een datum, zo nodig afgestemd met de verkoper."],
+      ["Keuring", "We hijsen de boot uit en lopen romp, motor en systemen na."],
+      ["Rapport", "U ontvangt een helder rapport, zodat u met vertrouwen kunt beslissen."]
+    ],
+    "factors": ["Lengte en type boot", "Aantal motoren", "Omvang van de keuring", "Uithijsen nodig of niet", "Rapport voor aankoop, verkoop of eigen gebruik"],
+    "faq": [
+      ["Is dit een officiële keuring voor verzekering of financiering?", "Onze keuring is een technische controle door onze eigen technici. Vraagt uw verzekeraar of bank om een taxatierapport van een gecertificeerde expert, laat het ons weten; we kunnen de boot voorbereiden en onze bevindingen met de expert delen."],
+      ["Kunnen jullie een boot keuren die ik wil kopen?", "Ja. Dat is een van de meest voorkomende redenen voor een keuring. We stemmen de datum af met u en zo nodig met de verkoper."],
+      ["Hoe lang duurt een keuring?", "Bij de meeste boten duurt de keuring zelf een paar uur. Het rapport volgt kort daarna."]
+    ]
+  },
+  "de": {
+    "title": "Technische Bootsinspektion vor Kauf oder Verkauf · BoatLab",
+    "desc": "Technische Inspektion Ihres Bootes vor Kauf, Verkauf oder Saisonstart: Rumpf, Motor, Elektrik und Systeme geprüft, mit klarem Bericht. BoatLab, Wanssum (NL).",
+    "h1": "Eine technische Inspektion, damit Sie wissen, was Sie kaufen.",
+    "lede": "Vor Kauf, Verkauf oder Saisonstart: Wir prüfen Rumpf, Motor, Elektrik und Bordsysteme und geben Ihnen einen klaren Bericht über unsere Befunde.",
+    "intro_h": "Den Zustand kennen, bevor Sie entscheiden.",
+    "intro": [
+      "Ein Boot kann von außen großartig aussehen und trotzdem teure Probleme verbergen: Feuchtigkeit im Rumpf, ein müder Motor, verschlissene Verkabelung. Eine technische Inspektion gibt Ihnen ein klares Bild, bevor Sie entscheiden, ob Sie kaufen, verkaufen oder einfach ohne Überraschungen in die Saison starten wollen.",
+      "Wir kranen das Boot aus (kostenlos), prüfen das Unterwasserschiff und gehen Motor, Elektrik und Bordsysteme durch. Sie erhalten einen schriftlichen Bericht mit Fotos: was jetzt Aufmerksamkeit braucht und was warten kann."
+    ],
+    "included": [
+      "Auskranen und Inspektion des Unterwasserschiffs",
+      "Feuchtigkeitsmessung des Rumpfes auf Anzeichen von Osmose",
+      "Prüfung von Motor, Kühlsystem und Antrieb",
+      "Elektrik, Batterien und Bordsysteme geprüft",
+      "Deck, Beschläge, Fenster und Luken inspiziert",
+      "Schriftlicher Bericht mit Fotos und Prioritäten"
+    ],
+    "steps": [
+      ["Inspektion anfragen", "Sagen Sie uns, um welches Boot es geht, wo es liegt und wofür die Inspektion ist."],
+      ["Festpreis und Termin", "Sie erhalten einen Festpreis und einen Termin, bei Bedarf mit dem Verkäufer abgestimmt."],
+      ["Inspektion", "Wir kranen das Boot aus und gehen Rumpf, Motor und Systeme durch."],
+      ["Bericht", "Sie erhalten einen klaren Bericht und können mit gutem Gefühl entscheiden."]
+    ],
+    "factors": ["Länge und Bootstyp", "Anzahl der Motoren", "Umfang der Inspektion", "Auskranen nötig oder nicht", "Bericht für Kauf, Verkauf oder Eigenbedarf"],
+    "faq": [
+      ["Ist das ein offizielles Gutachten für Versicherung oder Finanzierung?", "Unsere Inspektion ist eine technische Prüfung durch unsere eigenen Techniker. Verlangt Ihre Versicherung oder Bank ein Wertgutachten eines zertifizierten Sachverständigen, sagen Sie es uns; wir bereiten das Boot vor und teilen unsere Befunde mit dem Gutachter."],
+      ["Können Sie ein Boot prüfen, das ich kaufen möchte?", "Ja. Das ist einer der häufigsten Gründe für eine Inspektion. Wir stimmen den Termin mit Ihnen und bei Bedarf mit dem Verkäufer ab."],
+      ["Wie lange dauert eine Inspektion?", "Bei den meisten Booten dauert die Inspektion selbst einige Stunden. Der Bericht folgt kurz danach."]
+    ]
+  }
+}

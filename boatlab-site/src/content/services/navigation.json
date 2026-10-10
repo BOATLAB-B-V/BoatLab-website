@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "navigation-electronics", "nl": "navigatie-elektronica", "de": "navigation-elektronik"},
+  "img": "yard-harbour-view.jpg",
+  "related": ["engine", "refit", "inspection"],
+  "en": {
+    "title": "Boat Navigation & Electronics Installation · BoatLab",
+    "desc": "Installation and repair of navigation and onboard electronics: chartplotters, VHF, AIS, autopilot, batteries, charging and shore power. BoatLab, Wanssum.",
+    "h1": "Navigation and electronics, installed properly.",
+    "lede": "A new chartplotter, AIS or autopilot, or a fault that keeps coming back: we install and repair your navigation and onboard electronics, neatly and reliably.",
+    "intro_h": "Reliable electronics start with good wiring.",
+    "intro": [
+      "Modern boats depend on electronics, from navigation and communication to batteries and charging. Most problems are not in the device itself, but in the installation: loose connections, corroded contacts, wires that are too thin or poorly protected. That's why we pay as much attention to the wiring as to the equipment.",
+      "We advise on equipment that fits your boat and how you sail, install it neatly, and test everything before handover. We also trace faults in existing systems and repair or replace what's needed."
+    ],
+    "included": [
+      "Advice on equipment that fits your boat",
+      "Installation of chartplotters, displays and sensors",
+      "VHF, AIS and antennas",
+      "Autopilot installation and setup",
+      "Batteries, charging and shore power",
+      "Fault finding and repair of existing systems"
+    ],
+    "steps": [
+      ["Your plans or problem", "Tell us what you want to install, or describe the fault you're seeing."],
+      ["Advice and fixed quote", "We advise on equipment and installation and send a fixed price."],
+      ["Installation or repair", "Neat wiring, proper connections and a tidy finish."],
+      ["Test and explanation", "We test everything and show you how the system works."]
+    ],
+    "factors": ["Type and number of devices", "Cable runs and accessibility", "Existing wiring", "New installation or fault finding", "Equipment supplied by you or by us"],
+    "faq": [
+      ["Can you install equipment I bought myself?", "Yes. We are happy to install equipment you supply. We'll check in advance that it suits your boat and the existing systems."],
+      ["My electronics fail now and then. Can you find the cause?", "Yes. Intermittent faults are often caused by connections, corrosion or the power supply. We measure systematically until we find the cause."],
+      ["Do you also work on batteries and shore power?", "Yes. Batteries, chargers, inverters and the shore power connection are part of what we check and install."]
+    ]
+  },
+  "nl": {
+    "title": "Navigatie en elektronica aan boord · BoatLab Wanssum",
+    "desc": "Installatie en reparatie van navigatie en boordelektronica: kaartplotters, marifoon, AIS, stuurautomaat, accu's, laden en walstroom. BoatLab, Wanssum.",
+    "h1": "Navigatie en elektronica, vakkundig aangelegd.",
+    "lede": "Een nieuwe kaartplotter, AIS of stuurautomaat, of een storing die steeds terugkomt: we installeren en repareren uw navigatie en boordelektronica, netjes en betrouwbaar.",
+    "intro_h": "Betrouwbare elektronica begint met goede bekabeling.",
+    "intro": [
+      "Moderne boten draaien op elektronica, van navigatie en communicatie tot accu's en laden. De meeste problemen zitten niet in het apparaat zelf, maar in de installatie: losse verbindingen, gecorrodeerde contacten, te dunne of slecht beschermde kabels. Daarom besteden we net zoveel aandacht aan de bekabeling als aan de apparatuur.",
+      "We adviseren apparatuur die past bij uw boot en uw manier van varen, installeren het netjes en testen alles voor de oplevering. Ook sporen we storingen in bestaande systemen op en repareren of vervangen we wat nodig is."
+    ],
+    "included": [
+      "Advies over apparatuur die bij uw boot past",
+      "Installatie van kaartplotters, displays en sensoren",
+      "Marifoon, AIS en antennes",
+      "Stuurautomaat installeren en instellen",
+      "Accu's, laden en walstroom",
+      "Storingen opsporen en bestaande systemen repareren"
+    ],
+    "steps": [
+      ["Uw plannen of probleem", "Vertel wat u wilt laten installeren, of beschrijf de storing die u ziet."],
+      ["Advies en vaste offerte", "We adviseren over apparatuur en installatie en sturen een vaste prijs."],
+      ["Installatie of reparatie", "Nette bekabeling, goede verbindingen en een strakke afwerking."],
+      ["Testen en uitleg", "We testen alles en laten zien hoe het systeem werkt."]
+    ],
+    "factors": ["Type en aantal apparaten", "Kabeltracés en bereikbaarheid", "Bestaande bekabeling", "Nieuwe installatie of storing zoeken", "Apparatuur van u of via ons"],
+    "faq": [
+      ["Kunnen jullie apparatuur installeren die ik zelf heb gekocht?", "Ja. We installeren graag apparatuur die u zelf aanlevert. We controleren vooraf of het past bij uw boot en de bestaande systemen."],
+      ["Mijn elektronica valt af en toe uit. Kunnen jullie de oorzaak vinden?", "Ja. Haperende storingen komen vaak door verbindingen, corrosie of de voeding. We meten systematisch tot we de oorzaak vinden."],
+      ["Werken jullie ook aan accu's en walstroom?", "Ja. Accu's, laders, omvormers en de walstroomaansluiting horen bij wat we controleren en installeren."]
+    ]
+  },
+  "de": {
+    "title": "Navigation und Bordelektronik für Boote · BoatLab",
+    "desc": "Einbau und Reparatur von Navigation und Bordelektronik: Kartenplotter, UKW-Funk, AIS, Autopilot, Batterien, Laden und Landstrom. BoatLab, Wanssum (NL).",
+    "h1": "Navigation und Elektronik, fachgerecht eingebaut.",
+    "lede": "Ein neuer Kartenplotter, AIS oder Autopilot, oder eine Störung, die immer wiederkommt: Wir bauen Ihre Navigation und Bordelektronik ein und reparieren sie, sauber und zuverlässig.",
+    "intro_h": "Zuverlässige Elektronik beginnt mit guter Verkabelung.",
+    "intro": [
+      "Moderne Boote hängen an der Elektronik, von Navigation und Kommunikation bis zu Batterien und Laden. Die meisten Probleme liegen nicht im Gerät selbst, sondern in der Installation: lose Verbindungen, korrodierte Kontakte, zu dünne oder schlecht geschützte Kabel. Deshalb achten wir genauso auf die Verkabelung wie auf die Geräte.",
+      "Wir beraten zu Geräten, die zu Ihrem Boot und Ihrer Nutzung passen, bauen sie sauber ein und testen alles vor der Übergabe. Außerdem finden wir Störungen in bestehenden Systemen und reparieren oder ersetzen, was nötig ist."
+    ],
+    "included": [
+      "Beratung zu Geräten, die zu Ihrem Boot passen",
+      "Einbau von Kartenplottern, Displays und Sensoren",
+      "UKW-Funk, AIS und Antennen",
+      "Einbau und Einstellung des Autopiloten",
+      "Batterien, Laden und Landstrom",
+      "Fehlersuche und Reparatur bestehender Systeme"
+    ],
+    "steps": [
+      ["Ihre Pläne oder Ihr Problem", "Sagen Sie uns, was eingebaut werden soll, oder beschreiben Sie die Störung."],
+      ["Beratung und Festpreis", "Wir beraten zu Geräten und Einbau und senden einen Festpreis."],
+      ["Einbau oder Reparatur", "Saubere Verkabelung, gute Verbindungen und ein ordentliches Finish."],
+      ["Test und Einweisung", "Wir testen alles und zeigen Ihnen, wie das System funktioniert."]
+    ],
+    "factors": ["Art und Anzahl der Geräte", "Kabelwege und Zugänglichkeit", "Vorhandene Verkabelung", "Neueinbau oder Fehlersuche", "Geräte von Ihnen oder über uns"],
+    "faq": [
+      ["Bauen Sie auch Geräte ein, die ich selbst gekauft habe?", "Ja. Wir bauen gerne Geräte ein, die Sie mitbringen. Vorab prüfen wir, ob sie zu Ihrem Boot und den vorhandenen Systemen passen."],
+      ["Meine Elektronik fällt ab und zu aus. Finden Sie die Ursache?", "Ja. Sporadische Störungen kommen oft von Verbindungen, Korrosion oder der Stromversorgung. Wir messen systematisch, bis wir die Ursache finden."],
+      ["Arbeiten Sie auch an Batterien und Landstrom?", "Ja. Batterien, Ladegeräte, Wechselrichter und der Landstromanschluss gehören zu dem, was wir prüfen und einbauen."]
+    ]
+  }
+}

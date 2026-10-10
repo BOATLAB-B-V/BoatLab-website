@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "engine-service", "nl": "motoronderhoud", "de": "motorservice"},
+  "img": "workshop.jpg",
+  "related": ["navigation", "inspection", "antifouling"],
+  "en": {
+    "title": "Annual Boat Engine Service in Wanssum · BoatLab",
+    "desc": "Annual engine service for inboard and outboard engines: oil and filters, impeller, cooling system, belts and anodes, plus winterising. BoatLab, Wanssum.",
+    "h1": "Annual engine service, so you can rely on it all season.",
+    "lede": "Oil, filters, impeller, cooling and belts: we service your engine every year, check what you can't see, and winterise it before the frost.",
+    "intro_h": "Prevention is cheaper than a breakdown on the water.",
+    "intro": [
+      "Most engine trouble on the water starts small: a worn impeller, a clogged filter, a tired belt. A yearly service catches these things before they leave you stranded. We follow the maintenance schedule of the engine and check the parts that age, even when they still seem to work.",
+      "In autumn we can winterise the engine so frost can't damage it, and in spring we get it ready for the season. You get a short report of what we did and what we noticed, so you know the condition of your engine."
+    ],
+    "included": [
+      "Engine oil and oil filter changed",
+      "Fuel filter and water separator checked or replaced",
+      "Raw-water impeller and cooling system checked",
+      "Belts, hoses and clamps inspected",
+      "Anodes checked and replaced where needed",
+      "Test run and a short report of findings"
+    ],
+    "steps": [
+      ["Engine details", "Make, type and running hours of your engine help us prepare parts."],
+      ["Fixed quote", "You get a clear price for the service and know in advance what's included."],
+      ["Service", "We service the engine and test-run it to check everything works."],
+      ["Report", "You get a short overview of what we did and any points of attention."]
+    ],
+    "factors": ["Make and type of engine", "Number of engines", "Inboard or outboard", "Running hours since the last service", "Winterising included"],
+    "faq": [
+      ["Which engines do you service?", "We service inboard and outboard engines. Let us know the make, type and running hours, and we'll confirm and prepare the right parts."],
+      ["Do you also winterise the engine?", "Yes. Winterising protects the engine against frost damage during storage. It is often combined with the annual service and winter storage."],
+      ["How often does an engine need a service?", "Usually once a year or after a set number of running hours, whichever comes first. The engine manufacturer's schedule is leading."]
+    ]
+  },
+  "nl": {
+    "title": "Jaarlijks motoronderhoud boot in Wanssum · BoatLab",
+    "desc": "Jaarlijks motoronderhoud voor binnen- en buitenboordmotoren: olie en filters, impeller, koelsysteem, V-snaren en anodes, en winterklaar maken. BoatLab, Wanssum.",
+    "h1": "Jaarlijks motoronderhoud, zodat u het hele seizoen zorgeloos vaart.",
+    "lede": "Olie, filters, impeller, koeling en V-snaren: we onderhouden uw motor elk jaar, controleren wat u niet ziet, en maken hem winterklaar voor de vorst.",
+    "intro_h": "Voorkomen is goedkoper dan pech op het water.",
+    "intro": [
+      "De meeste motorpech op het water begint klein: een versleten impeller, een verstopt filter, een vermoeide V-snaar. Jaarlijks onderhoud vangt dit op voordat u stil komt te liggen. We volgen het onderhoudsschema van de motor en controleren de onderdelen die verouderen, ook als ze nog lijken te werken.",
+      "In de herfst maken we de motor winterklaar, zodat vorst geen schade kan doen, en in het voorjaar maken we hem klaar voor het seizoen. U krijgt een kort verslag van wat we gedaan en gezien hebben, zodat u weet hoe uw motor ervoor staat."
+    ],
+    "included": [
+      "Motorolie en oliefilter vervangen",
+      "Brandstoffilter en waterafscheider gecontroleerd of vervangen",
+      "Buitenwaterimpeller en koelsysteem gecontroleerd",
+      "V-snaren, slangen en klemmen geïnspecteerd",
+      "Anodes gecontroleerd en waar nodig vervangen",
+      "Proefdraaien en een kort verslag van de bevindingen"
+    ],
+    "steps": [
+      ["Motorgegevens", "Merk, type en draaiuren van uw motor helpen ons de onderdelen klaar te leggen."],
+      ["Vaste offerte", "U krijgt een heldere prijs voor de beurt en weet vooraf wat erbij hoort."],
+      ["Onderhoud", "We onderhouden de motor en laten hem proefdraaien om alles te controleren."],
+      ["Verslag", "U ontvangt een kort overzicht van wat we deden en eventuele aandachtspunten."]
+    ],
+    "factors": ["Merk en type motor", "Aantal motoren", "Binnen- of buitenboord", "Draaiuren sinds de vorige beurt", "Winterklaar maken inbegrepen"],
+    "faq": [
+      ["Welke motoren onderhouden jullie?", "We onderhouden binnen- en buitenboordmotoren. Laat ons merk, type en draaiuren weten, dan bevestigen we dat en leggen we de juiste onderdelen klaar."],
+      ["Maken jullie de motor ook winterklaar?", "Ja. Winterklaar maken beschermt de motor tegen vorstschade tijdens de stalling. Het wordt vaak gecombineerd met de jaarlijkse beurt en winterstalling."],
+      ["Hoe vaak heeft een motor onderhoud nodig?", "Meestal één keer per jaar of na een vast aantal draaiuren, wat het eerst komt. Het schema van de motorfabrikant is leidend."]
+    ]
+  },
+  "de": {
+    "title": "Jährlicher Motorservice für Boote · BoatLab Wanssum",
+    "desc": "Jährlicher Motorservice für Innen- und Außenbordmotoren: Öl und Filter, Impeller, Kühlsystem, Keilriemen und Anoden, dazu Einwintern. BoatLab, Wanssum (NL).",
+    "h1": "Jährlicher Motorservice, damit Sie die ganze Saison sorgenfrei fahren.",
+    "lede": "Öl, Filter, Impeller, Kühlung und Keilriemen: Wir warten Ihren Motor jedes Jahr, prüfen, was Sie nicht sehen, und wintern ihn vor dem Frost ein.",
+    "intro_h": "Vorbeugen ist günstiger als eine Panne auf dem Wasser.",
+    "intro": [
+      "Die meisten Motorpannen auf dem Wasser beginnen klein: ein verschlissener Impeller, ein verstopfter Filter, ein müder Keilriemen. Ein jährlicher Service fängt das ab, bevor Sie liegen bleiben. Wir folgen dem Wartungsplan des Motors und prüfen die Teile, die altern, auch wenn sie noch zu funktionieren scheinen.",
+      "Im Herbst wintern wir den Motor ein, damit Frost keinen Schaden anrichtet, und im Frühjahr machen wir ihn für die Saison bereit. Sie erhalten einen kurzen Bericht, was wir gemacht und bemerkt haben, damit Sie wissen, wie es um Ihren Motor steht."
+    ],
+    "included": [
+      "Motoröl und Ölfilter gewechselt",
+      "Kraftstofffilter und Wasserabscheider geprüft oder ersetzt",
+      "Seewasser-Impeller und Kühlsystem geprüft",
+      "Keilriemen, Schläuche und Schellen kontrolliert",
+      "Anoden geprüft und bei Bedarf ersetzt",
+      "Probelauf und kurzer Bericht über die Befunde"
+    ],
+    "steps": [
+      ["Motordaten", "Marke, Typ und Betriebsstunden Ihres Motors helfen uns, die Teile bereitzulegen."],
+      ["Festpreisangebot", "Sie erhalten einen klaren Preis für den Service und wissen vorab, was enthalten ist."],
+      ["Service", "Wir warten den Motor und prüfen bei einem Probelauf, ob alles funktioniert."],
+      ["Bericht", "Sie erhalten eine kurze Übersicht der Arbeiten und eventueller Auffälligkeiten."]
+    ],
+    "factors": ["Marke und Typ des Motors", "Anzahl der Motoren", "Innen- oder Außenborder", "Betriebsstunden seit dem letzten Service", "Einwintern inklusive"],
+    "faq": [
+      ["Welche Motoren warten Sie?", "Wir warten Innen- und Außenbordmotoren. Nennen Sie uns Marke, Typ und Betriebsstunden, dann bestätigen wir das und legen die richtigen Teile bereit."],
+      ["Wintern Sie den Motor auch ein?", "Ja. Das Einwintern schützt den Motor während der Lagerung vor Frostschäden. Es wird oft mit dem jährlichen Service und dem Winterlager kombiniert."],
+      ["Wie oft braucht ein Motor einen Service?", "Meist einmal im Jahr oder nach einer bestimmten Zahl von Betriebsstunden, je nachdem, was zuerst eintritt. Maßgeblich ist der Wartungsplan des Herstellers."]
+    ]
+  }
+}

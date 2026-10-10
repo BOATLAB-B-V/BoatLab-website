@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "fibreglass-repair", "nl": "polyester-reparatie", "de": "gfk-reparatur"},
+  "img": "workshop.jpg",
+  "related": ["gelcoat", "osmosis", "refit"],
+  "en": {
+    "title": "Fibreglass & Laminate Repair for Boats · BoatLab",
+    "desc": "Structural fibreglass and laminate repairs in polyester and epoxy: hull damage, delamination and reinforcements, done properly and finished invisibly. BoatLab, Wanssum.",
+    "h1": "Fibreglass repair that restores strength, not just looks.",
+    "lede": "Collision damage, delamination or a weak spot in the hull: we repair the laminate in polyester or epoxy, layer by layer, and finish it invisibly.",
+    "intro_h": "When the damage goes deeper than the gelcoat.",
+    "intro": [
+      "If a boat hits a quay, a stone or another boat, the damage often goes beyond the surface. The laminate, the layers of glass fibre and resin that give the hull its strength, can crack or come apart. That has to be repaired structurally, with new layers that bond properly with the original laminate.",
+      "We grind back to sound material, build up new laminate in polyester or epoxy depending on the boat and the location, and finish with gelcoat or paint. Larger structural repairs are discussed with you step by step, so you always know what we find and what it means."
+    ],
+    "included": [
+      "Inspection and tapping test to find the full extent of the damage",
+      "Grinding back to sound laminate",
+      "Building up new layers of glass fibre in polyester or epoxy",
+      "Reinforcements where the structure needs extra strength",
+      "Fairing, sanding and finishing in gelcoat or paint",
+      "Photos of the repair along the way, if you'd like them"
+    ],
+    "steps": [
+      ["Report the damage", "Tell us what happened and send photos. For insurance cases we can document the damage."],
+      ["Inspection and quote", "We assess the damage on the boat and send a fixed quote with the repair plan."],
+      ["Structural repair", "Grinding, laminating, curing and fairing, layer by layer."],
+      ["Finish and handover", "Gelcoat or paint in the right colour, polished, and you check the result."]
+    ],
+    "factors": ["Size and depth of the damage", "Polyester or epoxy", "Location (above or below the waterline)", "Reinforcement needed", "Finish in gelcoat or paint"],
+    "faq": [
+      ["Can you help with an insurance claim?", "Yes. We can document the damage with photos and a description and draw up a quote that you can submit to your insurer."],
+      ["Polyester or epoxy: what's the difference?", "Both are resins used to bond glass fibre. Epoxy bonds very strongly and absorbs little water, polyester matches the original laminate of most production boats. We choose what's best for the repair and explain why."],
+      ["Is a laminate repair as strong as the original?", "When done properly, with the right overlap and number of layers, a repair can be just as strong as the original laminate or even stronger."]
+    ]
+  },
+  "nl": {
+    "title": "Polyester reparatie en lamineren · BoatLab Wanssum",
+    "desc": "Constructieve polyester- en laminaatreparaties in polyester en epoxy: rompschade, delaminatie en versterkingen, vakkundig hersteld en onzichtbaar afgewerkt.",
+    "h1": "Polyester reparatie die de sterkte herstelt, niet alleen het uiterlijk.",
+    "lede": "Aanvaarschade, delaminatie of een zwakke plek in de romp: we herstellen het laminaat in polyester of epoxy, laag voor laag, en werken het onzichtbaar af.",
+    "intro_h": "Als de schade dieper gaat dan de gelcoat.",
+    "intro": [
+      "Raakt een boot een kade, een steen of een andere boot, dan gaat de schade vaak verder dan het oppervlak. Het laminaat, de lagen glasvezel en hars die de romp zijn sterkte geven, kan scheuren of loslaten. Dat moet constructief hersteld worden, met nieuwe lagen die goed hechten aan het originele laminaat.",
+      "We slijpen terug tot gezond materiaal, bouwen nieuw laminaat op in polyester of epoxy, afhankelijk van de boot en de plek, en werken af met gelcoat of lak. Grotere constructieve reparaties bespreken we stap voor stap met u, zodat u altijd weet wat we vinden en wat dat betekent."
+    ],
+    "included": [
+      "Inspectie en kloptest om de volledige omvang van de schade te vinden",
+      "Terugslijpen tot gezond laminaat",
+      "Nieuwe lagen glasvezel opbouwen in polyester of epoxy",
+      "Versterkingen waar de constructie extra sterkte nodig heeft",
+      "Plamuren, schuren en afwerken in gelcoat of lak",
+      "Desgewenst foto's van de reparatie tijdens het werk"
+    ],
+    "steps": [
+      ["Schade melden", "Vertel wat er gebeurd is en stuur foto's. Bij verzekeringsschade kunnen we de schade documenteren."],
+      ["Inspectie en offerte", "We beoordelen de schade aan de boot en sturen een vaste offerte met het herstelplan."],
+      ["Constructief herstel", "Slijpen, lamineren, uitharden en plamuren, laag voor laag."],
+      ["Afwerking en oplevering", "Gelcoat of lak in de juiste kleur, gepoetst, en u controleert het resultaat."]
+    ],
+    "factors": ["Grootte en diepte van de schade", "Polyester of epoxy", "Plek (boven of onder de waterlijn)", "Benodigde versterking", "Afwerking in gelcoat of lak"],
+    "faq": [
+      ["Kunnen jullie helpen bij een verzekeringsclaim?", "Ja. We kunnen de schade documenteren met foto's en een omschrijving en een offerte opstellen die u bij uw verzekeraar kunt indienen."],
+      ["Polyester of epoxy: wat is het verschil?", "Beide zijn harsen waarmee glasvezel wordt verlijmd. Epoxy hecht zeer sterk en neemt weinig water op, polyester sluit aan bij het originele laminaat van de meeste seriebouwboten. We kiezen wat het beste is voor de reparatie en leggen uit waarom."],
+      ["Is een laminaatreparatie net zo sterk als het origineel?", "Bij een vakkundige reparatie, met de juiste overlap en het juiste aantal lagen, kan een reparatie net zo sterk of zelfs sterker zijn dan het originele laminaat."]
+    ]
+  },
+  "de": {
+    "title": "GFK-Reparatur und Laminieren für Boote · BoatLab",
+    "desc": "Strukturelle GFK- und Laminatreparaturen in Polyester und Epoxid: Rumpfschäden, Delamination und Verstärkungen, fachgerecht repariert und unsichtbar abgeschlossen.",
+    "h1": "GFK-Reparatur, die die Festigkeit wiederherstellt, nicht nur die Optik.",
+    "lede": "Kollisionsschaden, Delamination oder eine schwache Stelle im Rumpf: Wir reparieren das Laminat in Polyester oder Epoxid, Lage für Lage, und schließen es unsichtbar ab.",
+    "intro_h": "Wenn der Schaden tiefer geht als das Gelcoat.",
+    "intro": [
+      "Trifft ein Boot eine Kaimauer, einen Stein oder ein anderes Boot, geht der Schaden oft über die Oberfläche hinaus. Das Laminat, die Lagen aus Glasfaser und Harz, die dem Rumpf seine Festigkeit geben, kann reißen oder sich lösen. Das muss strukturell repariert werden, mit neuen Lagen, die sich gut mit dem originalen Laminat verbinden.",
+      "Wir schleifen bis auf gesundes Material zurück, bauen neues Laminat in Polyester oder Epoxid auf, je nach Boot und Stelle, und schließen mit Gelcoat oder Lack ab. Größere strukturelle Reparaturen besprechen wir Schritt für Schritt mit Ihnen, damit Sie immer wissen, was wir finden und was es bedeutet."
+    ],
+    "included": [
+      "Inspektion und Klopftest, um das volle Ausmaß des Schadens zu finden",
+      "Zurückschleifen bis auf gesundes Laminat",
+      "Aufbau neuer Glasfaserlagen in Polyester oder Epoxid",
+      "Verstärkungen, wo die Struktur zusätzliche Festigkeit braucht",
+      "Spachteln, Schleifen und Finish in Gelcoat oder Lack",
+      "Auf Wunsch Fotos der Reparatur während der Arbeit"
+    ],
+    "steps": [
+      ["Schaden melden", "Erzählen Sie, was passiert ist, und senden Sie Fotos. Bei Versicherungsschäden dokumentieren wir den Schaden."],
+      ["Inspektion und Angebot", "Wir begutachten den Schaden am Boot und senden ein Festpreisangebot mit Reparaturplan."],
+      ["Strukturelle Reparatur", "Schleifen, laminieren, aushärten und spachteln, Lage für Lage."],
+      ["Finish und Übergabe", "Gelcoat oder Lack im richtigen Farbton, poliert, und Sie prüfen das Ergebnis."]
+    ],
+    "factors": ["Größe und Tiefe des Schadens", "Polyester oder Epoxid", "Lage (über oder unter der Wasserlinie)", "Nötige Verstärkung", "Finish in Gelcoat oder Lack"],
+    "faq": [
+      ["Helfen Sie bei einem Versicherungsschaden?", "Ja. Wir dokumentieren den Schaden mit Fotos und einer Beschreibung und erstellen ein Angebot, das Sie bei Ihrer Versicherung einreichen können."],
+      ["Polyester oder Epoxid: Was ist der Unterschied?", "Beides sind Harze, mit denen Glasfaser verbunden wird. Epoxid haftet sehr stark und nimmt wenig Wasser auf, Polyester entspricht dem Originallaminat der meisten Serienboote. Wir wählen, was für die Reparatur am besten ist, und erklären warum."],
+      ["Ist eine Laminatreparatur so stark wie das Original?", "Bei fachgerechter Ausführung, mit der richtigen Überlappung und Lagenzahl, kann eine Reparatur genauso stark oder sogar stärker sein als das Originallaminat."]
+    ]
+  }
+}

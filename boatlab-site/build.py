@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds the BoatLab website from src/: every page in English, Dutch and German, each on its own URL.
+"""Builds the BoatLab website from src/: every page in Dutch, German and English, each on its own URL.
 
   dist/    the website for normal hosting (clean URLs: /services, /nl/diensten, /de/leistungen ...),
            with sitemap.xml and robots.txt. Preview locally: cd dist && python3 -m http.server
@@ -7,7 +7,10 @@
            plus PAGES.md: page address, SEO title, description and HEAD code for every Tilda page
 
 All text is written into the HTML at build time (search engines see it without running JavaScript).
-Texts live in src/assets/site.js (T, T2) and META below. Page addresses live in SLUGS below.
+  src/assets/site.js (T, T2)       shared site texts
+  src/content/pages.json           service page labels, winter storage texts
+  src/content/services/<id>.json   one file per service page (address, SEO, all copy in 3 languages)
+Page addresses of the main pages live in SLUGS below, winter storage prices in STORAGE.
 
 Run:  python3 build.py            (add --preview to show placeholder review cards)
 """
@@ -18,7 +21,7 @@ SRC = os.path.join(ROOT, "src")
 SITE = "https://boatlabservice.nl"
 PREVIEW = "--preview" in sys.argv
 
-LANGS = ["en", "nl", "de"]
+LANGS = ["nl", "de", "en"]     # main market first; also the order of the language switch
 DEFAULT_LANG = "en"            # served at the site root and used as x-default
 LOCALE = {"en": "en_GB", "nl": "nl_NL", "de": "de_DE"}
 
@@ -29,20 +32,23 @@ TILDA_IMG_BASE = "/img/"
 TILDA_IMAGES = {}
 
 # Page address per language. The same paths are used as Tilda page addresses.
+# Service pages are added from src/content/services/*.json (below services: /nl/diensten/<slug>).
 SLUGS = {
-    "index":    {"en": "",         "nl": "nl",            "de": "de"},
-    "services": {"en": "services", "nl": "nl/diensten",   "de": "de/leistungen"},
-    "results":  {"en": "results",  "nl": "nl/resultaten", "de": "de/ergebnisse"},
-    "about":    {"en": "about",    "nl": "nl/over-ons",   "de": "de/ueber-uns"},
-    "facility": {"en": "facility", "nl": "nl/werf",       "de": "de/werft"},
-    "contact":  {"en": "contact",  "nl": "nl/contact",    "de": "de/kontakt"},
-    "privacy":  {"en": "privacy",  "nl": "nl/privacy",    "de": "de/datenschutz"},
+    "index":    {"en": "",               "nl": "nl",               "de": "de"},
+    "services": {"en": "services",       "nl": "nl/diensten",      "de": "de/leistungen"},
+    "storage":  {"en": "winter-storage", "nl": "nl/winterstalling", "de": "de/winterlager"},
+    "results":  {"en": "results",        "nl": "nl/resultaten",    "de": "de/ergebnisse"},
+    "about":    {"en": "about",          "nl": "nl/over-ons",      "de": "de/ueber-uns"},
+    "facility": {"en": "facility",       "nl": "nl/werf",          "de": "de/werft"},
+    "contact":  {"en": "contact",        "nl": "nl/contact",       "de": "de/kontakt"},
+    "privacy":  {"en": "privacy",        "nl": "nl/privacy",       "de": "de/datenschutz"},
 }
 
-# page, nav id, sections in order
+# page, nav id, sections in order ("@name" sections are generated below)
 PAGES = [
-    ("index",    "home",     ["hero", "home-services", "lift", "results", "home-why", "reviews", "home-facility", "cta"]),
+    ("index",    "home",     ["hero", "home-services", "lift", "@storage-teaser", "results", "home-why", "reviews", "home-facility", "cta"]),
     ("services", "services", ["ph-services", "services", "process", "cta"]),
+    ("storage",  "storage",  ["@storage-hero", "@storage-calc", "@storage-compare", "@storage-combo", "@storage-faq", "cta"]),
     ("results",  "results",  ["ph-results", "results", "cta"]),
     ("about",    "about",    ["ph-about", "why", "partner", "process", "cta"]),
     ("facility", "facility", ["ph-facility", "lift", "facility", "cta"]),
@@ -54,11 +60,11 @@ PAGES = [
 META = {
     "index": {
         "en": ("Yacht & Boat Service in Wanssum, Limburg · BoatLab",
-               "BoatLab Yacht Services in Wanssum (NL): antifouling, polishing, painting, osmosis treatment, gelcoat repair, refits, engine service and electronics. Free lift with our 30-tonne crane on every service."),
+               "BoatLab Yacht Services in Wanssum (NL): antifouling, polishing, painting, osmosis treatment, gelcoat repair, refits, engine service and winter storage. Free lift with our 30-tonne crane on every service."),
         "nl": ("Jachtservice & botenonderhoud in Wanssum · BoatLab",
-               "BoatLab Yacht Services in Wanssum (Limburg): antifouling, poetsen, schilderen, osmosebehandeling, gelcoatreparatie, refits, motoronderhoud en elektronica. Gratis hijsen met onze 30-tons kraan bij elke dienst."),
+               "BoatLab Yacht Services in Wanssum (Limburg): antifouling, poetsen, schilderen, osmosebehandeling, gelcoatreparatie, refits, motoronderhoud en winterstalling. Gratis hijsen met onze 30-tons kraan bij elke dienst."),
         "de": ("Yacht- & Bootsservice an der Maas in Wanssum · BoatLab",
-               "BoatLab Yacht Services in Wanssum (NL), nahe der deutschen Grenze: Antifouling, Polieren, Lackieren, Osmosebehandlung, Gelcoat-Reparatur, Refit, Motorservice und Elektronik. Kostenloses Kranen mit unserem 30-Tonnen-Kran."),
+               "BoatLab Yacht Services in Wanssum (NL), nahe der deutschen Grenze: Antifouling, Polieren, Lackieren, Osmosebehandlung, Gelcoat-Reparatur, Refit, Motorservice und Winterlager. Kostenloses Kranen mit unserem 30-Tonnen-Kran."),
     },
     "services": {
         "en": ("Boat Services: Antifouling, Polishing, Osmosis · BoatLab",
@@ -67,6 +73,14 @@ META = {
                "Alle 13 diensten van BoatLab: antifouling, schilderen, poetsen, reinigen, coatings, osmosebehandeling, lamineren, gelcoatreparatie, inspecties, refits, motoronderhoud en elektronica."),
         "de": ("Leistungen: Antifouling, Polieren, Osmose · BoatLab",
                "Alle 13 Leistungen von BoatLab: Antifouling, Lackieren, Polieren, Reinigung, Beschichtungen, Osmosebehandlung, Laminieren, Gelcoat-Reparatur, Inspektionen, Refit, Motorservice und Elektronik."),
+    },
+    "storage": {
+        "en": ("Boat Winter Storage in Wanssum 2026–27 · BoatLab",
+               "Winter storage for your boat on the Maas in Wanssum: afloat, outdoor, covered or indoor. From €4 per foot per month including VAT. Calculate your price online."),
+        "nl": ("Winterstalling boot in Wanssum 2026–27 · BoatLab",
+               "Winterstalling voor uw boot aan de Maas in Wanssum: in het water, buiten, overdekt of binnen. Vanaf € 4 per voet per maand incl. btw. Bereken direct uw prijs."),
+        "de": ("Winterlager für Boote in Wanssum 2026/27 · BoatLab",
+               "Winterlager für Ihr Boot an der Maas in Wanssum (NL), nahe der Grenze: im Wasser, im Freien, überdacht oder in der Halle. Ab 4 € pro Fuß und Monat inkl. MwSt."),
     },
     "results": {
         "en": ("Before & After: Antifouling and Polishing · BoatLab",
@@ -107,6 +121,48 @@ META = {
     },
 }
 
+# Winter storage 2026-27 (Focus Marine Center price list): euro per foot of length overall per month,
+# including 21% VAT. Cleaning is NOT included (on request, from 5 euro per foot; see pages.json).
+STORAGE = [  # id, rate, icon, protection level 1-4
+    ("afloat", 4, "i-wave", 1),
+    ("outdoor", 8, "i-sun", 2),
+    ("covered", 12, "i-roof", 3),
+    ("indoor", 16, "i-hall", 4),
+]
+STORAGE_MONTHS = 6                     # minimum booking
+STORAGE_LEN = (15, 65, 35)             # slider min, max, start (feet)
+STORAGE_ROWS = [  # comparison table: text key, included per storage type (afloat, outdoor, covered, indoor)
+    ("st.r1", (0, 1, 1, 1)), ("st.r2", (0, 1, 1, 1)), ("st.r3", (0, 1, 1, 1)),
+    ("st.r4", (0, 0, 1, 1)), ("st.r5", (0, 0, 0, 1)), ("st.r6", (1, 1, 1, 1)), ("st.r7", (1, 1, 1, 1)),
+]
+STORAGE_COMBO = ["antifouling", "osmosis", "polishing", "engine", "gelcoat", "refit"]
+
+# Photos used by generated pages: size and alt text per language
+IMAGES = {
+    "hero-crane-lift.jpg": (1200, 1600, {"en": "A white motor yacht in the slings of the 30-tonne crane at BoatLab",
+                                         "nl": "Een wit motorjacht in de banden van de 30-tons kraan bij BoatLab",
+                                         "de": "Eine weiße Motoryacht in den Gurten des 30-Tonnen-Krans bei BoatLab"}),
+    "crane-quay.jpg": (1600, 1200, {"en": "A sports cruiser lifted out of the water by the crane on the quay",
+                                    "nl": "Een sportcruiser wordt met de kraan op de kade uit het water gehesen",
+                                    "de": "Ein Sportboot wird mit dem Kran am Kai aus dem Wasser gehoben"}),
+    "yard-harbour-view.jpg": (1600, 1200, {"en": "The covered yard, the crane and the harbour in Wanssum",
+                                           "nl": "De overdekte werf, de kraan en de haven in Wanssum",
+                                           "de": "Die überdachte Werft, der Kran und der Hafen in Wanssum"}),
+    "hall-motor-yacht.jpg": (1600, 1200, {"en": "A motor yacht indoors in the BoatLab service hall",
+                                          "nl": "Een motorjacht binnen in de servicehal van BoatLab",
+                                          "de": "Eine Motoryacht in der Servicehalle von BoatLab"}),
+    "workshop.jpg": (1600, 1200, {"en": "The BoatLab workshop with a motor yacht and woodworking machines",
+                                  "nl": "De werkplaats van BoatLab met een motorjacht en houtbewerkingsmachines",
+                                  "de": "Die BoatLab-Werkstatt mit einer Motoryacht und Holzbearbeitungsmaschinen"}),
+    "bow-fenders.jpg": (1600, 1200, {"en": "A freshly finished motor yacht on stands in front of the hall",
+                                     "nl": "Een net afgewerkt motorjacht op bokken voor de hal",
+                                     "de": "Eine frisch bearbeitete Motoryacht auf Böcken vor der Halle"}),
+    "boat-mover.jpg": (1600, 1200, {"en": "The hydraulic boat mover on the quay",
+                                    "nl": "De hydraulische botentransporter op de kade",
+                                    "de": "Der hydraulische Bootstransporter am Kai"}),
+}
+YES_NO = {"en": ("Yes", "No"), "nl": ("Ja", "Nee"), "de": ("Ja", "Nein")}
+
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900'
@@ -114,6 +170,8 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
 
 FEATURED = ["antifouling", "polishing", "osmosis", "gelcoat", "engine", "refit"]   # same as site.js
 LANG_NAME = {"en": "English", "nl": "Nederlands", "de": "Deutsch"}
+ADDRESS = {"@type": "PostalAddress", "streetAddress": "Geijsterseweg 10", "postalCode": "5861 BL",
+           "addressLocality": "Wanssum", "addressRegion": "Limburg", "addressCountry": "NL"}
 
 
 def read(*p):
@@ -125,7 +183,7 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-# ---------- data from site.js ----------
+# ---------- data ----------
 
 def js_literal(js, name):
     """Returns the source of `const NAME = {...}` / `[...]` from site.js (balanced, string-aware)."""
@@ -159,7 +217,18 @@ def load_data(js):
     tr = to_json(js_literal(js, "T"))
     for l, extra in to_json(js_literal(js, "T2")).items():
         tr[l].update(extra)
-    return tr, to_json(js_literal(js, "CONFIG")), to_json(js_literal(js, "SERVICES")), js_literal(js, "REVIEWS").strip() != "[]"
+    pages = json.loads(read("content", "pages.json"))
+    for l in LANGS:
+        tr[l].update(pages[l])
+    services = to_json(js_literal(js, "SERVICES"))
+    content = {s["id"]: json.loads(read("content", "services", s["id"] + ".json")) for s in services}
+    for sid, c in content.items():
+        for l in LANGS:
+            if set(c[l]) != set(c["en"]):
+                raise ValueError(f"{sid}: fields differ between en and {l}")
+        SLUGS["svc-" + sid] = {l: f'{SLUGS["services"][l]}/{c["slug"][l]}' for l in LANGS}
+        META["svc-" + sid] = {l: (c[l]["title"], c[l]["desc"]) for l in LANGS}
+    return tr, to_json(js_literal(js, "CONFIG")), services, content, js_literal(js, "REVIEWS").strip() != "[]"
 
 
 # ---------- URLs ----------
@@ -170,6 +239,271 @@ def path(page, lang):
 
 def url(page, lang):
     return SITE + path(page, lang)
+
+
+# ---------- formatting (matches Intl.NumberFormat in the browser) ----------
+
+def fmt_eur(v, lang):
+    n = f"{v:,.0f}"
+    if lang == "en":
+        return "€" + n
+    n = n.replace(",", ".")
+    return f"€ {n}" if lang == "nl" else f"{n} €"
+
+
+def fmt_m(ft, lang):
+    s = f"{ft * 0.3048:.1f}"
+    return s if lang == "en" else s.replace(".", ",")
+
+
+# ---------- generated sections ----------
+
+def img_tag(name, lang, extra=""):
+    w, h, alt = IMAGES[name]
+    return f'<img src="img/{name}" alt="{esc(alt[lang])}" width="{w}" height="{h}"{extra}>'
+
+
+def service_card(s, tr, as_link=True):
+    tag = f'a href="svc-{s["id"]}.html"' if as_link else 'button type="button"'
+    end = "a" if as_link else "button"
+    return f'''
+      <{tag} class="svc reveal" data-id="{s["id"]}" data-cat="{s["cat"]}">
+        <span class="ic"><svg><use href="#s-{s["id"]}"/></svg></span>
+        <h3>{esc(tr["s." + s["id"]])}</h3><p>{esc(tr["s." + s["id"] + ".d"])}</p>
+        <span class="go">{esc(tr["svc.add"])}<svg><use href="#i-arrow"/></svg></span>
+      </{end}>'''
+
+
+def service_cards(services, tr, limit):
+    return "".join(service_card(s, tr) for s in services if not limit or s["id"] in FEATURED)
+
+
+def service_chips(services, tr):
+    return "".join(f'''
+      <label><input type="checkbox" name="services" value="{s["id"]}" id="svc-{s["id"]}"><span>{esc(tr["s." + s["id"]])}</span></label>'''
+                   for s in services + [{"id": "storage"}])
+
+
+def faq_list(items):
+    return "".join(f'''
+        <details class="faq reveal"><summary>{esc(q)}<span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary><p class="a">{esc(a)}</p></details>'''
+                   for q, a in items)
+
+
+def service_page(sid, lang, tr, services, content):
+    s = next(x for x in services if x["id"] == sid)
+    c, name = content[sid][lang], tr["s." + sid]
+    by_id = {x["id"]: x for x in services}
+    included = "".join(f'<li><svg><use href="#i-check"/></svg><span>{esc(i)}</span></li>' for i in c["included"])
+    steps = "".join(f'''
+        <li class="step reveal"><span class="n">{n}</span><h3>{esc(t)}</h3><p>{esc(p)}</p></li>''' for n, (t, p) in enumerate(c["steps"], 1))
+    factors = "".join(f"<span>{esc(f)}</span>" for f in c["factors"])
+    related = "".join(service_card(by_id[r], tr) for r in content[sid]["related"])
+    return f'''<!-- SERVICE: {sid} -->
+  <section class="page-hero svc-hero">
+    <div class="wrap">
+      <nav class="crumbs load" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span aria-hidden="true">/</span><a href="services.html" data-i18n="nav.services">Services</a><span aria-hidden="true">/</span><span aria-current="page">{esc(name)}</span></nav>
+      <p class="eyebrow load" data-i18n="svc.{s["cat"]}">Services</p>
+      <h1 class="load d1">{esc(c["h1"])}</h1>
+      <p class="lede load d2">{esc(c["lede"])}</p>
+      <div class="hero-cta load d3">
+        <a class="btn" href="contact.html#book-{sid}"><span data-i18n="sp.quote">Request a quote</span><svg><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="tel:+31611742272" data-i18n="cta.call">Call</a>
+      </div>
+    </div>
+    <div class="page-hero-img bleed fade-all load d3">{img_tag(content[sid]["img"], lang, ' fetchpriority="high"')}</div>
+  </section>
+
+  <section class="sp-intro" aria-labelledby="introTitle">
+    <div class="wrap">
+      <div class="sp-text reveal">
+        <span class="eyebrow">{esc(name)}</span>
+        <h2 id="introTitle">{esc(c["intro_h"])}</h2>
+        {"".join(f"<p>{esc(p)}</p>" for p in c["intro"])}
+      </div>
+      <aside class="sp-incl reveal">
+        <h3 data-i18n="sp.included">What we do</h3>
+        <ul>{included}</ul>
+        <p class="lift-note"><svg><use href="#i-hook"/></svg><span data-i18n-html="sp.liftNote"></span></p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="process" aria-labelledby="howTitle">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="how.eyebrow">How it works</span>
+        <h2 id="howTitle" data-i18n="sp.how">How we work</h2>
+      </div>
+      <ol class="steps">{steps}
+      </ol>
+    </div>
+  </section>
+
+  <section class="sp-price" aria-labelledby="priceTitle">
+    <div class="wrap">
+      <div class="price-card reveal">
+        <div class="copy"><h2 id="priceTitle" data-i18n="sp.priceTitle"></h2><p data-i18n="sp.priceText"></p></div>
+        <div class="factors">{factors}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="eyebrow">{esc(name)}</span><h2 id="faqTitle" data-i18n="sp.faq"></h2></div>
+      <div class="faq-list">{faq_list(c["faq"])}
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-related" aria-labelledby="relTitle" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="relTitle" data-i18n="sp.related"></h2></div>
+      <div class="svc-grid">{related}
+      </div>
+    </div>
+  </section>'''
+
+
+def snow():
+    return '<div class="snow" aria-hidden="true">' + "<i></i>" * 7 + "</div>"
+
+
+def storage_section(name, lang, tr, services):
+    lo, hi, start = STORAGE_LEN
+    if name == "storage-teaser":
+        tiles = "".join(f'''
+          <a href="storage.html#prices"><svg><use href="#{icon}"/></svg><b data-i18n="st.{sid}"></b><em>{fmt_eur(rate, lang)}</em><span data-i18n="stT.unit"></span></a>'''
+                        for sid, rate, icon, _ in STORAGE)
+        return f'''<!-- WINTER STORAGE TEASER -->
+  <section class="st-teaser" aria-labelledby="stTTitle">
+    <div class="wrap">
+      <div class="st-panel reveal">
+        {snow()}
+        <div class="copy">
+          <span class="eyebrow"><svg><use href="#i-snow"/></svg><span data-i18n="nav.storage"></span></span>
+          <h2 id="stTTitle" data-i18n="stT.title"></h2>
+          <p class="lede" data-i18n="stT.text"></p>
+          <a class="btn" href="storage.html#prices"><span data-i18n="stT.cta"></span><svg><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="st-mini">{tiles}
+        </div>
+      </div>
+    </div>
+  </section>'''
+    if name == "storage-hero":
+        return f'''<!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow load" data-i18n="st.eyebrow"></p>
+      <h1 class="load d1" data-i18n="st.h1"></h1>
+      <p class="lede load d2" data-i18n="st.lede"></p>
+      <div class="hero-cta load d3">
+        <a class="btn" href="#prices"><span data-i18n="st.calcTitle"></span><svg><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="contact.html#book-storage" data-i18n="st.request"></a>
+      </div>
+    </div>
+    <div class="page-hero-img bleed fade-all load d3">{img_tag("hall-motor-yacht.jpg", lang, ' fetchpriority="high"')}</div>
+  </section>'''
+    if name == "storage-calc":
+        cards = ""
+        for sid, rate, icon, level in STORAGE:
+            best = level == 4
+            bars = "".join(f'<i class="{"on" if i < level else ""}"></i>' for i in range(4))
+            cards += f'''
+        <article class="st-card reveal{" best" if best else ""}" data-rate="{rate}">
+          {f'<span class="ribbon" data-i18n="st.best"></span>' if best else ""}
+          <span class="ic"><svg><use href="#{icon}"/></svg></span>
+          <h3 data-i18n="st.{sid}"></h3>
+          <p class="desc" data-i18n="st.{sid}.d"></p>
+          <div class="rate"><b>{fmt_eur(rate, lang)}</b><span data-i18n="st.perFt"></span></div>
+          <div class="meter"><small data-i18n="st.protect"></small><div class="bars" role="img" aria-label="{level}/4">{bars}</div></div>
+          <div class="st-calc">
+            <small data-i18n="st.month"></small>
+            <b class="st-month">{fmt_eur(rate * start, lang)}</b>
+            <div class="season"><span data-i18n="st.season"></span><b class="st-season">{fmt_eur(rate * start * STORAGE_MONTHS, lang)}</b></div>
+          </div>
+        </article>'''
+        fill = (start - lo) / (hi - lo) * 100
+        return f'''<!-- WINTER STORAGE CALCULATOR -->
+  <section class="storage" id="prices" aria-labelledby="calcTitle">
+    <div class="wrap">
+      <div class="st-panel" id="storageCalc" data-months="{STORAGE_MONTHS}">
+        {snow()}
+        <div class="st-head">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="st.eyebrow"></span>
+            <h2 id="calcTitle" data-i18n="st.calcTitle"></h2>
+            <p class="lede" data-i18n="st.calcLede"></p>
+          </div>
+          <div class="st-len reveal">
+            <label for="lenRange" data-i18n="st.len"></label>
+            <div class="val" aria-live="polite"><b id="lenFt">{start}</b><small><span data-i18n="st.ft"></span> · <span id="lenM">{fmt_m(start, lang)}</span> m</small></div>
+            <div class="st-ctrl">
+              <button type="button" data-step="-1" aria-label="{esc(tr["st.less"])}"><svg><use href="#i-minus"/></svg></button>
+              <input type="range" class="st-range" id="lenRange" min="{lo}" max="{hi}" step="1" value="{start}" style="--fill:{fill:.4g}%">
+              <button type="button" data-step="1" aria-label="{esc(tr["st.more"])}"><svg><use href="#i-plus"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="st-grid">{cards}
+        </div>
+        <div class="st-foot"><span data-i18n="st.vat"></span><span class="extra"><svg><use href="#i-plus"/></svg><span data-i18n="st.cleaning"></span></span></div>
+      </div>
+    </div>
+  </section>'''
+    if name == "storage-compare":
+        yes, no = YES_NO[lang]
+        head = "".join(f'<th scope="col"><svg aria-hidden="true"><use href="#{icon}"/></svg><span data-i18n="st.{sid}"></span></th>' for sid, _, icon, _ in STORAGE)
+        rows = "".join(
+            f'\n            <tr><th scope="row" data-i18n="{key}"></th>' + "".join(
+                f'<td class="yes"><svg role="img" aria-label="{yes}"><use href="#i-check"/></svg></td>' if inc
+                else f'<td class="no"><span aria-hidden="true">–</span><span class="sr">{no}</span></td>' for inc in flags) + "</tr>"
+            for key, flags in STORAGE_ROWS)
+        prices = "".join(f"<td>{fmt_eur(rate, lang)}</td>" for _, rate, _, _ in STORAGE)
+        notes = "".join(f'<li data-i18n="st.n{i}"></li>' for i in range(1, 7))
+        return f'''<!-- WINTER STORAGE COMPARISON -->
+  <section class="st-compare" aria-labelledby="cmpTitle">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="cmpTitle" data-i18n="st.cmpTitle"></h2><p class="lede" data-i18n="st.cmpLede"></p></div>
+      <div class="st-table-wrap reveal">
+        <table class="st-table">
+          <thead><tr><th scope="col" data-i18n="st.feature"></th>{head}</tr></thead>
+          <tbody>{rows}
+            <tr class="price"><th scope="row" data-i18n="st.rPrice"></th>{prices}</tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="st-notes reveal">{notes}</ul>
+    </div>
+  </section>'''
+    if name == "storage-combo":
+        by_id = {x["id"]: x for x in services}
+        cards = "".join(service_card(by_id[i], tr) for i in STORAGE_COMBO)
+        return f'''<!-- WINTER STORAGE + SERVICE -->
+  <section class="st-combo" aria-labelledby="comboTitle">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="st.comboEyebrow"></span>
+        <h2 id="comboTitle" data-i18n="st.comboTitle"></h2>
+        <p class="lede" data-i18n="st.comboText"></p>
+      </div>
+      <div class="svc-grid">{cards}
+      </div>
+    </div>
+  </section>'''
+    if name == "storage-faq":
+        items = [(tr[f"st.q{i}"], tr[f"st.a{i}"]) for i in range(1, 5)]
+        return f'''<!-- WINTER STORAGE FAQ -->
+  <section class="sp-faq" aria-labelledby="faqTitle" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="eyebrow" data-i18n="nav.storage"></span><h2 id="faqTitle" data-i18n="sp.faq"></h2></div>
+      <div class="faq-list">{faq_list(items)}
+      </div>
+    </div>
+  </section>'''
+    raise KeyError(name)
 
 
 # ---------- rendering ----------
@@ -196,24 +530,8 @@ def apply_i18n(doc, tr):
         pos = inner_start
 
 
-def service_cards(services, tr, limit):
-    items = [s for s in services if not limit or s["id"] in FEATURED]
-    return "".join(f'''
-      <button type="button" class="svc reveal" data-id="{s["id"]}" data-cat="{s["cat"]}">
-        <span class="ic"><svg><use href="#s-{s["id"]}"/></svg></span>
-        <h3>{esc(tr["s." + s["id"]])}</h3><p>{esc(tr["s." + s["id"] + ".d"])}</p>
-        <span class="go">{esc(tr["svc.add"])}<svg><use href="#i-arrow"/></svg></span>
-      </button>''' for s in items)
-
-
-def service_chips(services, tr):
-    return "".join(f'''
-      <label><input type="checkbox" name="services" value="{s["id"]}" id="svc-{s["id"]}"><span>{esc(tr["s." + s["id"]])}</span></label>'''
-                   for s in services)
-
-
 def localize_links(doc, lang):
-    pages = "|".join(SLUGS)
+    pages = "|".join(re.escape(p) for p in sorted(SLUGS, key=len, reverse=True))
     return re.sub(rf'href="({pages})\.html(#[^"]*)?"',
                   lambda m: f'href="{path(m.group(1), lang)}{m.group(2) or ""}"', doc)
 
@@ -221,6 +539,10 @@ def localize_links(doc, lang):
 def localize_images(doc, base, mapping):
     return re.sub(r'(src|data-full)="img/([^"]+)"',
                   lambda m: f'{m.group(1)}="{mapping.get(m.group(2), base + m.group(2))}"', doc)
+
+
+def localize_images_js(js, base, mapping):
+    return re.sub(r'"img/([^"]+)"', lambda m: '"' + mapping.get(m.group(1), base + m.group(1)) + '"', js)
 
 
 def lang_links(page, lang):
@@ -235,38 +557,68 @@ def hreflang_tags(page):
     return "\n".join(tags)
 
 
-def json_ld(lang, cfg):
-    data = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "BoatLab Yacht Services",
-        "legalName": cfg["legalName"],
-        "url": url("index", lang),
-        "logo": SITE + "/img/logo-full.png",
-        "image": SITE + "/img/hero-crane-lift.jpg",
-        "email": cfg["email"],
-        "telephone": "+31611742272",
-        "vatID": cfg["vat"],
-        "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": cfg["kvk"]},
-        "hasMap": cfg["maps"],
-        "sameAs": [cfg["instagram"], cfg["tiktok"]],
-        "foundingDate": "2026-04",
-        "address": {"@type": "PostalAddress", "streetAddress": "Geijsterseweg 10", "postalCode": "5861 BL",
-                    "addressLocality": "Wanssum", "addressRegion": "Limburg", "addressCountry": "NL"},
-        "areaServed": ["NL", "DE", "BE"],
-        "knowsLanguage": LANGS,
-    }
+def ld(data):
     return '<script type="application/ld+json">\n' + json.dumps(data, ensure_ascii=False, indent=2) + "\n</script>"
 
 
-def head_extra(page, lang, cfg):
+def provider(lang, cfg):
+    return {"@type": "LocalBusiness", "name": "BoatLab Yacht Services", "url": url("index", lang),
+            "telephone": "+31611742272", "email": cfg["email"], "address": ADDRESS}
+
+
+def breadcrumbs(items):
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": [{"@type": "ListItem", "position": i, "name": n, "item": u} for i, (n, u) in enumerate(items, 1)]}
+
+
+def structured_data(page, lang, cfg, tr):
+    if page == "index":
+        return ld({
+            "@context": "https://schema.org", "@type": "LocalBusiness",
+            "name": "BoatLab Yacht Services", "legalName": cfg["legalName"], "url": url("index", lang),
+            "logo": SITE + "/img/logo-full.png", "image": SITE + "/img/hero-crane-lift.jpg",
+            "email": cfg["email"], "telephone": "+31611742272", "vatID": cfg["vat"],
+            "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": cfg["kvk"]},
+            "hasMap": cfg["maps"], "sameAs": [cfg["instagram"], cfg["tiktok"]], "foundingDate": "2026-04",
+            "address": ADDRESS, "areaServed": ["NL", "DE", "BE"], "knowsLanguage": LANGS,
+        })
+    if page.startswith("svc-"):
+        sid = page[4:]
+        name = tr["s." + sid]
+        return "\n".join([
+            ld({"@context": "https://schema.org", "@type": "Service", "name": name, "serviceType": name,
+                "description": META[page][lang][1], "url": url(page, lang), "provider": provider(lang, cfg),
+                "areaServed": ["NL", "DE", "BE"]}),
+            ld(breadcrumbs([(tr["nav.home"], url("index", lang)), (tr["nav.services"], url("services", lang)), (name, url(page, lang))])),
+        ])
+    if page == "storage":
+        offers = [{"@type": "Offer", "name": tr[f"st.{sid}"], "priceCurrency": "EUR",
+                   "priceSpecification": {"@type": "UnitPriceSpecification", "price": rate, "priceCurrency": "EUR",
+                                          "unitText": tr["st.perFt"], "valueAddedTaxIncluded": True}}
+                  for sid, rate, _, _ in STORAGE]
+        return ld({"@context": "https://schema.org", "@type": "Service", "name": tr["nav.storage"],
+                   "serviceType": tr["nav.storage"], "description": META[page][lang][1], "url": url(page, lang),
+                   "provider": provider(lang, cfg), "offers": offers})
+    return ""
+
+
+def head_extra(page, lang, cfg, tr):
     """Tags that go into <head> (on Tilda: Page settings > Additional > HTML code for the HEAD section)."""
-    return hreflang_tags(page) + ("\n" + json_ld(lang, cfg) if page == "index" else "")
+    sd = structured_data(page, lang, cfg, tr)
+    return hreflang_tags(page) + ("\n" + sd if sd else "")
 
 
-def render_body(page, nav_id, sections, lang, tr, cfg, services, has_reviews, img_base, img_map):
+def render_body(page, nav_id, sections, lang, tr, cfg, services, content, has_reviews, img_base, img_map):
     header = read("partials", "header.html").replace(f'data-nav="{nav_id}"', f'data-nav="{nav_id}" aria-current="page"')
-    body = "\n\n".join("  " + read("sections", s + ".html").strip() for s in sections)
+    parts = []
+    for s in sections:
+        if s.startswith("@service:"):
+            parts.append(service_page(s[9:], lang, tr, services, content))
+        elif s.startswith("@"):
+            parts.append(storage_section(s[1:], lang, tr, services))
+        else:
+            parts.append(read("sections", s + ".html").strip())
+    body = "\n\n".join("  " + p for p in parts)
     reg = [f'{tr["footer.kvk"]} {cfg["kvk"]}', f'{tr["footer.vat"]} {cfg["vat"]}']
     doc = f"""{read("partials", "sprite.html").strip()}
 
@@ -300,10 +652,12 @@ def render_body(page, nav_id, sections, lang, tr, cfg, services, has_reviews, im
     doc = localize_images(doc, img_base, img_map)
     if "{{" in doc:
         raise ValueError("unfilled placeholder: " + doc[doc.index("{{"):doc.index("{{") + 40])
+    if re.search(r'href="[a-z0-9-]+\.html', doc):
+        raise ValueError("link to an unknown page: " + re.search(r'href="[a-z0-9-]+\.html[^"]*"', doc).group(0))
     return doc
 
 
-def full_page(page, lang, cfg, body, css_tag, js_tag):
+def full_page(page, lang, cfg, tr, body, css_tag, js_tag):
     title, desc = META[page][lang]
     robots = '<meta name="robots" content="noindex, follow">\n' if page == "privacy" else ""
     alternates = "\n".join(f'<meta property="og:locale:alternate" content="{LOCALE[l]}">' for l in LANGS if l != lang)
@@ -315,7 +669,7 @@ def full_page(page, lang, cfg, body, css_tag, js_tag):
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 {robots}<link rel="canonical" href="{url(page, lang)}">
-{head_extra(page, lang, cfg)}
+{head_extra(page, lang, cfg, tr)}
 <meta property="og:type" content="website">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
@@ -338,9 +692,19 @@ def full_page(page, lang, cfg, body, css_tag, js_tag):
 """
 
 
-def sitemap():
+def all_pages(services):
+    """Main pages plus one page per service, in site order (service pages after the services overview)."""
+    out = []
+    for page, nav_id, sections in PAGES:
+        out.append((page, nav_id, sections))
+        if page == "services":
+            out += [("svc-" + s["id"], "services", ["@service:" + s["id"], "cta"]) for s in services]
+    return out
+
+
+def sitemap(pages):
     rows = []
-    for page, _, _ in PAGES:
+    for page, _, _ in pages:
         if page == "privacy":
             continue
         for l in LANGS:
@@ -352,25 +716,25 @@ def sitemap():
             + "\n".join(rows) + "\n</urlset>\n")
 
 
-def tilda_manifest(cfg):
+def tilda_manifest(pages, cfg, tr):
     out = ["# Tilda pages",
            "",
-           "Generated by build.py. One Tilda page per row. For each page: create it, set the page address,",
+           f"Generated by build.py: {len(pages) * len(LANGS)} pages. For each page: create it, set the page address,",
            "SEO title and description (Page settings > SEO), paste the HEAD code (Page settings > Additional >",
            "HTML code for the HEAD section), add one HTML block (T123) with the contents of the file, and publish.",
            "",
            "| Tilda page | Page address | Paste file | SEO title |",
            "|---|---|---|---|"]
-    for page, _, _ in PAGES:
+    for page, _, _ in pages:
         for l in LANGS:
             out.append(f"| {page} ({l.upper()}) | `{path(page, l)}` | `tilda/{l}/{page}.html` | {META[page][l][0]} |")
-    for page, _, _ in PAGES:
+    for page, _, _ in pages:
         for l in LANGS:
             title, desc = META[page][l]
             out += ["", f"## {page} ({l.upper()}): `{path(page, l)}`", "",
                     f"- SEO title: {title}", f"- Description: {desc}",
                     "- Page settings > SEO: " + ("forbid indexing (noindex)" if page == "privacy" else "allow indexing"),
-                    "", "HEAD code:", "", "```html", head_extra(page, l, cfg), "```"]
+                    "", "HEAD code:", "", "```html", head_extra(page, l, cfg, tr[l]), "```"]
     return "\n".join(out) + "\n"
 
 
@@ -385,7 +749,8 @@ def main():
     js = read("assets", "site.js")
     if PREVIEW:
         js = js.replace("reviewPlaceholders: false", "reviewPlaceholders: true")
-    tr, cfg, services, has_reviews = load_data(js)
+    tr, cfg, services, content, has_reviews = load_data(js)
+    pages = all_pages(services)
 
     dist, tilda = os.path.join(ROOT, "dist"), os.path.join(ROOT, "tilda")
     for d in (dist, tilda, os.path.join(ROOT, "inline")):     # inline/ is no longer built
@@ -394,28 +759,25 @@ def main():
     shutil.copytree(os.path.join(ROOT, "img"), os.path.join(dist, "img"))
     write(os.path.join(dist, "assets", "site.css"), css)
     write(os.path.join(dist, "assets", "site.js"), localize_images_js(js, DIST_IMG_BASE, {}))
-    write(os.path.join(dist, "sitemap.xml"), sitemap())
+    write(os.path.join(dist, "sitemap.xml"), sitemap(pages))
     write(os.path.join(dist, "robots.txt"), f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 
     tilda_js = localize_images_js(js, TILDA_IMG_BASE, TILDA_IMAGES)
     count = 0
-    for page, nav_id, sections in PAGES:
+    for page, nav_id, sections in pages:
         for l in LANGS:
-            body = render_body(page, nav_id, sections, l, tr[l], cfg, services, has_reviews, DIST_IMG_BASE, {})
-            out = os.path.join(dist, SLUGS[page][l], "index.html")
-            write(out, full_page(page, l, cfg, body, '<link rel="stylesheet" href="/assets/site.css">',
-                                 '<script src="/assets/site.js"></script>'))
-            tbody = render_body(page, nav_id, sections, l, tr[l], cfg, services, has_reviews, TILDA_IMG_BASE, TILDA_IMAGES)
+            args = (page, nav_id, sections, l, tr[l], cfg, services, content, has_reviews)
+            body = render_body(*args, DIST_IMG_BASE, {})
+            write(os.path.join(dist, SLUGS[page][l], "index.html"),
+                  full_page(page, l, cfg, tr[l], body, '<link rel="stylesheet" href="/assets/site.css">',
+                            '<script src="/assets/site.js"></script>'))
+            tbody = render_body(*args, TILDA_IMG_BASE, TILDA_IMAGES)
             write(os.path.join(tilda, l, page + ".html"),
                   f"{FONTS}\n<style>{css}</style>\n\n{tbody}\n\n<script>{tilda_js}</script>\n")
             count += 1
-    write(os.path.join(tilda, "PAGES.md"), tilda_manifest(cfg))
-    print(f"Built {count} pages ({len(PAGES)} pages x {len(LANGS)} languages) into dist/ and tilda/"
+    write(os.path.join(tilda, "PAGES.md"), tilda_manifest(pages, cfg, tr))
+    print(f"Built {count} pages ({len(pages)} pages x {len(LANGS)} languages) into dist/ and tilda/"
           + (" (preview mode)" if PREVIEW else ""))
-
-
-def localize_images_js(js, base, mapping):
-    return re.sub(r'"img/([^"]+)"', lambda m: '"' + mapping.get(m.group(1), base + m.group(1)) + '"', js)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,98 @@
+{
+  "slug": {"en": "ceramic-coating", "nl": "keramische-coating", "de": "keramikversiegelung"},
+  "img": "yard-harbour-view.jpg",
+  "related": ["polishing", "washing", "gelcoat"],
+  "en": {
+    "title": "Ceramic Coating & Protective Coating for Boats · BoatLab",
+    "desc": "Ceramic and protective coatings for boats and yachts: the hull and superstructure stay glossy longer, repel dirt and are easier to clean. BoatLab, Wanssum.",
+    "h1": "A protective coating that keeps the shine.",
+    "lede": "A ceramic or protective coating seals your gelcoat or paint after polishing. Dirt sticks less, washing is quicker and the gloss lasts much longer.",
+    "intro_h": "Polishing brings back the shine. A coating keeps it.",
+    "intro": [
+      "Sun, rain and river water slowly dull the gelcoat. After a good polish, the surface is smooth and deep again, but without protection the oxidation soon returns. A coating forms a hard, water-repellent layer on top, so dirt, bird droppings and water stains have less grip.",
+      "The result depends almost entirely on the preparation. That's why we wash, decontaminate and polish first, so the coating is applied to a perfectly clean surface. We advise you on the right type of coating for your boat and how you use it."
+    ],
+    "included": [
+      "Thorough wash and decontamination of the surface",
+      "Machine polishing to remove oxidation and fine scratches",
+      "Degreasing so the coating bonds properly",
+      "Applying the coating panel by panel, by hand",
+      "Curing time under cover where possible",
+      "Care advice so the coating lasts as long as possible"
+    ],
+    "steps": [
+      ["Look at the surface", "We check the gelcoat or paint and advise whether polishing is needed first."],
+      ["Fixed quote", "You get a clear quote for preparation and coating, based on your boat."],
+      ["Prepare and coat", "Wash, polish, degrease and apply the coating with care."],
+      ["Handover and care tips", "We show you the result and explain how to keep the coating in top condition."]
+    ],
+    "factors": ["Size of the surface", "Condition of the gelcoat or paint", "Amount of polishing needed", "Type of coating", "Hull only or superstructure too"],
+    "faq": [
+      ["How long does a coating last?", "That depends on the product, the preparation and how the boat is used and stored. With the right care, a good coating protects for considerably longer than wax. We tell you in advance what you can expect from the product we recommend."],
+      ["Is a coating the same as wax?", "No. Wax sits on the surface and wears off within weeks to months. A coating forms a harder bond with the surface and lasts much longer."],
+      ["Can a coating go on an older boat?", "Yes, as long as the surface is polished first. On older, oxidised gelcoat the difference is often the most striking."]
+    ]
+  },
+  "nl": {
+    "title": "Keramische coating voor uw boot · BoatLab Wanssum",
+    "desc": "Keramische en beschermende coatings voor boten en jachten: romp en opbouw blijven langer glanzend, stoten vuil af en zijn makkelijker schoon te houden.",
+    "h1": "Een beschermende coating die de glans vasthoudt.",
+    "lede": "Een keramische of beschermende coating verzegelt uw gelcoat of lak na het poetsen. Vuil hecht minder, wassen gaat sneller en de glans blijft veel langer.",
+    "intro_h": "Poetsen brengt de glans terug. Een coating houdt hem vast.",
+    "intro": [
+      "Zon, regen en rivierwater maken de gelcoat langzaam dof. Na een goede poetsbeurt is het oppervlak weer glad en diep, maar zonder bescherming komt de verwering snel terug. Een coating vormt een harde, waterafstotende laag erbovenop, zodat vuil, vogelpoep en watervlekken minder grip hebben.",
+      "Het resultaat hangt bijna volledig af van de voorbereiding. Daarom wassen, ontsmetten en poetsen we eerst, zodat de coating op een perfect schoon oppervlak komt. We adviseren u over het juiste type coating voor uw boot en hoe u vaart."
+    ],
+    "included": [
+      "Grondige was en reiniging van het oppervlak",
+      "Machinaal polijsten om verwering en fijne krassen te verwijderen",
+      "Ontvetten zodat de coating goed hecht",
+      "Coating paneel voor paneel met de hand aanbrengen",
+      "Uithardingstijd, waar mogelijk overdekt",
+      "Onderhoudsadvies, zodat de coating zo lang mogelijk meegaat"
+    ],
+    "steps": [
+      ["Oppervlak bekijken", "We controleren de gelcoat of lak en adviseren of er eerst gepoetst moet worden."],
+      ["Vaste offerte", "U krijgt een heldere offerte voor voorbereiding en coating, afgestemd op uw boot."],
+      ["Voorbereiden en coaten", "Wassen, poetsen, ontvetten en de coating zorgvuldig aanbrengen."],
+      ["Oplevering en tips", "We laten u het resultaat zien en leggen uit hoe u de coating in topconditie houdt."]
+    ],
+    "factors": ["Grootte van het oppervlak", "Staat van gelcoat of lak", "Hoeveel poetswerk nodig is", "Type coating", "Alleen romp of ook de opbouw"],
+    "faq": [
+      ["Hoe lang gaat een coating mee?", "Dat hangt af van het product, de voorbereiding en hoe de boot gebruikt en gestald wordt. Met goed onderhoud beschermt een goede coating aanzienlijk langer dan was. We vertellen u vooraf wat u van het geadviseerde product kunt verwachten."],
+      ["Is een coating hetzelfde als was?", "Nee. Was ligt op het oppervlak en slijt binnen weken tot maanden. Een coating vormt een hardere verbinding met het oppervlak en gaat veel langer mee."],
+      ["Kan een coating op een oudere boot?", "Ja, als het oppervlak eerst gepoetst wordt. Juist op oudere, verweerde gelcoat is het verschil vaak het grootst."]
+    ]
+  },
+  "de": {
+    "title": "Keramikversiegelung für Boote und Yachten · BoatLab",
+    "desc": "Keramik- und Schutzversiegelungen für Boote und Yachten: Rumpf und Aufbau glänzen länger, weisen Schmutz ab und lassen sich leichter reinigen. BoatLab, Wanssum.",
+    "h1": "Eine Schutzversiegelung, die den Glanz hält.",
+    "lede": "Eine Keramik- oder Schutzversiegelung versiegelt Ihr Gelcoat oder Ihren Lack nach dem Polieren. Schmutz haftet weniger, das Waschen geht schneller und der Glanz hält viel länger.",
+    "intro_h": "Polieren bringt den Glanz zurück. Eine Versiegelung hält ihn.",
+    "intro": [
+      "Sonne, Regen und Flusswasser machen das Gelcoat langsam matt. Nach einer guten Politur ist die Oberfläche wieder glatt und tief, aber ohne Schutz kommt die Oxidation schnell zurück. Eine Versiegelung bildet darüber eine harte, wasserabweisende Schicht, auf der Schmutz, Vogelkot und Wasserflecken weniger Halt finden.",
+      "Das Ergebnis hängt fast vollständig von der Vorbereitung ab. Deshalb waschen, dekontaminieren und polieren wir zuerst, damit die Versiegelung auf eine perfekt saubere Oberfläche kommt. Wir beraten Sie zur passenden Versiegelung für Ihr Boot und Ihre Nutzung."
+    ],
+    "included": [
+      "Gründliche Wäsche und Dekontamination der Oberfläche",
+      "Maschinelles Polieren gegen Oxidation und feine Kratzer",
+      "Entfetten, damit die Versiegelung gut haftet",
+      "Versiegelung Feld für Feld von Hand auftragen",
+      "Aushärtezeit, wenn möglich unter Dach",
+      "Pflegetipps, damit die Versiegelung möglichst lange hält"
+    ],
+    "steps": [
+      ["Oberfläche prüfen", "Wir prüfen Gelcoat oder Lack und sagen Ihnen, ob zuerst poliert werden muss."],
+      ["Festpreisangebot", "Sie erhalten ein klares Angebot für Vorbereitung und Versiegelung, passend zu Ihrem Boot."],
+      ["Vorbereiten und versiegeln", "Waschen, polieren, entfetten und die Versiegelung sorgfältig auftragen."],
+      ["Übergabe und Pflegetipps", "Wir zeigen Ihnen das Ergebnis und erklären, wie die Versiegelung in Topform bleibt."]
+    ],
+    "factors": ["Größe der Fläche", "Zustand von Gelcoat oder Lack", "Umfang der Politur", "Art der Versiegelung", "Nur Rumpf oder auch Aufbau"],
+    "faq": [
+      ["Wie lange hält eine Versiegelung?", "Das hängt vom Produkt, der Vorbereitung sowie von Nutzung und Lagerung des Bootes ab. Bei richtiger Pflege schützt eine gute Versiegelung deutlich länger als Wachs. Wir sagen Ihnen vorab, was Sie vom empfohlenen Produkt erwarten können."],
+      ["Ist eine Versiegelung dasselbe wie Wachs?", "Nein. Wachs liegt auf der Oberfläche und nutzt sich innerhalb von Wochen bis Monaten ab. Eine Versiegelung verbindet sich fester mit der Oberfläche und hält viel länger."],
+      ["Geht eine Versiegelung auch auf einem älteren Boot?", "Ja, wenn die Oberfläche vorher poliert wird. Gerade auf älterem, oxidiertem Gelcoat ist der Unterschied oft am größten."]
+    ]
+  }
+}
