@@ -13,7 +13,7 @@ in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and Tik
 
 | File | Tab | Contents |
 |---|---|---|
-| `index.html` | Home | Hero, 6 featured services, free 30 t crane lift, before/after slider, reasons, partner logo strip, reviews band, facility teaser, booking call to action |
+| `index.html` | Home | Hero, 6 featured services, free 30 t crane lift, before/after slider, reasons, Focus main-partner block, partner logo strip, reviews band, facility teaser, booking call to action |
 | `services.html` | Services | All 14 services with category tabs, then a detail block per service (photos, partner brand, animated step-by-step), "How it works" |
 | `results.html` | Results | Before/after slider (3 antifouling pairs), polishing before/after, osmosis and antifouling-prep stories, finished boats |
 | `about.html` | Why BoatLab | Oleh Shevchuk (managing director), 6 reasons, Focus main-partner block, supplier logos (Hempel, Renskib, U-Dek), "How it works" |
@@ -31,7 +31,7 @@ boatlab-site/
                       service details (SVC_INFO photos/brand, SVC_TEXT steps, SVC_CAP captions), partner logos (BRANDS), reviews (REVIEWS), page behaviour
   src/partials/       shared header, footer, icon sprite
   src/sections/       one file per page section; build.py lists which sections each page uses
-  img/                web-ready photos
+  img/                web-ready photos (max 1600 px) and partner logos; build.py adds an 800 px `-sm.jpg` copy of each photo
   dist/   (generated) site for normal hosting, shared CSS/JS files
   inline/ (generated) same pages with CSS/JS inside each page
   tilda/  (generated) body-only pages to paste into a Tilda HTML block

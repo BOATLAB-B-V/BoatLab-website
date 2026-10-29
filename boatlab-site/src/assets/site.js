@@ -221,7 +221,7 @@ en:{
  "team.p1":"Oleh is the managing director of Boatlab BV and the person you speak with when you contact us. He looks at your boat with you, listens to what you need and prepares a personal offer for every client, with a clear price and planning.",
  "team.p2":"From the first call until your boat is back in the water, Oleh is your single point of contact. He keeps you informed and makes sure the work is done the way it was agreed.",
  "team.cta":"Get in touch",
- "pa.eyebrow":"Partners","pa.focusTag":"Main partner","pa.focusTitle":"Focus Motor Yachts & Focus Marine Center",
+ "pa.eyebrow":"Partners","pa.focusTag":"Main partner","pa.focusTitle":"Focus Motor Yachts & Focus Marine Center","pa.focusHead":"Yacht builder and service yard, side by side.",
  "pa.focusText":"BoatLab works side by side with Focus, the Dutch builder of motor yachts such as the Focus Power 44, from the Focus Marine Center site in Wanssum. Their halls, quay and 30-tonne crane are where your boat is lifted, stored and treated.",
  "pa.brandsTitle":"Products we trust","pa.brandsLede":"We only use premium brands that we know and trust on our customers' boats.",
  "pa.hempel":"Antifouling, hull repair & paint","pa.renskib":"Polishing compounds, pastes & cleaning","pa.udek":"Premium foam marine decking",
@@ -250,7 +250,7 @@ nl:{
  "team.p1":"Oleh is algemeen directeur van Boatlab BV en de persoon die u spreekt als u contact met ons opneemt. Hij bekijkt samen met u de boot, luistert naar wat u nodig hebt en maakt voor elke klant een persoonlijke offerte, met een heldere prijs en planning.",
  "team.p2":"Van het eerste telefoontje tot uw boot weer in het water ligt, is Oleh uw vaste aanspreekpunt. Hij houdt u op de hoogte en zorgt dat het werk gebeurt zoals afgesproken.",
  "team.cta":"Neem contact op",
- "pa.eyebrow":"Partners","pa.focusTag":"Hoofdpartner","pa.focusTitle":"Focus Motor Yachts & Focus Marine Center",
+ "pa.eyebrow":"Partners","pa.focusTag":"Hoofdpartner","pa.focusTitle":"Focus Motor Yachts & Focus Marine Center","pa.focusHead":"Jachtbouwer en servicewerf, zij aan zij.",
  "pa.focusText":"BoatLab werkt zij aan zij met Focus, de Nederlandse bouwer van motorjachten zoals de Focus Power 44, vanaf het terrein van Focus Marine Center in Wanssum. In hun hallen, aan hun kade en met hun 30-tons kraan wordt uw boot gehesen, gestald en behandeld.",
  "pa.brandsTitle":"Producten waarop we vertrouwen","pa.brandsLede":"Op de boten van onze klanten gebruiken we alleen premium merken die we kennen en vertrouwen.",
  "pa.hempel":"Antifouling, rompreparatie & verf","pa.renskib":"Polijstmiddelen, pasta's & reiniging","pa.udek":"Hoogwaardige schuim-dekbelegging",
@@ -279,7 +279,7 @@ de:{
  "team.p1":"Oleh ist Geschäftsführer der Boatlab BV und Ihr Gesprächspartner, wenn Sie uns kontaktieren. Er schaut sich Ihr Boot gemeinsam mit Ihnen an, hört zu, was Sie brauchen, und erstellt für jeden Kunden ein persönliches Angebot mit klarem Preis und Zeitplan.",
  "team.p2":"Vom ersten Anruf bis Ihr Boot wieder im Wasser liegt, ist Oleh Ihr fester Ansprechpartner. Er hält Sie auf dem Laufenden und sorgt dafür, dass die Arbeit so ausgeführt wird wie vereinbart.",
  "team.cta":"Kontakt aufnehmen",
- "pa.eyebrow":"Partner","pa.focusTag":"Hauptpartner","pa.focusTitle":"Focus Motor Yachts & Focus Marine Center",
+ "pa.eyebrow":"Partner","pa.focusTag":"Hauptpartner","pa.focusTitle":"Focus Motor Yachts & Focus Marine Center","pa.focusHead":"Yachtbauer und Servicewerft, Seite an Seite.",
  "pa.focusText":"BoatLab arbeitet Seite an Seite mit Focus, dem niederländischen Hersteller von Motoryachten wie der Focus Power 44, auf dem Gelände des Focus Marine Center in Wanssum. In ihren Hallen, an ihrem Kai und mit ihrem 30-Tonnen-Kran wird Ihr Boot gekrant, gelagert und behandelt.",
  "pa.brandsTitle":"Produkte, denen wir vertrauen","pa.brandsLede":"Auf den Booten unserer Kunden verwenden wir nur Premiummarken, die wir kennen und denen wir vertrauen.",
  "pa.hempel":"Antifouling, Rumpfreparatur & Lack","pa.renskib":"Polierpasten, Compounds & Reinigung","pa.udek":"Hochwertige Schaum-Decksbeläge",
@@ -304,7 +304,7 @@ const SVC_INFO = {
   engine:{}, navigation:{}, inspection:{},
   refit:{photos:[["refit-hall.jpg","re.p1"]]}
 };
-const BRANDS = {hempel:{name:"Hempel", logo:"img/logo-hempel.svg", official:true}, renskib:{name:"Renskib", logo:"img/logo-renskib.png"}, udek:{name:"U-Dek", logo:"img/logo-udek.png"}};
+const BRANDS = {hempel:{name:"Hempel", logo:"img/logo-hempel.png", official:true}, renskib:{name:"Renskib", logo:"img/logo-renskib.png"}, udek:{name:"U-Dek", logo:"img/logo-udek.png"}};
 
 const SVC_TEXT = {
 en:{
@@ -472,7 +472,7 @@ function renderDetails(){
     const info = SVC_INFO[s.id] || {}, tx = svcText(s.id), br = info.brand && BRANDS[info.brand];
     const photos = info.photos || [];
     const media = photos.length
-      ? `<div class="sd-photos n${Math.min(photos.length,3)}">${photos.map(([src,cap]) => `<figure><img src="img/${src}" alt="${capText(cap)}" loading="lazy"><figcaption>${capText(cap)}</figcaption></figure>`).join("")}</div>`
+      ? `<div class="sd-photos n${Math.min(photos.length,3)}">${photos.map(([src,cap]) => `<figure><img src="img/${src}" srcset="img/${src.replace(".jpg","-sm.jpg")} 800w, img/${src} 1600w" sizes="(max-width:860px) 50vw, 25vw" alt="${capText(cap)}" loading="lazy" decoding="async"><figcaption>${capText(cap)}</figcaption></figure>`).join("")}</div>`
       : `<div class="sd-art" aria-hidden="true"><span class="r1"></span><span class="r2"></span><span class="r3"></span><svg><use href="#s-${s.id}"/></svg></div>`;
     const brand = br ? `<div class="sd-brand"><span>${t("sd.with")}</span><img src="${br.logo}" alt="${br.name}" height="28" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><b hidden>${br.name}</b>${br.official ? `<em>${t("sd.official")}</em>` : ""}</div>` : "";
     return `<article class="sd${n%2 ? " flip" : ""}" id="svc-${s.id}" data-id="${s.id}">
@@ -493,6 +493,7 @@ function renderDetails(){
     </article>`;
   }).join("");
   $$(".sd", box).forEach(setupSteps);
+  watchAnimations();
 }
 function showStep(art, i){
   const tx = svcText(art.dataset.id), n = tx.s.length;
@@ -526,6 +527,48 @@ function setupSteps(art){
   }, {threshold:.45});
   io.observe(art);
 }
+/* Looping animations run only while their section is on screen (saves CPU and battery). */
+let animIO = null;
+function watchAnimations(){
+  if (!("IntersectionObserver" in window)) { $$(".sd, .cta-card, .hero-media").forEach(el => el.classList.add("in-view")); return; }
+  animIO = animIO || new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle("in-view", e.isIntersecting)), {rootMargin:"15% 0px"});
+  $$(".sd, .cta-card, .hero-media").forEach(el => animIO.observe(el));
+}
+watchAnimations();
+
+/* Partner logo strip: drifts by itself, pauses under the pointer, and can be dragged or scrolled by hand. */
+(function(){
+  const strip = $("#logoStrip"); if (!strip) return;
+  const track = $(".logo-track", strip);
+  const setWidth = () => track.scrollWidth / 3;                 // the cards are repeated three times
+  let paused = false, drag = null, idleUntil = 0, last = 0, acc = 0, visible = true;
+  strip.scrollLeft = setWidth();
+  const wrap = () => { const w = setWidth(); if (strip.scrollLeft >= w*2) strip.scrollLeft -= w; else if (strip.scrollLeft <= 0) strip.scrollLeft += w; };
+  strip.addEventListener("scroll", wrap, {passive:true});
+  if ("IntersectionObserver" in window) new IntersectionObserver(([e]) => visible = e.isIntersecting).observe(strip);
+  const tick = now => {
+    const dt = last ? Math.min(48, now - last) : 16; last = now;
+    if (visible && !paused && !drag && now > idleUntil && !document.hidden){
+      acc += dt * 0.03; const px = Math.floor(acc);
+      if (px){ strip.scrollLeft += px; acc -= px; }
+    }
+    requestAnimationFrame(tick);
+  };
+  if (!reduceMotion) requestAnimationFrame(tick);
+  const rest = ms => idleUntil = performance.now() + ms;
+  strip.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") paused = true; });
+  strip.addEventListener("pointerleave", () => paused = false);
+  strip.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse") return; drag = {x:e.clientX, s:strip.scrollLeft}; strip.setPointerCapture(e.pointerId); strip.classList.add("dragging"); });
+  strip.addEventListener("pointermove", e => { if (drag) strip.scrollLeft = drag.s - (e.clientX - drag.x); });
+  const end = () => { if (!drag) return; drag = null; strip.classList.remove("dragging"); rest(2500); };
+  strip.addEventListener("pointerup", end); strip.addEventListener("pointercancel", end);
+  strip.addEventListener("wheel", () => rest(2500), {passive:true});
+  strip.addEventListener("touchstart", () => rest(3500), {passive:true});
+  strip.addEventListener("touchend", () => rest(3500), {passive:true});
+  strip.addEventListener("focus", () => paused = true); strip.addEventListener("blur", () => paused = false);
+  strip.addEventListener("keydown", e => { if (e.key === "ArrowRight") strip.scrollLeft += 120; if (e.key === "ArrowLeft") strip.scrollLeft -= 120; });
+})();
+
 function openDetail(id){
   const art = $("#svc-"+id); if (!art) return;
   art.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block:"start"});

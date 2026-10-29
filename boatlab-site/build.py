@@ -16,7 +16,7 @@ PREVIEW = "--preview" in sys.argv
 
 # page file, nav id, sections in order, English meta description
 PAGES = [
-    ("index",    "home",     ["hero", "home-services", "lift", "results", "home-why", "brands", "reviews", "home-facility", "cta"],
+    ("index",    "home",     ["hero", "home-services", "lift", "results", "home-why", "partners", "brands", "reviews", "home-facility", "cta"],
      "BoatLab Yacht Services in Wanssum (NL): antifouling, polishing, painting, osmosis treatment, gelcoat repair, refits, engine service and electronics. Free lift with our 30-tonne crane on every service."),
     ("services", "services", ["ph-services", "services", "svc-details", "process", "cta"],
      "All 14 BoatLab services: antifouling with Hempel, painting, polishing with Renskib, cleaning, coatings, osmosis treatment, lamination, gelcoat repair, teak and U-Dek decking, inspections, refits, engine service and electronics."),
@@ -115,6 +115,36 @@ def page_html(name, nav_id, sections, desc, css, js):
 """
 
 
+def responsive_images(html):
+    """Adds a small variant (img/NAME-sm.jpg, built by make_variants) to every photo and async decoding to every image."""
+    def fix(m):
+        tag, name = m.group(0), m.group(1)
+        if os.path.exists(os.path.join(ROOT, "img", name + "-sm.jpg")) and "srcset=" not in tag:
+            sizes = "100vw" if "fetchpriority" in tag or "bleed" in tag else "(max-width: 820px) 100vw, 50vw"
+            tag = tag.replace(f'src="img/{name}.jpg"', f'src="img/{name}.jpg" srcset="img/{name}-sm.jpg 800w, img/{name}.jpg 1600w" sizes="{sizes}"')
+        if "decoding=" not in tag:
+            tag = tag.replace("<img ", '<img decoding="async" ', 1)
+        return tag
+    return re.sub(r'<img [^>]*src="img/([a-z0-9-]+)\.jpg"[^>]*>', fix, html)
+
+
+def make_variants():
+    """Writes an 800 px copy of every photo next to the original (skipped when it is already there and newer)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return
+    folder = os.path.join(ROOT, "img")
+    for f in sorted(os.listdir(folder)):
+        if not f.endswith(".jpg") or f.endswith("-sm.jpg") or f.startswith("logo"):
+            continue
+        src, dst = os.path.join(folder, f), os.path.join(folder, f[:-4] + "-sm.jpg")
+        if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
+            continue
+        im = Image.open(src).convert("RGB"); im.thumbnail((800, 800), Image.LANCZOS)
+        im.save(dst, quality=74, optimize=True, progressive=True)
+
+
 def strip_head(html):
     return re.sub(r"<!--HEAD-ONLY-->.*?<!--/HEAD-ONLY-->\n?", "", html, flags=re.S)
 
@@ -124,6 +154,7 @@ def clean_markers(html):
 
 
 def main():
+    make_variants()
     css = read("assets", "site.css")
     js = read("assets", "site.js")
     if PREVIEW:
@@ -144,7 +175,7 @@ def main():
     inline = (f"<style>{css}</style>", f"<script>{js}</script>")
     for name, nav_id, sections, desc in PAGES:
         for d, (c, j) in (("dist", linked), ("inline", inline)):
-            html = page_html(name, nav_id, sections, desc, c, j)
+            html = responsive_images(page_html(name, nav_id, sections, desc, c, j))
             with open(os.path.join(out[d], name + ".html"), "w", encoding="utf-8") as f:
                 f.write(clean_markers(html))
             if d == "inline":
