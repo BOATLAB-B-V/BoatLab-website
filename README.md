@@ -5,7 +5,8 @@ in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and Tik
 
 - Languages: English (default), Dutch, German, switchable on every page.
 - Style: bright white, logo blue `#0b8fd6` as accent only, full-width photos that fade into the page.
-- Preview link (shared, anyone with the link): https://claude.ai/artifact/DNrMyNRKgsKyXCE7mQN8yH
+- Preview link (current): https://claude.ai/artifact/GNe96iomnHhgrWhos7mqSj · older preview: https://claude.ai/artifact/DNrMyNRKgsKyXCE7mQN8yH
+- Plan and to-do list: `PLAN.md`
 - Plan: host on **Tilda** (paste-ready files in `boatlab-site/tilda/`), or any static host (`boatlab-site/dist/`).
 
 ## Pages
