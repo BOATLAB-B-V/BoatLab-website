@@ -13,11 +13,11 @@ in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and Tik
 
 | File | Tab | Contents |
 |---|---|---|
-| `index.html` | Home | Hero, 6 featured services, free 30 t crane lift, before/after slider, 3 reasons, reviews band, facility teaser, booking call to action |
-| `services.html` | Services | All 13 services with category tabs, "How it works" |
-| `results.html` | Results | Before/after slider (antifouling, polishing) |
-| `about.html` | Why BoatLab | 6 reasons, Focus Marine Center partnership, "How it works" |
-| `facility.html` | Facility | 30 t crane, full-width photo slider |
+| `index.html` | Home | Hero, 6 featured services, free 30 t crane lift, before/after slider, reasons, partner logo strip, reviews band, facility teaser, booking call to action |
+| `services.html` | Services | All 14 services with category tabs, then a detail block per service (photos, partner brand, animated step-by-step), "How it works" |
+| `results.html` | Results | Before/after slider (3 antifouling pairs), polishing before/after, osmosis and antifouling-prep stories, finished boats |
+| `about.html` | Why BoatLab | Oleh Shevchuk (managing director), 6 reasons, Focus main-partner block, supplier logos (Hempel, Renskib, U-Dek), "How it works" |
+| `facility.html` | Facility | 30 t crane, full-width photo slider (yard, crane, refit hall, Focus yachts, boat mover) |
 | `contact.html` | Contact | Booking form (with GDPR checkbox), address, phone, email, socials |
 | `privacy.html` | Privacy | Privacy policy in EN/NL/DE |
 
@@ -27,7 +27,8 @@ in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and Tik
 boatlab-site/
   build.py            builds every page from src/ (run: python3 build.py)
   src/assets/site.css all styles
-  src/assets/site.js  settings (CONFIG), services list, all texts in 3 languages (T, T2), reviews (REVIEWS), page behaviour
+  src/assets/site.js  settings (CONFIG), services list, all texts in 3 languages (T, T2, T3),
+                      service details (SVC_INFO photos/brand, SVC_TEXT steps, SVC_CAP captions), partner logos (BRANDS), reviews (REVIEWS), page behaviour
   src/partials/       shared header, footer, icon sprite
   src/sections/       one file per page section; build.py lists which sections each page uses
   img/                web-ready photos
@@ -47,7 +48,6 @@ To change text: edit the dictionaries in `src/assets/site.js` (keep EN, NL and D
 - [ ] **KvK and VAT (BTW) numbers**: fill `CONFIG.kvk` and `CONFIG.vat` (shown in the footer and privacy page, required by Dutch law).
 - [ ] **Booking delivery**: either rebuild the form as a native Tilda form (email + Google Sheets receivers), or set `CONFIG.formEndpoint` (e.g. Formspree). Until then the form shows the request for the visitor to email.
 - [ ] **Reviews**: paste real Google reviews into `REVIEWS` in `site.js`; the home page band stays hidden while it is empty.
-- [ ] **Before/after photos**: the originals were lost. The slider uses recovered halves (the right half of each "before" photo). Replace with new, ideally same-angle before/after shots.
 - [ ] **Fonts (GDPR)**: self-host Archivo, Instrument Sans and IBM Plex Mono instead of loading them from Google Fonts. Awaiting the owner's OK to download them.
 - [ ] **Focus Marine Center**: confirm whether customer data is shared with them; if yes, name them in the privacy policy.
 - [ ] **Tilda**: upload photos and swap image paths for Tilda's URLs; turn off Tilda statistics/tracking; sign data processing agreements with Tilda and the email provider.

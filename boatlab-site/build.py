@@ -16,14 +16,14 @@ PREVIEW = "--preview" in sys.argv
 
 # page file, nav id, sections in order, English meta description
 PAGES = [
-    ("index",    "home",     ["hero", "home-services", "lift", "results", "home-why", "reviews", "home-facility", "cta"],
+    ("index",    "home",     ["hero", "home-services", "lift", "results", "home-why", "brands", "reviews", "home-facility", "cta"],
      "BoatLab Yacht Services in Wanssum (NL): antifouling, polishing, painting, osmosis treatment, gelcoat repair, refits, engine service and electronics. Free lift with our 30-tonne crane on every service."),
-    ("services", "services", ["ph-services", "services", "process", "cta"],
-     "All 13 BoatLab services: antifouling, painting, polishing, cleaning, coatings, osmosis treatment, lamination, gelcoat repair, inspections, refits, engine service and electronics."),
-    ("results",  "results",  ["ph-results", "results", "cta"],
-     "Before and after: antifouling and polishing results from the BoatLab yard in Wanssum."),
-    ("about",    "about",    ["ph-about", "why", "partner", "process", "cta"],
-     "Why boat owners choose BoatLab: personal service, quality work, fair prices and a free 30-tonne crane lift, in partnership with Focus Marine Center."),
+    ("services", "services", ["ph-services", "services", "svc-details", "process", "cta"],
+     "All 14 BoatLab services: antifouling with Hempel, painting, polishing with Renskib, cleaning, coatings, osmosis treatment, lamination, gelcoat repair, teak and U-Dek decking, inspections, refits, engine service and electronics."),
+    ("results",  "results",  ["ph-results", "results", "results-more", "cta"],
+     "Before and after: antifouling, polishing and osmosis repair results from the BoatLab yard in Wanssum."),
+    ("about",    "about",    ["ph-about", "team", "why", "partners", "brands", "process", "cta"],
+     "Meet Oleh Shevchuk and the BoatLab team: personal service, quality work with Hempel and Renskib products, fair prices and a free 30-tonne crane lift, in partnership with Focus Motor Yachts and Focus Marine Center."),
     ("facility", "facility", ["ph-facility", "lift", "facility", "cta"],
      "The BoatLab yard in Wanssum: indoor halls, a full workshop, a harbour quay, a 30-tonne crane and a hydraulic boat mover on the Maas."),
     ("contact",  "contact",  ["ph-contact", "booking", "contact"],

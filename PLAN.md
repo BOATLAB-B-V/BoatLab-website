@@ -27,12 +27,26 @@ The owner has a large set of new photos. Plan:
    polishing 67 and 68 (already combined images). Crane: 36, 33, 41, 32 and more. Owner to confirm the picks.
 3. **Prepare them for the web**: resize, compress, consistent names (e.g. `antifouling-before-2.jpg`).
    Large originals stay out of the repo; only web-ready versions go in `boatlab-site/img/`.
-4. **Use them on the site**:
-   - [ ] Replace the recovered before/after halves with real same-angle pairs (antifouling, polishing).
-   - [ ] Add more before/after pairs to the Results page (e.g. painting, gelcoat repair, cleaning, osmosis).
-   - [ ] Home page: stronger hero photo, crane / free-lift section photo.
-   - [ ] Facility page: more slider photos (crane, halls, quay, workshop).
-   - [ ] Optional: a photo per service card on the Services page (today the cards have icons only).
+4. ~~Use them on the site~~ Done 29 Oct (owner's picks):
+   - Results slider: antifouling 06→12 (hull side), 07→14 (bow), 30→34 (new colour). 59/60→61 dropped (different boats).
+   - Polishing: 67 (one split image, not duplicated) and 05 with drawn Before/After markers and a dashed line.
+   - Stories: osmosis repair 63, 65 → 61; antifouling prep 51, 52, 23.
+   - Services: photos per service (washing 01, 22, 56; polishing 04, 55, 66; antifouling 23, 51, 14; osmosis 63, 64, 61;
+     teak 20, 21; interior 17, 18; refit 35). New service: Teak & decking (incl. U-Dek).
+   - Crane section: 36. Facility slider: 27, 36, 28, 35, 03, 32, 62, 37. Finished boats: 33, 39, 15, 49, 41, 40, 16.
+   - About: Oleh Shevchuk (11).
+   - [ ] Better crane photos and crane video for the home page (owner will shoot them).
+   - [ ] Photos still missing for: coating, gelcoat, lamination, painting, inspection, engine, electronics (these show an animated icon for now).
+
+## Services and partners (done 29 Oct, to review)
+
+- Every service has a full description and 4–5 animated, clickable steps, in EN/NL/DE. **Owner: please check the steps match how BoatLab really works.**
+- Partners: Focus Motor Yachts / Focus Marine Center as main partner (large block on About); sliding logos of Hempel (official partner),
+  Renskib and U-Dek on Home and About; brand badges on each service.
+- Logos are from the companies' own websites. Hempel: official vector. Renskib: only a white logo exists online, recoloured to dark;
+  [ ] ask Renskib for an official dark logo. U-Dek: small PNG; [ ] ask for a larger/vector logo. Focus: PNG from focus-motoryachts.com.
+- Note: U-Dek is a brand of Ultralon (New Zealand); the Dutch site u-dek.com is a dealer. The text no longer calls U-Dek Dutch.
+- [ ] Get written OK from the people shown in photos (staff faces) and from partners for logo use.
 
 ## Publishing: Tilda and Claude
 
@@ -81,3 +95,4 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
 
 - **29 Oct 2026**: Repo connected to a Claude Code session. Wrote this plan and `CLAUDE.md`. Installed the `find-skills` skill.
   Published a new preview of the current site. Added to the plan: Tilda/Claude publishing route, and a marketing landing page.
+- **29 Oct 2026 (later)**: New photos on Results, Services, About, Facility and Home. Detailed service pages with animated steps. Oleh section. Partner logos. Preview updated (version 2).
