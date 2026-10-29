@@ -20,9 +20,11 @@ _Last updated: 29 Oct 2026_
 
 The owner has a large set of new photos. Plan:
 
-1. **Get the photos into the session.** Options: share a Google Drive folder, upload them to the repo on GitHub
-   (a `photos-inbox/` folder), or attach them in the chat.
-2. **Sort them** into: before/after pairs per service, crane and lifting, yard and facility, team and work in progress.
+1. ~~Get the photos into the session.~~ Done 29 Oct: Dropbox shared folder (69 photos + 1 video, Mar–Oct 2026).
+   Originals stay in Dropbox. Photo library page (numbered 01–69 by date):
+   https://claude.ai/artifact/CWG1wAXheZ35fa7EK1kBdF
+2. ~~Sort them.~~ Done. Before/after pairs found: antifouling 06→12, 07/08→13/14, 30→34, 59/60→61 (confirm same boat);
+   polishing 67 and 68 (already combined images). Crane: 36, 33, 41, 32 and more. Owner to confirm the picks.
 3. **Prepare them for the web**: resize, compress, consistent names (e.g. `antifouling-before-2.jpg`).
    Large originals stay out of the repo; only web-ready versions go in `boatlab-site/img/`.
 4. **Use them on the site**:
