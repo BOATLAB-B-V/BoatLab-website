@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": "skills/find-skills/SKILL.md",
       "computedHash": "913b9d37d0d54047dd65222bb8c67b2bf04e3cb87dcad1729068d7a8b2c8c396"
+    },
+    "video-edit": {
+      "source": "tenfoldmarc/video-edit-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "4de4b0c3b9837442d9c7393c2ccc02114f830600a10b56d4ebbb838e6870d2f6"
     }
   }
 }
