@@ -567,8 +567,9 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 .dark .lede{color:var(--on-navy-muted)}
 .dark .eyebrow{color:var(--brand-light)}
 .dark .btn.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px var(--line-navy)}
-.dark .btn.ghost:hover{background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5)}
-.dark .btn:hover{background:var(--brand-light);color:var(--navy)}
+.dark .btn:not(.ghost):hover{background:var(--brand-light);color:var(--navy)}
+.dark .btn.ghost:hover,.dark .btn.ghost:active,.dark .btn.ghost:focus-visible{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
+.dark .btn.ghost svg{color:inherit}
 .dark .plate{background:var(--navy-2);box-shadow:inset 0 0 0 1px var(--line-navy)}
 .dark .tonnage small{color:var(--brand-light)}
 .dark .brand{color:#fff}.dark .brand small{color:var(--on-navy-muted)}
@@ -578,6 +579,7 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 .fac-teaser .fac-stage{padding-bottom:clamp(56px,8vw,104px)}
 .cta-card.dark{background:var(--navy)}
 .cta-card.dark .btn.ghost{color:#fff}
+.cta-card.dark .btn.ghost:hover,.cta-card.dark .btn.ghost:active{color:#fff;background:rgba(255,255,255,.14)}
 
 /* ---------- hero: aerial photo in a frame with anchored callouts ---------- */
 .hero-media{margin-top:clamp(28px,4vw,56px)}
