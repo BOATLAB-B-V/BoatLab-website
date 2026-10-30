@@ -98,16 +98,16 @@ The owner has a large set of new photos. Plan:
 
 Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in priority order:
 
-1. [ ] **Critical: Dutch and German are not indexable.** One URL per page, text swapped by JS; Google indexes English only.
+1. [x] **Critical: Dutch and German are not indexable.** (done 30 Oct) One URL per page, text swapped by JS; Google indexes English only.
        Fix in `build.py`: write `/nl/`, `/de/`, `/en/` copies with the right `lang`, titles, descriptions and `hreflang`; the language switch links to the sibling URL.
-2. [ ] **Titles/H1/meta** with service + place keywords per language (home title e.g. "Jachtservice & botenonderhoud Wanssum, Limburg · Gratis hijsen · BoatLab"); descriptions 140–155 ch with a CTA.
-3. [ ] **Dedicated service pages** (3 languages): antifouling, polishing & coating, osmosis, winter storage (new service, top seasonal term), refit. FAQ + price indication + form on each.
-4. [ ] **Conversion plumbing before ads**: working booking form endpoint, WhatsApp button, sticky mobile call bar, Tag Manager + Consent Mode banner, conversions for form/call/WhatsApp.
-5. [ ] `robots.txt` + `sitemap.xml` from `build.py`; JSON-LD: LocalBusiness (not AutoRepair), geo, hours, services, sameAs; OG image → new aerial.
+2. [x] **Titles/H1/meta** (done 30 Oct) with service + place keywords per language (home title e.g. "Jachtservice & botenonderhoud Wanssum, Limburg · Gratis hijsen · BoatLab"); descriptions 140–155 ch with a CTA.
+3. [x] **Dedicated service pages** (done 30 Oct: antifouling, polishing, osmosis, storage, refit; FAQ + price note; no price figures yet) (3 languages): antifouling, polishing & coating, osmosis, winter storage (new service, top seasonal term), refit. FAQ + price indication + form on each.
+4. [~] **Conversion plumbing before ads**: WhatsApp buttons, sticky mobile call bar, consent banner and conversion events are built (30 Oct). Still needed from the owner: a form endpoint (`CONFIG.formEndpoint`) and a Tag Manager id (`CONFIG.gtmId`).
+5. [x] `robots.txt` + `sitemap.xml` (done 30 Oct) from `build.py`; JSON-LD: LocalBusiness (not AutoRepair), geo, hours, services, sameAs; OG image → new aerial.
 6. [ ] Google Business Profile (category Boat repair shop), 10 reviews in 3 months, citations (HISWA, Jachthavens.nl, VVV Limburg, Focus Marine Center link).
-7. [ ] Fill email / KvK / BTW; self-host fonts; WebP hero.
+7. [~] Fonts self-hosted and WebP done (30 Oct). Still needed from the owner: email, KvK, BTW.
 8. Ads plan: brand campaign now; antifouling Feb–May; winter storage Sep–Nov; NL + DE, 40 km + NRW border; €15–25/day per language to start.
-9. Owner decision: offer winter/dry storage as a service? (strongest seasonal keyword; quay already shown on the hero).
+9. Winter & dry storage added as the 15th service with its own page (30 Oct), worded as "on the quay, or indoors when space allows". Owner to confirm the offer and wording.
 
 ## Publishing: Tilda and Claude
 
@@ -140,7 +140,7 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
 - [ ] **Hero photo retouch**: owner wants the cluttered yard area (right of the hall, behind the quay) cleaned up or replaced by tidy boats in dry storage. Needs a photo editor with generative fill (Photoshop, Canva, Pixelmator) or a fresh drone shot after a tidy-up; the first option keeps the real scene most honest.
 - [ ] **Old booking form delivery**: native Tilda form, or a Formspree URL in `CONFIG.formEndpoint`.
 - [ ] **Reviews**: paste real Google reviews into `REVIEWS` in `site.js` (the reviews band stays hidden until then).
-- [ ] **Fonts (GDPR)**: self-host Archivo, Instrument Sans, IBM Plex Mono instead of Google Fonts. Waiting for owner's OK.
+- [x] **Fonts (GDPR)**: self-hosted (30 Oct).
 - [ ] **Focus Marine Center**: confirm whether customer data is shared; if yes, name them in the privacy policy.
 - [ ] **Tilda**: upload photos and swap image paths for Tilda URLs; turn off Tilda tracking; data processing agreements with Tilda and the email provider.
 - [ ] Privacy policy checked by a legal/privacy professional.
@@ -163,3 +163,7 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
   Performance pass (see above). Installing the `web-perf` and `animation-performance` skills was blocked by the session's permission check; fixes applied by hand.
 - **30 Oct 2026**: Drone videos and photos pulled from SharePoint (anonymous share link works with curl). Four background loops on Home and Facility, two aerial photos in the slider.
 - **30 Oct 2026 (later)**: Dark-navy redesign, framed media, hero still with callouts, videos reduced to two and re-encoded at higher quality. Services hero photo swapped for the aerial hall shot.
+- **30 Oct 2026 (night)**: SEO/ads audit fixes. Site now built per language (`/`, `/nl/`, `/de/`) with hreflang, sitemap and robots; keyword titles,
+  H1s and descriptions; LocalBusiness/Service/FAQ schema; five service landing pages ×3 languages; Winter & dry storage as new service;
+  WhatsApp everywhere + sticky mobile call bar; consent banner + GTM hook + conversion events (inactive until `gtmId` is set); self-hosted fonts; WebP images.
+  Open for the owner: email, KvK, BTW, form endpoint, GTM id, Google Business Profile, reviews, price indications, geo coordinates check.

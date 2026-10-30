@@ -3,6 +3,9 @@ const CONFIG = {
   email: "info@boatlabservice.nl",              // TODO confirm address
   // Paste a Formspree form URL (https://formspree.io/f/xxxx) to receive bookings by email.
   formEndpoint: "",
+  whatsapp: "31611742272",                     // WhatsApp number, digits only
+  // Google Tag Manager container (GTM-XXXXXXX). Empty = no tags, no cookies, no consent banner.
+  gtmId: "",
   instagram: "https://www.instagram.com/boatlab.nl/",
   tiktok: "https://www.tiktok.com/@boatlab.nl",
   // Dutch law requires the KvK number (and VAT number) on the website. Shown in the footer once filled in.
@@ -16,20 +19,21 @@ const CONFIG = {
 const SERVICES = [
   {id:"antifouling", cat:"hull"},{id:"osmosis", cat:"hull"},{id:"coating", cat:"hull"},{id:"gelcoat", cat:"hull"},{id:"lamination", cat:"hull"},
   {id:"polishing", cat:"finish"},{id:"painting", cat:"finish"},{id:"washing", cat:"finish"},{id:"interior", cat:"finish"},{id:"teak", cat:"finish"},
-  {id:"engine", cat:"tech"},{id:"navigation", cat:"tech"},{id:"inspection", cat:"tech"},{id:"refit", cat:"tech"}
+  {id:"engine", cat:"tech"},{id:"navigation", cat:"tech"},{id:"inspection", cat:"tech"},{id:"refit", cat:"tech"},
+  {id:"storage", cat:"yard"}
 ];
 
 const T = {
 en:{
  "nav.services":"Services","nav.results":"Results","nav.why":"Why BoatLab","nav.facility":"Facility","nav.contact":"Contact",
  "cta.book":"Get an offer","cta.services":"Explore services",
- "hero.eyebrow":"Yacht & boat service · Wanssum, NL","hero.h1a":"Your boat.","hero.h1b":"Back better.",
+ "hero.eyebrow":"Yacht & boat service in Wanssum, Limburg (NL)","hero.h1a":"Your boat.","hero.h1b":"Back better.",
  "hero.lede":"All-round yacht and boat care on the Maas, with a personal approach and fair prices. <strong>Every service includes a free lift with our 30-tonne crane.</strong>",
  "hero.f1":"Free 30 t crane lift","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Open since April 2026",
  "chip.lift":"free lift, every service","chip.finish":"Mirror finish","chip.finish2":"polish & coating","chip.personal":"One contact","chip.personal2":"from quote to launch","chip.focus":"Focus Marine Center","chip.focus2":"our partner yard","chip.hall":"Indoor hall","chip.hall2":"work in any weather","chip.dock":"On-water dock","chip.dock2":"boats ready to go","chip.dry":"Dry storage","chip.dry2":"safe on the quay",
  "lift.plate":"Max load 4 × 7,500 kg","lift.title":"Lifting is on us.","lift.text":"Our own 30-tonne crane lifts your boat out and back into the water. When you book any service with BoatLab, the lift costs you nothing.",
  "svc.eyebrow":"Services","svc.title":"Everything your boat needs, under one roof.","svc.lede":"From a spring antifouling to a complete refit. Tap a service to add it to your offer request.",
- "svc.all":"All","svc.hull":"Hull & protection","svc.finish":"Finish & care","svc.tech":"Technical","svc.add":"Add to offer request",
+ "svc.all":"All","svc.hull":"Hull & protection","svc.finish":"Finish & care","svc.tech":"Technical","svc.yard":"Storage & yard","svc.add":"Add to offer request",
  "s.antifouling":"Antifouling","s.antifouling.d":"Hull cleaned, sanded and recoated for a clean, fast season.",
  "s.painting":"Painting","s.painting.d":"Topsides, decks and details painted to a lasting finish.",
  "s.polishing":"Polishing","s.polishing.d":"Machine polishing that brings oxidised gelcoat back to a deep gloss.",
@@ -60,18 +64,18 @@ en:{
  "f.name":"Name","f.email":"Email","f.phone":"Phone","f.optional":"(optional)","f.lang":"Preferred language","f.boat":"Boat make & model","f.length":"Length (m)","f.services":"Services","f.date":"Preferred date","f.where":"Where is the boat now?","f.w1":"In the water","f.w2":"On a trailer","f.w3":"In storage elsewhere","f.msg":"Anything else we should know?","f.photos":"Photos of your boat","f.photosHint":"Add up to 5 photos of the hull, deck or the damage. Tap to choose, or drop them here.","f.photosNote":"JPG, PNG or HEIC, max 10 MB each. Photos help us give you an accurate offer.","f.photosErr":"Please add up to 5 photos of max 10 MB each.","f.photosAttach":"Attach your photos to the email as well.","f.remove":"Remove","f.note":"No payment needed. We only use your details to answer this request.","f.submit":"Send request",
  "f.errReq":"Please fill in your name, a valid email and your boat.","f.errSvc":"Choose at least one service.","f.errConsent":"Please confirm that you have read the privacy policy.","f.consent":"I have read the <a class=\"js-privacy\" href=\"privacy.html\">privacy policy</a> and agree that BoatLab uses my details to handle this request.","footer.privacy":"Privacy policy","footer.kvk":"KvK","footer.vat":"VAT","f.errSend":"The request could not be sent. Please email us directly at ",
  "done.title":"Request sent.","done.text":"Thank you. We'll reply personally within one working day.","done.readyTitle":"Your request is ready.","done.readyText":"Send it to us by email and we'll reply personally with a quote and a date.","done.copy":"Copy request","done.mail":"Open in email","done.new":"New request","done.copied":"Copied",
- "c.eyebrow":"Visit the yard","c.maps":"Open in Google Maps →","c.email":"Email","c.copy":"Copy","c.address":"Address","c.follow":"Follow us","c.watch":"Watch us work","c.phone":"Phone","c.call":"Call us →","c.focus":"In partnership with Focus Marine Center"
+ "c.eyebrow":"Visit the yard","c.maps":"Open in Google Maps →","c.email":"Email","c.copy":"Copy","c.address":"Address","c.follow":"Follow us","c.watch":"Watch us work","c.phone":"Phone","c.call":"Call us →","c.wa":"Send a message →","c.focus":"In partnership with Focus Marine Center"
 },
 nl:{
  "nav.services":"Diensten","nav.results":"Resultaten","nav.why":"Waarom BoatLab","nav.facility":"Werf","nav.contact":"Contact",
  "cta.book":"Offerte aanvragen","cta.services":"Bekijk diensten",
- "hero.eyebrow":"Jacht- & botenservice · Wanssum, NL","hero.h1a":"Uw boot.","hero.h1b":"Beter terug.",
+ "hero.eyebrow":"Jachtservice & botenonderhoud in Wanssum, Limburg","hero.h1a":"Uw boot.","hero.h1b":"Beter terug.",
  "hero.lede":"Allround onderhoud voor jachten en boten aan de Maas, persoonlijk en voor een eerlijke prijs. <strong>Bij elke service hijsen we uw boot gratis met onze 30-tons kraan.</strong>",
  "hero.f1":"Gratis hijsen, 30 t kraan","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Geopend sinds april 2026",
  "chip.lift":"gratis hijsen bij elke service","chip.finish":"Spiegelglans","chip.finish2":"polijsten & coating","chip.personal":"Eén aanspreekpunt","chip.personal2":"van offerte tot te water","chip.focus":"Focus Marine Center","chip.focus2":"onze partnerwerf","chip.hall":"Binnenhal","chip.hall2":"werken bij elk weer","chip.dock":"Steiger in het water","chip.dock2":"boten klaar om te varen","chip.dry":"Droge stalling","chip.dry2":"veilig op de kade",
  "lift.plate":"Max hijslast 4 × 7 500 kg","lift.title":"Hijsen doen wij gratis.","lift.text":"Met onze eigen 30-tons kraan halen we uw boot uit het water en zetten we hem weer terug. Boekt u een service bij BoatLab, dan kost het hijsen u niets.",
  "svc.eyebrow":"Diensten","svc.title":"Alles wat uw boot nodig heeft, onder één dak.","svc.lede":"Van antifouling in het voorjaar tot een complete refit. Tik op een dienst om hem aan uw offerteaanvraag toe te voegen.",
- "svc.all":"Alles","svc.hull":"Romp & bescherming","svc.finish":"Afwerking & verzorging","svc.tech":"Techniek","svc.add":"Toevoegen aan aanvraag",
+ "svc.all":"Alles","svc.hull":"Romp & bescherming","svc.finish":"Afwerking & verzorging","svc.tech":"Techniek","svc.yard":"Stalling & werf","svc.add":"Toevoegen aan aanvraag",
  "s.antifouling":"Antifouling","s.antifouling.d":"Onderwaterschip reinigen, schuren en opnieuw coaten voor een schoon, snel seizoen.",
  "s.painting":"Schilderwerk","s.painting.d":"Romp, dek en details geschilderd met een duurzame afwerking.",
  "s.polishing":"Polijsten","s.polishing.d":"Machinaal polijsten dat verweerde gelcoat weer diep laat glanzen.",
@@ -102,18 +106,18 @@ nl:{
  "f.name":"Naam","f.email":"E-mail","f.phone":"Telefoon","f.optional":"(optioneel)","f.lang":"Voorkeurstaal","f.boat":"Merk & type boot","f.length":"Lengte (m)","f.services":"Diensten","f.date":"Gewenste datum","f.where":"Waar ligt de boot nu?","f.w1":"In het water","f.w2":"Op een trailer","f.w3":"Elders in de stalling","f.msg":"Wat moeten we nog meer weten?","f.photos":"Foto's van uw boot","f.photosHint":"Voeg maximaal 5 foto's toe van de romp, het dek of de schade. Tik om te kiezen, of sleep ze hierheen.","f.photosNote":"JPG, PNG of HEIC, max. 10 MB per foto. Met foto's kunnen we een nauwkeurige offerte maken.","f.photosErr":"Voeg maximaal 5 foto's toe van elk max. 10 MB.","f.photosAttach":"Voeg uw foto's ook als bijlage aan de e-mail toe.","f.remove":"Verwijderen","f.note":"U betaalt nu niets. We gebruiken uw gegevens alleen om deze aanvraag te beantworden.","f.submit":"Aanvraag versturen",
  "f.errReq":"Vul uw naam, een geldig e-mailadres en uw boot in.","f.errSvc":"Kies minstens één dienst.","f.errConsent":"Bevestig dat u de privacyverklaring heeft gelezen.","f.consent":"Ik heb de <a class=\"js-privacy\" href=\"privacy.html\">privacyverklaring</a> gelezen en ga ermee akkoord dat BoatLab mijn gegevens gebruikt om deze aanvraag af te handelen.","footer.privacy":"Privacyverklaring","footer.kvk":"KvK","footer.vat":"BTW","f.errSend":"De aanvraag kon niet worden verzonden. Mail ons direct via ",
  "done.title":"Aanvraag verstuurd.","done.text":"Bedankt. We reageren persoonlijk binnen één werkdag.","done.readyTitle":"Uw aanvraag staat klaar.","done.readyText":"Stuur hem per e-mail naar ons en we reageren persoonlijk met een offerte en een datum.","done.copy":"Aanvraag kopiëren","done.mail":"Openen in e-mail","done.new":"Nieuwe aanvraag","done.copied":"Gekopieerd",
- "c.eyebrow":"Bezoek de werf","c.maps":"Openen in Google Maps →","c.email":"E-mail","c.copy":"Kopiëren","c.address":"Adres","c.phone":"Telefoon","c.call":"Bel ons →","c.focus":"Gevestigd in samenwerking met Focus Marine Center","c.follow":"Volg ons","c.watch":"Kijk mee op de werf"
+ "c.eyebrow":"Bezoek de werf","c.maps":"Openen in Google Maps →","c.email":"E-mail","c.copy":"Kopiëren","c.address":"Adres","c.phone":"Telefoon","c.call":"Bel ons →","c.wa":"Stuur een bericht →","c.focus":"Gevestigd in samenwerking met Focus Marine Center","c.follow":"Volg ons","c.watch":"Kijk mee op de werf"
 },
 de:{
  "nav.services":"Leistungen","nav.results":"Ergebnisse","nav.why":"Warum BoatLab","nav.facility":"Werft","nav.contact":"Kontakt",
  "cta.book":"Angebot anfragen","cta.services":"Leistungen ansehen",
- "hero.eyebrow":"Yacht- & Bootsservice · Wanssum, NL","hero.h1a":"Ihr Boot.","hero.h1b":"Besser zurück.",
+ "hero.eyebrow":"Yacht- & Bootsservice in Wanssum (NL), nahe der deutschen Grenze","hero.h1a":"Ihr Boot.","hero.h1b":"Besser zurück.",
  "hero.lede":"Rundum-Service für Yachten und Boote an der Maas, persönlich und zu fairen Preisen. <strong>Bei jedem Service kranen wir Ihr Boot kostenlos mit unserem 30-Tonnen-Kran.</strong>",
  "hero.f1":"Kostenlos kranen, 30 t","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Geöffnet seit April 2026",
  "chip.lift":"kostenlos kranen bei jedem Service","chip.finish":"Spiegelglanz","chip.finish2":"Politur & Versiegelung","chip.personal":"Ein Ansprechpartner","chip.personal2":"vom Angebot bis zum Einwassern","chip.focus":"Focus Marine Center","chip.focus2":"unsere Partnerwerft","chip.hall":"Halle","chip.hall2":"Arbeit bei jedem Wetter","chip.dock":"Steg im Wasser","chip.dock2":"Boote startklar","chip.dry":"Trockenlager","chip.dry2":"sicher am Kai",
  "lift.plate":"Max. Traglast 4 × 7.500 kg","lift.title":"Das Kranen übernehmen wir.","lift.text":"Mit unserem eigenen 30-Tonnen-Kran heben wir Ihr Boot aus dem Wasser und wieder hinein. Wenn Sie einen Service bei BoatLab buchen, kostet Sie das Kranen nichts.",
  "svc.eyebrow":"Leistungen","svc.title":"Alles, was Ihr Boot braucht, unter einem Dach.","svc.lede":"Vom Antifouling im Frühjahr bis zum kompletten Refit. Tippen Sie auf eine Leistung, um sie Ihrer Anfrage hinzuzufügen.",
- "svc.all":"Alle","svc.hull":"Rumpf & Schutz","svc.finish":"Finish & Pflege","svc.tech":"Technik","svc.add":"Zur Anfrage hinzufügen",
+ "svc.all":"Alle","svc.hull":"Rumpf & Schutz","svc.finish":"Finish & Pflege","svc.tech":"Technik","svc.yard":"Lager & Werft","svc.add":"Zur Anfrage hinzufügen",
  "s.antifouling":"Antifouling","s.antifouling.d":"Unterwasserschiff reinigen, schleifen und neu beschichten für eine saubere, schnelle Saison.",
  "s.painting":"Lackierung","s.painting.d":"Rumpf, Deck und Details lackiert, mit dauerhaftem Finish.",
  "s.polishing":"Polieren","s.polishing.d":"Maschinelles Polieren bringt oxidiertes Gelcoat zurück zu tiefem Glanz.",
@@ -144,7 +148,7 @@ de:{
  "f.name":"Name","f.email":"E-Mail","f.phone":"Telefon","f.optional":"(optional)","f.lang":"Bevorzugte Sprache","f.boat":"Bootsmarke & Modell","f.length":"Länge (m)","f.services":"Leistungen","f.date":"Wunschtermin","f.where":"Wo liegt das Boot jetzt?","f.w1":"Im Wasser","f.w2":"Auf einem Trailer","f.w3":"In einem anderen Winterlager","f.msg":"Was sollten wir noch wissen?","f.photos":"Fotos Ihres Bootes","f.photosHint":"Fügen Sie bis zu 5 Fotos von Rumpf, Deck oder Schaden hinzu. Tippen zum Auswählen oder hierher ziehen.","f.photosNote":"JPG, PNG oder HEIC, max. 10 MB pro Foto. Mit Fotos können wir ein genaues Angebot erstellen.","f.photosErr":"Bitte bis zu 5 Fotos mit je max. 10 MB hinzufügen.","f.photosAttach":"Hängen Sie Ihre Fotos bitte auch an die E-Mail an.","f.remove":"Entfernen","f.note":"Keine Zahlung nötig. Wir nutzen Ihre Daten nur zur Beantwortung dieser Anfrage.","f.submit":"Anfrage senden",
  "f.errReq":"Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und Ihr Boot an.","f.errSvc":"Bitte wählen Sie mindestens eine Leistung.","f.errConsent":"Bitte bestätigen Sie, dass Sie die Datenschutzerklärung gelesen haben.","f.consent":"Ich habe die <a class=\"js-privacy\" href=\"privacy.html\">Datenschutzerklärung</a> gelesen und bin einverstanden, dass BoatLab meine Daten zur Bearbeitung dieser Anfrage verwendet.","footer.privacy":"Datenschutz","footer.kvk":"KvK","footer.vat":"USt-IdNr.","f.errSend":"Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns direkt an ",
  "done.title":"Anfrage gesendet.","done.text":"Vielen Dank. Wir melden uns persönlich innerhalb eines Werktags.","done.readyTitle":"Ihre Anfrage ist bereit.","done.readyText":"Senden Sie sie uns per E-Mail, und wir melden uns persönlich mit Angebot und Termin.","done.copy":"Anfrage kopieren","done.mail":"In E-Mail öffnen","done.new":"Neue Anfrage","done.copied":"Kopiert",
- "c.eyebrow":"Besuchen Sie die Werft","c.maps":"In Google Maps öffnen →","c.email":"E-Mail","c.copy":"Kopieren","c.address":"Adresse","c.phone":"Telefon","c.call":"Rufen Sie uns an →","c.focus":"In Kooperation mit dem Focus Marine Center","c.follow":"Folgen Sie uns","c.watch":"Schauen Sie uns zu"
+ "c.eyebrow":"Besuchen Sie die Werft","c.maps":"In Google Maps öffnen →","c.email":"E-Mail","c.copy":"Kopieren","c.address":"Adresse","c.phone":"Telefon","c.call":"Rufen Sie uns an →","c.wa":"Nachricht senden →","c.focus":"In Kooperation mit dem Focus Marine Center","c.follow":"Folgen Sie uns","c.watch":"Schauen Sie uns zu"
 }};
 
 
@@ -161,13 +165,16 @@ en:{
  "rev.eyebrow":"Reviews","rev.title":"What boat owners say.","rev.lede":"Real reviews from our customers on Google.","rev.cta":"Leave a review on Google","rev.placeholder":"Customer reviews from Google will appear here.","rev.badge":"Layout preview",
  "facT.title":"Come and see the yard.","facT.text":"Indoor halls, a full workshop and our own 30 t crane on the Maas in Wanssum.","facT.cta":"Tour the facility",
  "cta.title":"Ready for the water?","cta.text":"Send us your request and we'll reply personally with a clear quote and a date.","cta.call":"Call +31 6 11742272",
- "ph.services.h1":"Yacht and boat service, from hull to helm.","ph.services.lede":"13 services under one roof in Wanssum, each with a free crane lift.",
- "ph.results.h1":"Work we're proud of.","ph.results.lede":"Before and after photos from boats we've treated at our yard.",
- "ph.about.h1":"Why boat owners choose BoatLab.","ph.about.lede":"A new yard in Wanssum since April 2026, built on personal service, careful work and fair prices.",
- "ph.facility.h1":"A yard built for boats.","ph.facility.lede":"Indoor halls, a full workshop, our own quay and a 30-tonne crane, in partnership with Focus Marine Center.",
+ "ph.services.h1":"Boat services in Wanssum, Limburg: from antifouling to refit.","ph.services.lede":"13 services under one roof in Wanssum, each with a free crane lift.",
+ "ph.results.h1":"Antifouling and polishing results from our yard.","ph.results.lede":"Before and after photos from boats we've treated at our yard.",
+ "ph.about.h1":"Why boat owners in Limburg and across the border choose BoatLab.","ph.about.lede":"A new yard in Wanssum since April 2026, built on personal service, careful work and fair prices.",
+ "ph.facility.h1":"A boatyard on the Maas with its own 30-tonne crane.","ph.facility.lede":"Indoor halls, a full workshop, our own quay and a 30-tonne crane, in partnership with Focus Marine Center.",
  "ph.contact.h1":"Get an offer or get in touch.","ph.contact.lede":"Send a request below, call us or drop by the yard in Wanssum.",
  "about.pTitle":"In partnership with Focus Marine Center","about.pText":"BoatLab works from the Focus Marine Center site in Wanssum. That gives our customers indoor halls, a harbour quay, a 30-tonne crane and a hydraulic boat mover, right on the Maas.",
- "footer.pages":"Pages","footer.contact":"Contact","footer.follow":"Follow us","footer.tag":"All-round yacht and boat service on the Maas."
+ "footer.pages":"Pages","footer.contact":"Contact","footer.follow":"Follow us","footer.tag":"All-round yacht and boat service on the Maas.","footer.services":"Services",
+ "bar.call":"Call","bar.wa":"WhatsApp","bar.offer":"Get an offer",
+ "cc.text":"We use cookies to measure how our ads and website perform. No cookies are set until you agree.","cc.accept":"Accept","cc.decline":"Only necessary","cc.more":"Privacy policy",
+ "sp.faq":"Frequently asked questions","sp.how":"How we do it","sp.readmore":"Read more about this service","sp.related":"Other services","sp.all":"All services","sp.offer":"Get an offer for","sp.price":"What does it cost?","sp.priceText":"The price depends on the length and condition of your boat. You always get a fixed quote before we start, and the crane lift is included.","sp.ctaTitle":"Ready to get started?","sp.ctaText":"Send a few photos of your boat and we'll reply personally with a quote and a date."
 },
 nl:{
  "nav.home":"Home","title.home":"BoatLab Yacht Services · Wanssum",
@@ -175,13 +182,16 @@ nl:{
  "rev.eyebrow":"Reviews","rev.title":"Wat booteigenaren zeggen.","rev.lede":"Echte reviews van onze klanten op Google.","rev.cta":"Laat een review achter op Google","rev.placeholder":"Hier verschijnen klantreviews van Google.","rev.badge":"Voorbeeldweergave",
  "facT.title":"Kom de werf bekijken.","facT.text":"Binnenhallen, een complete werkplaats en onze eigen 30-tons kraan aan de Maas in Wanssum.","facT.cta":"Bekijk de werf",
  "cta.title":"Klaar om te varen?","cta.text":"Stuur ons uw aanvraag en we reageren persoonlijk met een heldere offerte en een datum.","cta.call":"Bel +31 6 11742272",
- "ph.services.h1":"Jacht- en botenservice, van romp tot roer.","ph.services.lede":"13 diensten onder één dak in Wanssum, altijd met gratis hijsen.",
- "ph.results.h1":"Werk waar we trots op zijn.","ph.results.lede":"Voor- en na-foto's van boten die we op onze werf hebben behandeld.",
- "ph.about.h1":"Waarom booteigenaren voor BoatLab kiezen.","ph.about.lede":"Sinds april 2026 een nieuwe werf in Wanssum, gebouwd op persoonlijke service, zorgvuldig werk en eerlijke prijzen.",
- "ph.facility.h1":"Een werf gebouwd voor boten.","ph.facility.lede":"Binnenhallen, een complete werkplaats, een eigen kade en een 30-tons kraan, in samenwerking met Focus Marine Center.",
+ "ph.services.h1":"Botenservice in Wanssum, Limburg: van antifouling tot refit.","ph.services.lede":"13 diensten onder één dak in Wanssum, altijd met gratis hijsen.",
+ "ph.results.h1":"Resultaten: antifouling en polijsten op onze werf.","ph.results.lede":"Voor- en na-foto's van boten die we op onze werf hebben behandeld.",
+ "ph.about.h1":"Waarom booteigenaren in Limburg en Duitsland voor BoatLab kiezen.","ph.about.lede":"Sinds april 2026 een nieuwe werf in Wanssum, gebouwd op persoonlijke service, zorgvuldig werk en eerlijke prijzen.",
+ "ph.facility.h1":"Een jachtwerf aan de Maas met eigen 30-tons kraan.","ph.facility.lede":"Binnenhallen, een complete werkplaats, een eigen kade en een 30-tons kraan, in samenwerking met Focus Marine Center.",
  "ph.contact.h1":"Vraag een offerte aan of neem contact op.","ph.contact.lede":"Stuur hieronder een aanvraag, bel ons of kom langs op de werf in Wanssum.",
  "about.pTitle":"In samenwerking met Focus Marine Center","about.pText":"BoatLab werkt vanaf het terrein van Focus Marine Center in Wanssum. Zo hebben onze klanten de beschikking over binnenhallen, een havenkade, een 30-tons kraan en een hydraulische botentransporter, direct aan de Maas.",
- "footer.pages":"Pagina's","footer.contact":"Contact","footer.follow":"Volg ons","footer.tag":"Allround jacht- en botenservice aan de Maas."
+ "footer.pages":"Pagina's","footer.contact":"Contact","footer.follow":"Volg ons","footer.tag":"Allround jacht- en botenservice aan de Maas.","footer.services":"Diensten",
+ "bar.call":"Bellen","bar.wa":"WhatsApp","bar.offer":"Offerte",
+ "cc.text":"We gebruiken cookies om te meten hoe onze advertenties en website presteren. Er worden geen cookies geplaatst voordat u akkoord gaat.","cc.accept":"Akkoord","cc.decline":"Alleen noodzakelijk","cc.more":"Privacyverklaring",
+ "sp.faq":"Veelgestelde vragen","sp.how":"Zo doen we het","sp.readmore":"Lees meer over deze dienst","sp.related":"Andere diensten","sp.all":"Alle diensten","sp.offer":"Offerte aanvragen voor","sp.price":"Wat kost het?","sp.priceText":"De prijs hangt af van de lengte en de staat van uw boot. U krijgt altijd een vaste offerte voordat we beginnen, en het hijsen is inbegrepen.","sp.ctaTitle":"Klaar om te beginnen?","sp.ctaText":"Stuur een paar foto's van uw boot en we reageren persoonlijk met een offerte en een datum."
 },
 de:{
  "nav.home":"Startseite","title.home":"BoatLab Yacht Services · Wanssum",
@@ -189,13 +199,16 @@ de:{
  "rev.eyebrow":"Bewertungen","rev.title":"Was Bootseigner sagen.","rev.lede":"Echte Bewertungen unserer Kunden auf Google.","rev.cta":"Bewertung auf Google schreiben","rev.placeholder":"Hier erscheinen Kundenbewertungen von Google.","rev.badge":"Layout-Vorschau",
  "facT.title":"Besuchen Sie die Werft.","facT.text":"Hallen, eine komplette Werkstatt und unser eigener 30-t-Kran an der Maas in Wanssum.","facT.cta":"Werft ansehen",
  "cta.title":"Bereit fürs Wasser?","cta.text":"Senden Sie uns Ihre Anfrage, und wir melden uns persönlich mit einem klaren Angebot und Termin.","cta.call":"Anrufen: +31 6 11742272",
- "ph.services.h1":"Yacht- und Bootsservice, vom Rumpf bis zum Steuer.","ph.services.lede":"13 Leistungen unter einem Dach in Wanssum, immer mit kostenlosem Kranen.",
- "ph.results.h1":"Arbeit, auf die wir stolz sind.","ph.results.lede":"Vorher-Nachher-Fotos von Booten, die wir in unserer Werft behandelt haben.",
- "ph.about.h1":"Warum Bootseigner BoatLab wählen.","ph.about.lede":"Seit April 2026 eine neue Werft in Wanssum, mit persönlichem Service, sorgfältiger Arbeit und fairen Preisen.",
- "ph.facility.h1":"Eine Werft, gebaut für Boote.","ph.facility.lede":"Hallen, eine komplette Werkstatt, ein eigener Kai und ein 30-Tonnen-Kran, in Kooperation mit dem Focus Marine Center.",
+ "ph.services.h1":"Bootsservice in Wanssum (NL): vom Antifouling bis zum Refit.","ph.services.lede":"13 Leistungen unter einem Dach in Wanssum, immer mit kostenlosem Kranen.",
+ "ph.results.h1":"Ergebnisse: Antifouling und Politur aus unserer Werft.","ph.results.lede":"Vorher-Nachher-Fotos von Booten, die wir in unserer Werft behandelt haben.",
+ "ph.about.h1":"Warum Bootseigner aus NRW und Limburg BoatLab wählen.","ph.about.lede":"Seit April 2026 eine neue Werft in Wanssum, mit persönlichem Service, sorgfältiger Arbeit und fairen Preisen.",
+ "ph.facility.h1":"Eine Bootswerft an der Maas mit eigenem 30-Tonnen-Kran.","ph.facility.lede":"Hallen, eine komplette Werkstatt, ein eigener Kai und ein 30-Tonnen-Kran, in Kooperation mit dem Focus Marine Center.",
  "ph.contact.h1":"Angebot anfragen oder Kontakt aufnehmen.","ph.contact.lede":"Senden Sie unten eine Anfrage, rufen Sie uns an oder besuchen Sie die Werft in Wanssum.",
  "about.pTitle":"In Kooperation mit dem Focus Marine Center","about.pText":"BoatLab arbeitet auf dem Gelände des Focus Marine Center in Wanssum. Unsere Kunden profitieren so von Hallen, einem Hafenkai, einem 30-Tonnen-Kran und einem hydraulischen Bootstransporter, direkt an der Maas.",
- "footer.pages":"Seiten","footer.contact":"Kontakt","footer.follow":"Folgen","footer.tag":"Rundum-Service für Yachten und Boote an der Maas."
+ "footer.pages":"Seiten","footer.contact":"Kontakt","footer.follow":"Folgen","footer.tag":"Rundum-Service für Yachten und Boote an der Maas.","footer.services":"Leistungen",
+ "bar.call":"Anrufen","bar.wa":"WhatsApp","bar.offer":"Angebot",
+ "cc.text":"Wir verwenden Cookies, um zu messen, wie unsere Anzeigen und unsere Website funktionieren. Vor Ihrer Zustimmung werden keine Cookies gesetzt.","cc.accept":"Akzeptieren","cc.decline":"Nur notwendige","cc.more":"Datenschutzerklärung",
+ "sp.faq":"Häufige Fragen","sp.how":"So machen wir es","sp.readmore":"Mehr über diese Leistung","sp.related":"Weitere Leistungen","sp.all":"Alle Leistungen","sp.offer":"Angebot anfragen für","sp.price":"Was kostet es?","sp.priceText":"Der Preis hängt von Länge und Zustand Ihres Bootes ab. Sie erhalten immer ein festes Angebot, bevor wir beginnen, und das Kranen ist inklusive.","sp.ctaTitle":"Bereit loszulegen?","sp.ctaText":"Schicken Sie uns ein paar Fotos Ihres Bootes, und wir melden uns persönlich mit Angebot und Termin."
 }};
 for (const l in T2) Object.assign(T[l], T2[l]);
 
@@ -214,7 +227,8 @@ en:{
  "fn.eyebrow":"Ready for the season","fn.title":"Back on the water.",
  "fn.1":"Antifouling and polishing","fn.2":"Polishing","fn.3":"Polishing and antifouling","fn.4":"Linssen: polishing, deep cleaning and antifouling","fn.5":"Antifouling and more, ready to launch","fn.6":"Antifouling",
  "s.teak":"Teak & decking","s.teak.d":"Teak cleaned, restored and protected, or a new U-Dek foam deck made to measure.",
- "svc.all13":"View all 14 services","ph.services.lede":"14 services under one roof in Wanssum, each with a free crane lift.",
+ "s.storage":"Winter & dry storage","s.storage.d":"Your boat safe on our quay or indoors over winter, lifted and launched by our own crane.",
+ "svc.all13":"View all 15 services","ph.services.lede":"15 services under one roof in Wanssum, each with a free crane lift.",
  "svc.how":"See how we do it","sd.eyebrow":"Service by service","sd.title":"How we work.","sd.lede":"What each service includes and how we do it, step by step. Tap a step to read more.",
  "sd.steps":"How we do it","sd.book":"Add to my offer request","sd.with":"We work with","sd.official":"Official partner","sd.step":"Step",
  "team.eyebrow":"Your contact","team.title":"Meet Oleh Shevchuk.","team.role":"Managing director · Sales",
@@ -244,7 +258,8 @@ nl:{
  "fn.eyebrow":"Klaar voor het seizoen","fn.title":"Weer op het water.",
  "fn.1":"Antifouling en polijsten","fn.2":"Polijsten","fn.3":"Polijsten en antifouling","fn.4":"Linssen: polijsten, dieptereiniging en antifouling","fn.5":"Antifouling en meer, klaar om te water te gaan","fn.6":"Antifouling",
  "s.teak":"Teak & dekbelegging","s.teak.d":"Teak gereinigd, hersteld en beschermd, of een nieuw U-Dek-schuimdek op maat.",
- "svc.all13":"Bekijk alle 14 diensten","ph.services.lede":"14 diensten onder één dak in Wanssum, altijd met gratis hijsen.",
+ "s.storage":"Winter- & droogstalling","s.storage.d":"Uw boot in de winter veilig op onze kade of binnen, gehesen en te water gelaten met onze eigen kraan.",
+ "svc.all13":"Bekijk alle 15 diensten","ph.services.lede":"15 diensten onder één dak in Wanssum, altijd met gratis hijsen.",
  "svc.how":"Zo doen we het","sd.eyebrow":"Dienst voor dienst","sd.title":"Zo werken wij.","sd.lede":"Wat elke dienst inhoudt en hoe we het aanpakken, stap voor stap. Tik op een stap voor meer uitleg.",
  "sd.steps":"Zo doen we het","sd.book":"Toevoegen aan aanvraag","sd.with":"We werken met","sd.official":"Officiële partner","sd.step":"Stap",
  "team.eyebrow":"Uw aanspreekpunt","team.title":"Maak kennis met Oleh Shevchuk.","team.role":"Algemeen directeur · Verkoop",
@@ -274,7 +289,8 @@ de:{
  "fn.eyebrow":"Bereit für die Saison","fn.title":"Zurück auf dem Wasser.",
  "fn.1":"Antifouling und Politur","fn.2":"Politur","fn.3":"Politur und Antifouling","fn.4":"Linssen: Politur, Tiefenreinigung und Antifouling","fn.5":"Antifouling und mehr, bereit zum Einwassern","fn.6":"Antifouling",
  "s.teak":"Teak & Decksbelag","s.teak.d":"Teak gereinigt, aufgearbeitet und geschützt, oder ein neues U-Dek-Schaumdeck nach Maß.",
- "svc.all13":"Alle 14 Leistungen ansehen","ph.services.lede":"14 Leistungen unter einem Dach in Wanssum, immer mit kostenlosem Kranen.",
+ "s.storage":"Winter- & Trockenlager","s.storage.d":"Ihr Boot über den Winter sicher auf unserem Kai oder in der Halle, gekrant mit unserem eigenen Kran.",
+ "svc.all13":"Alle 15 Leistungen ansehen","ph.services.lede":"15 Leistungen unter einem Dach in Wanssum, immer mit kostenlosem Kranen.",
  "svc.how":"So machen wir es","sd.eyebrow":"Leistung für Leistung","sd.title":"So arbeiten wir.","sd.lede":"Was jede Leistung umfasst und wie wir vorgehen, Schritt für Schritt. Tippen Sie auf einen Schritt für Details.",
  "sd.steps":"So machen wir es","sd.book":"Zur Anfrage hinzufügen","sd.with":"Wir arbeiten mit","sd.official":"Offizieller Partner","sd.step":"Schritt",
  "team.eyebrow":"Ihr Ansprechpartner","team.title":"Lernen Sie Oleh Shevchuk kennen.","team.role":"Geschäftsführer · Vertrieb",
@@ -305,7 +321,8 @@ const SVC_INFO = {
   interior:{photos:[["interior-cockpit.jpg","in.p1"],["interior-seats.jpg","in.p2"]]},
   teak:{brand:"udek", photos:[["teak-oil.jpg","te.p1"],["teak-detail.jpg","te.p2"]]},
   engine:{}, navigation:{}, inspection:{},
-  refit:{photos:[["refit-hall.jpg","re.p1"]]}
+  refit:{photos:[["refit-hall.jpg","re.p1"]]},
+  storage:{photos:[["aerial-hall.jpg","sg.p1"],["focus-indoor.jpg","sg.p2"],["yard-crane.jpg","sg.p3"]]}
 };
 const BRANDS = {hempel:{name:"Hempel", logo:"img/logo-hempel.png", official:true}, renskib:{name:"Renskib", logo:"img/logo-renskib.png"}, udek:{name:"U-Dek", logo:"img/logo-udek.png"}};
 
@@ -338,7 +355,9 @@ en:{
  engine:{i:"A yearly service keeps your engine reliable and prevents expensive breakdowns in the middle of the season. We service inboard and outboard engines following the manufacturer's schedule.",
   s:[["Oil & filters","Engine oil, oil filter and fuel filters are replaced."],["Cooling","Impeller, coolant and raw-water strainer are checked and replaced where needed."],["Belts, hoses & anodes","We check belts, hoses, clamps and anodes for wear."],["Test run","The engine is started and checked for leaks, temperature and smooth running."],["Logbook","Everything we did is recorded, so you know when the next service is due."]]},
  navigation:{i:"From a new chartplotter to a full electronics upgrade: we advise, install and connect navigation and onboard electronics, neatly wired and ready to use.",
-  s:[["Advice","We look at how you use the boat and advise on the right equipment."],["Installation","Equipment is mounted and wired neatly, with proper connections and fuses."],["Set-up","Devices are linked and configured so they work together."],["Test & explain","We test everything and show you how it works."]]}
+  s:[["Advice","We look at how you use the boat and advise on the right equipment."],["Installation","Equipment is mounted and wired neatly, with proper connections and fuses."],["Set-up","Devices are linked and configured so they work together."],["Test & explain","We test everything and show you how it works."]]},
+ storage:{i:"Winter storage at BoatLab means your boat is lifted out by our own 30-tonne crane, winterised and parked safely on our quay in Wanssum, or indoors when space allows. Because the boat is already with us, antifouling, polishing or repairs can be done over winter, so it goes back in the water ready for the season.",
+  s:[["Lift out & wash","We lift your boat out with the crane and pressure-wash the hull straight away."],["Winterise","Engine, cooling water and water systems are drained or filled with antifreeze; batteries are checked."],["Cover & park","The boat is placed on stands, covered if you wish, on the quay or indoors."],["Winter work","Antifouling, polishing, engine service or repairs are done while the boat is with us, so no extra lift is needed."],["Launch in spring","We agree a date, check everything over and lift the boat back into the Maas."]]}
 },
 nl:{
  antifouling:{i:"Antifouling houdt wier, slijm en zeepokken van de romp, zodat uw boot het hele seizoen snel en zuinig blijft. We werken met Hempel, onze officiële partner en een van de bekendste namen in scheepscoatings, en kiezen de juiste antifouling voor uw boot, snelheid en vaarwater.",
@@ -368,7 +387,9 @@ nl:{
  engine:{i:"Een jaarlijkse beurt houdt uw motor betrouwbaar en voorkomt dure pech midden in het seizoen. We onderhouden binnen- en buitenboordmotoren volgens het schema van de fabrikant.",
   s:[["Olie & filters","Motorolie, oliefilter en brandstoffilters worden vervangen."],["Koeling","Impeller, koelvloeistof en buitenwaterfilter worden gecontroleerd en waar nodig vervangen."],["Riemen, slangen & anodes","We controleren riemen, slangen, klemmen en anodes op slijtage."],["Proefdraaien","De motor wordt gestart en gecontroleerd op lekkage, temperatuur en rustig lopen."],["Logboek","Alles wat we deden wordt vastgelegd, zodat u weet wanneer de volgende beurt is."]]},
  navigation:{i:"Van een nieuwe kaartplotter tot een complete elektronica-upgrade: we adviseren, installeren en koppelen navigatie en boordelektronica, netjes bedraad en klaar voor gebruik.",
-  s:[["Advies","We kijken hoe u de boot gebruikt en adviseren over de juiste apparatuur."],["Installatie","Apparatuur wordt netjes gemonteerd en bedraad, met goede aansluitingen en zekeringen."],["Instellen","Apparaten worden gekoppeld en ingesteld zodat ze samenwerken."],["Testen & uitleggen","We testen alles en laten u zien hoe het werkt."]]}
+  s:[["Advies","We kijken hoe u de boot gebruikt en adviseren over de juiste apparatuur."],["Installatie","Apparatuur wordt netjes gemonteerd en bedraad, met goede aansluitingen en zekeringen."],["Instellen","Apparaten worden gekoppeld en ingesteld zodat ze samenwerken."],["Testen & uitleggen","We testen alles en laten u zien hoe het werkt."]]},
+ storage:{i:"Winterstalling bij BoatLab betekent: uw boot wordt met onze eigen 30-tons kraan uit het water gehaald, winterklaar gemaakt en veilig op onze kade in Wanssum gestald, of binnen als er plaats is. Omdat de boot al bij ons staat, kunnen antifouling, polijsten of reparaties in de winter worden gedaan, zodat hij in het voorjaar klaar het water in gaat.",
+  s:[["Uithijsen & wassen","We hijsen uw boot met de kraan uit het water en spuiten de romp direct schoon."],["Winterklaar maken","Motor, koelwater en watersystemen worden afgetapt of met antivries gevuld; accu's worden gecontroleerd."],["Afdekken & stallen","De boot gaat op bokken, desgewenst afgedekt, op de kade of binnen."],["Winterwerk","Antifouling, polijsten, motoronderhoud of reparaties gebeuren terwijl de boot bij ons staat, zonder extra hijsbeurt."],["Te water in het voorjaar","We spreken een datum af, lopen alles na en hijsen de boot terug in de Maas."]]}
 },
 de:{
  antifouling:{i:"Antifouling hält Algen, Schleim und Seepocken vom Rumpf fern, damit Ihr Boot die ganze Saison schnell und sparsam bleibt. Wir arbeiten mit Hempel, unserem offiziellen Partner und einem der bekanntesten Namen für Bootsbeschichtungen, und wählen das richtige Antifouling für Ihr Boot, Ihre Geschwindigkeit und Ihr Revier.",
@@ -398,23 +419,125 @@ de:{
  engine:{i:"Ein jährlicher Service hält Ihren Motor zuverlässig und verhindert teure Pannen mitten in der Saison. Wir warten Innenborder und Außenborder nach dem Plan des Herstellers.",
   s:[["Öl & Filter","Motoröl, Ölfilter und Kraftstofffilter werden gewechselt."],["Kühlung","Impeller, Kühlmittel und Seewasserfilter werden geprüft und bei Bedarf ersetzt."],["Riemen, Schläuche & Anoden","Wir prüfen Riemen, Schläuche, Schellen und Anoden auf Verschleiß."],["Probelauf","Der Motor wird gestartet und auf Lecks, Temperatur und ruhigen Lauf geprüft."],["Logbuch","Alle Arbeiten werden dokumentiert, damit Sie wissen, wann der nächste Service fällig ist."]]},
  navigation:{i:"Vom neuen Kartenplotter bis zum kompletten Elektronik-Upgrade: Wir beraten, installieren und vernetzen Navigation und Bordelektronik, sauber verkabelt und einsatzbereit.",
-  s:[["Beratung","Wir schauen, wie Sie das Boot nutzen, und beraten zur passenden Ausrüstung."],["Installation","Geräte werden sauber montiert und verkabelt, mit ordentlichen Anschlüssen und Sicherungen."],["Einrichten","Geräte werden verbunden und eingerichtet, damit sie zusammenarbeiten."],["Testen & erklären","Wir testen alles und zeigen Ihnen, wie es funktioniert."]]}
+  s:[["Beratung","Wir schauen, wie Sie das Boot nutzen, und beraten zur passenden Ausrüstung."],["Installation","Geräte werden sauber montiert und verkabelt, mit ordentlichen Anschlüssen und Sicherungen."],["Einrichten","Geräte werden verbunden und eingerichtet, damit sie zusammenarbeiten."],["Testen & erklären","Wir testen alles und zeigen Ihnen, wie es funktioniert."]]},
+ storage:{i:"Winterlager bei BoatLab heißt: Ihr Boot wird mit unserem eigenen 30-Tonnen-Kran aus dem Wasser gehoben, eingewintert und sicher auf unserem Kai in Wanssum abgestellt, oder in der Halle, wenn Platz ist. Weil das Boot schon bei uns steht, können Antifouling, Politur oder Reparaturen über den Winter erledigt werden, damit es im Frühjahr fertig ins Wasser geht.",
+  s:[["Auskranen & waschen","Wir heben Ihr Boot mit dem Kran aus dem Wasser und reinigen den Rumpf sofort mit Hochdruck."],["Einwintern","Motor, Kühlwasser und Wassersysteme werden entleert oder mit Frostschutz gefüllt; Batterien werden geprüft."],["Abdecken & abstellen","Das Boot kommt auf Böcke, auf Wunsch abgedeckt, auf den Kai oder in die Halle."],["Winterarbeiten","Antifouling, Politur, Motorservice oder Reparaturen erledigen wir, während das Boot bei uns steht, ohne zusätzlichen Kranhub."],["Einwassern im Frühjahr","Wir vereinbaren einen Termin, prüfen alles durch und heben das Boot zurück in die Maas."]]}
 }};
 
 /* Photo captions inside the service details */
 const SVC_CAP = {
-en:{"af.p1":"Primer by hand before the antifouling","af.p2":"Waterline masked, hull prepared","af.p3":"Fresh antifouling","os.p1":"Sanding in a sealed tent","os.p2":"Back to sound laminate","os.p3":"Finished hull","po.p1":"Machine polishing the hull","po.p2":"Polishing the superstructure","po.p3":"Late shift, deep gloss","wa.p1":"Washing the transom","wa.p2":"Pressure washing the deck","wa.p3":"Cleaning the topsides","in.p1":"Cockpit after deep cleaning","in.p2":"Seats and deck cleaned","te.p1":"Oiling the teak deck","te.p2":"Every board by hand","re.p1":"Our refit hall"},
-nl:{"af.p1":"Primer met de hand vóór de antifouling","af.p2":"Waterlijn afgeplakt, romp voorbereid","af.p3":"Verse antifouling","os.p1":"Schuren in een afgesloten tent","os.p2":"Terug tot gezond laminaat","os.p3":"Afgewerkte romp","po.p1":"Machinaal polijsten van de romp","po.p2":"Polijsten van de opbouw","po.p3":"Late dienst, diepe glans","wa.p1":"Wassen van de spiegel","wa.p2":"Dek schoonspuiten","wa.p3":"Reinigen van de opbouw","in.p1":"Kuip na dieptereiniging","in.p2":"Stoelen en dek gereinigd","te.p1":"Teakdek oliën","te.p2":"Elke plank met de hand","re.p1":"Onze refithal"},
-de:{"af.p1":"Grundierung von Hand vor dem Antifouling","af.p2":"Wasserlinie abgeklebt, Rumpf vorbereitet","af.p3":"Frisches Antifouling","os.p1":"Schleifen im abgeschlossenen Zelt","os.p2":"Zurück zum gesunden Laminat","os.p3":"Fertiger Rumpf","po.p1":"Maschinelles Polieren des Rumpfes","po.p2":"Polieren des Aufbaus","po.p3":"Spätschicht, tiefer Glanz","wa.p1":"Waschen des Spiegels","wa.p2":"Deck mit Hochdruck reinigen","wa.p3":"Reinigung des Aufbaus","in.p1":"Cockpit nach der Tiefenreinigung","in.p2":"Sitze und Deck gereinigt","te.p1":"Teakdeck ölen","te.p2":"Jede Planke von Hand","re.p1":"Unsere Refit-Halle"}
+en:{"af.p1":"Primer by hand before the antifouling","af.p2":"Waterline masked, hull prepared","af.p3":"Fresh antifouling","os.p1":"Sanding in a sealed tent","os.p2":"Back to sound laminate","os.p3":"Finished hull","po.p1":"Machine polishing the hull","po.p2":"Polishing the superstructure","po.p3":"Late shift, deep gloss","wa.p1":"Washing the transom","wa.p2":"Pressure washing the deck","wa.p3":"Cleaning the topsides","in.p1":"Cockpit after deep cleaning","in.p2":"Seats and deck cleaned","te.p1":"Oiling the teak deck","te.p2":"Every board by hand","re.p1":"Our refit hall","sg.p1":"Boats in dry storage on the quay","sg.p2":"Indoor storage in the hall","sg.p3":"Our yard and crane on the Maas"},
+nl:{"af.p1":"Primer met de hand vóór de antifouling","af.p2":"Waterlijn afgeplakt, romp voorbereid","af.p3":"Verse antifouling","os.p1":"Schuren in een afgesloten tent","os.p2":"Terug tot gezond laminaat","os.p3":"Afgewerkte romp","po.p1":"Machinaal polijsten van de romp","po.p2":"Polijsten van de opbouw","po.p3":"Late dienst, diepe glans","wa.p1":"Wassen van de spiegel","wa.p2":"Dek schoonspuiten","wa.p3":"Reinigen van de opbouw","in.p1":"Kuip na dieptereiniging","in.p2":"Stoelen en dek gereinigd","te.p1":"Teakdek oliën","te.p2":"Elke plank met de hand","re.p1":"Onze refithal","sg.p1":"Boten in droogstalling op de kade","sg.p2":"Binnenstalling in de hal","sg.p3":"Onze werf en kraan aan de Maas"},
+de:{"af.p1":"Grundierung von Hand vor dem Antifouling","af.p2":"Wasserlinie abgeklebt, Rumpf vorbereitet","af.p3":"Frisches Antifouling","os.p1":"Schleifen im abgeschlossenen Zelt","os.p2":"Zurück zum gesunden Laminat","os.p3":"Fertiger Rumpf","po.p1":"Maschinelles Polieren des Rumpfes","po.p2":"Polieren des Aufbaus","po.p3":"Spätschicht, tiefer Glanz","wa.p1":"Waschen des Spiegels","wa.p2":"Deck mit Hochdruck reinigen","wa.p3":"Reinigung des Aufbaus","in.p1":"Cockpit nach der Tiefenreinigung","in.p2":"Sitze und Deck gereinigt","te.p1":"Teakdeck ölen","te.p2":"Jede Planke von Hand","re.p1":"Unsere Refit-Halle","sg.p1":"Boote im Trockenlager auf dem Kai","sg.p2":"Hallenlager","sg.p3":"Unsere Werft und der Kran an der Maas"}
 };
 
-let lang = "en";
+/* Service landing pages (own URL per service and language): title tag, description, H1, intro line, FAQ. */
+const SP_IDS = ["antifouling","polishing","osmosis","storage","refit"];
+const SP = {
+en:{
+ antifouling:{title:"Antifouling in Limburg · Free 30 t crane lift · BoatLab Wanssum",desc:"Antifouling for yachts and boats in Wanssum, Limburg: hull washed, sanded, primed and coated with Hempel. Lift-out with our 30-tonne crane is free. Request a fixed quote.",
+  h1:"Antifouling in Wanssum, Limburg",lede:"Hull washed, sanded, primed and coated with Hempel antifouling. The lift with our 30-tonne crane is free with every job.",
+  faq:[["How often does antifouling need renewing?","On the Maas most boats need new antifouling every season or every other season, depending on the type of paint (self-polishing or hard) and how much you sail. We check the hull at lift-out and tell you honestly whether it can wait."],
+       ["What does antifouling cost?","It depends on the length of the boat, the condition of the old layers and the product. After seeing the boat you get a fixed quote. The crane lift is included, so there are no surprises on the invoice."],
+       ["Which antifouling do you use?","We work with Hempel, our official partner. We choose the product for fresh water, your speed and your underwater gear (aluminium drives need a copper-free paint). We only use antifoulings approved for the Netherlands (Ctgb)."],
+       ["How long is my boat out of the water?","Usually two to four days, including drying time between coats. If the old layers have to be removed completely, it takes longer; we tell you in advance."]]},
+ polishing:{title:"Boat polishing & coating in Limburg · BoatLab Wanssum",desc:"Machine polishing and ceramic coating for yachts and boats in Wanssum, Limburg, with Renskib products. Oxidised gelcoat back to deep gloss. Free crane lift, fixed quote.",
+  h1:"Boat polishing in Wanssum, Limburg",lede:"Machine polishing with Renskib compounds brings dull, chalky gelcoat back to a deep gloss. Add a protective coating and it stays that way.",
+  faq:[["How long does a polish last?","One to two seasons, depending on sun, mooring and how often the boat is washed. With a ceramic coating on top the gloss lasts considerably longer and dirt washes off far more easily."],
+       ["My gelcoat is dull and chalky. Can it still be saved?","In most cases yes. A cutting compound removes the oxidised top layer and a finer polish brings the depth back. Only deep scratches or cracks need gelcoat repair, which we also do."],
+       ["Should I combine polishing with a coating?","We recommend it. A coating locks in whatever is underneath, so it only makes sense on a freshly polished surface. Doing both in one visit saves you a second lift and a second masking job."],
+       ["What does polishing cost?","The price depends on the length of the boat and how far the gelcoat has oxidised. You get a fixed quote after we have seen the boat; the crane lift is included."]]},
+ osmosis:{title:"Osmosis repair for boats · Hempel epoxy system · BoatLab Wanssum",desc:"Osmosis treatment for polyester boats in Wanssum, Limburg: moisture measurement, gelcoat removal, drying and rebuild with Hempel epoxy, finished with new antifouling. Free crane lift.",
+  h1:"Osmosis repair in Wanssum, Limburg",lede:"Blisters in the hull are water in the laminate. We measure, open, dry and rebuild the hull with Hempel's epoxy system, inside a closed tent.",
+  faq:[["How do I know my boat has osmosis?","Small blisters below the waterline, often with a sour-smelling fluid inside when opened, are the typical sign. We measure the hull with a moisture meter at lift-out and show you exactly where and how far it has spread."],
+       ["How long does an osmosis treatment take?","Count on six to twelve weeks. Most of that is drying time: the hull has to come down to a safe moisture level before the epoxy goes on. We take readings throughout and share them with you."],
+       ["Can I keep sailing with osmosis?","A few small blisters are not dangerous, but osmosis does not heal itself and gets worse every season. Treating it early is cheaper than waiting until the laminate is affected."],
+       ["What does the treatment include?","Removing the affected gelcoat, opening and washing out the blisters, controlled drying, filling and fairing, several coats of Hempel epoxy primer as a new barrier, and fresh antifouling on top."]]},
+ storage:{title:"Winter & dry storage for boats on the Maas · BoatLab Wanssum",desc:"Winter storage and dry storage for boats and yachts in Wanssum, Limburg: lifted by our own 30-tonne crane, winterised and parked on our quay or indoors. Maintenance over winter, launch in spring.",
+  h1:"Winter storage on the Maas in Wanssum",lede:"Your boat lifted out by our own crane, winterised and parked safely on our quay in Wanssum, or indoors when space allows. Maintenance over winter, back in the water in spring.",
+  faq:[["Outdoor or indoor storage?","Both are possible. Outdoor dry storage is on our fenced quay on stands, covered if you wish. Indoor places in the hall are limited and go to boats that have work planned over winter, so book early."],
+       ["Can you do maintenance while the boat is stored?","Yes, and that is the whole point. Antifouling, polishing, engine service or repairs are done while the boat is with us, so it goes straight back in the water in spring without an extra lift."],
+       ["When should I book?","Places fill up from September. Tell us your boat's length and whether you want work done, and we reserve a spot and a lift-out date that suits you."],
+       ["Is my boat insured during storage?","Your own hull insurance normally covers storage ashore; check with your insurer. The boat stays on our yard within the Focus Marine Center site in Wanssum."]]},
+ refit:{title:"Yacht refit in the Netherlands · Interior, systems, finish · BoatLab Wanssum",desc:"Complete and partial yacht refits in Wanssum, Limburg: interior, systems, paint and finish, done in our own halls and workshop with one contact person from plan to handover.",
+  h1:"Yacht refit in Wanssum, Limburg",lede:"A refit gives an older boat a second life: new interior, new systems, a new look. Done in our own halls, with one contact person from the first plan to the handover.",
+  faq:[["What counts as a refit?","Anything beyond regular maintenance: a new interior, new electronics and systems, a repaint, a new deck, or all of that together. We also do partial refits, for example only the cockpit or only the galley."],
+       ["How long does a refit take?","From a few weeks for a partial refit to several months for a complete one. We agree the scope and the planning before we start, and we keep you posted with photos during the work."],
+       ["How do we agree the plan and the price?","We look at the boat together, you tell us what you want, and we come back with a written plan, a fixed quote and a schedule. Changes along the way are agreed in writing before we do them."],
+       ["Can the boat stay with you over winter for the refit?","Yes. Most refits are done over winter in our hall, so the boat is ready when the season starts. Lift-out and launch with our crane are included."]]}
+},
+nl:{
+ antifouling:{title:"Antifouling in Limburg · Gratis hijsen met 30-tons kraan · BoatLab Wanssum",desc:"Antifouling voor jachten en boten in Wanssum, Limburg: romp gewassen, geschuurd, gegrond en gecoat met Hempel. Uit het water hijsen met onze 30-tons kraan is gratis. Vraag een vaste offerte aan.",
+  h1:"Antifouling in Wanssum, Limburg",lede:"Romp gewassen, geschuurd, gegrond en gecoat met Hempel-antifouling. Het hijsen met onze 30-tons kraan is bij elke klus gratis.",
+  faq:[["Hoe vaak moet antifouling vernieuwd worden?","Op de Maas hebben de meeste boten elk seizoen of om het seizoen nieuwe antifouling nodig, afhankelijk van het type verf (zelfslijpend of hard) en hoeveel u vaart. We controleren de romp bij het uithijsen en zeggen eerlijk of het nog kan wachten."],
+       ["Wat kost antifouling?","Dat hangt af van de lengte van de boot, de staat van de oude lagen en het product. Na het zien van de boot krijgt u een vaste offerte. Het hijsen is inbegrepen, dus geen verrassingen op de factuur."],
+       ["Welke antifouling gebruiken jullie?","We werken met Hempel, onze officiële partner. We kiezen het product voor zoet water, uw snelheid en uw onderwaterschip (aluminium staartstukken hebben kopervrije verf nodig). We gebruiken alleen antifouling die in Nederland is toegelaten (Ctgb)."],
+       ["Hoe lang ligt mijn boot uit het water?","Meestal twee tot vier dagen, inclusief droogtijd tussen de lagen. Moeten de oude lagen helemaal verwijderd worden, dan duurt het langer; dat zeggen we vooraf."]]},
+ polishing:{title:"Boot polijsten & coaten in Limburg · BoatLab Wanssum",desc:"Machinaal polijsten en keramische coating voor jachten en boten in Wanssum, Limburg, met Renskib-producten. Doffe gelcoat weer diep glanzend. Gratis hijsen, vaste offerte.",
+  h1:"Boot polijsten in Wanssum, Limburg",lede:"Machinaal polijsten met Renskib-compounds brengt doffe, krijtachtige gelcoat terug naar diepe glans. Met een beschermende coating blijft dat zo.",
+  faq:[["Hoe lang blijft een polijstbeurt mooi?","Eén tot twee seizoenen, afhankelijk van zon, ligplaats en hoe vaak de boot gewassen wordt. Met een keramische coating erop houdt de glans aanzienlijk langer en spoelt vuil veel makkelijker af."],
+       ["Mijn gelcoat is dof en krijtachtig. Is die nog te redden?","Meestal wel. Een schurende compound verwijdert de geoxideerde toplaag en een fijnere polish brengt de diepte terug. Alleen diepe krassen of scheurtjes vragen om gelcoatreparatie, en ook dat doen we."],
+       ["Polijsten combineren met een coating?","Dat raden we aan. Een coating sluit in wat eronder zit, dus hij heeft alleen zin op een vers gepolijst oppervlak. Beide in één keer scheelt u een tweede hijsbeurt en een tweede keer afplakken."],
+       ["Wat kost polijsten?","De prijs hangt af van de lengte van de boot en hoe ver de gelcoat is geoxideerd. U krijgt een vaste offerte nadat we de boot hebben gezien; het hijsen is inbegrepen."]]},
+ osmosis:{title:"Osmose behandeling boot · Hempel-epoxysysteem · BoatLab Wanssum",desc:"Osmosebehandeling voor polyester boten in Wanssum, Limburg: vochtmeting, gelcoat verwijderen, drogen en opbouwen met Hempel-epoxy, afgewerkt met nieuwe antifouling. Gratis hijsen.",
+  h1:"Osmosebehandeling in Wanssum, Limburg",lede:"Blaasjes in de romp zijn water in het laminaat. We meten, openen, drogen en bouwen de romp opnieuw op met het epoxysysteem van Hempel, in een afgesloten tent.",
+  faq:[["Hoe weet ik of mijn boot osmose heeft?","Kleine blaasjes onder de waterlijn, vaak met een zuur ruikend vocht erin als je ze opent, zijn het typische teken. We meten de romp met een vochtmeter bij het uithijsen en laten precies zien waar en hoe ver het zit."],
+       ["Hoe lang duurt een osmosebehandeling?","Reken op zes tot twaalf weken. Het grootste deel is droogtijd: de romp moet tot een veilig vochtgehalte zakken voordat de epoxy erop gaat. We meten tussendoor en delen de waarden met u."],
+       ["Kan ik blijven varen met osmose?","Een paar kleine blaasjes zijn niet gevaarlijk, maar osmose geneest niet vanzelf en wordt elk seizoen erger. Vroeg behandelen is goedkoper dan wachten tot het laminaat is aangetast."],
+       ["Wat zit er in de behandeling?","Verwijderen van de aangetaste gelcoat, openen en uitwassen van de blaasjes, gecontroleerd drogen, plamuren en uitvlakken, meerdere lagen Hempel-epoxyprimer als nieuwe barrière, en verse antifouling erover."]]},
+ storage:{title:"Winterstalling & droogstalling boot aan de Maas · BoatLab Wanssum",desc:"Winterstalling en droogstalling voor boten en jachten in Wanssum, Limburg: gehesen met onze eigen 30-tons kraan, winterklaar gemaakt en gestald op onze kade of binnen. Onderhoud in de winter, te water in het voorjaar.",
+  h1:"Winterstalling aan de Maas in Wanssum",lede:"Uw boot met onze eigen kraan uit het water, winterklaar gemaakt en veilig gestald op onze kade in Wanssum, of binnen als er plaats is. Onderhoud in de winter, in het voorjaar weer te water.",
+  faq:[["Buiten of binnen stallen?","Beide kan. Droogstalling buiten is op onze omheinde kade op bokken, desgewenst afgedekt. Binnenplaatsen in de hal zijn beperkt en gaan naar boten waar in de winter aan gewerkt wordt, dus boek op tijd."],
+       ["Kunnen jullie onderhoud doen terwijl de boot gestald staat?","Ja, dat is juist het idee. Antifouling, polijsten, motoronderhoud of reparaties gebeuren terwijl de boot bij ons staat, zodat hij in het voorjaar zonder extra hijsbeurt het water in kan."],
+       ["Wanneer moet ik boeken?","De plaatsen raken vanaf september vol. Geef de lengte van uw boot door en of u werk wilt laten doen, dan reserveren we een plek en een hijsdatum die u past."],
+       ["Is mijn boot verzekerd tijdens de stalling?","Uw eigen cascoverzekering dekt normaal gesproken stalling aan de wal; controleer dit bij uw verzekeraar. De boot staat op onze werf op het terrein van Focus Marine Center in Wanssum."]]},
+ refit:{title:"Jacht refit in Nederland · Interieur, systemen, afwerking · BoatLab Wanssum",desc:"Complete en gedeeltelijke jachtrefits in Wanssum, Limburg: interieur, systemen, lak en afwerking, in onze eigen hallen en werkplaats met één aanspreekpunt van plan tot oplevering.",
+  h1:"Jachtrefit in Wanssum, Limburg",lede:"Een refit geeft een oudere boot een tweede leven: nieuw interieur, nieuwe systemen, een nieuwe uitstraling. In onze eigen hallen, met één aanspreekpunt van het eerste plan tot de oplevering.",
+  faq:[["Wat valt onder een refit?","Alles wat verder gaat dan gewoon onderhoud: een nieuw interieur, nieuwe elektronica en systemen, opnieuw lakken, een nieuw dek, of dat alles samen. We doen ook gedeeltelijke refits, bijvoorbeeld alleen de kuip of alleen de kombuis."],
+       ["Hoe lang duurt een refit?","Van een paar weken voor een gedeeltelijke refit tot enkele maanden voor een complete. We spreken de omvang en de planning af voordat we beginnen en houden u tijdens het werk op de hoogte met foto's."],
+       ["Hoe spreken we plan en prijs af?","We bekijken de boot samen, u vertelt wat u wilt, en wij komen terug met een schriftelijk plan, een vaste offerte en een planning. Wijzigingen onderweg worden schriftelijk afgesproken voordat we ze uitvoeren."],
+       ["Kan de boot voor de refit de winter bij jullie blijven?","Ja. De meeste refits doen we in de winter in onze hal, zodat de boot klaar is als het seizoen begint. Uithijsen en te water laten met onze kraan zijn inbegrepen."]]}
+},
+de:{
+ antifouling:{title:"Antifouling in den Niederlanden · Kranen kostenlos · BoatLab Wanssum",desc:"Antifouling für Yachten und Boote in Wanssum (NL), nahe der deutschen Grenze: Rumpf gewaschen, geschliffen, grundiert und mit Hempel beschichtet. Auskranen mit unserem 30-Tonnen-Kran ist kostenlos. Festes Angebot anfragen.",
+  h1:"Antifouling in Wanssum, nahe der deutschen Grenze",lede:"Rumpf gewaschen, geschliffen, grundiert und mit Hempel-Antifouling beschichtet. Das Kranen mit unserem 30-Tonnen-Kran ist bei jedem Auftrag kostenlos.",
+  faq:[["Wie oft muss Antifouling erneuert werden?","Auf der Maas brauchen die meisten Boote jede oder jede zweite Saison neues Antifouling, je nach Farbtyp (selbstpolierend oder hart) und Nutzung. Wir prüfen den Rumpf beim Auskranen und sagen ehrlich, ob es noch warten kann."],
+       ["Was kostet Antifouling?","Das hängt von der Bootslänge, dem Zustand der alten Schichten und dem Produkt ab. Nachdem wir das Boot gesehen haben, erhalten Sie ein festes Angebot. Das Kranen ist inklusive, es gibt also keine Überraschungen auf der Rechnung."],
+       ["Welches Antifouling verwenden Sie?","Wir arbeiten mit Hempel, unserem offiziellen Partner. Wir wählen das Produkt passend zu Süßwasser, Ihrer Geschwindigkeit und Ihrem Unterwasserschiff (Aluminium-Antriebe brauchen kupferfreie Farbe). Wir verwenden nur in den Niederlanden zugelassene Antifoulings."],
+       ["Wie lange ist mein Boot aus dem Wasser?","Meist zwei bis vier Tage, inklusive Trocknungszeit zwischen den Schichten. Müssen die alten Schichten komplett entfernt werden, dauert es länger; das sagen wir vorher."]]},
+ polishing:{title:"Boot polieren & versiegeln in den Niederlanden · BoatLab Wanssum",desc:"Maschinelles Polieren und Keramikversiegelung für Yachten und Boote in Wanssum (NL) mit Renskib-Produkten. Mattes Gelcoat wieder tief glänzend. Kranen kostenlos, festes Angebot.",
+  h1:"Boot polieren in Wanssum, nahe der Grenze",lede:"Maschinelles Polieren mit Renskib-Compounds bringt mattes, kreidiges Gelcoat zurück zu tiefem Glanz. Mit einer Schutzversiegelung bleibt es so.",
+  faq:[["Wie lange hält eine Politur?","Ein bis zwei Saisons, je nach Sonne, Liegeplatz und Waschhäufigkeit. Mit einer Keramikversiegelung darauf hält der Glanz deutlich länger, und Schmutz lässt sich viel leichter abwaschen."],
+       ["Mein Gelcoat ist matt und kreidig. Ist es noch zu retten?","Meistens ja. Ein Schleif-Compound entfernt die oxidierte Oberschicht, eine feinere Politur bringt die Tiefe zurück. Nur tiefe Kratzer oder Risse brauchen eine Gelcoat-Reparatur, die wir ebenfalls machen."],
+       ["Politur mit Versiegelung kombinieren?","Das empfehlen wir. Eine Versiegelung schließt ein, was darunter liegt, und ist deshalb nur auf frisch polierter Fläche sinnvoll. Beides in einem Termin spart Ihnen einen zweiten Kranhub und ein zweites Abkleben."],
+       ["Was kostet das Polieren?","Der Preis hängt von der Bootslänge und dem Oxidationsgrad des Gelcoats ab. Sie erhalten ein festes Angebot, nachdem wir das Boot gesehen haben; das Kranen ist inklusive."]]},
+ osmosis:{title:"Osmose-Sanierung Boot · Hempel-Epoxidsystem · BoatLab Wanssum",desc:"Osmosebehandlung für Polyesterboote in Wanssum (NL): Feuchtemessung, Gelcoat-Entfernung, Trocknung und Neuaufbau mit Hempel-Epoxid, abgeschlossen mit neuem Antifouling. Kranen kostenlos.",
+  h1:"Osmose-Sanierung in Wanssum, Niederlande",lede:"Blasen im Rumpf sind Wasser im Laminat. Wir messen, öffnen, trocknen und bauen den Rumpf mit dem Epoxidsystem von Hempel neu auf, im geschlossenen Zelt.",
+  faq:[["Woran erkenne ich Osmose an meinem Boot?","Kleine Blasen unterhalb der Wasserlinie, oft mit einer säuerlich riechenden Flüssigkeit darin, sind das typische Zeichen. Wir messen den Rumpf beim Auskranen mit einem Feuchtemessgerät und zeigen Ihnen genau, wo und wie weit es reicht."],
+       ["Wie lange dauert eine Osmosebehandlung?","Rechnen Sie mit sechs bis zwölf Wochen. Der größte Teil ist Trocknungszeit: Der Rumpf muss auf einen sicheren Feuchtewert kommen, bevor das Epoxid aufgetragen wird. Wir messen zwischendurch und teilen die Werte mit Ihnen."],
+       ["Kann ich mit Osmose weiterfahren?","Ein paar kleine Blasen sind nicht gefährlich, aber Osmose heilt nicht von selbst und wird jede Saison schlimmer. Früh zu behandeln ist günstiger, als zu warten, bis das Laminat betroffen ist."],
+       ["Was umfasst die Behandlung?","Entfernen des betroffenen Gelcoats, Öffnen und Auswaschen der Blasen, kontrolliertes Trocknen, Spachteln und Glätten, mehrere Schichten Hempel-Epoxidgrundierung als neue Sperre und frisches Antifouling darüber."]]},
+ storage:{title:"Winterlager & Trockenlager für Boote an der Maas · BoatLab Wanssum",desc:"Winterlager und Trockenlager für Boote und Yachten in Wanssum (NL), nahe der deutschen Grenze: mit unserem eigenen 30-Tonnen-Kran gekrant, eingewintert und auf unserem Kai oder in der Halle abgestellt. Wartung über den Winter, Einwassern im Frühjahr.",
+  h1:"Winterlager an der Maas in Wanssum",lede:"Ihr Boot mit unserem eigenen Kran aus dem Wasser, eingewintert und sicher auf unserem Kai in Wanssum abgestellt, oder in der Halle, wenn Platz ist. Wartung über den Winter, im Frühjahr zurück ins Wasser.",
+  faq:[["Draußen oder in der Halle lagern?","Beides ist möglich. Das Trockenlager draußen ist auf unserem umzäunten Kai auf Böcken, auf Wunsch abgedeckt. Hallenplätze sind begrenzt und gehen an Boote, an denen über den Winter gearbeitet wird, also früh buchen."],
+       ["Können Sie Wartung machen, während das Boot lagert?","Ja, genau das ist der Sinn. Antifouling, Politur, Motorservice oder Reparaturen erledigen wir, während das Boot bei uns steht, damit es im Frühjahr ohne zusätzlichen Kranhub direkt ins Wasser geht."],
+       ["Wann sollte ich buchen?","Die Plätze füllen sich ab September. Nennen Sie uns die Länge Ihres Bootes und ob Arbeiten gewünscht sind, dann reservieren wir einen Platz und einen passenden Krantermin."],
+       ["Ist mein Boot während der Lagerung versichert?","Ihre eigene Kaskoversicherung deckt die Lagerung an Land normalerweise ab; fragen Sie bei Ihrem Versicherer nach. Das Boot steht auf unserer Werft auf dem Gelände des Focus Marine Center in Wanssum."]]},
+ refit:{title:"Yacht-Refit in den Niederlanden · Interieur, Technik, Finish · BoatLab Wanssum",desc:"Komplette und teilweise Yacht-Refits in Wanssum (NL): Interieur, Technik, Lack und Finish, in unseren eigenen Hallen und der Werkstatt, mit einem Ansprechpartner vom Plan bis zur Übergabe.",
+  h1:"Yacht-Refit in Wanssum, Niederlande",lede:"Ein Refit gibt einem älteren Boot ein zweites Leben: neues Interieur, neue Technik, ein neuer Look. In unseren eigenen Hallen, mit einem Ansprechpartner vom ersten Plan bis zur Übergabe.",
+  faq:[["Was zählt als Refit?","Alles, was über normale Wartung hinausgeht: ein neues Interieur, neue Elektronik und Systeme, eine Neulackierung, ein neues Deck, oder alles zusammen. Wir machen auch Teil-Refits, zum Beispiel nur das Cockpit oder nur die Pantry."],
+       ["Wie lange dauert ein Refit?","Von ein paar Wochen für ein Teil-Refit bis zu mehreren Monaten für ein komplettes. Umfang und Zeitplan vereinbaren wir vor Beginn, und während der Arbeit halten wir Sie mit Fotos auf dem Laufenden."],
+       ["Wie vereinbaren wir Plan und Preis?","Wir sehen uns das Boot gemeinsam an, Sie sagen, was Sie möchten, und wir kommen mit einem schriftlichen Plan, einem festen Angebot und einem Zeitplan zurück. Änderungen unterwegs werden schriftlich vereinbart, bevor wir sie umsetzen."],
+       ["Kann das Boot für das Refit über den Winter bei Ihnen bleiben?","Ja. Die meisten Refits machen wir über den Winter in unserer Halle, damit das Boot fertig ist, wenn die Saison beginnt. Aus- und Einkranen mit unserem Kran sind inklusive."]]}
+}};
+
+let lang = document.documentElement.lang || "en";
+const ROOT = document.documentElement.getAttribute("data-root") || "";   // "" at the site root, "../" in /nl/ and /de/
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const t = k => (T[lang] && T[lang][k]) ?? T.en[k] ?? k;
 const PAGE = ($("main[data-page]") || {dataset:{page:"home"}}).dataset.page;
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const PAGE_TITLE = {services:"nav.services", results:"nav.results", about:"nav.why", facility:"nav.facility", contact:"nav.contact", privacy:"footer.privacy"};
 const FEATURED = ["antifouling","polishing","osmosis","gelcoat","engine","refit"];
 
 /* ---------- services grid + booking chips ---------- */
@@ -471,13 +594,14 @@ const svcText = id => (SVC_TEXT[lang] && SVC_TEXT[lang][id]) || SVC_TEXT.en[id];
 const capText = k => (SVC_CAP[lang] && SVC_CAP[lang][k]) || SVC_CAP.en[k] || "";
 function renderDetails(){
   const box = $("#svcDetails"); if (!box) return;
-  box.innerHTML = SERVICES.map((s, n) => {
+  const only = box.dataset.only, list = only ? SERVICES.filter(s => s.id === only) : SERVICES;
+  box.innerHTML = list.map((s, n) => {
     const info = SVC_INFO[s.id] || {}, tx = svcText(s.id), br = info.brand && BRANDS[info.brand];
     const photos = info.photos || [];
     const media = photos.length
-      ? `<div class="sd-photos n${Math.min(photos.length,3)}">${photos.map(([src,cap]) => `<figure><img src="img/${src}" srcset="img/${src.replace(".jpg","-sm.jpg")} 800w, img/${src} 1600w" sizes="(max-width:860px) 50vw, 25vw" alt="${capText(cap)}" loading="lazy" decoding="async"><figcaption>${capText(cap)}</figcaption></figure>`).join("")}</div>`
+      ? `<div class="sd-photos n${Math.min(photos.length,3)}">${photos.map(([src,cap]) => `<figure><img src="${ROOT}img/${src}" srcset="${ROOT}img/${src.replace(".jpg","-sm.jpg")} 800w, ${ROOT}img/${src} 1600w" sizes="(max-width:860px) 50vw, 25vw" alt="${capText(cap)}" loading="lazy" decoding="async"><figcaption>${capText(cap)}</figcaption></figure>`).join("")}</div>`
       : `<div class="sd-art" aria-hidden="true"><span class="r1"></span><span class="r2"></span><span class="r3"></span><svg><use href="#s-${s.id}"/></svg></div>`;
-    const brand = br ? `<div class="sd-brand"><span>${t("sd.with")}</span><img src="${br.logo}" alt="${br.name}" height="28" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><b hidden>${br.name}</b>${br.official ? `<em>${t("sd.official")}</em>` : ""}</div>` : "";
+    const brand = br ? `<div class="sd-brand"><span>${t("sd.with")}</span><img src="${ROOT}${br.logo}" alt="${br.name}" height="28" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><b hidden>${br.name}</b>${br.official ? `<em>${t("sd.official")}</em>` : ""}</div>` : "";
     return `<article class="sd${n%2 ? " flip" : ""}" id="svc-${s.id}" data-id="${s.id}">
       <div class="sd-media reveal">${media}</div>
       <div class="sd-body">
@@ -491,7 +615,7 @@ function renderDetails(){
           ${tx.s.map((st, i) => `<button type="button" role="tab" aria-selected="${i===0}" aria-controls="sdp-${s.id}" data-step="${i}" title="${st[0]}"><span>${i+1}</span></button>`).join("")}
         </div>
         <div class="sd-bubble" id="sdp-${s.id}" role="tabpanel" aria-live="polite"><small>${t("sd.step")} 1/${tx.s.length}</small><b>${tx.s[0][0]}</b><p>${tx.s[0][1]}</p></div>
-        <div><a class="btn" href="contact.html#book-${s.id}"><span>${t("sd.book")}</span><svg><use href="#i-arrow"/></svg></a></div>
+        <div class="sd-actions"><a class="btn" href="contact.html#book-${s.id}"><span>${t("sd.book")}</span><svg><use href="#i-arrow"/></svg></a>${!only && SP_IDS.includes(s.id) ? `<a class="btn ghost" href="${s.id}.html">${t("sp.readmore")}</a>` : ""}</div>
       </div>
     </article>`;
   }).join("");
@@ -612,20 +736,16 @@ function setLang(l){
   $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
   $$("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
   $$("[data-lang-block]").forEach(a => a.hidden = a.dataset.langBlock !== lang);
-  $$(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang===lang));
-  document.title = PAGE === "home" ? t("title.home") : t(PAGE_TITLE[PAGE]) + " · BoatLab";
+  $$(".lang [data-lang]").forEach(b => b.setAttribute("aria-current", b.dataset.lang===lang ? "true" : "false"));
   const fl = $("#f-lang"); if (fl) fl.value = {en:"English",nl:"Nederlands",de:"Deutsch"}[lang];
   renderServices(); renderDetails(); renderReviews();
-  $$(".js-privacy").forEach(a => a.href = "privacy.html#"+lang);
   const reg = $("#regIds"); if (reg) reg.textContent = [CONFIG.kvk && t("footer.kvk")+" "+CONFIG.kvk, CONFIG.vat && t("footer.vat")+" "+CONFIG.vat].filter(Boolean).join(" · ");
   requestAnimationFrame(() => {
-    const lb = $(`.lang button[data-lang="${lang}"]`), th = $(".lang .thumb");
+    const lb = $(`.lang [data-lang="${lang}"]`), th = $(".lang .thumb");
     if (lb && th){ th.style.width = lb.offsetWidth+"px"; th.style.transform = `translateX(${lb.offsetLeft-3}px)`; }
     moveThumb($("#svcTabs"), $('#svcTabs [aria-selected="true"]'));
   });
-  try { localStorage.setItem("boatlab-lang", lang); } catch(_){}
 }
-$$(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
 
 /* ---------- nav ---------- */
 const nav = $("#nav");
@@ -652,7 +772,7 @@ document.addEventListener("pointerdown", e => {
     cmp.classList.add("swap");
     setTimeout(() => {
       const set = (img, src) => { img.srcset = `${src.replace(".jpg","-sm.jpg")} 800w, ${src} 1600w`; img.src = src; };
-      set($(".before img", cmp), bf); set($(".after img", cmp), af);
+      set($(".before img", cmp), ROOT+bf); set($(".after img", cmp), ROOT+af);
       range.value = 50; cmp.style.setProperty("--pos","50%");
       cmp.classList.remove("swap");
     }, reduceMotion ? 0 : 200);
@@ -819,6 +939,7 @@ $("#copyEmail")?.addEventListener("click", e => {
         err.textContent = t("f.errSend")+CONFIG.email+"."; err.hidden = false; return;
       }
     } else { await new Promise(r => setTimeout(r, 600)); }
+    track("lead_form", {page: PAGE, services: svcs.join(","), sent});
     showDone(sent, summary);
   });
   function showDone(sent, summary){
@@ -843,15 +964,56 @@ $("#copyEmail")?.addEventListener("click", e => {
 /* ---------- start ---------- */
 (function(){
   const h = (location.hash||"").slice(1);
-  let l = T[h] ? h : null;
-  if (!l){ try { l = localStorage.getItem("boatlab-lang"); } catch(_){} }
-  if (!l){ const n = (navigator.language||"en").slice(0,2); l = T[n] ? n : "en"; }
-  setLang(l);
+  setLang(lang);   // the language is fixed per URL (/ = EN, /nl/, /de/); the switcher links to the sibling page
   if (h.startsWith("book-")) setTimeout(() => preselectAndScroll(h.slice(5)), 60);
   if (h.startsWith("svc-")) setTimeout(() => openDetail(h.slice(4)), 60);
   addEventListener("resize", () => {
     moveThumb($("#svcTabs"), $('#svcTabs [aria-selected="true"]'));
-    const lb = $(`.lang button[data-lang="${lang}"]`), th = $(".lang .thumb");
+    const lb = $(`.lang [data-lang="${lang}"]`), th = $(".lang .thumb");
     if (lb && th){ th.style.width = lb.offsetWidth+"px"; th.style.transform = `translateX(${lb.offsetLeft-3}px)`; }
   });
 })();
+
+/* ---------- WhatsApp links, sticky mobile bar ---------- */
+(function(){
+  const msg = {en:"Hello BoatLab, I would like an offer for my boat.", nl:"Hallo BoatLab, ik wil graag een offerte voor mijn boot.", de:"Hallo BoatLab, ich hätte gern ein Angebot für mein Boot."}[lang];
+  const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+  $$(".js-wa").forEach(a => a.href = wa);
+  const bar = $("#stickyBar"); if (!bar) return;
+  const form = $("#bookForm");
+  if (form && "IntersectionObserver" in window) new IntersectionObserver(([e]) => bar.classList.toggle("away", e.isIntersecting), {threshold:.15}).observe(form);
+})();
+
+/* ---------- measurement: Consent Mode v2 + Google Tag Manager, only with a container id ---------- */
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+const track = (event, extra) => dataLayer.push(Object.assign({event}, extra || {}));
+(function(){
+  if (!CONFIG.gtmId) return;
+  const KEY = "boatlab-consent";
+  let choice = null; try { choice = localStorage.getItem(KEY); } catch(_){}
+  gtag("consent", "default", {ad_storage:"denied", ad_user_data:"denied", ad_personalization:"denied", analytics_storage:"denied", wait_for_update: 500});
+  const load = () => {
+    if (window.__gtmLoaded) return; window.__gtmLoaded = true;
+    dataLayer.push({"gtm.start": Date.now(), event: "gtm.js"});
+    const s = document.createElement("script"); s.async = true; s.src = "https://www.googletagmanager.com/gtm.js?id=" + CONFIG.gtmId; document.head.appendChild(s);
+  };
+  const apply = c => {
+    const granted = c === "all" ? "granted" : "denied";
+    gtag("consent", "update", {ad_storage:granted, ad_user_data:granted, ad_personalization:granted, analytics_storage:granted});
+    load();
+  };
+  const banner = $("#consent");
+  if (choice){ apply(choice); return; }
+  if (!banner) return;
+  banner.hidden = false;
+  banner.addEventListener("click", e => {
+    const b = e.target.closest("button[data-consent]"); if (!b) return;
+    try { localStorage.setItem(KEY, b.dataset.consent); } catch(_){}
+    banner.hidden = true; apply(b.dataset.consent);
+  });
+})();
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[href^='tel:'], a.js-wa"); if (!a) return;
+  track(a.classList.contains("js-wa") ? "contact_whatsapp" : "contact_call", {page: PAGE});
+});

@@ -1,0 +1,39 @@
+<!-- SERVICE LANDING PAGE (one per service and language; {{...}} filled by build.py) -->
+  <section class="page-hero compact">
+    <div class="wrap">
+      <p class="eyebrow load"><a href="services.html">{{allServices}}</a> · {{category}}</p>
+      <h1 class="load d1">{{h1}}</h1>
+      <p class="lede load d2">{{lede}}</p>
+      <div class="hero-cta load d3" style="justify-content:flex-start">
+        <a class="btn" href="contact.html#book-{{id}}"><span>{{offer}} {{nameLower}}</span><svg><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="tel:+31611742272"><svg><use href="#i-phone"/></svg><span>+31 6 11742272</span></a>
+        <a class="btn ghost js-wa" href="https://wa.me/31611742272" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+      </div>
+    </div>
+    <div class="page-hero-img frame load d3"><img src="img/{{photo}}" alt="{{photoAlt}}" width="1600" height="1200" fetchpriority="high"></div>
+  </section>
+
+  <section class="details sp-details">
+    <div class="wrap"><div id="svcDetails" data-only="{{id}}">{{detail}}</div></div>
+  </section>
+
+  <section class="sp-price">
+    <div class="wrap price-card reveal">
+      <div><span class="eyebrow">{{priceTitle}}</span><h2>{{priceTitle}}</h2></div>
+      <p class="lede">{{priceText}}</p>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="eyebrow">FAQ</span><h2 id="faqTitle">{{faqTitle}}</h2></div>
+      <div class="faq-list">{{faq}}</div>
+    </div>
+  </section>
+
+  <section class="related" aria-labelledby="relTitle">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="relTitle">{{relatedTitle}}</h2></div>
+      <div class="svc-grid">{{related}}</div>
+    </div>
+  </section>
