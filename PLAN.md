@@ -74,6 +74,16 @@ The owner has a large set of new photos. Plan:
       Needs: 3D file from Focus (glTF/GLB preferred), a lightweight viewer (e.g. `<model-viewer>` or Three.js), fallback image for slow devices.
 - [ ] Ask partners for vector logos: Renskib (dark-on-white), U-Dek (SVG), Focus Motor Yachts / Focus Marine Center (SVG).
 
+## Design direction (30 Oct)
+
+- **Palette**: white content pages with deep-navy bands (`--navy #0b1726`) for the hero, crane section, facility teaser, CTA card and footer.
+  Logo blue stays the accent (`#0b8fd6`, lifted to `#4db3ec` on navy); crane-hook yellow marks the free lift. Body text on navy is `#a7b6c8`.
+- **Media**: photos and videos sit in crisp rounded frames (28 px radius). The old edge fades are gone everywhere.
+- **Videos**: at most one per screen, only where motion adds something. Now: the yard fly-in in the Home facility teaser and the hall flight on the
+  Facility page. The Home hero and the crane section are stills (aerial yard photo with anchored callouts; sunset crane with the Focus sign).
+- **Hero callouts** are pinned to real spots in the aerial photo (crane, yachts on the quay, Focus sign, pontoon). On phones they become a list under the photo.
+- Video files are 1920 px, CRF 26 (5-6 MB each); quality over size here, and they load lazily anyway.
+
 ## Performance (done 29 Oct, keep in mind)
 
 - Looping animations only run while their section is on screen; parallax on masked photos removed; blur effects reduced.
@@ -132,3 +142,4 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
 - **29 Oct 2026 (evening)**: Partner block redesigned (both Focus logos, smaller heading) and added to Home. Logo strip rebuilt (drag/scroll, pauses on hover).
   Performance pass (see above). Installing the `web-perf` and `animation-performance` skills was blocked by the session's permission check; fixes applied by hand.
 - **30 Oct 2026**: Drone videos and photos pulled from SharePoint (anonymous share link works with curl). Four background loops on Home and Facility, two aerial photos in the slider.
+- **30 Oct 2026 (later)**: Dark-navy redesign, framed media, hero still with callouts, videos reduced to two and re-encoded at higher quality. Services hero photo swapped for the aerial hall shot.
