@@ -645,8 +645,7 @@ document.addEventListener("pointerdown", e => {
   const cmp = $("#compare"), range = $("#compareRange"); if (!cmp) return;
   range.addEventListener("input", () => cmp.style.setProperty("--pos", range.value+"%"));
   // Same boat, same angle: full "before" and "after" photos on top of each other.
-  const BA = {bow:["img/af-bow-before.jpg","img/af-bow-after.jpg"], polish:["img/polish-before.jpg","img/polish-after.jpg"],
-              osmosis:["img/osmosis-fairing.jpg","img/osmosis-done.jpg"]};
+  const BA = {bow:["img/af-bow-before.jpg","img/af-bow-after.jpg"], polish:["img/polish-before.jpg","img/polish-after.jpg"]};
   $$("[data-ba]").forEach(b => b.addEventListener("click", () => {
     $$("[data-ba]").forEach(x => x.setAttribute("aria-pressed", x===b));
     const [bf, af] = BA[b.dataset.ba];
