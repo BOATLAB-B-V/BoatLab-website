@@ -651,3 +651,17 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 @keyframes wheel-turn-r{from{transform:rotate(18deg)}to{transform:rotate(378deg)}}
 @keyframes wheel-turn-l{from{transform:rotate(-24deg)}to{transform:rotate(-384deg)}}
 @media (max-width:700px){.wm-hero{width:320px;right:-120px;top:-40px;opacity:.08}.wm-lift{width:300px;left:-130px;bottom:-110px}}
+
+/* ---------- photo upload in the offer form ---------- */
+.drop{position:relative;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:14px;padding:16px 18px;border:1.5px dashed var(--line);border-radius:var(--r-sm);background:var(--soft);color:var(--muted);font-size:.92rem;line-height:1.4;cursor:pointer;transition:border-color .2s,background .2s}
+.drop:hover,.drop.over{border-color:var(--brand);background:var(--brand-soft)}
+.drop.full{opacity:.55;pointer-events:none}
+.drop input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.drop svg{width:28px;height:28px;color:var(--brand)}
+.thumbs{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.thumbs:empty{display:none}
+.thumbs li{position:relative;width:84px}
+.thumbs img{width:84px;height:84px;object-fit:cover;border-radius:10px;display:block;background:var(--soft)}
+.thumbs span{display:block;font-size:.72rem;color:var(--muted);text-align:center;margin-top:3px}
+.thumbs button{position:absolute;top:-6px;right:-6px;width:24px;height:24px;border-radius:50%;border:0;background:var(--ink);color:#fff;font:700 15px/1 var(--f-body);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.photos small{display:block;margin-top:8px;font-size:.82rem}

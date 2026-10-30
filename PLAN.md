@@ -136,7 +136,9 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
 
 - [ ] **Email address** for bookings and privacy questions (`CONFIG.email` is still the placeholder `info@boatlabservice.nl`).
 - [ ] **KvK and BTW (VAT) numbers** in `CONFIG.kvk` / `CONFIG.vat` (required by Dutch law; shown in footer and privacy page).
-- [ ] **Booking form delivery**: native Tilda form, or a Formspree URL in `CONFIG.formEndpoint`.
+- [ ] **Booking form delivery**: the form now also takes up to 5 boat photos (fields `photo1..photo5`); the endpoint must accept file uploads (Formspree paid plan, Tilda form with file field, or Make/Zapier webhook). Until then the summary lists the photo names and asks the visitor to attach them to the email.
+- [ ] **Hero photo retouch**: owner wants the cluttered yard area (right of the hall, behind the quay) cleaned up or replaced by tidy boats in dry storage. Needs a photo editor with generative fill (Photoshop, Canva, Pixelmator) or a fresh drone shot after a tidy-up; the first option keeps the real scene most honest.
+- [ ] **Old booking form delivery**: native Tilda form, or a Formspree URL in `CONFIG.formEndpoint`.
 - [ ] **Reviews**: paste real Google reviews into `REVIEWS` in `site.js` (the reviews band stays hidden until then).
 - [ ] **Fonts (GDPR)**: self-host Archivo, Instrument Sans, IBM Plex Mono instead of Google Fonts. Waiting for owner's OK.
 - [ ] **Focus Marine Center**: confirm whether customer data is shared; if yes, name them in the privacy policy.

@@ -57,7 +57,7 @@ en:{
  "how.1t":"Send your request","how.1p":"Tell us about your boat and what it needs. Photos help.","how.2t":"Clear quote","how.2p":"We reply with advice, a fixed quote and a date that suits you.","how.free":"Free lift","how.3t":"Lift & work","how.3p":"Our crane lifts your boat out at no cost and our team gets to work.","how.4t":"Back on the water","how.4p":"We walk you through the result and put your boat back in the water.",
  "book.eyebrow":"Get an offer","book.title":"Let's get your boat ready.","book.lede":"Send your request and we'll get back to you personally with a quote and a date.",
  "book.b1":"Free crane lift included with every service","book.b2":"Fixed, transparent quote before we start","book.b3":"Reply in English, Dutch or German",
- "f.name":"Name","f.email":"Email","f.phone":"Phone","f.optional":"(optional)","f.lang":"Preferred language","f.boat":"Boat make & model","f.length":"Length (m)","f.services":"Services","f.date":"Preferred date","f.where":"Where is the boat now?","f.w1":"In the water","f.w2":"On a trailer","f.w3":"In storage elsewhere","f.msg":"Anything else we should know?","f.note":"No payment needed. We only use your details to answer this request.","f.submit":"Send request",
+ "f.name":"Name","f.email":"Email","f.phone":"Phone","f.optional":"(optional)","f.lang":"Preferred language","f.boat":"Boat make & model","f.length":"Length (m)","f.services":"Services","f.date":"Preferred date","f.where":"Where is the boat now?","f.w1":"In the water","f.w2":"On a trailer","f.w3":"In storage elsewhere","f.msg":"Anything else we should know?","f.photos":"Photos of your boat","f.photosHint":"Add up to 5 photos of the hull, deck or the damage. Tap to choose, or drop them here.","f.photosNote":"JPG, PNG or HEIC, max 10 MB each. Photos help us give you an accurate offer.","f.photosErr":"Please add up to 5 photos of max 10 MB each.","f.photosAttach":"Attach your photos to the email as well.","f.remove":"Remove","f.note":"No payment needed. We only use your details to answer this request.","f.submit":"Send request",
  "f.errReq":"Please fill in your name, a valid email and your boat.","f.errSvc":"Choose at least one service.","f.errConsent":"Please confirm that you have read the privacy policy.","f.consent":"I have read the <a class=\"js-privacy\" href=\"privacy.html\">privacy policy</a> and agree that BoatLab uses my details to handle this request.","footer.privacy":"Privacy policy","footer.kvk":"KvK","footer.vat":"VAT","f.errSend":"The request could not be sent. Please email us directly at ",
  "done.title":"Request sent.","done.text":"Thank you. We'll reply personally within one working day.","done.readyTitle":"Your request is ready.","done.readyText":"Send it to us by email and we'll reply personally with a quote and a date.","done.copy":"Copy request","done.mail":"Open in email","done.new":"New request","done.copied":"Copied",
  "c.eyebrow":"Visit the yard","c.maps":"Open in Google Maps →","c.email":"Email","c.copy":"Copy","c.address":"Address","c.follow":"Follow us","c.watch":"Watch us work","c.phone":"Phone","c.call":"Call us →","c.focus":"In partnership with Focus Marine Center"
@@ -99,7 +99,7 @@ nl:{
  "how.1t":"Stuur uw aanvraag","how.1p":"Vertel ons over uw boot en wat er moet gebeuren. Foto's helpen.","how.2t":"Heldere offerte","how.2p":"U krijgt advies, een vaste prijs en een datum die u uitkomt.","how.free":"Gratis hijsen","how.3t":"Hijsen & werken","how.3p":"Onze kraan haalt uw boot gratis uit het water en ons team gaat aan de slag.","how.4t":"Weer te water","how.4p":"We lopen het resultaat met u door en zetten uw boot weer in het water.",
  "book.eyebrow":"Offerte aanvragen","book.title":"Samen uw boot klaarmaken.","book.lede":"Stuur uw aanvraag en we nemen persoonlijk contact op met een offerte en een datum.",
  "book.b1":"Gratis hijsen bij elke service","book.b2":"Vaste, transparante offerte vooraf","book.b3":"Antwoord in het Nederlands, Duits of Engels",
- "f.name":"Naam","f.email":"E-mail","f.phone":"Telefoon","f.optional":"(optioneel)","f.lang":"Voorkeurstaal","f.boat":"Merk & type boot","f.length":"Lengte (m)","f.services":"Diensten","f.date":"Gewenste datum","f.where":"Waar ligt de boot nu?","f.w1":"In het water","f.w2":"Op een trailer","f.w3":"Elders in de stalling","f.msg":"Wat moeten we nog meer weten?","f.note":"U betaalt nu niets. We gebruiken uw gegevens alleen om deze aanvraag te beantworden.","f.submit":"Aanvraag versturen",
+ "f.name":"Naam","f.email":"E-mail","f.phone":"Telefoon","f.optional":"(optioneel)","f.lang":"Voorkeurstaal","f.boat":"Merk & type boot","f.length":"Lengte (m)","f.services":"Diensten","f.date":"Gewenste datum","f.where":"Waar ligt de boot nu?","f.w1":"In het water","f.w2":"Op een trailer","f.w3":"Elders in de stalling","f.msg":"Wat moeten we nog meer weten?","f.photos":"Foto's van uw boot","f.photosHint":"Voeg maximaal 5 foto's toe van de romp, het dek of de schade. Tik om te kiezen, of sleep ze hierheen.","f.photosNote":"JPG, PNG of HEIC, max. 10 MB per foto. Met foto's kunnen we een nauwkeurige offerte maken.","f.photosErr":"Voeg maximaal 5 foto's toe van elk max. 10 MB.","f.photosAttach":"Voeg uw foto's ook als bijlage aan de e-mail toe.","f.remove":"Verwijderen","f.note":"U betaalt nu niets. We gebruiken uw gegevens alleen om deze aanvraag te beantworden.","f.submit":"Aanvraag versturen",
  "f.errReq":"Vul uw naam, een geldig e-mailadres en uw boot in.","f.errSvc":"Kies minstens één dienst.","f.errConsent":"Bevestig dat u de privacyverklaring heeft gelezen.","f.consent":"Ik heb de <a class=\"js-privacy\" href=\"privacy.html\">privacyverklaring</a> gelezen en ga ermee akkoord dat BoatLab mijn gegevens gebruikt om deze aanvraag af te handelen.","footer.privacy":"Privacyverklaring","footer.kvk":"KvK","footer.vat":"BTW","f.errSend":"De aanvraag kon niet worden verzonden. Mail ons direct via ",
  "done.title":"Aanvraag verstuurd.","done.text":"Bedankt. We reageren persoonlijk binnen één werkdag.","done.readyTitle":"Uw aanvraag staat klaar.","done.readyText":"Stuur hem per e-mail naar ons en we reageren persoonlijk met een offerte en een datum.","done.copy":"Aanvraag kopiëren","done.mail":"Openen in e-mail","done.new":"Nieuwe aanvraag","done.copied":"Gekopieerd",
  "c.eyebrow":"Bezoek de werf","c.maps":"Openen in Google Maps →","c.email":"E-mail","c.copy":"Kopiëren","c.address":"Adres","c.phone":"Telefoon","c.call":"Bel ons →","c.focus":"Gevestigd in samenwerking met Focus Marine Center","c.follow":"Volg ons","c.watch":"Kijk mee op de werf"
@@ -141,7 +141,7 @@ de:{
  "how.1t":"Anfrage senden","how.1p":"Erzählen Sie uns von Ihrem Boot und was es braucht. Fotos helfen.","how.2t":"Klares Angebot","how.2p":"Sie erhalten Beratung, einen Festpreis und einen passenden Termin.","how.free":"Gratis kranen","how.3t":"Kranen & arbeiten","how.3p":"Unser Kran hebt Ihr Boot kostenlos heraus und unser Team legt los.","how.4t":"Zurück aufs Wasser","how.4p":"Wir zeigen Ihnen das Ergebnis und setzen Ihr Boot wieder ins Wasser.",
  "book.eyebrow":"Angebot anfragen","book.title":"Machen wir Ihr Boot bereit.","book.lede":"Senden Sie Ihre Anfrage und wir melden uns persönlich mit Angebot und Termin.",
  "book.b1":"Kostenloses Kranen bei jedem Service","book.b2":"Fester, transparenter Preis vorab","book.b3":"Antwort auf Deutsch, Niederländisch oder Englisch",
- "f.name":"Name","f.email":"E-Mail","f.phone":"Telefon","f.optional":"(optional)","f.lang":"Bevorzugte Sprache","f.boat":"Bootsmarke & Modell","f.length":"Länge (m)","f.services":"Leistungen","f.date":"Wunschtermin","f.where":"Wo liegt das Boot jetzt?","f.w1":"Im Wasser","f.w2":"Auf einem Trailer","f.w3":"In einem anderen Winterlager","f.msg":"Was sollten wir noch wissen?","f.note":"Keine Zahlung nötig. Wir nutzen Ihre Daten nur zur Beantwortung dieser Anfrage.","f.submit":"Anfrage senden",
+ "f.name":"Name","f.email":"E-Mail","f.phone":"Telefon","f.optional":"(optional)","f.lang":"Bevorzugte Sprache","f.boat":"Bootsmarke & Modell","f.length":"Länge (m)","f.services":"Leistungen","f.date":"Wunschtermin","f.where":"Wo liegt das Boot jetzt?","f.w1":"Im Wasser","f.w2":"Auf einem Trailer","f.w3":"In einem anderen Winterlager","f.msg":"Was sollten wir noch wissen?","f.photos":"Fotos Ihres Bootes","f.photosHint":"Fügen Sie bis zu 5 Fotos von Rumpf, Deck oder Schaden hinzu. Tippen zum Auswählen oder hierher ziehen.","f.photosNote":"JPG, PNG oder HEIC, max. 10 MB pro Foto. Mit Fotos können wir ein genaues Angebot erstellen.","f.photosErr":"Bitte bis zu 5 Fotos mit je max. 10 MB hinzufügen.","f.photosAttach":"Hängen Sie Ihre Fotos bitte auch an die E-Mail an.","f.remove":"Entfernen","f.note":"Keine Zahlung nötig. Wir nutzen Ihre Daten nur zur Beantwortung dieser Anfrage.","f.submit":"Anfrage senden",
  "f.errReq":"Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und Ihr Boot an.","f.errSvc":"Bitte wählen Sie mindestens eine Leistung.","f.errConsent":"Bitte bestätigen Sie, dass Sie die Datenschutzerklärung gelesen haben.","f.consent":"Ich habe die <a class=\"js-privacy\" href=\"privacy.html\">Datenschutzerklärung</a> gelesen und bin einverstanden, dass BoatLab meine Daten zur Bearbeitung dieser Anfrage verwendet.","footer.privacy":"Datenschutz","footer.kvk":"KvK","footer.vat":"USt-IdNr.","f.errSend":"Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns direkt an ",
  "done.title":"Anfrage gesendet.","done.text":"Vielen Dank. Wir melden uns persönlich innerhalb eines Werktags.","done.readyTitle":"Ihre Anfrage ist bereit.","done.readyText":"Senden Sie sie uns per E-Mail, und wir melden uns persönlich mit Angebot und Termin.","done.copy":"Anfrage kopieren","done.mail":"In E-Mail öffnen","done.new":"Neue Anfrage","done.copied":"Kopiert",
  "c.eyebrow":"Besuchen Sie die Werft","c.maps":"In Google Maps öffnen →","c.email":"E-Mail","c.copy":"Kopieren","c.address":"Adresse","c.phone":"Telefon","c.call":"Rufen Sie uns an →","c.focus":"In Kooperation mit dem Focus Marine Center","c.follow":"Folgen Sie uns","c.watch":"Schauen Sie uns zu"
@@ -758,6 +758,31 @@ $("#copyEmail")?.addEventListener("click", e => {
 (function(){
   const form = $("#bookForm"); if (!form) return;
   const err = $("#formError");
+  // Photos: keep our own list so people can add in several rounds and remove single ones.
+  const photoInput = $("#f-photos"), photoList = $("#photoList"), drop = $("#photoDrop");
+  let photos = [];
+  const MAX_PHOTOS = 5, MAX_BYTES = 10 * 1024 * 1024;
+  const renderPhotos = () => {
+    photoList.innerHTML = photos.map((f, i) => `<li><img src="${URL.createObjectURL(f)}" alt=""><button type="button" data-i="${i}" aria-label="${t("f.remove")} ${f.name}">×</button><span>${(f.size/1024/1024).toFixed(1)} MB</span></li>`).join("");
+    drop.classList.toggle("full", photos.length >= MAX_PHOTOS);
+  };
+  const addPhotos = files => {
+    let bad = false;
+    for (const f of files){
+      if (!f.type.startsWith("image/") && !/\.heic$/i.test(f.name)) { bad = true; continue; }
+      if (f.size > MAX_BYTES || photos.length >= MAX_PHOTOS) { bad = true; continue; }
+      photos.push(f);
+    }
+    if (bad){ err.textContent = t("f.photosErr"); err.hidden = false; } else err.hidden = true;
+    renderPhotos(); photoInput.value = "";
+  };
+  if (photoInput){
+    photoInput.addEventListener("change", () => addPhotos(photoInput.files));
+    photoList.addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; photos.splice(+b.dataset.i, 1); renderPhotos(); });
+    ["dragenter","dragover"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("over"); }));
+    ["dragleave","drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("over"); }));
+    drop.addEventListener("drop", e => addPhotos(e.dataTransfer.files));
+  }
   $("#f-date").min = new Date().toISOString().slice(0,10);
   form.addEventListener("submit", async e => {
     e.preventDefault(); err.hidden = true;
@@ -776,6 +801,7 @@ $("#copyEmail")?.addEventListener("click", e => {
       "Services: "+svcs.map(id => T.en["s."+id]).join(", "),
       fd.get("date") ? "Preferred date: "+fd.get("date") : null,
       fd.get("message") ? "\nMessage:\n"+fd.get("message") : null,
+      photos.length ? "Photos: "+photos.length+" ("+photos.map(f => f.name).join(", ")+")" : null,
       "\nPrivacy policy accepted: yes ("+new Date().toISOString().slice(0,16).replace("T"," ")+" UTC)"
     ].filter(Boolean).join("\n");
     const btn = $("#submitBtn"); btn.classList.add("loading"); btn.disabled = true;
@@ -783,6 +809,7 @@ $("#copyEmail")?.addEventListener("click", e => {
     if (CONFIG.formEndpoint){
       try {
         fd.set("services", svcs.map(id => T.en["s."+id]).join(", "));
+        fd.delete("photos"); photos.forEach((f, i) => fd.append("photo"+(i+1), f, f.name));
         fd.set("_subject", "BoatLab booking: "+fd.get("boat"));
         const res = await fetch(CONFIG.formEndpoint, {method:"POST", body:fd, headers:{Accept:"application/json"}});
         sent = res.ok;
@@ -799,7 +826,7 @@ $("#copyEmail")?.addEventListener("click", e => {
     $("#bookWrap").innerHTML = `<div class="done" role="status">
         <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
         <h3 style="font-size:1.6rem;font-weight:800;font-stretch:110%">${t(sent ? "done.title" : "done.readyTitle")}</h3>
-        <p class="lede">${t(sent ? "done.text" : "done.readyText")} ${sent ? "" : "<b>"+CONFIG.email+"</b>"}</p>
+        <p class="lede">${t(sent ? "done.text" : "done.readyText")} ${sent ? "" : "<b>"+CONFIG.email+"</b>"}${!sent && photos.length ? " "+t("f.photosAttach") : ""}</p>
         ${sent ? "" : `<pre id="summary">${summary.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}</pre>
         <div class="row"><button class="btn" type="button" id="copySum">${t("done.copy")}</button><a class="btn ghost" href="${mail}">${t("done.mail")}</a></div>`}
         <button class="pill" type="button" id="newReq">${t("done.new")}</button>

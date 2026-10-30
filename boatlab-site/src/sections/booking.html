@@ -29,6 +29,16 @@
               <option value="In storage elsewhere" data-i18n="f.w3">In storage elsewhere</option>
             </select></div>
           <div class="field full"><label for="f-msg"><span data-i18n="f.msg">Anything else we should know?</span> <span class="opt" data-i18n="f.optional">(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
+          <div class="field full photos">
+            <label for="f-photos"><span data-i18n="f.photos">Photos of your boat</span> <span class="opt" data-i18n="f.optional">(optional)</span></label>
+            <div class="drop" id="photoDrop">
+              <input id="f-photos" name="photos" type="file" accept="image/*" multiple>
+              <svg aria-hidden="true"><use href="#i-camera"/></svg>
+              <span data-i18n="f.photosHint">Add up to 5 photos of the hull, deck or the damage. Tap to choose, or drop them here.</span>
+            </div>
+            <ul class="thumbs" id="photoList" aria-live="polite"></ul>
+            <small class="opt" data-i18n="f.photosNote">JPG, PNG or HEIC, max 10 MB each. Photos help us give you an accurate offer.</small>
+          </div>
           <div class="field full consent"><label for="f-consent"><input type="checkbox" id="f-consent" name="privacy_consent" value="yes" required><span data-i18n-html="f.consent">I have read the <a class="js-privacy" href="privacy.html">privacy policy</a> and agree that BoatLab uses my details to handle this request.</span></label></div>
           <p class="form-error" id="formError" hidden></p>
           <div class="actions">
