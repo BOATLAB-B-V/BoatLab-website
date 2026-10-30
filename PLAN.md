@@ -81,6 +81,8 @@ The owner has a large set of new photos. Plan:
 - **Media**: photos and videos sit in crisp rounded frames (28 px radius). The old edge fades are gone everywhere.
 - **Videos**: at most one per screen, only where motion adds something. Now: the yard fly-in in the Home facility teaser, the hall flight on the
   Facility page, and the crane orbit (155720 @57 s, boat in the slings in front of the Focus sign) at the top of the Services page. The Home hero and the crane section are stills (aerial yard photo with anchored callouts; sunset crane with the Focus sign).
+- **Watermarks**: the BoatLab ship's wheel (SVG symbol `i-wheel`) sits faintly on the navy bands: hero (top right), crane section (bottom left)
+  and the CTA card (right), turning very slowly while on screen. Keep it to these three; more would get busy.
 - **Hero callouts** are pinned to real spots in the aerial photo (hall, Focus sign, crane, pontoon, wrapped boats in dry storage), positioned by
   script from image coordinates so they stay put at any crop. On phones the pins become numbered dots and the cards below carry the same numbers; tapping a dot lights its card.
 - Video files are 1920 px, CRF 26 (5-6 MB each); quality over size here, and they load lazily anyway.

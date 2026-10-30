@@ -533,9 +533,9 @@ function setupSteps(art){
 /* Looping animations run only while their section is on screen (saves CPU and battery). */
 let animIO = null;
 function watchAnimations(){
-  if (!("IntersectionObserver" in window)) { $$(".sd, .cta-card, .hero-media").forEach(el => el.classList.add("in-view")); return; }
+  if (!("IntersectionObserver" in window)) { $$(".sd, .cta-card, .hero-media, .hero, .lift").forEach(el => el.classList.add("in-view")); return; }
   animIO = animIO || new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle("in-view", e.isIntersecting)), {rootMargin:"15% 0px"});
-  $$(".sd, .cta-card, .hero-media").forEach(el => animIO.observe(el));
+  $$(".sd, .cta-card, .hero-media, .hero, .lift").forEach(el => animIO.observe(el));
 }
 watchAnimations();
 

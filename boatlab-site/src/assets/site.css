@@ -99,7 +99,9 @@ section{padding-block:clamp(72px,10vw,128px)}
 @media (max-width:420px){.brand small{display:none}}
 
 /* ---------- hero ---------- */
-.hero{padding-block:clamp(40px,6vw,80px) 0;overflow:hidden}
+.hero{position:relative;padding-block:clamp(40px,6vw,80px) 0;overflow:hidden}
+.lift{position:relative;overflow:hidden}
+.lift .wrap{position:relative;z-index:1}
 .hero-copy{display:grid;gap:24px;justify-items:center;text-align:center;max-width:980px}
 .hero h1{font-size:clamp(3.1rem,8.6vw,7.4rem);font-weight:850;font-stretch:116%;letter-spacing:-.035em;line-height:.94}
 .hero h1 .l2{display:block;color:var(--brand-light)}
@@ -637,3 +639,16 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 @media (max-width:700px){.fac-frame{height:clamp(300px,70vw,420px)}.fac-card{position:static;margin-top:16px;max-width:none;padding:0;background:none;box-shadow:none}}
 
 /* keep white sections visually separated from the navy bands */
+
+/* ---------- ship's-wheel watermarks on the navy bands ---------- */
+.wm-hero{position:absolute;right:-8%;top:-6%;width:clamp(380px,46vw,760px);aspect-ratio:1;color:var(--brand-light);opacity:.10;pointer-events:none;transform:rotate(18deg);
+  -webkit-mask-image:radial-gradient(circle at 70% 30%,#000 30%,transparent 72%);mask-image:radial-gradient(circle at 70% 30%,#000 30%,transparent 72%)}
+.wm-lift{position:absolute;left:-10%;bottom:-28%;width:clamp(340px,40vw,640px);aspect-ratio:1;color:var(--brand-light);opacity:.09;pointer-events:none;transform:rotate(-24deg);
+  -webkit-mask-image:radial-gradient(circle at 40% 40%,#000 25%,transparent 70%);mask-image:radial-gradient(circle at 40% 40%,#000 25%,transparent 70%)}
+@media (prefers-reduced-motion:no-preference){
+  .hero.in-view .wm-hero{animation:wheel-turn-r 140s linear infinite}
+  .lift.in-view .wm-lift{animation:wheel-turn-l 160s linear infinite}
+}
+@keyframes wheel-turn-r{from{transform:rotate(18deg)}to{transform:rotate(378deg)}}
+@keyframes wheel-turn-l{from{transform:rotate(-24deg)}to{transform:rotate(-384deg)}}
+@media (max-width:700px){.wm-hero{width:320px;right:-120px;top:-40px;opacity:.08}.wm-lift{width:300px;left:-130px;bottom:-110px}}
