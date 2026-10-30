@@ -5,10 +5,10 @@ in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and Tik
 
 - Languages: English at `/`, Dutch at `/nl/`, German at `/de/`. Every page exists three times with the texts written into the HTML
   (so search engines index all three), linked with `hreflang`. The language switcher links to the sibling page.
-- Style: bright white, logo blue `#0b8fd6` as accent only, full-width photos that fade into the page.
+- Style: white content pages with deep-navy bands, logo blue `#0b8fd6` as accent, photos and videos in rounded frames (no edge fades), at most one video per screen.
 - Preview link (current): https://claude.ai/artifact/GNe96iomnHhgrWhos7mqSj · older preview: https://claude.ai/artifact/DNrMyNRKgsKyXCE7mQN8yH
 - Plan and to-do list: `PLAN.md`
-- Plan: host on **Tilda** (paste-ready files in `boatlab-site/tilda/`), or any static host (`boatlab-site/dist/`).
+- Hosting plan: **Cloudflare Pages** builds `boatlab-site/dist/` from this repo (build command in `boatlab-site/requirements.txt`); the Tilda project with the marketing quiz pages stays on `go.boatlabservice.nl`, old addresses are redirected via `boatlab-site/_redirects`. See `PLAN.md`, go-live runbook. Paste-ready Tilda files are still generated in `boatlab-site/tilda/` as a fallback.
 
 ## Pages
 
@@ -28,6 +28,8 @@ in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and Tik
 ```
 boatlab-site/
   build.py            builds every page in 3 languages from src/ (run: python3 build.py); also sitemap.xml, robots.txt, WebP/800 px image variants
+  _redirects, _headers host configuration for Cloudflare Pages (copied into dist/)
+  requirements.txt    Python dependency for the build (Pillow)
   src/assets/site.css all styles
   src/assets/site.js  settings (CONFIG: email, KvK, BTW, WhatsApp, form endpoint, GTM id), services list, all texts in 3 languages (T, T2, T3),
                       service details (SVC_INFO photos/brand, SVC_TEXT steps, SVC_CAP captions), service pages (SP: title, H1, FAQ), partner logos (BRANDS), reviews (REVIEWS), page behaviour
@@ -52,5 +54,5 @@ To change text: edit the dictionaries in `src/assets/site.js` (keep EN, NL and D
 - [ ] **Measurement**: create a Google Tag Manager container and put its id in `CONFIG.gtmId`; the consent banner and conversion events (`lead_form`, `contact_call`, `contact_whatsapp`) are already in place.
 - [ ] **Reviews**: paste real Google reviews into `REVIEWS` in `site.js`; the home page band stays hidden while it is empty.
 - [ ] **Focus Marine Center**: confirm whether customer data is shared with them; if yes, name them in the privacy policy.
-- [ ] **Tilda**: upload photos and swap image paths for Tilda's URLs; turn off Tilda statistics/tracking; sign data processing agreements with Tilda and the email provider.
+- [ ] **Go-live**: follow the runbook in `PLAN.md` (Cloudflare Pages from GitHub, Tilda quiz pages moved to `go.boatlabservice.nl`, redirects in `_redirects`); sign data processing agreements with Formspree and Google.
 - [ ] Have the privacy policy checked by a legal/privacy professional before going live.

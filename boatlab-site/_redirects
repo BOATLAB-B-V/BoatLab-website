@@ -1,0 +1,11 @@
+# Redirects for the static host (Cloudflare Pages reads this file from dist/). One rule per line: FROM  TO  STATUS
+# Fill in the old Tilda quiz / landing URLs here once we have the list, e.g.
+#   /quiz-antifouling     https://go.boatlabservice.nl/quiz-antifouling   301
+# Keep ad links working even after the main site moves off Tilda.
+
+# Old single-page site addresses (if any existed) -> new pages
+/home                 /                       301
+/diensten             /nl/services.html       301
+/contact-nl           /nl/contact.html        301
+
+# www -> apex is handled in Cloudflare DNS/rules, not here.

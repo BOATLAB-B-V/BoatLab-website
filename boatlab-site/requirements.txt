@@ -1,0 +1,4 @@
+# Build dependency for build.py (image variants). Cloudflare Pages / Netlify build command:
+#   pip install -r boatlab-site/requirements.txt && cd boatlab-site && python3 build.py
+# Output directory: boatlab-site/dist
+Pillow>=10

@@ -1,0 +1,11 @@
+# Cache rules for the static host (Cloudflare Pages reads this file from dist/).
+/assets/*
+  Cache-Control: public, max-age=604800
+/img/*
+  Cache-Control: public, max-age=2592000, immutable
+/video/*
+  Cache-Control: public, max-age=2592000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/*.html
+  Cache-Control: public, max-age=600

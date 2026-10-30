@@ -441,6 +441,9 @@ def main():
         os.makedirs(d)
     write(os.path.join(out["dist"], "assets", "site.css"), css)
     write(os.path.join(out["dist"], "assets", "site.js"), js)
+    for extra in ("_redirects", "_headers"):          # host configuration files, copied as-is
+        if os.path.exists(os.path.join(ROOT, extra)):
+            shutil.copy(os.path.join(ROOT, extra), os.path.join(out["dist"], extra))
     for d in ("dist", "inline"):
         for folder in ("img", "video", "fonts"):
             if os.path.isdir(os.path.join(ROOT, folder)):
