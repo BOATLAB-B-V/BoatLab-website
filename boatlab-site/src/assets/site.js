@@ -532,8 +532,9 @@ de:{
        ["Kann das Boot für das Refit über den Winter bei Ihnen bleiben?","Ja. Die meisten Refits machen wir über den Winter in unserer Halle, damit das Boot fertig ist, wenn die Saison beginnt. Aus- und Einkranen mit unserem Kran sind inklusive."]]}
 }};
 
-let lang = document.documentElement.lang || "en";
-const ROOT = document.documentElement.getAttribute("data-root") || "";   // "" at the site root, "../" in /nl/ and /de/
+let lang = (window.BL_TILDA && window.BL_TILDA.lang) || document.documentElement.lang || "en";
+// Where img/, video/ and fonts/ live: "" at the site root, "../" in /nl/ and /de/, or an absolute CDN address when hosted on Tilda
+const ROOT = (window.BL_TILDA && window.BL_TILDA.root) || document.documentElement.getAttribute("data-root") || "";
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const t = k => (T[lang] && T[lang][k]) ?? T.en[k] ?? k;
@@ -962,10 +963,27 @@ $("#copyEmail")?.addEventListener("click", e => {
   }
 })();
 
+/* ---------- Tilda hosting: pages live at Tilda addresses instead of *.html files ---------- */
+// build.py rewrites the links in the static HTML; this maps the ones the scripts generate (service details, forms).
+function tildaPath(href){
+  const TL = window.BL_TILDA;
+  if (!TL || !href || href[0] === "#" || href[0] === "/" || /^[a-z]+:/i.test(href)) return null;
+  const m = /^(?:\.\/|(\.\.\/)?(?:(nl|de)\/)?(?:([a-z0-9-]+)\.html)?)(#[\w-]*)?$/.exec(href);
+  if (!m) return null;
+  const l = m[2] || (m[1] ? "en" : lang), name = m[3] || "index";
+  return (name === "index" ? TL.home[l] : "/" + TL.prefix[l] + name) + (m[4] || "");
+}
+function fixLinks(root){
+  if (!window.BL_TILDA) return;
+  $$("a[href]", root || document).forEach(a => { const p = tildaPath(a.getAttribute("href")); if (p) a.setAttribute("href", p); });
+}
+if (window.BL_TILDA) document.addEventListener("click", e => { const a = e.target.closest && e.target.closest("a[href]"); if (a) fixLinks(a.parentNode); }, true);
+
 /* ---------- start ---------- */
 (function(){
   const h = (location.hash||"").slice(1);
   setLang(lang);   // the language is fixed per URL (/ = EN, /nl/, /de/); the switcher links to the sibling page
+  fixLinks();
   if (h.startsWith("book-")) setTimeout(() => preselectAndScroll(h.slice(5)), 60);
   if (h.startsWith("svc-")) setTimeout(() => openDetail(h.slice(4)), 60);
   addEventListener("resize", () => {

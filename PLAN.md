@@ -111,63 +111,71 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
 
 ## Go-live runbook: tomorrow's session (read this first)
 
-**Decision.** The new site goes live on **Cloudflare Pages** (free static hosting that rebuilds from GitHub on every push).
-The existing **Tilda project keeps living** on a subdomain, so every marketing quiz page stays exactly as it is, and the new site
-redirects the old quiz addresses to it. Reason: Tilda cannot receive our pages automatically (its API only exports; Claude cannot
-log in or create Tilda pages), and pasting 36 pages by hand after every change is not workable. Cloudflare gives us redirects,
-HTTPS, fast hosting and one-click updates.
+**Decision (owner, 30 Oct): the site goes live inside Tilda.** The existing Tilda project stays, the quiz pages stay untouched,
+and the new pages are added next to them. Claude drives the owner's Chrome to do the clicking, once the session runs on the
+owner's computer (see "Connecting Claude to Tilda"). Cloudflare Pages remains the fallback (section at the end).
 
-**What the owner prepares before the session (15 min)**
-- [ ] Tilda: Site settings → Pages. Make a list (screenshot is fine) of every page with its address, and mark which ones are used by
-      running ads or posted links (quizzes, landing pages). Paste it into the chat; Claude turns it into redirect rules.
-- [ ] Tilda: note the plan (Personal/Business) and whether boatlabservice.nl is connected there (Site settings → Domain).
-- [ ] Find out where boatlabservice.nl was registered (TransIP, Hostnet, GoDaddy, …) and make sure you can log in there. We need to change DNS.
-- [ ] Create a free account at cloudflare.com with info@boatlabservice.nl (or the Google account you use for Google Ads).
-- [ ] Decide the subdomain for the Tilda quiz pages: suggestion `go.boatlabservice.nl` (short, works in ads).
+**How it works technically (already built and tested in a simulated Tilda page)**
+- `cd boatlab-site && python3 build.py` writes `tilda/`: one body-only HTML file per page and language (36 pages), plus a
+  `.head.html` snippet per page and `tilda/PAGES.md`, a checklist with every page's Tilda address, title and description.
+- Each Tilda page = one **T123 "HTML code" block** with the file pasted in, padding 0, nothing else on the page. The paste holds the
+  text and layout only (40-70 KB). Photos, videos, fonts, CSS and JS are loaded from a CDN, so they never have to be uploaded to
+  Tilda, and a push to GitHub updates them on every page at once. Only text changes need a re-paste of the affected pages.
+- Page addresses: EN `/`, `/services`, …; NL `/nl`, `/nl/services`, …; DE `/de`, `/de/services`, …. Links in the pages are already
+  written that way. If Tilda refuses a slash in a page address, change `TILDA_HOME`/`TILDA_PREFIX` at the top of `build.py`
+  (e.g. `nl-services`) and rebuild; nothing else changes.
+- The CDN is jsDelivr reading the GitHub repo (`https://cdn.jsdelivr.net/gh/BOATLAB-B-V/BoatLab-website@main/boatlab-site/`).
+  jsDelivr serves **public** repos only, and ours is private. **Decision needed first thing tomorrow**, one of:
+  1. Make `BOATLAB-B-V/BoatLab-website` public (GitHub → Settings → Danger zone → Change visibility). The repo holds only the
+     website: texts, photos and videos that are public on the site anyway. Simplest; recommended.
+  2. Keep the repo private and let Claude publish a second, public repo `BOATLAB-B-V/boatlab-assets` with only `img/`, `video/`,
+     `fonts/`, `assets/` (about 42 MB); then `python3 build.py --tilda-assets=https://cdn.jsdelivr.net/gh/BOATLAB-B-V/boatlab-assets@main/`.
+  3. Upload all files to Tilda's own file storage (Site settings → Files). Works, but about 230 files by hand with random addresses;
+     only if 1 and 2 are both unwanted.
+  Note: jsDelivr caches a file for up to 12 hours after a push (fine for photos; a `@<commit>` address instead of `@main` forces a refresh).
 
-**Step 1: connect Cloudflare Pages to GitHub (owner clicks, Claude talks you through, 10 min)**
-1. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git → authorise GitHub → choose `BOATLAB-B-V/BoatLab-website`.
-2. Build settings: Framework preset *None*; Build command
-   `pip install -r boatlab-site/requirements.txt && cd boatlab-site && python3 build.py`; Build output directory `boatlab-site/dist`.
-3. Save and deploy. You get a test address like `boatlab-website.pages.dev`. Open it on phone and laptop: every page, all three
-   languages, form, call and WhatsApp buttons. (The files `boatlab-site/requirements.txt`, `_redirects` and `_headers` are already in the repo.)
+**Connecting Claude to Tilda (owner, once, 10 min)**
+Claude cannot log in to Tilda, and a cloud session cannot see the owner's Chrome. The session has to run on the owner's computer:
+1. Install the **Claude Desktop app** (claude.ai/download) and sign in with the same account.
+2. Install GitHub Desktop (or `git`) and clone `BOATLAB-B-V/BoatLab-website` to a folder on the computer.
+3. In the Claude Desktop app: Settings → Claude Code → Remote Control → add that folder. Start a Claude Code session on that folder
+   from the desktop app (or continue this one: it can then attach to the computer).
+4. Open Chrome, log in to Tilda, leave it open. Claude's browser tool connects to the Chrome running on that computer and does the
+   clicking while the owner watches; the owner can take over at any moment.
+Without this, plan B is: the owner does the pasting with `tilda/PAGES.md` next to them (about 3 minutes per page, 36 pages), Claude on
+the phone or laptop answering questions.
 
-**Step 2: move the Tilda project to the subdomain (owner clicks, 5 min + DNS wait)**
-1. In Tilda: Site settings → Domain → change to `go.boatlabservice.nl`. Tilda shows the DNS record to add (a CNAME to Tilda).
-2. At the domain registrar (or in Cloudflare DNS once the domain is moved there): add that CNAME for `go`.
-3. Check that `go.boatlabservice.nl/<quiz-page>` opens. Nothing on the quiz pages changes except the address.
+**Step 1: inventory (5 min)**
+- Tilda → Site settings → Pages: which pages exist, their addresses, which is the current main page, which are used by running ads.
+  Check that none of them uses one of our addresses (`services`, `contact`, `nl`, `de`, …). If one does, rename ours in `build.py`.
+- Note the Tilda plan (Personal/Business) and whether boatlabservice.nl is connected (Site settings → Domain).
 
-**Step 3: redirects so old ad links keep working (Claude, 10 min)**
-- Claude fills `boatlab-site/_redirects` with one line per old page: `/quiz-x  https://go.boatlabservice.nl/quiz-x  301`.
-- Owner updates the ad links to the `go.` addresses when convenient; until then the redirects catch them.
+**Step 2: first page as a test (15 min)**
+- Create `/services` (EN) from `tilda/services.html` + `tilda/services.head.html`, publish, open it on phone and laptop. Check: fonts,
+  photos, video, menu, language switcher (links to `/nl/services`, which does not exist yet: fine), the "Get an offer" button.
+- If Tilda's own padding or a Tilda header/footer shows, fix the block/page settings; Claude adjusts CSS if Tilda's styles interfere.
 
-**Step 4: point boatlabservice.nl at the new site (owner, 10 min + DNS wait)**
-1. Cloudflare Pages project → Custom domains → add `boatlabservice.nl` and `www.boatlabservice.nl`. Cloudflare shows the records.
-2. Easiest: move the domain's DNS to Cloudflare (Cloudflare → Add site → it lists the records to keep; then change the nameservers at the registrar).
-   Otherwise add the CNAME records at the registrar as Cloudflare shows them.
-3. Wait for DNS (minutes to a few hours). Then https://boatlabservice.nl shows the new site; `www` redirects to the apex.
+**Step 3: all pages (1-2 h with Claude clicking)**
+- Follow `tilda/PAGES.md` row by row: 12 pages × 3 languages. Privacy pages: tick *noindex* in page settings.
+- Site settings: favicon (`img/favicon.png`), site name "BoatLab Yacht Services", default language EN.
+- Last: make the new EN home the site's **main page** (Site settings → Main page). Rename the old home page's address first
+  (e.g. `/old-home`) so nothing is lost. The quiz pages are not touched at any point.
 
-**Step 5: backend and measurement (same day if time allows)**
-- [ ] Formspree: sign up with info@boatlabservice.nl, create a form, choose the plan that allows file uploads, copy the
-      `https://formspree.io/f/...` address → Claude puts it in `CONFIG.formEndpoint` and sends a test request with a photo.
-- [ ] Google Tag Manager: create a container for boatlabservice.nl, copy the `GTM-XXXXXXX` id → Claude puts it in `CONFIG.gtmId`.
-      Inside GTM later: GA4 + Google Ads conversion tags for `lead_form`, `contact_call`, `contact_whatsapp`.
-- [ ] Google Search Console: add the domain (DNS verification is one click when DNS is on Cloudflare), submit `sitemap.xml`.
-- [ ] Google Business Profile: create / claim, request verification.
+**Step 4: measurement and form (same day if time allows)**
+- Tilda statistics: leave on or off (owner's choice); GTM: create a container, Claude puts the id in `CONFIG.gtmId` (the consent
+  banner is ours, so Tilda's cookie banner must stay off to avoid two banners).
+- Form: Formspree with file uploads (`CONFIG.formEndpoint`) so photos arrive at info@boatlabservice.nl. Alternative: a Tilda form
+  block instead of ours (loses the photo upload unless the plan allows file fields).
+- Google Search Console: verify the domain, submit the sitemap Tilda generates. Google Business Profile: claim and verify.
 
-**Step 6: after go-live**
-- [ ] Turn off Tilda statistics on the quiz pages, or accept that they have their own cookie handling.
-- [ ] Data processing agreements (Formspree, Google); privacy policy reviewed; then remove the "not live yet" wording where it exists.
-- [ ] From now on: every push to `main` on GitHub goes live within a minute. The preview artifact stays the review copy before pushing.
+**Keeping it up to date afterwards**
+- Text or layout change: Claude edits `src/`, rebuilds, pushes, and re-pastes only the changed pages (via Chrome, or the owner pastes).
+- Photo/video/CSS/JS change: push to GitHub is enough; the CDN serves the new file to every page (up to 12 h cache).
 
-**Fallback if Cloudflare is not wanted:** Option A, all in Tilda. Paste each file in `boatlab-site/tilda/` (one per page and language)
-into a Tilda page as a T123 HTML block, upload `img/`, `video/`, `fonts/` and `assets/` to Tilda's file storage and let Claude rewrite
-the paths. Same result, but every update means pasting again, and the `/nl/` and `/de/` addresses must be written as Tilda page
-addresses (check whether the plan allows a slash in the page address).
-
-**How Claude can help on Tilda directly:** it cannot log in or publish there. It can read exported pages if you give it a read-only
-Tilda API key (Business plan: Site settings → Export → API keys) and it can prepare everything else. The clicking inside Tilda and
-Cloudflare is yours; each step above is written so it takes a few minutes.
+**Fallback: Cloudflare Pages** (free static hosting that rebuilds from GitHub on every push; the repo is ready for it:
+`boatlab-site/requirements.txt`, `_redirects`, `_headers`). Build command
+`pip install -r boatlab-site/requirements.txt && cd boatlab-site && python3 build.py`, output `boatlab-site/dist`; the Tilda project
+then moves to `go.boatlabservice.nl` and `_redirects` keeps the old quiz addresses working. Zero pasting, but DNS changes needed.
 
 ## Landing page for marketing campaigns
 
@@ -217,3 +225,4 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
   Open for the owner: form endpoint, GTM id, Google Business Profile, reviews, price indications, geo coordinates check.
 - **31 Oct 2026**: Cleaned-up hero photo from the owner in place (home, contact, facility slider, share image). KvK 42025956, vestigingsnummer 000065289390 and BTW NL869361193B01 added (footer, privacy page, structured data); email info@boatlabservice.nl confirmed. Tilda publishing plan written (above).
 - **31 Oct 2026 (late)**: Registration number retouched out of the About photo. Repo prepared for Cloudflare Pages (requirements.txt, _redirects, _headers copied into dist by build.py). Go-live runbook written for tomorrow.
+- **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.

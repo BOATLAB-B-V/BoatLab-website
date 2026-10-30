@@ -8,7 +8,7 @@ in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and Tik
 - Style: white content pages with deep-navy bands, logo blue `#0b8fd6` as accent, photos and videos in rounded frames (no edge fades), at most one video per screen.
 - Preview link (current): https://claude.ai/artifact/GNe96iomnHhgrWhos7mqSj · older preview: https://claude.ai/artifact/DNrMyNRKgsKyXCE7mQN8yH
 - Plan and to-do list: `PLAN.md`
-- Hosting plan: **Cloudflare Pages** builds `boatlab-site/dist/` from this repo (build command in `boatlab-site/requirements.txt`); the Tilda project with the marketing quiz pages stays on `go.boatlabservice.nl`, old addresses are redirected via `boatlab-site/_redirects`. See `PLAN.md`, go-live runbook. Paste-ready Tilda files are still generated in `boatlab-site/tilda/` as a fallback.
+- Hosting: the site lives in **Tilda**, next to the existing marketing quiz pages. Each page is one T123 HTML block pasted from `boatlab-site/tilda/` (checklist: `tilda/PAGES.md`); photos, video, fonts, CSS and JS are loaded from a CDN that serves this repo (`boatlab-site/assets/`, `img/`, `video/`, `fonts/`). See the go-live runbook in `PLAN.md`. Fallback: Cloudflare Pages from `boatlab-site/dist/` (`requirements.txt`, `_redirects`, `_headers` are ready).
 
 ## Pages
 
@@ -40,7 +40,8 @@ boatlab-site/
   video/              short muted MP4 loops for the background videos (poster images live in img/)
   dist/   (generated) site for normal hosting, shared CSS/JS files
   inline/ (generated) same pages with CSS/JS inside each page
-  tilda/  (generated) body-only pages to paste into a Tilda HTML block
+  tilda/  (generated) body-only pages to paste into a Tilda HTML block, .head.html snippets, PAGES.md checklist
+  assets/ (generated, committed) CSS and JS copy served by the CDN to the Tilda pages
 ```
 
 Generated folders are not stored in git. Rebuild them with `cd boatlab-site && python3 build.py`
@@ -54,5 +55,5 @@ To change text: edit the dictionaries in `src/assets/site.js` (keep EN, NL and D
 - [ ] **Measurement**: create a Google Tag Manager container and put its id in `CONFIG.gtmId`; the consent banner and conversion events (`lead_form`, `contact_call`, `contact_whatsapp`) are already in place.
 - [ ] **Reviews**: paste real Google reviews into `REVIEWS` in `site.js`; the home page band stays hidden while it is empty.
 - [ ] **Focus Marine Center**: confirm whether customer data is shared with them; if yes, name them in the privacy policy.
-- [ ] **Go-live**: follow the runbook in `PLAN.md` (Cloudflare Pages from GitHub, Tilda quiz pages moved to `go.boatlabservice.nl`, redirects in `_redirects`); sign data processing agreements with Formspree and Google.
+- [ ] **Go-live in Tilda**: follow the runbook in `PLAN.md` (make the repo public for the CDN, paste the 36 pages, set the main page); sign data processing agreements with Formspree and Google.
 - [ ] Have the privacy policy checked by a legal/privacy professional before going live.
