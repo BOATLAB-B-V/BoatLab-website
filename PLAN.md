@@ -94,6 +94,21 @@ The owner has a large set of new photos. Plan:
 - Hempel logo served as PNG (the official SVG was heavy). Logo strip is a real scroll area: drifts on its own, pauses under the pointer, drag or scroll to move it.
 - Rule for new work: no `backdrop-filter` on moving elements, no infinite `box-shadow`/`filter` animations, photos max 1600 px, quality ~75.
 
+## SEO & Ads audit (30 Oct 2026)
+
+Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in priority order:
+
+1. [ ] **Critical: Dutch and German are not indexable.** One URL per page, text swapped by JS; Google indexes English only.
+       Fix in `build.py`: write `/nl/`, `/de/`, `/en/` copies with the right `lang`, titles, descriptions and `hreflang`; the language switch links to the sibling URL.
+2. [ ] **Titles/H1/meta** with service + place keywords per language (home title e.g. "Jachtservice & botenonderhoud Wanssum, Limburg · Gratis hijsen · BoatLab"); descriptions 140–155 ch with a CTA.
+3. [ ] **Dedicated service pages** (3 languages): antifouling, polishing & coating, osmosis, winter storage (new service, top seasonal term), refit. FAQ + price indication + form on each.
+4. [ ] **Conversion plumbing before ads**: working booking form endpoint, WhatsApp button, sticky mobile call bar, Tag Manager + Consent Mode banner, conversions for form/call/WhatsApp.
+5. [ ] `robots.txt` + `sitemap.xml` from `build.py`; JSON-LD: LocalBusiness (not AutoRepair), geo, hours, services, sameAs; OG image → new aerial.
+6. [ ] Google Business Profile (category Boat repair shop), 10 reviews in 3 months, citations (HISWA, Jachthavens.nl, VVV Limburg, Focus Marine Center link).
+7. [ ] Fill email / KvK / BTW; self-host fonts; WebP hero.
+8. Ads plan: brand campaign now; antifouling Feb–May; winter storage Sep–Nov; NL + DE, 40 km + NRW border; €15–25/day per language to start.
+9. Owner decision: offer winter/dry storage as a service? (strongest seasonal keyword; quay already shown on the hero).
+
 ## Publishing: Tilda and Claude
 
 Goal: a proper, working page online as soon as possible, so visitors never land on an empty or broken page.
