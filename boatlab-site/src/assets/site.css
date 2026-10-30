@@ -322,7 +322,6 @@ footer .legal{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 18px;padding-t
 .contact{padding-top:0}
 .aerial{height:clamp(300px,40vw,540px);max-width:calc(var(--wrap) - 2*var(--gutter));width:calc(100% - 2*var(--gutter));margin:0 auto clamp(40px,6vw,72px);border-radius:var(--r-lg)}
 .aerial img{object-position:50% 40%}
-.aerial .pin{position:absolute;left:27.5%;top:40%;width:18px;height:18px;border-radius:50%;background:var(--brand);border:3px solid #fff;box-shadow:0 0 0 6px rgba(11,143,214,.35);animation:ping 2.2s infinite}
 @keyframes ping{50%{box-shadow:0 0 0 18px rgba(11,143,214,0)}}
 .contact .section-head{margin-bottom:32px}
 .contact-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
