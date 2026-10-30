@@ -315,7 +315,7 @@ footer .legal{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 18px;padding-t
 
 /* ---------- contact ---------- */
 .contact{padding-top:0}
-.aerial{height:clamp(300px,40vw,540px);max-width:var(--wrap);width:calc(100% - 2*var(--gutter));margin:0 auto clamp(40px,6vw,72px);border-radius:var(--r-lg)}
+.aerial{height:clamp(300px,40vw,540px);max-width:calc(var(--wrap) - 2*var(--gutter));width:calc(100% - 2*var(--gutter));margin:0 auto clamp(40px,6vw,72px);border-radius:var(--r-lg)}
 .aerial img{object-position:50% 55%}
 .aerial .pin{position:absolute;left:44%;top:46%;width:18px;height:18px;border-radius:50%;background:var(--brand);border:3px solid #fff;box-shadow:0 0 0 6px rgba(11,143,214,.35);animation:ping 2.2s infinite}
 @keyframes ping{50%{box-shadow:0 0 0 18px rgba(11,143,214,0)}}
@@ -348,7 +348,7 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 .page-hero .wrap{display:grid;gap:20px}
 .page-hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem);font-weight:850;font-stretch:114%;letter-spacing:-.034em;line-height:.98;max-width:16ch}
 .page-hero .lede{max-width:56ch}
-.page-hero-img{height:clamp(300px,44vw,620px);margin:clamp(16px,3vw,40px) auto 0;max-width:var(--wrap);width:calc(100% - 2*var(--gutter))}
+.page-hero-img{height:clamp(300px,44vw,620px);margin:clamp(16px,3vw,40px) auto 0;max-width:calc(var(--wrap) - 2*var(--gutter));width:calc(100% - 2*var(--gutter))}
 .page-hero-img img{object-position:50% 55%}
 
 /* reviews: two rows drifting in opposite directions, pause on hover */
