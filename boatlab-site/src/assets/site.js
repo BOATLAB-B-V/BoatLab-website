@@ -228,7 +228,8 @@ en:{
  "fac.c7":"Yard & crane","fac.c7s":"Our covered yard, quay and 30 t crane on the Maas","fac.c8":"Refit hall","fac.c8s":"Where we cut and prepare every piece for assembly",
  "fac.c9":"Focus yachts indoors","fac.c9s":"A Focus motor yacht in the indoor hall","fac.c10":"Crane operator","fac.c10s":"Every lift done with care by our own team",
  "fac.c11":"Focus Power 44","fac.c11s":"Built by our partner Focus Motor Yachts","fac.c12":"Cigarette Top Gun","fac.c12s":"Special boats welcome too",
- "fac.c6s":"Remote-controlled transport across the yard"
+ "fac.c6s":"Remote-controlled transport across the yard",
+ "fac.c13":"From the air","fac.c13s":"The whole yard and harbour on the Maas","fac.c14":"Hall & crane","fac.c14s":"The Focus Marine Center hall with our 30 t crane"
 },
 nl:{
  "ba.t1":"Antifouling · boeg","ba.t3":"Antifouling · zijkant","ba.t4":"Antifouling · nieuwe kleur",
@@ -257,7 +258,8 @@ nl:{
  "fac.c7":"Werf & kraan","fac.c7s":"Onze overdekte werf, kade en 30-tons kraan aan de Maas","fac.c8":"Refithal","fac.c8s":"Hier zagen en bereiden we elk onderdeel voor op montage",
  "fac.c9":"Focus-jachten binnen","fac.c9s":"Een Focus-motorjacht in de binnenhal","fac.c10":"Kraanmachinist","fac.c10s":"Elke hijs zorgvuldig uitgevoerd door ons eigen team",
  "fac.c11":"Focus Power 44","fac.c11s":"Gebouwd door onze partner Focus Motor Yachts","fac.c12":"Cigarette Top Gun","fac.c12s":"Ook bijzondere boten zijn welkom",
- "fac.c6s":"Op afstand bestuurbaar transport over de werf"
+ "fac.c6s":"Op afstand bestuurbaar transport over de werf",
+ "fac.c13":"Vanuit de lucht","fac.c13s":"De hele werf en haven aan de Maas","fac.c14":"Hal & kraan","fac.c14s":"De hal van Focus Marine Center met onze 30-tons kraan"
 },
 de:{
  "ba.t1":"Antifouling · Bug","ba.t3":"Antifouling · Rumpfseite","ba.t4":"Antifouling · neue Farbe",
@@ -286,7 +288,8 @@ de:{
  "fac.c7":"Werft & Kran","fac.c7s":"Unsere überdachte Werft, Kai und 30-t-Kran an der Maas","fac.c8":"Refit-Halle","fac.c8s":"Hier schneiden wir jedes Teil zu und bereiten es für die Montage vor",
  "fac.c9":"Focus-Yachten in der Halle","fac.c9s":"Eine Focus-Motoryacht in der Innenhalle","fac.c10":"Kranführer","fac.c10s":"Jeder Hub sorgfältig von unserem eigenen Team ausgeführt",
  "fac.c11":"Focus Power 44","fac.c11s":"Gebaut von unserem Partner Focus Motor Yachts","fac.c12":"Cigarette Top Gun","fac.c12s":"Auch besondere Boote sind willkommen",
- "fac.c6s":"Ferngesteuerter Transport über das Werftgelände"
+ "fac.c6s":"Ferngesteuerter Transport über das Werftgelände",
+ "fac.c13":"Aus der Luft","fac.c13s":"Die ganze Werft und der Hafen an der Maas","fac.c14":"Halle & Kran","fac.c14s":"Die Halle des Focus Marine Center mit unserem 30-t-Kran"
 }};
 for (const l in T3) Object.assign(T[l], T3[l]);
 
@@ -667,6 +670,28 @@ document.addEventListener("pointerdown", e => {
     setTimeout(step, 300);
   }, {threshold:.5});
   io.observe(cmp);
+})();
+
+/* ---------- background videos ---------- */
+(function(){
+  const vids = $$("video.bg-video"); if (!vids.length) return;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (reduceMotion || saveData) return;                       // the poster image stays
+  const start = v => {
+    if (!v.dataset.mp4) return;
+    const s = document.createElement("source"); s.src = v.dataset.mp4; s.type = "video/mp4"; v.appendChild(s);
+    delete v.dataset.mp4; v.load();
+    v.addEventListener("playing", () => v.classList.add("on"), {once:true});
+    v.play().catch(() => {});
+  };
+  if (!("IntersectionObserver" in window)) { vids.forEach(start); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting){ start(v); if (v.paused) v.play().catch(() => {}); }
+    else if (!v.paused) v.pause();
+  }), {rootMargin:"25% 0px"});
+  vids.forEach(v => io.observe(v));
+  document.addEventListener("visibilitychange", () => vids.forEach(v => document.hidden ? v.pause() : (v.classList.contains("on") && v.play().catch(() => {}))));
 })();
 
 /* ---------- facility slider + lightbox ---------- */

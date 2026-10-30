@@ -170,6 +170,8 @@ def main():
         f.write(js)
     for d in ("dist", "inline"):
         shutil.copytree(os.path.join(ROOT, "img"), os.path.join(out[d], "img"))
+        if os.path.isdir(os.path.join(ROOT, "video")):
+            shutil.copytree(os.path.join(ROOT, "video"), os.path.join(out[d], "video"))
 
     linked = ('<link rel="stylesheet" href="assets/site.css">', '<script src="assets/site.js"></script>')
     inline = (f"<style>{css}</style>", f"<script>{js}</script>")

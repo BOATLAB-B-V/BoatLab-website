@@ -32,6 +32,7 @@ boatlab-site/
   src/partials/       shared header, footer, icon sprite
   src/sections/       one file per page section; build.py lists which sections each page uses
   img/                web-ready photos (max 1600 px) and partner logos; build.py adds an 800 px `-sm.jpg` copy of each photo
+  video/              short muted MP4 loops for the background videos (poster images live in img/)
   dist/   (generated) site for normal hosting, shared CSS/JS files
   inline/ (generated) same pages with CSS/JS inside each page
   tilda/  (generated) body-only pages to paste into a Tilda HTML block

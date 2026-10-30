@@ -51,8 +51,16 @@ The owner has a large set of new photos. Plan:
 
 ## Home page media and 3D (planned)
 
-- [ ] **Videos instead of photos** for the home page backgrounds (hero, crane section): short, quiet clips of the crane lift,
-      polishing and the yard. Owner will shoot them. Keep each under ~8 s, compressed (MP4 + WebM, max ~3 MB), muted, with a poster image.
+- [x] **Videos instead of photos** (done 30 Oct). Drone footage from SharePoint "Boatlab Website Files" (13 clips, 2 photos, 5.4 GB; originals stay in SharePoint).
+      Four 9-10 s loops in `boatlab-site/video/` (MP4, 1600 px, 1.5-2.3 MB each, last 0.8 s crossfades into the start so the loop is seamless):
+      `hero-yard` (154212 @12.5 s, drone flying in over the quay to the hall with the Focus sign) on the Home hero;
+      `crane-sunset` (170322 @13 s, boat in the crane in front of the Focus Marine Center sign at sunset) in the crane section;
+      `lift-topdown` (155232 @0.5 s) in the Home facility teaser; `hall-flight` (161656 @0.5 s, through the indoor hall) on the Facility page.
+      Each has a poster photo (`img/<name>.jpg`); the video loads only near the viewport, pauses off screen, and is skipped for
+      reduced-motion / data-saver visitors. Two drone photos added to the Facility slider (`aerial-yard`, `aerial-hall`).
+      Other good footage for later: 153304 (84-100 s, approach over the harbour), 170038 (32-46 s, sunset crane wide), 170132 (60-72 s, boat in crane + sign),
+      155720 (54-70 s, crane with hall and sign), phone clip (sunset, 1080p). 170420 is unusable after 96 s (drone landing).
+- [ ] **Tilda**: video files must be uploaded to Tilda's file storage and the `video/...mp4` paths swapped, like the images.
 - Footage lives in SharePoint. Two ways to pick the best parts: (a) Claude pulls the videos via the Microsoft 365 connector and cuts loops with ffmpeg in the cloud session;
   (b) the owner runs them through OpusClip. Prompt for OpusClip:
   > Find the best B-roll moments for a yacht service company website (BoatLab, Wanssum). No talking, no captions. Short, steady, well-lit shots of 4-8 s
@@ -123,3 +131,4 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
 - **29 Oct 2026 (later)**: New photos on Results, Services, About, Facility and Home. Detailed service pages with animated steps. Oleh section. Partner logos. Preview updated (version 2).
 - **29 Oct 2026 (evening)**: Partner block redesigned (both Focus logos, smaller heading) and added to Home. Logo strip rebuilt (drag/scroll, pauses on hover).
   Performance pass (see above). Installing the `web-perf` and `animation-performance` skills was blocked by the session's permission check; fixes applied by hand.
+- **30 Oct 2026**: Drone videos and photos pulled from SharePoint (anonymous share link works with curl). Four background loops on Home and Facility, two aerial photos in the slider.
