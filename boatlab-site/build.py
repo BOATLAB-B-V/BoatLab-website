@@ -359,6 +359,21 @@ def page_html(data, lang, name, nav_id, body, title, desc, css, js, extra_ld="",
     return doc
 
 
+_WIDTHS = {}
+
+
+def img_width(name):
+    """Pixel width of img/NAME.jpg, for accurate srcset descriptors."""
+    if name not in _WIDTHS:
+        try:
+            from PIL import Image
+            with Image.open(os.path.join(ROOT, "img", name + ".jpg")) as im:
+                _WIDTHS[name] = im.width
+        except Exception:
+            _WIDTHS[name] = 1600
+    return _WIDTHS[name]
+
+
 def responsive_images(html):
     """Adds the small (800 px) and WebP variants made by make_variants to every photo, and async decoding to every image."""
     def fix(m):
@@ -366,12 +381,13 @@ def responsive_images(html):
         has_sm = os.path.exists(os.path.join(ROOT, "img", name + "-sm.jpg"))
         has_webp = os.path.exists(os.path.join(ROOT, "img", name + ".webp"))
         sizes = "100vw" if ("fetchpriority" in tag or "bleed" in tag) else "(max-width: 820px) 100vw, 50vw"
+        w = img_width(name)
         if has_sm and "srcset=" not in tag:
-            tag = tag.replace(f'src="img/{name}.jpg"', f'src="img/{name}.jpg" srcset="img/{name}-sm.jpg 800w, img/{name}.jpg 1600w" sizes="{sizes}"')
+            tag = tag.replace(f'src="img/{name}.jpg"', f'src="img/{name}.jpg" srcset="img/{name}-sm.jpg 800w, img/{name}.jpg {w}w" sizes="{sizes}"')
         if "decoding=" not in tag:
             tag = tag.replace("<img ", '<img decoding="async" ', 1)
         if has_webp:
-            webp = f'img/{name}-sm.webp 800w, img/{name}.webp 1600w' if has_sm else f'img/{name}.webp'
+            webp = f'img/{name}-sm.webp 800w, img/{name}.webp {w}w' if has_sm else f'img/{name}.webp'
             tag = f'<picture><source type="image/webp" srcset="{webp}"{(" sizes=" + chr(34) + sizes + chr(34)) if has_sm else ""}>{tag}</picture>'
         return tag
     return re.sub(r'<img [^>]*src="img/([a-z0-9-]+)\.jpg"[^>]*>', fix, html)

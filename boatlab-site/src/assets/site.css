@@ -581,8 +581,9 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 
 /* ---------- hero: aerial photo in a frame with anchored callouts ---------- */
 .hero-media{margin-top:clamp(28px,4vw,56px)}
-.hero-frame{position:relative;height:clamp(460px,62vw,940px);overflow:hidden;background:var(--navy-2)}
-.hero-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block}
+.hero-frame{position:relative;height:clamp(460px,56vw,860px);max-height:calc(100vw * 9 / 16);overflow:hidden;background:var(--navy-2)}
+.hero-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block;image-rendering:auto}
+@media (min-width:2000px){.hero-frame{max-width:2000px;margin-inline:auto;border-radius:var(--r-lg)}}
 .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,23,38,.55),rgba(11,23,38,0) 18%,rgba(11,23,38,0) 78%,var(--navy));pointer-events:none}
 .pins{z-index:1}
 .pins{position:absolute;inset:0}
