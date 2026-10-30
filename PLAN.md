@@ -53,6 +53,14 @@ The owner has a large set of new photos. Plan:
 
 - [ ] **Videos instead of photos** for the home page backgrounds (hero, crane section): short, quiet clips of the crane lift,
       polishing and the yard. Owner will shoot them. Keep each under ~8 s, compressed (MP4 + WebM, max ~3 MB), muted, with a poster image.
+- Footage lives in SharePoint. Two ways to pick the best parts: (a) Claude pulls the videos via the Microsoft 365 connector and cuts loops with ffmpeg in the cloud session;
+  (b) the owner runs them through OpusClip. Prompt for OpusClip:
+  > Find the best B-roll moments for a yacht service company website (BoatLab, Wanssum). No talking, no captions. Short, steady, well-lit shots of 4-8 s
+  > for silent looping background video. Priority: 1) the blue 30 t crane lifting/lowering a boat with the "FOCUS Marine Center" sign on the hall in the
+  > background; 2) the crane lifting a boat from any angle, boat in the slings, boat lowered into the water; 3) wide shots of the yard, hall, quay, harbour;
+  > 4) work: polishing, washing, antifouling, teak, glossy hull close-ups; 5) the remote-controlled boat mover. Keep 16:9 (no vertical crop), skip shaky, dark,
+  > blurry footage, faces close to camera and talking. Return timestamps and a one-line description per clip.
+  Settings: clip length <15 s, aspect 16:9/original, captions off.
 - [ ] **Focus 3D model**: an interactive 3D boat (Focus model from Focus Motor Yachts) on the Services/Home page with animated
       hotspots showing which part of the boat each service covers (hull/antifouling, topsides/polishing, deck/teak, engine, electronics).
       Needs: 3D file from Focus (glTF/GLB preferred), a lightweight viewer (e.g. `<model-viewer>` or Three.js), fallback image for slow devices.
