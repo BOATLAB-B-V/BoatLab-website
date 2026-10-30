@@ -202,11 +202,11 @@ for (const l in T2) Object.assign(T[l], T2[l]);
 /* ===== Results, service details, team and partners ===== */
 const T3 = {
 en:{
- "ba.t1":"Antifouling · bow","ba.t3":"Antifouling · hull side","ba.t4":"Antifouling · new colour",
- "ba.note":"Same boat, same angle: photographed before we started and after the new Hempel antifouling.",
+ "ba.t1":"Antifouling","ba.t2":"Polishing","ba.t5":"Osmosis repair",
+ "ba.note":"Left of the handle: before we started. Right: the finished result. Antifouling with Hempel, polishing with Renskib.",
  "pol.eyebrow":"Polishing","pol.title":"From dull to deep gloss.","pol.lede":"Machine polishing with Renskib compounds removes oxidation and fine scratches and brings the colour back.",
- "pol.c1":"Dark grey hull, before and after polishing.","pol.c2":"Blue hull with a test panel: left untouched, right polished.",
- "st.eyebrow":"Behind the scenes","st.title":"How the result is made.","st.lede":"A good finish starts with careful preparation. Two jobs, step by step.",
+ "pol.c2":"Blue hull with a test panel: left untouched, right polished with Renskib compounds.",
+ "st.eyebrow":"Behind the scenes","st.title":"How the result is made.","st.lede":"A good finish starts with careful preparation. Step by step.",
  "st.o.t":"Osmosis repair","st.o.p":"Old gelcoat removed, hull dried and rebuilt with Hempel epoxy, then finished with new antifouling.",
  "st.o.1":"Sanding back to sound laminate in a sealed tent","st.o.2":"The whole underwater hull, with dust extraction","st.o.3":"Finished: smooth, protected hull",
  "st.a.t":"Preparing for antifouling","st.a.p":"Before any antifouling goes on, the hull is cleaned, sanded, masked and primed.",
@@ -232,11 +232,11 @@ en:{
  "fac.c13":"From the air","fac.c13s":"The whole yard and harbour on the Maas","fac.c14":"Hall & crane","fac.c14s":"The Focus Marine Center hall with our 30 t crane"
 },
 nl:{
- "ba.t1":"Antifouling · boeg","ba.t3":"Antifouling · zijkant","ba.t4":"Antifouling · nieuwe kleur",
- "ba.note":"Zelfde boot, zelfde hoek: gefotografeerd voordat we begonnen en na de nieuwe Hempel-antifouling.",
+ "ba.t1":"Antifouling","ba.t2":"Polijsten","ba.t5":"Osmosebehandeling",
+ "ba.note":"Links van de schuif: voordat we begonnen. Rechts: het eindresultaat. Antifouling met Hempel, polijsten met Renskib.",
  "pol.eyebrow":"Polijsten","pol.title":"Van dof naar diepe glans.","pol.lede":"Machinaal polijsten met Renskib-compounds verwijdert oxidatie en fijne krassen en brengt de kleur terug.",
- "pol.c1":"Donkergrijze romp, voor en na het polijsten.","pol.c2":"Blauwe romp met een testvlak: links onbehandeld, rechts gepolijst.",
- "st.eyebrow":"Achter de schermen","st.title":"Zo ontstaat het resultaat.","st.lede":"Een goede afwerking begint met zorgvuldige voorbereiding. Twee klussen, stap voor stap.",
+ "pol.c2":"Blauwe romp met een testvlak: links onbehandeld, rechts gepolijst met Renskib-compounds.",
+ "st.eyebrow":"Achter de schermen","st.title":"Zo ontstaat het resultaat.","st.lede":"Een goede afwerking begint met zorgvuldige voorbereiding. Stap voor stap.",
  "st.o.t":"Osmosebehandeling","st.o.p":"Oude gelcoat verwijderd, romp gedroogd en opgebouwd met Hempel-epoxy, daarna afgewerkt met nieuwe antifouling.",
  "st.o.1":"Terugschuren tot gezond laminaat in een afgesloten tent","st.o.2":"Het hele onderwaterschip, met stofafzuiging","st.o.3":"Klaar: een gladde, beschermde romp",
  "st.a.t":"Voorbereiding voor antifouling","st.a.p":"Voordat de antifouling erop gaat, wordt de romp gereinigd, geschuurd, afgeplakt en gegrond.",
@@ -262,11 +262,11 @@ nl:{
  "fac.c13":"Vanuit de lucht","fac.c13s":"De hele werf en haven aan de Maas","fac.c14":"Hal & kraan","fac.c14s":"De hal van Focus Marine Center met onze 30-tons kraan"
 },
 de:{
- "ba.t1":"Antifouling · Bug","ba.t3":"Antifouling · Rumpfseite","ba.t4":"Antifouling · neue Farbe",
- "ba.note":"Gleiches Boot, gleicher Winkel: fotografiert vor Arbeitsbeginn und nach dem neuen Hempel-Antifouling.",
+ "ba.t1":"Antifouling","ba.t2":"Polieren","ba.t5":"Osmosesanierung",
+ "ba.note":"Links vom Regler: vor Arbeitsbeginn. Rechts: das fertige Ergebnis. Antifouling mit Hempel, Politur mit Renskib.",
  "pol.eyebrow":"Polieren","pol.title":"Von matt zu tiefem Glanz.","pol.lede":"Maschinelles Polieren mit Renskib-Compounds entfernt Oxidation und feine Kratzer und bringt die Farbe zurück.",
- "pol.c1":"Dunkelgrauer Rumpf, vor und nach dem Polieren.","pol.c2":"Blauer Rumpf mit Testfläche: links unbehandelt, rechts poliert.",
- "st.eyebrow":"Hinter den Kulissen","st.title":"So entsteht das Ergebnis.","st.lede":"Ein gutes Finish beginnt mit sorgfältiger Vorbereitung. Zwei Aufträge, Schritt für Schritt.",
+ "pol.c2":"Blauer Rumpf mit Testfläche: links unbehandelt, rechts poliert mit Renskib-Compounds.",
+ "st.eyebrow":"Hinter den Kulissen","st.title":"So entsteht das Ergebnis.","st.lede":"Ein gutes Finish beginnt mit sorgfältiger Vorbereitung. Schritt für Schritt.",
  "st.o.t":"Osmosesanierung","st.o.p":"Altes Gelcoat entfernt, Rumpf getrocknet und mit Hempel-Epoxid neu aufgebaut, danach mit neuem Antifouling versehen.",
  "st.o.1":"Abschleifen bis auf gesundes Laminat im abgeschlossenen Zelt","st.o.2":"Das gesamte Unterwasserschiff, mit Staubabsaugung","st.o.3":"Fertig: ein glatter, geschützter Rumpf",
  "st.a.t":"Vorbereitung fürs Antifouling","st.a.p":"Bevor das Antifouling aufgetragen wird, wird der Rumpf gereinigt, geschliffen, abgeklebt und grundiert.",
@@ -645,8 +645,8 @@ document.addEventListener("pointerdown", e => {
   const cmp = $("#compare"), range = $("#compareRange"); if (!cmp) return;
   range.addEventListener("input", () => cmp.style.setProperty("--pos", range.value+"%"));
   // Same boat, same angle: full "before" and "after" photos on top of each other.
-  const BA = {bow:["img/af-bow-before.jpg","img/af-bow-after.jpg"], side:["img/af-side-before.jpg","img/af-side-after.jpg"],
-              grey:["img/af-grey-before.jpg","img/af-grey-after.jpg"]};
+  const BA = {bow:["img/af-bow-before.jpg","img/af-bow-after.jpg"], polish:["img/polish-before.jpg","img/polish-after.jpg"],
+              osmosis:["img/osmosis-fairing.jpg","img/osmosis-done.jpg"]};
   $$("[data-ba]").forEach(b => b.addEventListener("click", () => {
     $$("[data-ba]").forEach(x => x.setAttribute("aria-pressed", x===b));
     const [bf, af] = BA[b.dataset.ba];
@@ -693,6 +693,29 @@ document.addEventListener("pointerdown", e => {
   }), {rootMargin:"25% 0px"});
   vids.forEach(v => io.observe(v));
   document.addEventListener("visibilitychange", () => vids.forEach(v => document.hidden ? v.pause() : (v.classList.contains("on") && v.play().catch(() => {}))));
+})();
+
+/* ---------- hero callouts: pinned to spots in the photo, whatever the crop ---------- */
+(function(){
+  const frame = $(".hero-frame"), img = frame && $("img", frame), pins = $$("#heroPins .pin"); if (!frame || !pins.length) return;
+  const place = () => {
+    if (!img.naturalWidth) return;
+    const fw = frame.clientWidth, fh = frame.clientHeight, ir = img.naturalWidth / img.naturalHeight;
+    const [px, py] = getComputedStyle(img).objectPosition.split(" ").map(parseFloat);
+    let sw, sh, ox = 0, oy = 0;
+    if (fw / fh > ir){ sw = fw; sh = fw / ir; oy = (fh - sh) * py / 100; } else { sh = fh; sw = fh * ir; ox = (fw - sw) * px / 100; }
+    pins.forEach(p => { p.style.left = (ox + sw * p.dataset.x / 100) + "px"; p.style.top = (oy + sh * p.dataset.y / 100) + "px"; });
+  };
+  img.complete ? place() : img.addEventListener("load", place);
+  addEventListener("resize", place);
+  // On phones the dots are numbered; tapping one lights up the matching card below.
+  $("#heroPins").addEventListener("click", e => {
+    const p = e.target.closest(".pin"); if (!p) return;
+    const li = $(`#heroList li[data-n="${p.dataset.n}"]`); if (!li) return;
+    $$("#heroList li").forEach(x => x.classList.remove("lit")); li.classList.add("lit");
+    li.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block:"nearest"});
+    setTimeout(() => li.classList.remove("lit"), 2200);
+  });
 })();
 
 /* ---------- facility slider + lightbox ---------- */

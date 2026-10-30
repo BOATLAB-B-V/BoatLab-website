@@ -28,7 +28,7 @@ The owner has a large set of new photos. Plan:
 3. **Prepare them for the web**: resize, compress, consistent names (e.g. `antifouling-before-2.jpg`).
    Large originals stay out of the repo; only web-ready versions go in `boatlab-site/img/`.
 4. ~~Use them on the site~~ Done 29 Oct (owner's picks):
-   - Results slider: antifouling 06→12 (hull side), 07→14 (bow), 30→34 (new colour). 59/60→61 dropped (different boats).
+   - Results slider: Antifouling 07→14 (bow, same angle), Polishing (the two halves of 67 as a wipe), Osmosis repair 65→61 (wipe). 06→12 and 30→34 removed at the owner's request.
    - Polishing: 67 (one split image, not duplicated) and 05 with drawn Before/After markers and a dashed line.
    - Stories: osmosis repair 63, 65 → 61; antifouling prep 51, 52, 23.
    - Services: photos per service (washing 01, 22, 56; polishing 04, 55, 66; antifouling 23, 51, 14; osmosis 63, 64, 61;
@@ -81,7 +81,8 @@ The owner has a large set of new photos. Plan:
 - **Media**: photos and videos sit in crisp rounded frames (28 px radius). The old edge fades are gone everywhere.
 - **Videos**: at most one per screen, only where motion adds something. Now: the yard fly-in in the Home facility teaser, the hall flight on the
   Facility page, and the crane orbit (155720 @57 s, boat in the slings in front of the Focus sign) at the top of the Services page. The Home hero and the crane section are stills (aerial yard photo with anchored callouts; sunset crane with the Focus sign).
-- **Hero callouts** are pinned to real spots in the aerial photo (crane, yachts on the quay, Focus sign, pontoon). On phones they become a list under the photo.
+- **Hero callouts** are pinned to real spots in the aerial photo (hall, Focus sign, crane, pontoon, wrapped boats in dry storage), positioned by
+  script from image coordinates so they stay put at any crop. On phones the pins become numbered dots and the cards below carry the same numbers; tapping a dot lights its card.
 - Video files are 1920 px, CRF 26 (5-6 MB each); quality over size here, and they load lazily anyway.
 
 ## Performance (done 29 Oct, keep in mind)

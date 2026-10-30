@@ -12,20 +12,20 @@
     <div class="hero-media load d3">
       <div class="hero-frame">
         <img src="img/hero-aerial.jpg" alt="The BoatLab yard in Wanssum from the air: the Focus Marine Center hall, the 30-tonne crane, boats on the quay and the harbour on the Maas" width="2400" height="1350" fetchpriority="high">
-        <div class="pins" aria-hidden="true">
-          <div class="pin c1" style="--x:37.5%;--y:38%;--len:88px"><span class="chip"><span class="ico y"><svg><use href="#i-hook"/></svg></span><span><b>30 t</b><span data-i18n="chip.lift">free lift, every service</span></span></span></div>
-          <div class="pin c2" style="--x:62%;--y:56%;--len:54px"><span class="chip"><span class="ico"><svg><use href="#i-dock"/></svg></span><span><b data-i18n="chip.dock">On-water dock</b><span data-i18n="chip.dock2">boats ready to go</span></span></span></div>
-          <div class="pin c3" style="--x:73%;--y:35%;--len:40px"><span class="chip"><span class="ico"><svg><use href="#i-storage"/></svg></span><span><b data-i18n="chip.dry">Dry storage</b><span data-i18n="chip.dry2">safe on the quay</span></span></span></div>
-          <div class="pin c5" style="--x:22%;--y:30%;--len:36px"><span class="chip"><span class="ico"><svg><use href="#i-hall"/></svg></span><span><b data-i18n="chip.hall">Indoor hall</b><span data-i18n="chip.hall2">work in any weather</span></span></span></div>
-          <div class="pin c4 below" style="--x:26%;--y:41%;--len:52px"><span class="chip"><span class="ico f"><img src="img/logo-focus.png" alt="" width="500" height="89"></span><span><b data-i18n="chip.focus">Focus Marine Center</b><span data-i18n="chip.focus2">our partner yard</span></span></span></div>
+        <div class="pins" id="heroPins">
+          <div class="pin c5" data-x="24" data-y="30" data-n="1" style="--len:36px"><b class="num">1</b><span class="chip"><span class="ico"><svg><use href="#i-hall"/></svg></span><span><b data-i18n="chip.hall">Indoor hall</b><span data-i18n="chip.hall2">work in any weather</span></span></span></div>
+          <div class="pin c4 below" data-x="27.5" data-y="40" data-n="2" style="--len:52px"><b class="num">2</b><span class="chip"><span class="ico f"><img src="img/logo-focus.png" alt="" width="500" height="89"></span><span><b data-i18n="chip.focus">Focus Marine Center</b><span data-i18n="chip.focus2">our partner yard</span></span></span></div>
+          <div class="pin c1" data-x="38" data-y="42" data-n="3" style="--len:88px"><b class="num">3</b><span class="chip"><span class="ico y"><svg><use href="#i-hook"/></svg></span><span><b>30 t</b><span data-i18n="chip.lift">free lift, every service</span></span></span></div>
+          <div class="pin c2" data-x="61" data-y="55" data-n="4" style="--len:54px"><b class="num">4</b><span class="chip"><span class="ico"><svg><use href="#i-dock"/></svg></span><span><b data-i18n="chip.dock">On-water dock</b><span data-i18n="chip.dock2">boats ready to go</span></span></span></div>
+          <div class="pin c3" data-x="71" data-y="35" data-n="5" style="--len:40px"><b class="num">5</b><span class="chip"><span class="ico"><svg><use href="#i-storage"/></svg></span><span><b data-i18n="chip.dry">Dry storage</b><span data-i18n="chip.dry2">safe on the quay</span></span></span></div>
         </div>
       </div>
-      <ul class="wrap hero-chips-list">
-        <li><span class="ico y"><svg><use href="#i-hook"/></svg></span><span><b>30 t</b><span data-i18n="chip.lift">free lift, every service</span></span></li>
-        <li><span class="ico"><svg><use href="#i-dock"/></svg></span><span><b data-i18n="chip.dock">On-water dock</b><span data-i18n="chip.dock2">boats ready to go</span></span></li>
-        <li><span class="ico"><svg><use href="#i-storage"/></svg></span><span><b data-i18n="chip.dry">Dry storage</b><span data-i18n="chip.dry2">safe on the quay</span></span></li>
-        <li><span class="ico"><svg><use href="#i-hall"/></svg></span><span><b data-i18n="chip.hall">Indoor hall</b><span data-i18n="chip.hall2">work in any weather</span></span></li>
-        <li><span class="ico f"><img src="img/logo-focus.png" alt="" width="500" height="89"></span><span><b data-i18n="chip.focus">Focus Marine Center</b><span data-i18n="chip.focus2">our partner yard</span></span></li>
+      <ul class="wrap hero-chips-list" id="heroList">
+        <li data-n="1"><b class="num">1</b><span class="ico"><svg><use href="#i-hall"/></svg></span><span><b data-i18n="chip.hall">Indoor hall</b><span data-i18n="chip.hall2">work in any weather</span></span></li>
+        <li data-n="2"><b class="num">2</b><span class="ico f"><img src="img/logo-focus.png" alt="" width="500" height="89"></span><span><b data-i18n="chip.focus">Focus Marine Center</b><span data-i18n="chip.focus2">our partner yard</span></span></li>
+        <li data-n="3"><b class="num">3</b><span class="ico y"><svg><use href="#i-hook"/></svg></span><span><b>30 t</b><span data-i18n="chip.lift">free lift, every service</span></span></li>
+        <li data-n="4"><b class="num">4</b><span class="ico"><svg><use href="#i-dock"/></svg></span><span><b data-i18n="chip.dock">On-water dock</b><span data-i18n="chip.dock2">boats ready to go</span></span></li>
+        <li data-n="5"><b class="num">5</b><span class="ico"><svg><use href="#i-storage"/></svg></span><span><b data-i18n="chip.dry">Dry storage</b><span data-i18n="chip.dry2">safe on the quay</span></span></li>
       </ul>
     </div>
     <div class="wrap hero-facts load d4">
