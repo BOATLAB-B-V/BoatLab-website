@@ -109,17 +109,44 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
 8. Ads plan: brand campaign now; antifouling Feb–May; winter storage Sep–Nov; NL + DE, 40 km + NRW border; €15–25/day per language to start.
 9. Winter & dry storage added as the 15th service with its own page (30 Oct), worded as "on the quay, or indoors when space allows". Owner to confirm the offer and wording.
 
-## Publishing: Tilda and Claude
+## Publishing to Tilda (next big step)
 
-Goal: a proper, working page online as soon as possible, so visitors never land on an empty or broken page.
+Goal: boatlabservice.nl shows the new site, the **existing Tilda pages for marketing quizzes keep their URLs** so ads on social
+platforms still land where they should, and the form and tracking work end to end.
 
-- [ ] **Figure out how to connect Tilda and Claude.** Find the best way for Claude to get the site onto Tilda
-      (Tilda has no Claude connector yet; options: paste the generated `tilda/` pages into Tilda HTML blocks by hand,
-      Tilda's API (business plan, read-only export), a Zapier connection, or hosting the static `dist/` site elsewhere).
-- [ ] **Decide the publishing route** and write the steps down here, so every update follows the same path.
-- [ ] **Put a decent version live quickly** (even before every item below is finished), and replace any placeholder/default page on boatlabservice.nl.
-- [ ] **Check the live site works**: all pages, language switch, booking form, phone links, on mobile and desktop.
-- [ ] Keep the Claude preview link in step with what is live.
+**Step 0: inventory of what is on Tilda now (owner + Claude, 30 min)**
+- [ ] List every page in the Tilda project with its URL (Site settings → Pages). Mark which ones are used by running ads or posted links (quizzes, landing pages).
+- [ ] Note the current Tilda plan (Personal / Business) and whether the domain boatlabservice.nl is already connected to Tilda.
+- [ ] Export the quiz pages' current URLs into this file so nothing is lost. Those URLs are frozen: we never rename or delete them.
+
+**Step 1: decide the hosting route (recommendation below)**
+- Option A, everything in Tilda: paste each page of `boatlab-site/tilda/` into a Tilda page as one HTML block (T123), upload `img/`, `video/`,
+  `fonts/`, `assets/` to Tilda's file storage and rewrite the paths. Works on every Tilda plan, keeps one admin. Downsides: 36 pages to paste
+  and re-paste after every change, Tilda adds its own scripts, and URL folders (`/nl/`, `/de/`) must be written as Tilda page addresses
+  (Tilda allows `nl/antifouling` style addresses; verify on the current plan).
+- Option B (recommended), static host + Tilda side by side: publish `boatlab-site/dist/` as-is to a static host (Cloudflare Pages or Netlify,
+  free, deploys automatically from GitHub on every push). Point boatlabservice.nl at it. Keep the Tilda project on a subdomain
+  (e.g. `go.boatlabservice.nl` or `quiz.boatlabservice.nl`) and add redirects on the new site from every old quiz URL to its new address,
+  so old ad links keep working. Downsides: two places to log in; the owner needs a Cloudflare/Netlify account (Claude can set it up with the owner).
+- Either way the GitHub repo stays the single source; the preview artifact stays the review copy.
+
+**Step 2: forms and measurement (backend)**
+- [ ] Form delivery: Formspree (paid plan for photo uploads) → `CONFIG.formEndpoint`; or, on Option A, a native Tilda form with
+  email + Google Sheets receivers and a file field. Test with a real request incl. photo; confirm it arrives at info@boatlabservice.nl.
+- [ ] Google Tag Manager container → `CONFIG.gtmId`. Inside GTM: GA4 tag, Google Ads conversion tags for the events
+  `lead_form`, `contact_call`, `contact_whatsapp` (already pushed by the site), consent-aware. The site's cookie banner handles Consent Mode v2.
+- [ ] Google Search Console: verify the domain, submit `sitemap.xml`.
+- [ ] Google Business Profile: create, verify by postcard/video, add photos, services, hours; link to the site.
+
+**Step 3: go live (one afternoon)**
+- [ ] Publish all pages; check every URL in the three languages on phone and desktop; check the language switcher, form, call and WhatsApp buttons.
+- [ ] Redirect the old Tilda home page (and any old service pages) to the new ones; keep quiz URLs untouched or redirect them 1:1.
+- [ ] Set up `www` → non-www redirect (or the reverse) and HTTPS.
+- [ ] Turn off Tilda statistics/tracking on the quiz pages or add them to the consent banner's scope.
+- [ ] Sign data processing agreements (Tilda, form provider, Google) and add them to the privacy policy; have the policy checked.
+
+**Step 4: campaign landing pages**
+- Each campaign lands on a service page (`/nl/antifouling.html` etc.) or on a quiz page; UTM tags on every ad link; conversions visible in Ads within a week.
 
 ## Landing page for marketing campaigns
 
@@ -166,4 +193,5 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
 - **30 Oct 2026 (night)**: SEO/ads audit fixes. Site now built per language (`/`, `/nl/`, `/de/`) with hreflang, sitemap and robots; keyword titles,
   H1s and descriptions; LocalBusiness/Service/FAQ schema; five service landing pages ×3 languages; Winter & dry storage as new service;
   WhatsApp everywhere + sticky mobile call bar; consent banner + GTM hook + conversion events (inactive until `gtmId` is set); self-hosted fonts; WebP images.
-  Open for the owner: email, KvK, BTW, form endpoint, GTM id, Google Business Profile, reviews, price indications, geo coordinates check.
+  Open for the owner: form endpoint, GTM id, Google Business Profile, reviews, price indications, geo coordinates check.
+- **31 Oct 2026**: Cleaned-up hero photo from the owner in place (home, contact, facility slider, share image). KvK 42025956, vestigingsnummer 000065289390 and BTW NL869361193B01 added (footer, privacy page, structured data); email info@boatlabservice.nl confirmed. Tilda publishing plan written (above).

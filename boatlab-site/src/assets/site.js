@@ -1,6 +1,6 @@
 /* ===== Settings: fill these in before going live ===== */
 const CONFIG = {
-  email: "info@boatlabservice.nl",              // TODO confirm address
+  email: "info@boatlabservice.nl",
   // Paste a Formspree form URL (https://formspree.io/f/xxxx) to receive bookings by email.
   formEndpoint: "",
   whatsapp: "31611742272",                     // WhatsApp number, digits only
@@ -9,8 +9,9 @@ const CONFIG = {
   instagram: "https://www.instagram.com/boatlab.nl/",
   tiktok: "https://www.tiktok.com/@boatlab.nl",
   // Dutch law requires the KvK number (and VAT number) on the website. Shown in the footer once filled in.
-  kvk: "",                                      // TODO KvK number
-  vat: "",                                      // TODO BTW/VAT number, e.g. NL000000000B01
+  kvk: "42025956",
+  branch: "000065289390",                      // Vestigingsnummer (KvK branch number)
+  vat: "NL869361193B01",
   maps: "https://maps.app.goo.gl/qaHuijy3DLmqtUjv5",
   // Shows grey placeholder cards in the reviews band until real reviews are added (preview only).
   reviewPlaceholders: false
@@ -862,7 +863,7 @@ document.addEventListener("pointerdown", e => {
 /* ---------- contact details ---------- */
 $$(".js-email").forEach(e => e.textContent = CONFIG.email);
 $$(".js-email-link").forEach(a => a.href = "mailto:" + CONFIG.email);
-$$(".js-kvk").forEach(e => { if (CONFIG.kvk) e.innerHTML = "<br>KvK: " + CONFIG.kvk; });
+$$(".js-kvk").forEach(e => { e.innerHTML = [CONFIG.kvk && "<br>KvK: " + CONFIG.kvk, CONFIG.vat && "<br>" + t("footer.vat") + ": " + CONFIG.vat].filter(Boolean).join(""); });
 $$(".js-ig").forEach(a => a.href = CONFIG.instagram);
 $$(".js-tt").forEach(a => a.href = CONFIG.tiktok);
 $$(".js-maps").forEach(a => a.href = CONFIG.maps);

@@ -1,6 +1,6 @@
 # BoatLab website (boatlabservice.nl)
 
-Website for **Boatlab BV / BoatLab Yacht Services**, Geijsterseweg 10, 5861 BL Wanssum (NL),
+Website for **Boatlab B.V. / BoatLab Yacht Services** (KvK 42025956, BTW NL869361193B01), Geijsterseweg 10, 5861 BL Wanssum (NL),
 in partnership with Focus Marine Center. Phone +31 6 11742272. Instagram and TikTok: @boatlab.nl.
 
 - Languages: English at `/`, Dutch at `/nl/`, German at `/de/`. Every page exists three times with the texts written into the HTML
@@ -48,8 +48,6 @@ To change text: edit the dictionaries in `src/assets/site.js` (keep EN, NL and D
 
 ## Still to do
 
-- [ ] **Email address** for bookings and privacy questions. `CONFIG.email` is still the placeholder `info@boatlabservice.nl`.
-- [ ] **KvK and VAT (BTW) numbers**: fill `CONFIG.kvk` and `CONFIG.vat` (shown in the footer and privacy page, required by Dutch law).
 - [ ] **Booking delivery**: set `CONFIG.formEndpoint` (Formspree with file uploads, or a Make/Zapier webhook) or rebuild as a Tilda form with a file field. Until then the form shows the request for the visitor to email.
 - [ ] **Measurement**: create a Google Tag Manager container and put its id in `CONFIG.gtmId`; the consent banner and conversion events (`lead_form`, `contact_call`, `contact_whatsapp`) are already in place.
 - [ ] **Reviews**: paste real Google reviews into `REVIEWS` in `site.js`; the home page band stays hidden while it is empty.

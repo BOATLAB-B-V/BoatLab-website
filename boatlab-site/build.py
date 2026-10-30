@@ -244,7 +244,9 @@ def jsonld_business(data, lang):
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": tr(data, lang, "nav.services"), "itemListElement": services},
     }
     if data["CONFIG"].get("kvk"):
-        d["identifier"] = {"@type": "PropertyValue", "propertyID": "KvK", "value": data["CONFIG"]["kvk"]}
+        d["identifier"] = [{"@type": "PropertyValue", "propertyID": "KvK", "value": data["CONFIG"]["kvk"]}]
+        if data["CONFIG"].get("branch"):
+            d["identifier"].append({"@type": "PropertyValue", "propertyID": "Vestigingsnummer", "value": data["CONFIG"]["branch"]})
     if data["CONFIG"].get("vat"):
         d["vatID"] = data["CONFIG"]["vat"]
     return d
@@ -352,6 +354,8 @@ def page_html(data, lang, name, nav_id, body, title, desc, css, js, extra_ld="",
 """
     doc = translate(doc, data, lang)
     doc = prerender(doc, data, lang)
+    reg = " · ".join(x for x in [data["CONFIG"].get("kvk") and f'{tr(data, lang, "footer.kvk")} {data["CONFIG"]["kvk"]}', data["CONFIG"].get("vat") and f'{tr(data, lang, "footer.vat")} {data["CONFIG"]["vat"]}'] if x)
+    doc = doc.replace('<span id="regIds"></span>', f'<span id="regIds">{reg}</span>')
     return doc
 
 
