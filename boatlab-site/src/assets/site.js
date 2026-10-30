@@ -652,7 +652,8 @@ document.addEventListener("pointerdown", e => {
     const [bf, af] = BA[b.dataset.ba];
     cmp.classList.add("swap");
     setTimeout(() => {
-      $(".before img", cmp).src = bf; $(".after img", cmp).src = af;
+      const set = (img, src) => { img.srcset = `${src.replace(".jpg","-sm.jpg")} 800w, ${src} 1600w`; img.src = src; };
+      set($(".before img", cmp), bf); set($(".after img", cmp), af);
       range.value = 50; cmp.style.setProperty("--pos","50%");
       cmp.classList.remove("swap");
     }, reduceMotion ? 0 : 200);
