@@ -384,7 +384,12 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 /* call-to-action band */
 .cta-band{padding-block:clamp(40px,6vw,80px)}
 .cta-card{display:grid;gap:20px;justify-items:center;text-align:center;padding:clamp(40px,7vw,88px) clamp(20px,5vw,64px);border-radius:32px;position:relative;overflow:hidden}
-.cta-card::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;border:2px solid rgba(77,179,236,.35);box-shadow:0 0 0 30px rgba(77,179,236,.08),0 0 0 60px rgba(77,179,236,.04);pointer-events:none;animation:bob 8s ease-in-out infinite alternate}
+.cta-card .watermark{position:absolute;right:-6%;top:50%;width:clamp(260px,34vw,520px);height:auto;aspect-ratio:1;transform:translateY(-50%) rotate(-12deg);color:var(--brand-light);opacity:.16;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to left,#000 35%,transparent 95%);mask-image:linear-gradient(to left,#000 35%,transparent 95%)}
+@media (prefers-reduced-motion:no-preference){.cta-card.in-view .watermark{animation:wheel-turn 90s linear infinite}}
+@keyframes wheel-turn{from{transform:translateY(-50%) rotate(-12deg)}to{transform:translateY(-50%) rotate(348deg)}}
+@media (max-width:700px){.cta-card .watermark{width:240px;right:-90px;top:auto;bottom:-70px;transform:none;opacity:.12}@keyframes wheel-turn{from{transform:rotate(0)}to{transform:rotate(360deg)}}}
+.cta-card h2,.cta-card .lede,.cta-card .hero-cta{position:relative;z-index:1}
 .cta-card h2{font-size:clamp(2.2rem,5vw,4rem)}
 .cta-card .lede{max-width:46ch}
 
@@ -485,7 +490,7 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 @media (prefers-reduced-motion:no-preference){.sd-steps button[aria-selected="true"]::after{animation:pulse-ring 1.8s ease-out infinite}}
 @keyframes pulse-ring{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.6);opacity:0}}
 /* looping animations only run while their section is on screen */
-.hero-media:not(.in-view) .chip,.cta-card:not(.in-view)::after,.sd:not(.in-view) .sd-art span,.sd:not(.in-view) .sd-art svg,.sd:not(.in-view) .sd-steps button::after{animation-play-state:paused}
+.hero-media:not(.in-view) .chip,.sd:not(.in-view) .sd-art span,.sd:not(.in-view) .sd-art svg,.sd:not(.in-view) .sd-steps button::after{animation-play-state:paused}
 .sd,.story,.fn,.pol{content-visibility:auto}
 .sd{contain-intrinsic-size:auto 640px}.story{contain-intrinsic-size:auto 520px}.fn{contain-intrinsic-size:auto 340px}.pol{contain-intrinsic-size:auto 560px}
 .sd-bubble{--x:10%;position:relative;width:100%;max-width:520px;padding:16px 18px;border-radius:18px;background:var(--soft);display:grid;gap:4px}
