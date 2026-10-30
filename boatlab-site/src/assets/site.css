@@ -359,6 +359,7 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 .center-row{display:flex;justify-content:center;margin-top:36px}
 
 .page-hero{padding-block:clamp(48px,7vw,96px) 0}
+.page-hero + .dark{margin-top:clamp(48px,7vw,96px)}   /* white breathing room before a navy band (e.g. the crane section on the Facility page) */
 .page-hero.compact{padding-bottom:clamp(8px,2vw,24px)}
 .page-hero .wrap{display:grid;gap:20px}
 .page-hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem);font-weight:850;font-stretch:114%;letter-spacing:-.034em;line-height:.98;max-width:16ch}
