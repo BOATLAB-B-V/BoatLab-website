@@ -79,8 +79,8 @@ The owner has a large set of new photos. Plan:
 - **Palette**: white content pages with deep-navy bands (`--navy #0b1726`) for the hero, crane section, facility teaser, CTA card and footer.
   Logo blue stays the accent (`#0b8fd6`, lifted to `#4db3ec` on navy); crane-hook yellow marks the free lift. Body text on navy is `#a7b6c8`.
 - **Media**: photos and videos sit in crisp rounded frames (28 px radius). The old edge fades are gone everywhere.
-- **Videos**: at most one per screen, only where motion adds something. Now: the yard fly-in in the Home facility teaser and the hall flight on the
-  Facility page. The Home hero and the crane section are stills (aerial yard photo with anchored callouts; sunset crane with the Focus sign).
+- **Videos**: at most one per screen, only where motion adds something. Now: the yard fly-in in the Home facility teaser, the hall flight on the
+  Facility page, and the crane orbit (155720 @57 s, boat in the slings in front of the Focus sign) at the top of the Services page. The Home hero and the crane section are stills (aerial yard photo with anchored callouts; sunset crane with the Focus sign).
 - **Hero callouts** are pinned to real spots in the aerial photo (crane, yachts on the quay, Focus sign, pontoon). On phones they become a list under the photo.
 - Video files are 1920 px, CRF 26 (5-6 MB each); quality over size here, and they load lazily anyway.
 
