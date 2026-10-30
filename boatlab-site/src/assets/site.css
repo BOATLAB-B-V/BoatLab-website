@@ -582,7 +582,7 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 .chip .ico svg{width:19px;height:19px}
 @media (prefers-reduced-motion:no-preference){
   .pin{animation:pin-in .7s var(--ease) both}
-  .pin.c1{animation-delay:.5s}.pin.c2{animation-delay:.8s}.pin.c3{animation-delay:1.1s}.pin.c4{animation-delay:1.4s}
+  .pin.c1{animation-delay:.5s}.pin.c2{animation-delay:.8s}.pin.c3{animation-delay:1.1s}.pin.c4{animation-delay:1.4s}.pin.c5{animation-delay:1.7s}
 }
 @keyframes pin-in{from{opacity:0;transform:translateY(10px)}}
 .hero-chips-list{display:none;list-style:none;margin:16px auto 0;padding:0 var(--gutter);gap:10px;grid-template-columns:1fr 1fr}
