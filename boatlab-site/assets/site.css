@@ -505,7 +505,7 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 /* looping animations only run while their section is on screen */
 .hero-media:not(.in-view) .chip,.sd:not(.in-view) .sd-art span,.sd:not(.in-view) .sd-art svg,.sd:not(.in-view) .sd-steps button::after{animation-play-state:paused}
 .sd,.story,.fn,.pol{content-visibility:auto}
-.sd{contain-intrinsic-size:auto 640px}.story{contain-intrinsic-size:auto 520px}.fn{contain-intrinsic-size:auto 340px}.pol{contain-intrinsic-size:auto 560px}
+.sd{contain-intrinsic-block-size:auto 640px}.story{contain-intrinsic-block-size:auto 520px}.fn{contain-intrinsic-block-size:auto 340px}.pol{contain-intrinsic-block-size:auto 560px}
 .sd-bubble{--x:10%;position:relative;width:100%;max-width:520px;padding:16px 18px;border-radius:18px;background:var(--soft);display:grid;gap:4px}
 .sd-bubble::before{content:"";position:absolute;top:-8px;left:var(--x);width:16px;height:16px;background:var(--soft);transform:translateX(-50%) rotate(45deg);border-radius:3px;transition:left .5s var(--ease)}
 .sd-bubble small{font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}

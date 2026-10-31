@@ -333,9 +333,10 @@ def tilda_assets(html):
 
 def tilda_head(lang, name, title, desc, noindex):
     """Snippet for Tilda's per-page 'HTML code for head' field: canonical + language alternates (Tilda writes title/description itself)."""
-    alts = "\n".join(f'<link rel="alternate" hreflang="{HREFLANG[l]}" href="{page_url(l, name)}">' for l in LANGS)
-    return (f'<!-- {title} -->\n<link rel="canonical" href="{page_url(lang, name)}">\n{alts}\n'
-            f'<link rel="alternate" hreflang="x-default" href="{page_url("en", name)}">\n')
+    url = lambda l: SITE.rstrip("/") + tilda_path(l, name)   # Tilda addresses have no .html
+    alts = "\n".join(f'<link rel="alternate" hreflang="{HREFLANG[l]}" href="{url(l)}">' for l in LANGS)
+    return (f'<!-- {title} -->\n<link rel="canonical" href="{url(lang)}">\n{alts}\n'
+            f'<link rel="alternate" hreflang="x-default" href="{url("en")}">\n')
 
 
 def tilda_page(doc, lang, extra_ld):
