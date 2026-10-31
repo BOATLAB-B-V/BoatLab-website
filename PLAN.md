@@ -3,7 +3,7 @@
 Running log of what is done, what is next, and open questions. Update it at the end of every work session.
 Technical details (pages, project layout, how to build) are in `README.md`.
 
-_Last updated: 29 Oct 2026_
+_Last updated: 31 Oct 2026 (go-live run blocked: Python/Node missing on the computer; see session log)_
 
 ## Where things stand
 
@@ -236,4 +236,21 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
   Open for the owner: form endpoint, GTM id, Google Business Profile, reviews, price indications, geo coordinates check.
 - **31 Oct 2026**: Cleaned-up hero photo from the owner in place (home, contact, facility slider, share image). KvK 42025956, vestigingsnummer 000065289390 and BTW NL869361193B01 added (footer, privacy page, structured data); email info@boatlabservice.nl confirmed. Tilda publishing plan written (above).
 - **31 Oct 2026 (late)**: Registration number retouched out of the About photo. Repo prepared for Cloudflare Pages (requirements.txt, _redirects, _headers copied into dist by build.py). Go-live runbook written for tomorrow.
+- **31 Oct 2026 (unattended go-live run): BLOCKED before anything was published. Nothing in Tilda was changed.**
+  - Blocker: this computer has neither **Python** nor **Node.js** installed (`python`/`python3` only open the Microsoft Store page; no `node`).
+    `build.py` needs both (Node renders the texts from `site.js`), so the `tilda/` paste files could not be generated. Not committed, so they are not in the repo either.
+    Claude did not install software on the unattended computer. **Owner, once:** install Python 3 (python.org, tick "Add python.exe to PATH")
+    and Node.js LTS (nodejs.org), then restart the Claude app. git is available via GitHub Desktop
+    (`%LOCALAPPDATA%\GitHubDesktop\app-3.6.10\resources\app\git\cmd\git.exe`), not on PATH; that's enough for pushing.
+  - Checked OK: the repo is public; jsDelivr serves `boatlab-site/assets/site.js` (HTTP 200), so the CDN route works.
+  - Tilda inventory (read-only): plan **Tilda Business** (up to 5 sites, 1000 pages each). Two projects:
+    1. **"Boat Lab"** (id 34999403), domain **boatlabservice.nl** connected, 13 pages. Main page: "Boat Lab - Professionele antifouling voor jachten"
+       (pageid 220937903, address `/`; it has unpublished changes, left alone). Others: `/success/antifouling`, `/antifolingcng`, `/success/antifouling/cng`,
+       `/antifoulling/landing`, `/antifoulling/de`, `/success/antifouling/de`, `/shblon-test`, `/painting/de`, `/filip/work`, `page305817803.html` (unpublished blank),
+       `/painting/success`, `/success/painting/de`, plus one more blank page (pageid 220950103).
+       Existing addresses already use slashes, so `/nl/services` style addresses work. **No clash** with our addresses (`/services`, `/contact`, `/nl…`, `/de…`).
+    2. **"Boatlab Main Site"** (id 46360703), empty, no domain (only Tilda's free test address `wisely-employable-shawl.til…`). **Owner: is this meant for the new site?**
+       Publishing into the empty project first would let everything be checked on the test address before boatlabservice.nl changes at all
+       (then move the domain, keeping the quiz pages working is a separate question). Otherwise the pages go into "Boat Lab" next to the quiz pages, as planned.
+  - Next run: install Python + Node, answer the project question, then follow the runbook from Step 2 (inventory above is done).
 - **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.
