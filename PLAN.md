@@ -145,6 +145,17 @@ Claude cannot log in to Tilda, and a cloud session cannot see the owner's Chrome
 Without this, plan B is: the owner does the pasting with `tilda/PAGES.md` next to them (about 3 minutes per page, 36 pages), Claude on
 the phone or laptop answering questions.
 
+**Unattended run (owner away from the computer)**
+- Preconditions the owner sets before leaving: repo public on GitHub (or an assets repo), folder pulled, Chrome open and logged in to
+  Tilda (no 2FA prompt pending), computer set not to sleep, the session started with permissions set so it does not wait for approval.
+- Order of work: inventory → one test page (`/services` EN) checked in the browser (photos, fonts, menu, mobile width) → all other
+  pages → site settings (favicon, name) → **main page switch last**, only if the owner said so in the first message.
+- Never edit, rename or delete existing quiz/landing pages. If an address clashes with an existing page, change ours in `build.py`,
+  rebuild, continue.
+- If blocked (Tilda refuses something, login expired, CDN files missing): do not improvise in Tilda; write what happened and what was
+  finished into the session log below, push, and stop. Nothing half-done is left on the live site because the main page switch is last.
+- End of run: write the session log entry (pages published, addresses, anything skipped), push to GitHub.
+
 **Step 1: inventory (5 min)**
 - Tilda → Site settings → Pages: which pages exist, their addresses, which is the current main page, which are used by running ads.
   Check that none of them uses one of our addresses (`services`, `contact`, `nl`, `de`, …). If one does, rename ours in `build.py`.
