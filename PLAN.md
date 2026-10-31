@@ -3,7 +3,7 @@
 Running log of what is done, what is next, and open questions. Update it at the end of every work session.
 Technical details (pages, project layout, how to build) are in `README.md`.
 
-_Last updated: 31 Oct 2026 (go-live run blocked: Python/Node missing on the computer; see session log)_
+_Last updated: 31 Oct 2026 (all 36 pages published in Tilda; boatlabservice.nl is NOT served by Tilda, see "Tilda status" below)_
 
 ## Where things stand
 
@@ -109,7 +109,26 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
 8. Ads plan: brand campaign now; antifouling Feb–May; winter storage Sep–Nov; NL + DE, 40 km + NRW border; €15–25/day per language to start.
 9. Winter & dry storage added as the 15th service with its own page (30 Oct), worded as "on the quay, or indoors when space allows". Owner to confirm the offer and wording.
 
-## Go-live runbook: tomorrow's session (read this first)
+## Tilda status (31 Oct 2026, read this first)
+
+- **All 36 pages are published in the Tilda project "Boat Lab"** (id 34999403), each one T123 block + title, description, address, head code;
+  privacy pages noindex. Check them on Tilda's test address: https://project34999403.tilda.ws/services (and `/home`, `/nl`, `/de/...`).
+- **Important: boatlabservice.nl does not point to Tilda.** DNS sends it to another web server (LiteSpeed, IP 193.111.63.15), which serves the
+  current home and the antifouling landing pages itself. So nothing changed for visitors, and `boatlabservice.nl/services` is still a 404.
+  **Owner decision needed:** who runs that server (hosting company), and how the new pages get there: (a) point the domain to Tilda
+  (check first that every quiz/landing page and its form works when served from Tilda), or (b) keep that server and upload the site there
+  (`dist/` from `build.py` is a complete static site; Cloudflare/any static host works too). Until then the Tilda pages are a finished, checkable copy.
+- Addresses differing from `tilda/PAGES.md`'s defaults: **EN home is `/home`** (temporary, `/` stays the old home; you switch the main page yourself),
+  **EN antifouling is `/antifouling-service`** (`/antifouling` is taken by an existing Tilda page; set in `TILDA_RENAME` in `build.py`).
+- Site settings: site name "BoatLab Yacht Services"; favicon `img/favicon.png` and phone icon `img/apple-touch-icon.png` uploaded; only our 36 pages
+  were re-published to pick them up. The 13 old pages were not edited or published (the old home still has its own unpublished changes).
+- Still open in Tilda: "Made on Tilda" label shows at the bottom (can be switched off in Site settings on the Business plan; owner's choice);
+  Tilda adds its own canonical link next to ours (same address, harmless; `/home` says `/home` until it becomes the main page).
+- **When switching the main page** (owner): Site settings → Home page → choose "Yacht & boat service in Wanssum…" (`/home`). The old home keeps `/antifouling`.
+- **Re-pasting a changed page**: open it in Tilda, edit the T123 block's content, select all, paste the new `tilda/<page>.html`, Save, Publish.
+  Page ids are in the session log below.
+
+## Go-live runbook: tomorrow's session
 
 **Decision (owner, 30 Oct): the site goes live inside Tilda.** The existing Tilda project stays, the quiz pages stay untouched,
 and the new pages are added next to them. Claude drives the owner's Chrome to do the clicking, once the session runs on the
@@ -258,4 +277,19 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
   - Follow-up (same day): owner installed Python 3.15 and Node 26; `python build.py` works (36 Tilda pages + 36 head files; committed `assets/` unchanged).
     Owner: "Boatlab Main Site" was made by mistake, **never work in it**; all pages go into the "Boat Lab" project. Tilda login in Chrome OK.
     Use `python` (not `python3`, which is the Store stub here). Push: Git Credential Manager sign-in started from the Terminal panel.
+- **31 Oct 2026 (publishing run)**: GitHub sign-in done, pushes work from the session. **All 36 pages published in Tilda project "Boat Lab"**; main page NOT switched.
+  - Found: boatlabservice.nl is hosted on a separate LiteSpeed server (193.111.63.15), not Tilda, so the pages are only visible on
+    https://project34999403.tilda.ws/… for now (see "Tilda status" at the top). Owner decision needed on how to go live.
+  - Fixes on the way (pushed, CDN purged): phones scrolled sideways on the Services page (off-screen sections reserved 640 px of *width*;
+    now height only, `site.css`); Tilda head snippets linked to `.html` addresses (now `/services` etc., `build.py`); EN antifouling renamed
+    to `/antifouling-service` because `/antifouling` belongs to an existing Tilda page (`TILDA_RENAME` in `build.py`, honoured in `site.js`).
+  - Checked: `/services` in detail (fonts, 33 photos, CDN video, padding 0, language links, "Get an offer" → `/contact#book`, 375 px phone width
+    without sideways scroll after the fix); all 36 addresses answer 200 with our page; privacy pages carry noindex; favicon on all 36.
+  - Method (for next time): Chrome blocks tilda.cc from reading a local server, so each page file was copied to the Windows clipboard and pasted
+    into the T123 code editor (Ctrl+V); settings and head code were filled in Tilda's own forms. Page ids (EN/NL/DE, order home, services, results,
+    about, facility, contact, privacy, antifouling, polishing, osmosis, storage, refit):
+    EN 350330003, 350314203, 350334903, 350337003, 350338503, 350339503, 350342003, 350343903, 350356003, 350357503, 350359003, 350360503;
+    NL 350361803, 350363603, 350365503, 350367003, 350368803, 350373603, 350377603, 350380103, 350384703, 350386303, 350387603, 350389403;
+    DE 350390303, 350391603, 350393003, 350394003, 350395203, 350395903, 350397103, 350399203, 350401103, 350402603, 350404503, 350406803.
+  - Site settings: site name → "BoatLab Yacht Services" (was "Boat Lab"); favicon + apple-touch icon uploaded.
 - **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.
