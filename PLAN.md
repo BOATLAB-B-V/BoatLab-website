@@ -3,7 +3,7 @@
 Running log of what is done, what is next, and open questions. Update it at the end of every work session.
 Technical details (pages, project layout, how to build) are in `README.md`.
 
-_Last updated: 31 Oct 2026 (all 36 pages published in Tilda; boatlabservice.nl is NOT served by Tilda, see "Tilda status" below)_
+_Last updated: 31 Oct 2026 (waiting for server login from the marketing contractor; see "Next session: start here")_
 
 ## Where things stand
 
@@ -109,7 +109,27 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
 8. Ads plan: brand campaign now; antifouling Feb–May; winter storage Sep–Nov; NL + DE, 40 km + NRW border; €15–25/day per language to start.
 9. Winter & dry storage added as the 15th service with its own page (30 Oct), worded as "on the quay, or indoors when space allows". Owner to confirm the offer and wording.
 
-## Tilda status (31 Oct 2026, read this first)
+## Next session: start here (handover 31 Oct 2026)
+
+**Where we are:** the new site is finished and checked; a copy runs in Tilda (preview only). The real domain points to a separate server
+(193.111.63.15) run by the **marketing contractor** who built the quiz pages and `/api/leads`. The owner sent him a message (Russian, "ty")
+asking for upload access and where the leads from `/api/leads` go. **Waiting for his answer / login details.**
+
+**Owner's decision:** once the new site is live on that server, the main page `/` switches from the antifouling quiz to our home page.
+
+**Steps when the login arrives:**
+1. Owner logs in to the server's control panel in Chrome (or the contractor sets up FTP/SSH for this computer). Claude never types passwords.
+2. Look first (read-only): web root, where the quiz pages and `/api/leads` live, existing `assets/` (keep `leads.js`).
+3. `cd boatlab-site && python build.py` (on this PC: `python`, not `python3`; git = GitHub Desktop's git, see session log).
+4. Upload `dist/` **without** `index.html`, `_headers`, `_redirects` (Cloudflare-only files). Adds: 11 `*.html` pages, `robots.txt`, `sitemap.xml`,
+   `nl/`, `de/`, `img/`, `video/`, `fonts/`, `assets/site.css`, `assets/site.js` (~43 MB). Checked 31 Oct: none of these addresses exist on the server yet.
+5. Check the pages on boatlabservice.nl (`/services.html`, `/nl/`, `/de/`, photos, video, phone width, contact form).
+6. Contact form: connect it to where `/api/leads` sends leads (ask contractor), via `CONFIG.formEndpoint` in `site.js`, or post to `/api/leads` like the quiz.
+7. Main page switch (owner says go): first copy the current quiz home to a new address (e.g. `/antifouling-quiz/`) so ads keep a working page,
+   tell the contractor, then upload our `index.html` as `/`. Consider an `.htaccess` for clean URLs (`/services` → `services.html`) and caching.
+8. Afterwards: Tilda copy can stay as a backup or be unpublished (owner's choice); Google Search Console + sitemap; Business Profile.
+
+## Tilda status (31 Oct 2026)
 
 - **All 36 pages are published in the Tilda project "Boat Lab"** (id 34999403), each one T123 block + title, description, address, head code;
   privacy pages noindex. Check them on Tilda's test address: https://project34999403.tilda.ws/services (and `/home`, `/nl`, `/de/...`).
@@ -315,4 +335,7 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
     NL 350361803, 350363603, 350365503, 350367003, 350368803, 350373603, 350377603, 350380103, 350384703, 350386303, 350387603, 350389403;
     DE 350390303, 350391603, 350393003, 350394003, 350395203, 350395903, 350397103, 350399203, 350401103, 350402603, 350404503, 350406803.
   - Site settings: site name → "BoatLab Yacht Services" (was "Boat Lab"); favicon + apple-touch icon uploaded.
+- **31 Oct 2026 (hosting)**: Looked up and checked the Intention account read-only: domain + DNS at Intention, the paid Intention hosting package is empty,
+  the domain points to a separate server run by the marketing contractor (quiz pages + `/api/leads`). Owner asked him for login details
+  (message drafted in Russian). Owner decided: our home page replaces the antifouling quiz on `/` once the site is live. Handover written above.
 - **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.
