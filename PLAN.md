@@ -122,15 +122,23 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
   - Domain boatlabservice.nl: registered 1 Jul 2025 through **Intention B.V.** (Dutch hosting company, intention.nl); DNS also at Intention
     (`intention.ns01-04`). Whoever holds the Intention account can change where the domain points.
   - Website: shared server **eushared26.twinservers.net** (IP 193.111.63.15, LiteSpeed), in a network registered to the Ukrainian VPS company
-    **VPS.ua**. **Owner confirmed (31 Oct): Intention B.V. manages the hosting too**, so domain, DNS and web server all sit in the Intention account.
+    **VPS.ua**. This is **not** Intention's server.
+  - **Intention account (checked 31 Oct, read-only):** one domain with a **Pro hosting package on s935.whserver.nl (87.239.9.35)**, control panel
+    DirectAdmin at `https://s935.whserver.nl:2222` ("Inloggen op pakket" in mijn.intention.nl). That package is **empty** (only a 106-byte placeholder).
+    The DNS zone at Intention points `@` and `www` to **193.111.63.15** (the other server); the zone was last changed on **29 Oct 2026, 23:10**.
+    Other records: MX + DKIM to Microsoft 365, `mail` → 87.239.8.61, two leftover Tilda CNAMEs (`tilda.ws` / `tilda485924`).
+    So: domain and DNS at Intention, paid hosting at Intention unused, live quiz pages + `/api/leads` on a separate server set up around 29 Oct.
+  - The domain's registrant is a private person, not Boatlab BV (owner may want to change the holder to the company).
   - E-mail: Microsoft 365 (MX `boatlabservice-nl.mail.protection.outlook.com`). Any DNS change must keep the MX and TXT records as they are.
   - The live quiz/landing pages are **hand-built pages, not Tilda exports** (Tailwind, images from Tilda's image storage), and they send leads to
     **`/api/leads` on that same server** (a small back end; Google Sheet as fallback, see `/assets/leads.js`). Their source is not in this repo.
 - **Go-live options:**
+  0. **First find out who runs 193.111.63.15** (whoever changed the DNS on 29 Oct and built the quiz pages + `/api/leads`). Everything below depends on it.
   1. **Recommended: put the new site on that same server, next to the quiz pages.** `dist/` (from `build.py`) is a complete static site; its
      addresses (`/services.html`, `/nl/…`, `/de/…`, `img/`, `assets/`…) don't clash with the quiz pages (`/antifoulling/…`, `/success/…`, `/painting/…`).
-     Only `/` (index.html) is shared: the new home replaces the quiz there only when the owner decides. Needs: the Intention control panel (file manager or FTP for the website folder;
-     the owner logs in, Claude never enters the password) and a word with whoever runs the quiz pages and `/api/leads`. `_redirects`/`_headers` are Cloudflare files; LiteSpeed would need an `.htaccess` instead.
+     Only `/` (index.html) is shared: the new home replaces the quiz there only when the owner decides. Needs: access to that server and a word with whoever runs the quiz pages and `/api/leads`.
+     Alternative: use the (paid, empty) Intention package: upload `dist/` there via DirectAdmin and move the quiz pages + `/api/leads` too,
+     then point `@`/`www` back to 87.239.9.35. More work, but everything would sit in one account. `_redirects`/`_headers` are Cloudflare files; LiteSpeed would need an `.htaccess` instead.
   2. Point the domain to Tilda: **not advised**. It would break `/api/leads` and the hand-built quiz pages (Tilda only holds older versions of them).
   3. Keep the Tilda copy as a preview only (current state).
 - Addresses differing from `tilda/PAGES.md`'s defaults: **EN home is `/home`** (temporary, `/` stays the old home; you switch the main page yourself),
