@@ -971,7 +971,7 @@ function tildaPath(href){
   const m = /^(?:\.\/|(\.\.\/)?(?:(nl|de)\/)?(?:([a-z0-9-]+)\.html)?)(#[\w-]*)?$/.exec(href);
   if (!m) return null;
   const l = m[2] || (m[1] ? "en" : lang), name = m[3] || "index";
-  return (name === "index" ? TL.home[l] : "/" + TL.prefix[l] + name) + (m[4] || "");
+  return (name === "index" ? TL.home[l] : "/" + TL.prefix[l] + ((TL.rename || {})[l + "/" + name] || name)) + (m[4] || "");
 }
 function fixLinks(root){
   if (!window.BL_TILDA) return;

@@ -26,6 +26,7 @@ TILDA_ASSETS = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--til
                     "https://cdn.jsdelivr.net/gh/BOATLAB-B-V/BoatLab-website@main/boatlab-site/").rstrip("/") + "/"
 TILDA_HOME = {"en": "/", "nl": "/nl", "de": "/de"}            # Tilda page address of the home page per language
 TILDA_PREFIX = {"en": "", "nl": "nl/", "de": "de/"}           # prefix for every other page: /services, /nl/services, /de/services
+TILDA_RENAME = {"en/antifouling": "antifouling-service"}      # addresses already taken by existing Tilda pages (/antifouling is the old home's)
 LANGS = ["en", "nl", "de"]
 FOLDER = {"en": "", "nl": "nl/", "de": "de/"}          # URL folder per language; English lives at the root
 HREFLANG = {"en": "en", "nl": "nl-NL", "de": "de-DE"}
@@ -307,7 +308,7 @@ def rebase(html, lang):
 
 
 def tilda_path(lang, name):
-    return TILDA_HOME[lang] if name == "index" else "/" + TILDA_PREFIX[lang] + name
+    return TILDA_HOME[lang] if name == "index" else "/" + TILDA_PREFIX[lang] + TILDA_RENAME.get(lang + "/" + name, name)
 
 
 def tilda_links(html, lang):
@@ -343,7 +344,7 @@ def tilda_page(doc, lang, extra_ld):
     """Body-only page for a Tilda T123 (HTML code) block: settings script, stylesheet, content, structured data."""
     body = strip_head(doc)
     body = re.sub(r"<title>.*?</title>\n", "", body, count=1)
-    boot = json.dumps({"lang": lang, "root": TILDA_ASSETS, "home": TILDA_HOME, "prefix": TILDA_PREFIX}, ensure_ascii=False)
+    boot = json.dumps({"lang": lang, "root": TILDA_ASSETS, "home": TILDA_HOME, "prefix": TILDA_PREFIX, "rename": TILDA_RENAME}, ensure_ascii=False)
     return (f"<!-- BoatLab page ({lang}); paste the whole file into one Tilda T123 block, padding 0, nothing else on the page -->\n"
             f"<script>window.BL_TILDA={boot};</script>\n<link rel=\"stylesheet\" href=\"{TILDA_ASSETS}assets/site.css\">\n"
             + tilda_assets(tilda_links(body, lang)).strip() + "\n" + (extra_ld.strip() + "\n" if extra_ld else ""))
