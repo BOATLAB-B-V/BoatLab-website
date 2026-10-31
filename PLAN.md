@@ -122,16 +122,15 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
   - Domain boatlabservice.nl: registered 1 Jul 2025 through **Intention B.V.** (Dutch hosting company, intention.nl); DNS also at Intention
     (`intention.ns01-04`). Whoever holds the Intention account can change where the domain points.
   - Website: shared server **eushared26.twinservers.net** (IP 193.111.63.15, LiteSpeed), in a network registered to the Ukrainian VPS company
-    **VPS.ua** (PE Skurykhin). The exact hosting brand is not confirmed; look for invoices or e-mails mentioning "twinservers", "VPS.ua" or
-    "Intention", or ask whoever built the quiz pages.
+    **VPS.ua**. **Owner confirmed (31 Oct): Intention B.V. manages the hosting too**, so domain, DNS and web server all sit in the Intention account.
   - E-mail: Microsoft 365 (MX `boatlabservice-nl.mail.protection.outlook.com`). Any DNS change must keep the MX and TXT records as they are.
   - The live quiz/landing pages are **hand-built pages, not Tilda exports** (Tailwind, images from Tilda's image storage), and they send leads to
     **`/api/leads` on that same server** (a small back end; Google Sheet as fallback, see `/assets/leads.js`). Their source is not in this repo.
 - **Go-live options:**
   1. **Recommended: put the new site on that same server, next to the quiz pages.** `dist/` (from `build.py`) is a complete static site; its
      addresses (`/services.html`, `/nl/…`, `/de/…`, `img/`, `assets/`…) don't clash with the quiz pages (`/antifoulling/…`, `/success/…`, `/painting/…`).
-     Only `/` (index.html) is shared: the new home replaces the quiz there only when the owner decides. Needs: login to that hosting (FTP/control panel)
-     and a word with whoever runs the quiz pages and `/api/leads`. `_redirects`/`_headers` are Cloudflare files; LiteSpeed would need an `.htaccess` instead.
+     Only `/` (index.html) is shared: the new home replaces the quiz there only when the owner decides. Needs: the Intention control panel (file manager or FTP for the website folder;
+     the owner logs in, Claude never enters the password) and a word with whoever runs the quiz pages and `/api/leads`. `_redirects`/`_headers` are Cloudflare files; LiteSpeed would need an `.htaccess` instead.
   2. Point the domain to Tilda: **not advised**. It would break `/api/leads` and the hand-built quiz pages (Tilda only holds older versions of them).
   3. Keep the Tilda copy as a preview only (current state).
 - Addresses differing from `tilda/PAGES.md`'s defaults: **EN home is `/home`** (temporary, `/` stays the old home; you switch the main page yourself),
