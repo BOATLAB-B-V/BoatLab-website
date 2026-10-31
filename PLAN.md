@@ -118,6 +118,22 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
   **Owner decision needed:** who runs that server (hosting company), and how the new pages get there: (a) point the domain to Tilda
   (check first that every quiz/landing page and its form works when served from Tilda), or (b) keep that server and upload the site there
   (`dist/` from `build.py` is a complete static site; Cloudflare/any static host works too). Until then the Tilda pages are a finished, checkable copy.
+- **Who hosts what (looked up 31 Oct, public records only):**
+  - Domain boatlabservice.nl: registered 1 Jul 2025 through **Intention B.V.** (Dutch hosting company, intention.nl); DNS also at Intention
+    (`intention.ns01-04`). Whoever holds the Intention account can change where the domain points.
+  - Website: shared server **eushared26.twinservers.net** (IP 193.111.63.15, LiteSpeed), in a network registered to the Ukrainian VPS company
+    **VPS.ua** (PE Skurykhin). The exact hosting brand is not confirmed; look for invoices or e-mails mentioning "twinservers", "VPS.ua" or
+    "Intention", or ask whoever built the quiz pages.
+  - E-mail: Microsoft 365 (MX `boatlabservice-nl.mail.protection.outlook.com`). Any DNS change must keep the MX and TXT records as they are.
+  - The live quiz/landing pages are **hand-built pages, not Tilda exports** (Tailwind, images from Tilda's image storage), and they send leads to
+    **`/api/leads` on that same server** (a small back end; Google Sheet as fallback, see `/assets/leads.js`). Their source is not in this repo.
+- **Go-live options:**
+  1. **Recommended: put the new site on that same server, next to the quiz pages.** `dist/` (from `build.py`) is a complete static site; its
+     addresses (`/services.html`, `/nl/…`, `/de/…`, `img/`, `assets/`…) don't clash with the quiz pages (`/antifoulling/…`, `/success/…`, `/painting/…`).
+     Only `/` (index.html) is shared: the new home replaces the quiz there only when the owner decides. Needs: login to that hosting (FTP/control panel)
+     and a word with whoever runs the quiz pages and `/api/leads`. `_redirects`/`_headers` are Cloudflare files; LiteSpeed would need an `.htaccess` instead.
+  2. Point the domain to Tilda: **not advised**. It would break `/api/leads` and the hand-built quiz pages (Tilda only holds older versions of them).
+  3. Keep the Tilda copy as a preview only (current state).
 - Addresses differing from `tilda/PAGES.md`'s defaults: **EN home is `/home`** (temporary, `/` stays the old home; you switch the main page yourself),
   **EN antifouling is `/antifouling-service`** (`/antifouling` is taken by an existing Tilda page; set in `TILDA_RENAME` in `build.py`).
 - Site settings: site name "BoatLab Yacht Services"; favicon `img/favicon.png` and phone icon `img/apple-touch-icon.png` uploaded; only our 36 pages
