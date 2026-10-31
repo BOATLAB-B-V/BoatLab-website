@@ -255,4 +255,7 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
   - Push from the session failed: command-line git has no GitHub login on this computer (GitHub Desktop keeps its own). This log is committed
     locally only; **owner: open GitHub Desktop and click "Push origin"**. For future runs, sign in once with `gh auth login` or Git Credential Manager.
   - Next run: install Python + Node, answer the project question, then follow the runbook from Step 2 (inventory above is done).
+  - Follow-up (same day): owner installed Python 3.15 and Node 26; `python build.py` works (36 Tilda pages + 36 head files; committed `assets/` unchanged).
+    Owner: "Boatlab Main Site" was made by mistake, **never work in it**; all pages go into the "Boat Lab" project. Tilda login in Chrome OK.
+    Use `python` (not `python3`, which is the Store stub here). Push: Git Credential Manager sign-in started from the Terminal panel.
 - **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.
