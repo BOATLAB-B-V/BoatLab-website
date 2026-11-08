@@ -111,22 +111,22 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
 
 ## Next session: start here (updated 8 Nov 2026)
 
-**LIVE since 8 Nov 2026:** all new pages are on boatlabservice.nl (`/services`, `/results`, `/about`, `/facility`, `/contact`, `/privacy`,
-`/antifouling`, `/polishing`, `/osmosis`, `/storage`, `/refit`, `/nl/…`, `/de/…`), next to the contractor's quiz pages. `/` is still the antifouling quiz.
+**LIVE since 8 Nov 2026:** the whole new site is on boatlabservice.nl, **including the home page `/`** (switched 8 Nov at the owner's request),
+next to the contractor's quiz pages. The old quiz home is now at **`/antifouling-quiz`** (identical copy; local backup of the old `index.html` was
+kept in the session's scratch folder). Ads that pointed to `/` should be pointed to `/antifouling-quiz` if they should keep landing on the quiz.
 
 **How to upload (this PC):** WinSCP saved site **"Boatlab"** (FTP + explicit TLS, host `boatlabservice.nl` port 21, "force IP for passive mode" on;
 password saved by the owner, Claude never types it). The FTP root is the web root. Rebuild, then refresh the upload folder and send it:
-`cd boatlab-site && python build.py`, copy `dist/` to `upload-ftp/` without `index.html`, `_headers`, `_redirects`, then
+`cd boatlab-site && python build.py`, copy `dist/` to `upload-ftp/` without `_headers`, `_redirects` (since 8 Nov `index.html` goes up too), then
 `"C:\Program Files (x86)\WinSCP\WinSCP.com" /command "option batch abort" "option confirm off" "open Boatlab" "put -transfer=binary upload-ftp\* /" "exit"`
 and check with `synchronize remote -preview -criteria=size upload-ftp /`. (`ftp.boatlabservice.nl` from the contractor's message does not exist in DNS.)
-Server contents (contractor's, never touch): `index.html` (quiz), `antifolingcng.html`, `shblon-test.html`, `antifoulling/`, `painting/`, `success/`,
+Server contents (contractor's, never touch): `antifouling-quiz.html` (former quiz home), `antifolingcng.html`, `shblon-test.html`, `antifoulling/`, `painting/`, `success/`,
 `filip/`, `api/` (lead program), `crm/`, `assets/leads.js`, `.htaccess` (HTTPS + clean URLs `/x` → `x.html`), `.user.ini`, `php.ini`, `cgi-bin/`, `.well-known/`.
 
 **Still to do:**
 1. **Contact form:** `CONFIG.formEndpoint` is empty, so the form only shows a summary + "email us" button. Connect it to the contractor's `/api/leads`
    (ask him for the format) or a form service.
-2. **Main page switch** (owner says go): copy the quiz `index.html` to its own address first (e.g. `/antifouling-quiz.html`) so ads keep a working page,
-   tell the contractor, then upload our `dist/index.html` as `/`.
+2. ~~Main page switch~~ done 8 Nov. **Tell the contractor** the quiz moved to `/antifouling-quiz` (check his ads / links that pointed to `/`).
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console + `sitemap.xml`; Business Profile; Tilda copy can stay as backup or be unpublished.
 
@@ -357,4 +357,6 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
   passive mode needed "force IP" (server advertises another address). Owner installed WinSCP and saved the login. Looked first (read-only: root listing,
   `.htaccess`, `assets/`), then uploaded 268 files (43 MB) without `index.html`; size check says all files complete. Checked live: all 33 new addresses
   answer 200, quiz home + landing + `leads.js` unchanged, photos/fonts/video load, no console errors, 375 px phone width OK. `upload-ftp/` added to `.gitignore`.
+  Then, on the owner's go: quiz home copied to `/antifouling-quiz` (verified identical, lead script works), our `index.html` uploaded as `/`
+  (verified: 22 photos, no errors, all 15 internal links OK).
 - **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.
