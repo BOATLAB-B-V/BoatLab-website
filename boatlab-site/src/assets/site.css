@@ -388,6 +388,20 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 /* reviews: two rows drifting in opposite directions, pause on hover */
 .reviews{overflow:hidden}
 .reviews .badge{justify-self:center;padding:6px 12px;border-radius:999px;background:var(--hook);color:var(--ink);font-size:.8rem;font-weight:600}
+/* Google rating pill: G · 4.9 · stars filled to the rating · count */
+.g-rating{justify-self:center;display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 12px;margin-top:4px;padding:12px 22px 12px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 34px -22px rgba(12,21,32,.5);text-decoration:none;color:var(--ink);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.g-rating:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.g-rating[hidden]{display:none}
+.g-logo{width:28px;height:28px;flex:none}
+.g-score{font:850 1.75rem/1 var(--f-display);font-stretch:108%;letter-spacing:-.02em}
+.g-stars{position:relative;display:inline-block;color:var(--line)}
+.g-stars .base,.g-stars .fill{display:flex;gap:2px}
+.g-stars .fill{position:absolute;top:0;left:0;bottom:0;overflow:hidden;color:var(--hook)}
+.g-stars svg{width:20px;height:20px;flex:none}
+.g-count{color:var(--muted);font-size:.93rem}
+.marquee[hidden]{display:none}
+.review figcaption .g-mark{width:18px;height:18px;margin-left:auto;flex:none;opacity:.9}
+.rev-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
 .marquee{display:grid;gap:18px;padding-block:8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .marquee .row{display:flex;width:max-content;animation:drift-x var(--dur,60s) linear infinite}
 .marquee .row.rev{animation-direction:reverse}

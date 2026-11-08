@@ -14,6 +14,8 @@ const CONFIG = {
   ga4Id: "G-L3E2SR4KRM",
   instagram: "https://www.instagram.com/boatlab.nl/",
   facebook: "https://www.facebook.com/p/BoatLab-61587361173898/",
+  // Google rating shown above the reviews (update when it changes); the link opens the Google profile with all reviews
+  googleRating: 4.9, googleCount: 12, googleReviews: "https://maps.app.goo.gl/qaHuijy3DLmqtUjv5",
   tiktok: "https://www.tiktok.com/@boatlab.nl",
   // Dutch law requires the KvK number (and VAT number) on the website. Shown in the footer once filled in.
   kvk: "42025956",
@@ -170,7 +172,7 @@ const T2 = {
 en:{
  "nav.home":"Home","title.home":"BoatLab Yacht Services · Wanssum",
  "svc.all13":"View all 13 services","why.more":"More about BoatLab",
- "rev.eyebrow":"Reviews","rev.title":"What boat owners say.","rev.lede":"Real reviews from our customers on Google.","rev.cta":"Leave a review on Google","rev.placeholder":"Customer reviews from Google will appear here.","rev.badge":"Layout preview",
+ "rev.eyebrow":"Reviews","rev.title":"What boat owners say.","rev.lede":"Real reviews from our customers on Google.","rev.cta":"Leave a review on Google","rev.count":"reviews on Google","rev.all":"Read all reviews","rev.placeholder":"Customer reviews from Google will appear here.","rev.badge":"Layout preview",
  "facT.title":"Come and see the yard.","facT.text":"Indoor halls, a full workshop and our own 30 t crane on the Maas in Wanssum.","facT.cta":"Tour the facility",
  "cta.title":"Ready for the water?","cta.text":"Send us your request and we'll reply personally with a clear quote and a date.","cta.call":"Call +31 6 11742272",
  "ph.services.h1":"Boat services in Wanssum, Limburg: from antifouling to refit.","ph.services.lede":"13 services under one roof in Wanssum, each with a free crane lift.",
@@ -187,7 +189,7 @@ en:{
 nl:{
  "nav.home":"Home","title.home":"BoatLab Yacht Services · Wanssum",
  "svc.all13":"Bekijk alle 13 diensten","why.more":"Meer over BoatLab",
- "rev.eyebrow":"Reviews","rev.title":"Wat booteigenaren zeggen.","rev.lede":"Echte reviews van onze klanten op Google.","rev.cta":"Laat een review achter op Google","rev.placeholder":"Hier verschijnen klantreviews van Google.","rev.badge":"Voorbeeldweergave",
+ "rev.eyebrow":"Reviews","rev.title":"Wat booteigenaren zeggen.","rev.lede":"Echte reviews van onze klanten op Google.","rev.cta":"Laat een review achter op Google","rev.count":"reviews op Google","rev.all":"Alle reviews lezen","rev.placeholder":"Hier verschijnen klantreviews van Google.","rev.badge":"Voorbeeldweergave",
  "facT.title":"Kom de werf bekijken.","facT.text":"Binnenhallen, een complete werkplaats en onze eigen 30-tons kraan aan de Maas in Wanssum.","facT.cta":"Bekijk de werf",
  "cta.title":"Klaar om te varen?","cta.text":"Stuur ons uw aanvraag en we reageren persoonlijk met een heldere offerte en een datum.","cta.call":"Bel +31 6 11742272",
  "ph.services.h1":"Botenservice in Wanssum, Limburg: van antifouling tot refit.","ph.services.lede":"13 diensten onder één dak in Wanssum, altijd met gratis hijsen.",
@@ -204,7 +206,7 @@ nl:{
 de:{
  "nav.home":"Startseite","title.home":"BoatLab Yacht Services · Wanssum",
  "svc.all13":"Alle 13 Leistungen ansehen","why.more":"Mehr über BoatLab",
- "rev.eyebrow":"Bewertungen","rev.title":"Was Bootseigner sagen.","rev.lede":"Echte Bewertungen unserer Kunden auf Google.","rev.cta":"Bewertung auf Google schreiben","rev.placeholder":"Hier erscheinen Kundenbewertungen von Google.","rev.badge":"Layout-Vorschau",
+ "rev.eyebrow":"Bewertungen","rev.title":"Was Bootseigner sagen.","rev.lede":"Echte Bewertungen unserer Kunden auf Google.","rev.cta":"Bewertung auf Google schreiben","rev.count":"Bewertungen auf Google","rev.all":"Alle Bewertungen lesen","rev.placeholder":"Hier erscheinen Kundenbewertungen von Google.","rev.badge":"Layout-Vorschau",
  "facT.title":"Besuchen Sie die Werft.","facT.text":"Hallen, eine komplette Werkstatt und unser eigener 30-t-Kran an der Maas in Wanssum.","facT.cta":"Werft ansehen",
  "cta.title":"Bereit fürs Wasser?","cta.text":"Senden Sie uns Ihre Anfrage, und wir melden uns persönlich mit einem klaren Angebot und Termin.","cta.call":"Anrufen: +31 6 11742272",
  "ph.services.h1":"Bootsservice in Wanssum (NL): vom Antifouling bis zum Refit.","ph.services.lede":"13 Leistungen unter einem Dach in Wanssum, immer mit kostenlosem Kranen.",
@@ -719,15 +721,26 @@ function openDetail(id){
 function renderReviews(){
   const sec = $("#reviews"), box = $("#revMarquee"); if (!sec || !box) return;
   const demo = !REVIEWS.length && CONFIG.reviewPlaceholders;
-  if (!REVIEWS.length && !demo){ sec.hidden = true; return; }
+  // the section shows as soon as there is a Google rating; the drifting cards need REVIEWS
+  if (!REVIEWS.length && !demo && !CONFIG.googleCount){ sec.hidden = true; return; }
   sec.hidden = false;
-  $("#revBadge").hidden = !demo;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   const star = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg>';
+  const g = $("#gRating");
+  if (g && CONFIG.googleCount){   // stars filled to the rating: 4.9 → 98 %
+    $("#gScore").textContent = lang === "en" ? String(CONFIG.googleRating) : String(CONFIG.googleRating).replace(".", ",");
+    $("#gCount").textContent = CONFIG.googleCount;
+    $("#gStars").innerHTML = `<span class="base">${star.repeat(5)}</span><span class="fill" style="width:${CONFIG.googleRating / 5 * 100}%">${star.repeat(5)}</span>`;
+    g.setAttribute("aria-label", `Google: ${CONFIG.googleRating} / 5, ${CONFIG.googleCount}`);
+  } else if (g) g.hidden = true;
+  if (CONFIG.googleReviews) $$(".js-greviews").forEach(a => a.href = CONFIG.googleReviews);
+  box.hidden = !REVIEWS.length && !demo;
+  if (box.hidden) return;
+  const gmark = '<svg class="g-mark" aria-label="Google"><use href="#i-google"/></svg>';
   const card = r => r ? `
     <figure class="review"><div class="stars" aria-label="${r.rating} / 5">${star.repeat(r.rating)}</div>
       <blockquote>${esc(r.text)}</blockquote>
-      <figcaption><span class="avatar">${esc(r.name.trim()[0] || "?")}</span><span><b>${esc(r.name)}</b><small>${esc(r.origin || "")}</small></span></figcaption></figure>`
+      <figcaption><span class="avatar">${esc(r.name.trim()[0] || "?")}</span><span><b>${esc(r.name)}</b><small>${esc(r.origin || r.date || "Google")}</small></span>${gmark}</figcaption></figure>`
     : `<figure class="review demo" aria-hidden="true"><div class="stars">${star.repeat(5)}</div>
       <div class="sk"></div><div class="sk"></div><div class="sk short"></div>
       <figcaption><span class="avatar"></span><span class="sk name"></span></figcaption></figure>`;

@@ -164,6 +164,10 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    The request form has a switch "Get an offer | Visit the yard"; visit mode hides services/length/location/photos, boat optional, date =
    "Preferred visit date", heading "Come and see the yard". Lead text starts "BoatLab visit request"; GA4/Clarity event `visit_request`
    (owner: mark it as key event in GA4 too).
+2g. **Google reviews (8 Nov):** reviews section now sits right after "Why BoatLab" on Home and on About. Shows a Google rating pill
+   (`CONFIG.googleRating` 4.9 / `googleCount` 12, update by hand when it changes) with "Read all reviews" / "Leave a review" buttons.
+   Drifting review cards (Google mark on each) appear once texts are in `REVIEWS` in site.js; waiting for the owner to paste the 12 review
+   texts (Claude does not copy review texts off Google itself).
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),

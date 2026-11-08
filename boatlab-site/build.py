@@ -33,10 +33,10 @@ HREFLANG = {"en": "en", "nl": "nl-NL", "de": "de-DE"}
 
 # page file, nav id, sections in order
 PAGES = [
-    ("index",    "home",     ["hero", "home-services", "lift", "results", "home-why", "partners", "brands", "reviews", "home-facility", "cta"]),
+    ("index",    "home",     ["hero", "home-services", "lift", "results", "home-why", "reviews", "partners", "brands", "home-facility", "cta"]),
     ("services", "services", ["ph-services", "services", "svc-details", "process", "cta"]),
     ("results",  "results",  ["ph-results", "results", "results-more", "cta"]),
-    ("about",    "about",    ["ph-about", "team", "why", "partners", "brands", "process", "cta"]),
+    ("about",    "about",    ["ph-about", "team", "why", "reviews", "partners", "brands", "process", "cta"]),
     ("facility", "facility", ["ph-facility", "lift", "facility", "cta"]),
     ("contact",  "contact",  ["ph-contact", "booking", "contact"]),
     ("privacy",  "privacy",  ["privacy"]),
