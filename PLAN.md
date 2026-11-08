@@ -131,8 +131,8 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
 2. ~~Main page switch~~ done 8 Nov. **Tell the contractor** the quiz moved to `/antifouling-quiz` (check his ads / links that pointed to `/`).
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
-   owner verifies (URL-prefix property `https://boatlabservice.nl/`), submits `sitemap.xml`, requests indexing for `/`, `/nl/`, `/de/`
-   (Google still showed the old quiz title for `/`). Business Profile; Tilda copy can stay as backup or be unpublished.
+   **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),
+   requested indexing for `/`, `/nl/`, `/de/`. Google still showed the old quiz title for `/`; should update within days. Business Profile; Tilda copy can stay as backup or be unpublished.
 
 **Owner's decision:** once the new site is live on that server, the main page `/` switches from the antifouling quiz to our home page.
 
