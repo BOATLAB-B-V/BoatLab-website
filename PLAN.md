@@ -130,7 +130,9 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    with the owner's OK ("TEST BoatLab website", answered 201). Asset links now carry `?v=<hash>` (build.py) so browsers load new CSS/JS after changes.
 2. ~~Main page switch~~ done 8 Nov. **Tell the contractor** the quiz moved to `/antifouling-quiz` (check his ads / links that pointed to `/`).
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
-4. Google Search Console + `sitemap.xml`; Business Profile; Tilda copy can stay as backup or be unpublished.
+4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
+   owner verifies (URL-prefix property `https://boatlabservice.nl/`), submits `sitemap.xml`, requests indexing for `/`, `/nl/`, `/de/`
+   (Google still showed the old quiz title for `/`). Business Profile; Tilda copy can stay as backup or be unpublished.
 
 **Owner's decision:** once the new site is live on that server, the main page `/` switches from the antifouling quiz to our home page.
 
