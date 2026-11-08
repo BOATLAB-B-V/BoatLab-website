@@ -34,7 +34,7 @@ const SERVICES = [
 const T = {
 en:{
  "nav.services":"Services","nav.results":"Results","nav.why":"Why BoatLab","nav.facility":"Facility","nav.contact":"Contact",
- "cta.book":"Get an offer","cta.services":"Explore services",
+ "cta.book":"Get an offer","cta.visit":"Plan a visit","f.typeLabel":"What would you like?","f.typeVisit":"Visit the yard","f.visitDate":"Preferred visit date","book.visitEyebrow":"Plan a visit","book.visitTitle":"Come and see the yard.","book.visitLede":"Pick a day and we'll show you the halls, the crane and the boats we're working on. Tell us a bit about your boat if you like.","cta.services":"Explore services",
  "hero.eyebrow":"Yacht & boat service in Wanssum, Limburg (NL)","hero.h1a":"Your boat.","hero.h1b":"Back better.",
  "hero.lede":"All-round yacht and boat care on the Maas, with a personal approach and fair prices. <strong>Every service includes a free lift with our 30-tonne crane.</strong>",
  "hero.f1":"Free 30 t crane lift","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Open since April 2026",
@@ -76,7 +76,7 @@ en:{
 },
 nl:{
  "nav.services":"Diensten","nav.results":"Resultaten","nav.why":"Waarom BoatLab","nav.facility":"Werf","nav.contact":"Contact",
- "cta.book":"Offerte aanvragen","cta.services":"Bekijk diensten",
+ "cta.book":"Offerte aanvragen","cta.visit":"Plan een bezoek","f.typeLabel":"Waarmee kunnen we helpen?","f.typeVisit":"Werf bezoeken","f.visitDate":"Gewenste bezoekdatum","book.visitEyebrow":"Plan een bezoek","book.visitTitle":"Kom de werf bekijken.","book.visitLede":"Kies een dag en we laten u de hallen, de kraan en de boten zien waaraan we werken. Vertel gerust iets over uw boot.","cta.services":"Bekijk diensten",
  "hero.eyebrow":"Jachtservice & botenonderhoud in Wanssum, Limburg","hero.h1a":"Uw boot.","hero.h1b":"Beter terug.",
  "hero.lede":"Allround onderhoud voor jachten en boten aan de Maas, persoonlijk en voor een eerlijke prijs. <strong>Bij elke service hijsen we uw boot gratis met onze 30-tons kraan.</strong>",
  "hero.f1":"Gratis hijsen, 30 t kraan","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Geopend sinds april 2026",
@@ -118,7 +118,7 @@ nl:{
 },
 de:{
  "nav.services":"Leistungen","nav.results":"Ergebnisse","nav.why":"Warum BoatLab","nav.facility":"Werft","nav.contact":"Kontakt",
- "cta.book":"Angebot anfragen","cta.services":"Leistungen ansehen",
+ "cta.book":"Angebot anfragen","cta.visit":"Besuch planen","f.typeLabel":"Wie können wir helfen?","f.typeVisit":"Werft besuchen","f.visitDate":"Wunschtermin für den Besuch","book.visitEyebrow":"Besuch planen","book.visitTitle":"Besuchen Sie unsere Werft.","book.visitLede":"Wählen Sie einen Tag, und wir zeigen Ihnen die Hallen, den Kran und die Boote, an denen wir gerade arbeiten. Erzählen Sie uns gern etwas über Ihr Boot.","cta.services":"Leistungen ansehen",
  "hero.eyebrow":"Yacht- & Bootsservice in Wanssum (NL), nahe der deutschen Grenze","hero.h1a":"Ihr Boot.","hero.h1b":"Besser zurück.",
  "hero.lede":"Rundum-Service für Yachten und Boote an der Maas, persönlich und zu fairen Preisen. <strong>Bei jedem Service kranen wir Ihr Boot kostenlos mit unserem 30-Tonnen-Kran.</strong>",
  "hero.f1":"Kostenlos kranen, 30 t","hero.f2":"English · Nederlands · Deutsch","hero.f3":"Geöffnet seit April 2026",
@@ -917,24 +917,39 @@ $("#copyEmail")?.addEventListener("click", e => {
     drop.addEventListener("drop", e => addPhotos(e.dataTransfer.files));
   }
   $("#f-date").min = new Date().toISOString().slice(0,10);
+  // "Get an offer" or "Visit the yard": one form; a visit only needs contact details and a date (boat optional, offer fields hidden)
+  const mode = () => (form.querySelector('[name="request_type"]:checked') || {}).value || "offer";
+  window.bookMode = m => {
+    const visit = m === "visit";
+    form.classList.toggle("visit", visit);
+    const r = form.querySelector(`[name="request_type"][value="${m}"]`); if (r) r.checked = true;
+    $("#f-boat").required = !visit;
+    $(".book-aside .eyebrow").textContent = t(visit ? "book.visitEyebrow" : "book.eyebrow");
+    $("#bookTitle").textContent = t(visit ? "book.visitTitle" : "book.title");
+    $(".book-aside .lede").textContent = t(visit ? "book.visitLede" : "book.lede");
+    $("#f-date-label").textContent = t(visit ? "f.visitDate" : "f.date");
+  };
+  $(".req-type", form)?.setAttribute("aria-label", t("f.typeLabel"));
+  form.addEventListener("change", e => { if (e.target.name === "request_type") bookMode(e.target.value); });
   form.addEventListener("submit", async e => {
     e.preventDefault(); err.hidden = true;
     const fd = new FormData(form);
-    const svcs = fd.getAll("services");
+    const visit = mode() === "visit";
+    const svcs = visit ? [] : fd.getAll("services");
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get("email")||"");
-    if (!fd.get("name")?.trim() || !emailOk || !fd.get("boat")?.trim()){ err.textContent = t("f.errReq"); err.hidden = false; return; }
-    if (!svcs.length){ err.textContent = t("f.errSvc"); err.hidden = false; return; }
+    if (!fd.get("name")?.trim() || !emailOk || (!visit && !fd.get("boat")?.trim())){ err.textContent = t("f.errReq"); err.hidden = false; return; }
+    if (!visit && !svcs.length){ err.textContent = t("f.errSvc"); err.hidden = false; return; }
     if (!$("#f-consent").checked){ err.textContent = t("f.errConsent"); err.hidden = false; $("#f-consent").focus(); return; }
     const summary = [
-      "BoatLab service request",
+      visit ? "BoatLab visit request (wants to visit the yard)" : "BoatLab service request",
       "Name: "+fd.get("name"), "Email: "+fd.get("email"), fd.get("phone") ? "Phone: "+fd.get("phone") : null,
       "Language: "+fd.get("language"),
-      "Boat: "+fd.get("boat")+(fd.get("length_m") ? " ("+fd.get("length_m")+" m)" : ""),
-      "Location: "+fd.get("location"),
-      "Services: "+svcs.map(id => T.en["s."+id]).join(", "),
-      fd.get("date") ? "Preferred date: "+fd.get("date") : null,
+      fd.get("boat")?.trim() ? "Boat: "+fd.get("boat")+(!visit && fd.get("length_m") ? " ("+fd.get("length_m")+" m)" : "") : null,
+      visit ? null : "Location: "+fd.get("location"),
+      visit ? null : "Services: "+svcs.map(id => T.en["s."+id]).join(", "),
+      fd.get("date") ? (visit ? "Preferred visit date: " : "Preferred date: ")+fd.get("date") : null,
       fd.get("message") ? "\nMessage:\n"+fd.get("message") : null,
-      photos.length ? "Photos: "+photos.length+" ("+photos.map(f => f.name).join(", ")+")" : null,
+      !visit && photos.length ? "Photos: "+photos.length+" ("+photos.map(f => f.name).join(", ")+")" : null,
       "\nPrivacy policy accepted: yes ("+new Date().toISOString().slice(0,16).replace("T"," ")+" UTC)"
     ].filter(Boolean).join("\n");
     const btn = $("#submitBtn"); btn.classList.add("loading"); btn.disabled = true;
@@ -964,7 +979,7 @@ $("#copyEmail")?.addEventListener("click", e => {
         err.textContent = t("f.errSend")+CONFIG.email+"."; err.hidden = false; return;
       }
     } else { await new Promise(r => setTimeout(r, 600)); }
-    track("lead_form", {page: PAGE, services: svcs.join(","), sent});
+    track(visit ? "visit_request" : "lead_form", {page: PAGE, services: svcs.join(","), sent});
     showDone(sent, summary);
   });
   function showDone(sent, summary){
@@ -1008,6 +1023,14 @@ if (window.BL_TILDA) document.addEventListener("click", e => { const a = e.targe
   setLang(lang);   // the language is fixed per URL (/ = EN, /nl/, /de/); the switcher links to the sibling page
   fixLinks();
   if (h.startsWith("book-")) setTimeout(() => preselectAndScroll(h.slice(5)), 60);
+  // #visit opens the request form in visit mode; #book switches back (also when the link is clicked on the contact page itself)
+  const formMode = hash => {
+    if (!window.bookMode || !["visit", "book"].includes(hash)) return;
+    bookMode(hash === "visit" ? "visit" : "offer");
+    $("#book")?.scrollIntoView({behavior: "smooth"});
+  };
+  if (h === "visit") setTimeout(() => formMode(h), 60);
+  addEventListener("hashchange", () => formMode(location.hash.slice(1)));
   if (h.startsWith("svc-")) setTimeout(() => openDetail(h.slice(4)), 60);
   addEventListener("resize", () => {
     moveThumb($("#svcTabs"), $('#svcTabs [aria-selected="true"]'));

@@ -107,6 +107,13 @@ section{padding-block:clamp(72px,10vw,128px)}
   .nav .btn.nav-cta{display:none}
 }
 @media (max-width:420px){.brand small{display:none}}
+/* "Plan a visit": a button in the bar on wide screens, a link in the phone menu */
+.nav .btn.nav-visit{margin-left:-4px}
+.nav-links .nav-visit-link{display:none}
+.nav-links a,.nav .btn{white-space:nowrap}
+@media (min-width:1440px){.nav .wrap{max-width:1380px}}   /* room for both buttons next to the menu in NL/DE */
+@media (max-width:1439px){.nav .btn.nav-visit{display:none}}
+@media (max-width:1080px){.nav-links .nav-visit-link{display:block;color:var(--brand);font-weight:600}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding-block:clamp(40px,6vw,80px) 0;overflow:hidden}
@@ -260,7 +267,9 @@ section{padding-block:clamp(72px,10vw,128px)}
 .track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .track::-webkit-scrollbar{display:none}
 .slide{flex:0 0 100%;scroll-snap-align:center;margin:0;border:0;padding:0;background:none;text-align:left;font:inherit;color:inherit;cursor:zoom-in}
-.slide .bleed{height:clamp(340px,56vw,760px);margin-inline:var(--gutter);border-radius:var(--r-lg)}
+/* whole photo in its own shape (4:3, or 3:4 with .tall), same height for every slide, never larger than the 1600 px source */
+.slide .bleed{--fh:min(70vh,720px,calc((100vw - 2*var(--gutter))*.75));height:var(--fh);width:calc(var(--fh)*4/3);margin-inline:auto;border-radius:var(--r-lg);background:var(--soft)}
+.slide .bleed.tall{width:calc(var(--fh)*.75)}
 .slide img{transition:transform 1.4s var(--ease)}
 .slide:hover img{transform:scale(1.03)}
 .slide figcaption{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;justify-content:center;text-align:center;padding:4px var(--gutter) 0;font-size:1rem;color:var(--muted)}
@@ -316,6 +325,15 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
 .btn.loading .spin{display:block}.btn.loading .arrow-i{display:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 .form-error{grid-column:1/-1;color:#d9483b;font-size:.92rem}
+/* request type switch: "Get an offer" | "Visit the yard" */
+.req-type{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:999px;background:var(--soft)}
+.req-type label{position:relative;cursor:pointer}
+.req-type input{position:absolute;opacity:0;pointer-events:none}
+.req-type span{display:block;padding:10px 18px;border-radius:999px;font-weight:600;font-size:.92rem;color:var(--muted);transition:background .25s,color .25s}
+.req-type input:checked+span{background:var(--brand);color:#fff}
+.req-type input:focus-visible+span{outline:2px solid var(--brand);outline-offset:2px}
+.form.visit .offer-only{display:none}
+.form:not(.visit) .visit-only{display:none}
 .consent label{display:flex;gap:12px;align-items:flex-start;font-weight:400;font-size:.92rem;line-height:1.5;color:var(--muted);cursor:pointer}
 .consent input{flex:none;width:20px;height:20px;margin:1px 0 0;padding:0;accent-color:var(--brand);cursor:pointer}
 .consent a{color:var(--brand);font-weight:600}

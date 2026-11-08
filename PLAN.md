@@ -157,6 +157,13 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    pro retouch); before/after polishing photos of a Focus yacht for the Results slider.
    Facebook added 8 Nov: page "BoatLab | Wanssum", `https://www.facebook.com/p/BoatLab-61587361173898/` (`CONFIG.facebook`), in footer,
    contact section and LocalBusiness `sameAs`.
+2f. **Yard slider + "Plan a visit" (8 Nov):** Facility slider showed a wide strip of each photo, upscaled (frame was full width × max 760 px).
+   Now every photo is shown whole in its own shape (4:3, the two Focus photos 3:4 via `.bleed.tall`), equal height, max 960×720 so never
+   upscaled; duplicate `aerial-hall` slide removed. New **"Plan a visit"** (`contact.html#visit`): button next to "Get an offer" in the header on
+   screens ≥1440 px (header width raised to 1380 px there), link in the phone menu, buttons in the Focus partner block and the home yard teaser.
+   The request form has a switch "Get an offer | Visit the yard"; visit mode hides services/length/location/photos, boat optional, date =
+   "Preferred visit date", heading "Come and see the yard". Lead text starts "BoatLab visit request"; GA4/Clarity event `visit_request`
+   (owner: mark it as key event in GA4 too).
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),

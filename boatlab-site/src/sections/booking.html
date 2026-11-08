@@ -13,23 +13,27 @@
       </div>
       <div id="bookWrap" class="reveal" data-clarity-mask="True">
         <form class="form" id="bookForm" novalidate>
+          <div class="field full"><div class="req-type" role="radiogroup" aria-label="What would you like?">
+            <label><input type="radio" name="request_type" value="offer" checked><span data-i18n="cta.book">Get an offer</span></label>
+            <label><input type="radio" name="request_type" value="visit"><span data-i18n="f.typeVisit">Visit the yard</span></label>
+          </div></div>
           <div class="field"><label for="f-name" data-i18n="f.name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
           <div class="field"><label for="f-email" data-i18n="f.email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="f-phone"><span data-i18n="f.phone">Phone</span> <span class="opt" data-i18n="f.optional">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
           <div class="field"><label for="f-lang" data-i18n="f.lang">Preferred language</label>
             <select id="f-lang" name="language"><option value="English">English</option><option value="Nederlands">Nederlands</option><option value="Deutsch">Deutsch</option></select></div>
-          <div class="field"><label for="f-boat" data-i18n="f.boat">Boat make &amp; model</label><input id="f-boat" name="boat" placeholder="e.g. Fairline Targa 43" required></div>
-          <div class="field"><label for="f-length" data-i18n="f.length">Length (m)</label><input id="f-length" name="length_m" type="number" min="2" max="40" step="0.1" inputmode="decimal" placeholder="12.5"></div>
-          <fieldset class="field full"><legend data-i18n="f.services">Services</legend><div class="chips" id="svcChips"></div></fieldset>
-          <div class="field"><label for="f-date" data-i18n="f.date">Preferred date</label><input id="f-date" name="date" type="date"></div>
-          <div class="field"><label for="f-where" data-i18n="f.where">Where is the boat now?</label>
+          <div class="field"><label for="f-boat"><span data-i18n="f.boat">Boat make &amp; model</span> <span class="opt visit-only" data-i18n="f.optional">(optional)</span></label><input id="f-boat" name="boat" placeholder="e.g. Fairline Targa 43" required></div>
+          <div class="field offer-only"><label for="f-length" data-i18n="f.length">Length (m)</label><input id="f-length" name="length_m" type="number" min="2" max="40" step="0.1" inputmode="decimal" placeholder="12.5"></div>
+          <fieldset class="field full offer-only"><legend data-i18n="f.services">Services</legend><div class="chips" id="svcChips"></div></fieldset>
+          <div class="field"><label for="f-date" id="f-date-label" data-i18n="f.date">Preferred date</label><input id="f-date" name="date" type="date"></div>
+          <div class="field offer-only"><label for="f-where" data-i18n="f.where">Where is the boat now?</label>
             <select id="f-where" name="location">
               <option value="In the water" data-i18n="f.w1">In the water</option>
               <option value="On a trailer" data-i18n="f.w2">On a trailer</option>
               <option value="In storage elsewhere" data-i18n="f.w3">In storage elsewhere</option>
             </select></div>
           <div class="field full"><label for="f-msg"><span data-i18n="f.msg">Anything else we should know?</span> <span class="opt" data-i18n="f.optional">(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
-          <div class="field full photos">
+          <div class="field full photos offer-only">
             <label for="f-photos"><span data-i18n="f.photos">Photos of your boat</span> <span class="opt" data-i18n="f.optional">(optional)</span></label>
             <div class="drop" id="photoDrop">
               <input id="f-photos" name="photos" type="file" accept="image/*" multiple>
