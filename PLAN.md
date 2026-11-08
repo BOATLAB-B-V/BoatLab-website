@@ -169,6 +169,8 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    Drifting review cards (Google mark on each) from `REVIEWS` in site.js: 11 reviews added 8 Nov from the owner's screenshots, word for word
    in the original language, emojis left out, names as first name + initial; page language shown first; long texts clamped to 8 lines.
    Hanne S. (4 stars) left out: only Google's Russian translation was in the screenshot; add when the original German text is available.
+   Phones (≤820 px): no drifting band; one swipeable row (scroll-snap, next card peeks in, position dots, tap a card for the full text),
+   compact cards with the name at the bottom. Switches automatically when the window crosses that width.
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),

@@ -757,6 +757,24 @@ function renderReviews(){
       <div class="sk"></div><div class="sk"></div><div class="sk short"></div>
       <figcaption><span class="avatar"></span><span class="sk name"></span></figcaption></figure>`;
   const items = demo ? Array(8).fill(null) : [...REVIEWS].sort((a, b) => (b.lang === lang) - (a.lang === lang));   // page language first
+  // Phones: one row you swipe yourself (next card peeks in, dots show the position, tap a card for the full text)
+  if (!demo && matchMedia("(max-width: 820px)").matches){
+    box.classList.add("swipe");
+    box.innerHTML = `<div class="swipe-track" tabindex="0" aria-label="${esc(t("rev.title"))}">${items.map(card).join("")}</div>
+      <div class="swipe-dots" aria-hidden="true">${items.map((_, i) => `<button type="button" tabindex="-1" data-i="${i}"></button>`).join("")}</div>`;
+    const track = $(".swipe-track", box), dots = $$(".swipe-dots button", box), cards = $$(".review", track);
+    const startOf = c => c.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft);   // track is position:relative
+    const current = () => {
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) return cards.length - 1;   // scrolled to the end
+      return cards.reduce((best, c, i) => Math.abs(startOf(c) - track.scrollLeft) < Math.abs(startOf(cards[best]) - track.scrollLeft) ? i : best, 0);
+    };
+    const sync = () => { const i = current(); dots.forEach((d, j) => d.setAttribute("aria-current", i === j)); };
+    track.addEventListener("scroll", () => requestAnimationFrame(sync), {passive: true}); sync();
+    $(".swipe-dots", box).addEventListener("click", e => { const d = e.target.closest("button"); if (d) track.scrollTo({left: startOf(cards[+d.dataset.i]), behavior: "smooth"}); });
+    track.addEventListener("click", e => { const c = e.target.closest(".review"); if (c) c.classList.toggle("open"); });
+    return;
+  }
+  box.classList.remove("swipe");
   const half = Math.ceil(items.length/2);
   const rows = items.length > 5 ? [items.slice(0,half), items.slice(half)] : [items];
   box.innerHTML = rows.map((row, i) => {
@@ -776,6 +794,7 @@ function setLang(l){
   $$(".lang [data-lang]").forEach(b => b.setAttribute("aria-current", b.dataset.lang===lang ? "true" : "false"));
   const fl = $("#f-lang"); if (fl) fl.value = {en:"English",nl:"Nederlands",de:"Deutsch"}[lang];
   renderServices(); renderDetails(); renderReviews();
+  if (!setLang.mq){ setLang.mq = matchMedia("(max-width: 820px)"); setLang.mq.addEventListener("change", renderReviews); }   // switch band/swipe when crossing the phone width
   const reg = $("#regIds"); if (reg) reg.textContent = [CONFIG.kvk && t("footer.kvk")+" "+CONFIG.kvk, CONFIG.vat && t("footer.vat")+" "+CONFIG.vat].filter(Boolean).join(" · ");
   requestAnimationFrame(() => {
     const lb = $(`.lang [data-lang="${lang}"]`), th = $(".lang .thumb");
