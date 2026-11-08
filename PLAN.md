@@ -166,8 +166,9 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    (owner: mark it as key event in GA4 too).
 2g. **Google reviews (8 Nov):** reviews section now sits right after "Why BoatLab" on Home and on About. Shows a Google rating pill
    (`CONFIG.googleRating` 4.9 / `googleCount` 12, update by hand when it changes) with "Read all reviews" / "Leave a review" buttons.
-   Drifting review cards (Google mark on each) appear once texts are in `REVIEWS` in site.js; waiting for the owner to paste the 12 review
-   texts (Claude does not copy review texts off Google itself).
+   Drifting review cards (Google mark on each) from `REVIEWS` in site.js: 11 reviews added 8 Nov from the owner's screenshots, word for word
+   in the original language, emojis left out, names as first name + initial; page language shown first; long texts clamped to 8 lines.
+   Hanne S. (4 stars) left out: only Google's Russian translation was in the screenshot; add when the original German text is available.
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),

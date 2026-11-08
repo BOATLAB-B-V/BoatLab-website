@@ -162,10 +162,22 @@ de:{
 }};
 
 
-/* ===== Customer reviews (home page) =====
-   Paste real Google reviews here; the band animates as soon as there is at least one.
-   { name: "Jan de Vries", origin: "Venlo, NL", rating: 5, text: "…", lang: "nl" } */
-const REVIEWS = [];
+/* ===== Customer reviews (home and about page) =====
+   Real Google reviews, word for word in the original language (emojis left out). Names as first name + initial.
+   Reviews in the page's language are shown first. { name: "Jan V.", rating: 5, lang: "nl", text: "…" } */
+const REVIEWS = [
+  {name:"Ilonka D.", rating:5, lang:"de", text:"Hiermit möchte ich mich nochmal beim gesamten Team von Oleh bedanken, Ihr habt einen super Job gemacht von dem ersten Gespräch wurden wir nett höflich und sehr informativ begrüßt, vom Kranen, über die Reinigung, der Kostenvoranschlag,die Arbeiten am Boot, incl Bilder und Videos von den einzelnen Arbeitsschritten und der laufenden Betreuung durch oleh und sein Team,, einfach alles toll weiter so danke nochmal, können Euch nur bestens weiter empfehlen die Old Lady aus wanssum"},
+  {name:"Angelique K.", rating:5, lang:"nl", text:"Zeer tevreden over dit bedrijf. Vriendelijk personeel die vakkundig te werk gaan. Snelle service met antifouling, polijsten en de boot poetsen. Een echte aanrader"},
+  {name:"Iris W.", rating:5, lang:"de", text:"Von der ersten Kommunikation bis zur Abholung unseres Bootes waren wir rundum zufrieden. Der Ablauf war toll organisiert, das Zeitmanagement stimmte und auch mit den ausgeführten Arbeiten waren wir sehr zufrieden. Wir kennen auch andere Werften und wissen es deshalb besonders zu schätzen, so zuverlässig und aufmerksam begleitet worden zu sein. Wir würden diese Werft jederzeit wieder in Anspruch nehmen – klare Empfehlung! Weiter so … Danke"},
+  {name:"Marco S.", rating:5, lang:"en", text:"Very satisfied with the result! The polishing was done to a very high standard the hull truly looks like new and shines beautifully You can clearly see the attention to detail and professionalism. Will definitely use this service again, highly recommended!"},
+  {name:"Dave E.", rating:5, lang:"nl", text:"Gelijk de eerste dag een kras op onze nieuwe boot. Boatlab heeft dit zeer netjes weg kunnen werken. Totaal niet meer te zien. Super bedankt voor jullie snelle en goede service"},
+  {name:"Frank L.", rating:5, lang:"de", text:"Vor ein paar Wochen haben wir unsere Elan 42 h der Firma Boatlap anvertraut, damit sie für die Saison wieder in neuem Glanz erstrahlt. Unser Ansprechpartner Oleg hat uns im Vorfeld bestens beraten und stand uns jederzeit kompetent zur Seite. Alle Arbeiten wurden termingerecht, professionell und zu unserer vollsten Zufriedenheit ausgeführt. Dafür vergeben wir gerne 5 Sterne plus! Macht weiter so!"},
+  {name:"Harold H.", rating:5, lang:"nl", text:"Boot laten poetsen, vriendelijk en kundig personeel. Komen hun afspraken na en communiceren duidelijk wat ze gaan doen. Uiterst tevreden over het resultaat. Boot glanst weer als nieuw en dat alles voor een schappelijke prijs. Zeker een aanrader voor iemand die zijn of haar boot gewassen, gepland en/of gepolijst wil hebben."},
+  {name:"Kevin R.", rating:5, lang:"en", text:"These guys go out of their way to make you happy, an amazing job they did."},
+  {name:"Axel K.", rating:5, lang:"de", text:"Habe die Jungs in diesem Winter kennengelernt und hatte sofort einen guten und sympathischen Eindruck. Stehen einem auch ohne Auftrag stets zur Seite und ihre Arbeiten sind professionell. Sehr empfehlenswert. 10 Sterne"},
+  {name:"Marieke", rating:5, lang:"nl", text:"Interieurreiniging en vervanging van de bodembekleding van de boot zijn uitstekend en in korte tijd uitgevoerd. De vakmensen gaan professioneel te werk"},
+  {name:"Yehor K.", rating:5, lang:"nl", text:"Uitstekend werk – de aandacht voor detail is van een hoog niveau. Na de volledige reiniging en polijsting ziet de romp er perfect uit. Het bedrijf werkt zorgvuldig, op tijd en met gebruik van hoogwaardige materialen."}
+];
 
 /* ===== Extra text for the multi-page site ===== */
 const T2 = {
@@ -739,12 +751,12 @@ function renderReviews(){
   const gmark = '<svg class="g-mark" aria-label="Google"><use href="#i-google"/></svg>';
   const card = r => r ? `
     <figure class="review"><div class="stars" aria-label="${r.rating} / 5">${star.repeat(r.rating)}</div>
-      <blockquote>${esc(r.text)}</blockquote>
+      <blockquote lang="${esc(r.lang || "")}" title="${esc(r.text)}">${esc(r.text)}</blockquote>
       <figcaption><span class="avatar">${esc(r.name.trim()[0] || "?")}</span><span><b>${esc(r.name)}</b><small>${esc(r.origin || r.date || "Google")}</small></span>${gmark}</figcaption></figure>`
     : `<figure class="review demo" aria-hidden="true"><div class="stars">${star.repeat(5)}</div>
       <div class="sk"></div><div class="sk"></div><div class="sk short"></div>
       <figcaption><span class="avatar"></span><span class="sk name"></span></figcaption></figure>`;
-  const items = demo ? Array(8).fill(null) : REVIEWS;
+  const items = demo ? Array(8).fill(null) : [...REVIEWS].sort((a, b) => (b.lang === lang) - (a.lang === lang));   // page language first
   const half = Math.ceil(items.length/2);
   const rows = items.length > 5 ? [items.slice(0,half), items.slice(half)] : [items];
   box.innerHTML = rows.map((row, i) => {

@@ -412,7 +412,7 @@ a.c-item:hover,.c-item.hov:hover{transform:translateY(-4px);background:#fff;box-
 .review:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:var(--shadow)}
 .review .stars{display:flex;gap:2px;color:var(--hook)}
 .review .stars svg{width:18px;height:18px}
-.review blockquote{margin:0;font-size:.98rem;line-height:1.55;color:var(--ink)}
+.review blockquote{margin:0;font-size:.98rem;line-height:1.55;color:var(--ink);display:-webkit-box;-webkit-line-clamp:8;line-clamp:8;-webkit-box-orient:vertical;overflow:hidden}
 .review figcaption{display:flex;align-items:center;gap:12px}
 .review .avatar{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand);font-weight:700}
 .review figcaption b{display:block;font-size:.95rem}
