@@ -149,6 +149,12 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    `_ga*` cookies and reloads. Banner text and privacy policy §5/§8 updated (EN/NL/DE; policy says data kept 14 months). Tested live.
    Owner to do in GA4: Admin → Data retention = 14 months; mark `lead_form` (and `contact_whatsapp`, `contact_call`) as key events once they appear;
    link Search Console (Admin → Product links). First test hits got HTTP 503 from Google (new property); check Realtime report.
+2e. **Oleh's feedback round (8 Nov), done:** form privacy checkbox no longer floats (cookie banner CSS class renamed `.consent` → `.cookie-banner`;
+   the clash made the form field `position:fixed`); cookie banner is a white card, compact on phones; refit page hero now `hall-motor-yacht.jpg`
+   (was the same photo as its gallery) and refit has its own price answer (`priceText` in SP, "depends on the tasks, agreed in advance");
+   Results story renamed to "Full underwater coating restoration"; email button next to phone on contact hero, CTA band and service pages.
+   **Open from his list:** better primer photo for the antifouling page (current `af-primer.jpg` shows patchy primer; needs a new photo or
+   pro retouch); Facebook link (page URL needed, not found online); before/after polishing photos of a Focus yacht for the Results slider.
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),

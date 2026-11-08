@@ -45,7 +45,7 @@ PAGES = [
 LEGAL_PAGES = ("privacy", "terms")   # noindex, left out of the sitemap
 SERVICE_PAGES = ["antifouling", "polishing", "osmosis", "storage", "refit"]
 SERVICE_PHOTO = {"antifouling": ("af-bow-after.jpg", "af.p3"), "polishing": ("done-polish-bow.jpg", "po.p3"),
-                 "osmosis": ("osmosis-done.jpg", "os.p3"), "storage": ("aerial-hall.jpg", "sg.p1"), "refit": ("refit-hall.jpg", "re.p1")}
+                 "osmosis": ("osmosis-done.jpg", "os.p3"), "storage": ("aerial-hall.jpg", "sg.p1"), "refit": ("hall-motor-yacht.jpg", "re.p2")}
 
 # title tag and meta description per language for the standard pages (50-60 / 140-155 characters)
 META = {
@@ -227,7 +227,7 @@ def service_page_body(data, lang, sid):
         "allServices": esc(tr(data, lang, "sp.all")), "category": esc(tr(data, lang, "svc." + S["cat"])),
         "offer": esc(tr(data, lang, "sp.offer")), "nameLower": esc(name if lang == "de" else name[0].lower() + name[1:]),
         "detail": svc_detail(data, lang, S, 0, only=True),
-        "priceTitle": esc(tr(data, lang, "sp.price")), "priceText": esc(tr(data, lang, "sp.priceText")),
+        "priceTitle": esc(tr(data, lang, "sp.price")), "priceText": esc(sp.get("priceText") or tr(data, lang, "sp.priceText")),   # a service can have its own price answer
         "faqTitle": esc(tr(data, lang, "sp.faq")), "faq": faq, "relatedTitle": esc(tr(data, lang, "sp.related")), "related": related,
     }
     for k, v in fill.items():
