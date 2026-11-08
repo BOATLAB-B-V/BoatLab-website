@@ -129,6 +129,15 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    Telegram group (CRM: crm.boatlabservice.nl). Photos can't go through it: visitors with photos are asked to email them. One test lead was sent
    with the owner's OK ("TEST BoatLab website", answered 201). Asset links now carry `?v=<hash>` (build.py) so browsers load new CSS/JS after changes.
 2. ~~Main page switch~~ done 8 Nov. **Tell the contractor** the quiz moved to `/antifouling-quiz` (check his ads / links that pointed to `/`).
+2b. **Legal pages (8 Nov):** privacy policy rewritten (EN/NL/DE) to match how the site really works: request system + Google Sheet + Telegram
+   notifications, Microsoft 365 mail, marketing partner as processor, Focus Marine Center gets name/phone/boat/dates for crane/berth/storage (owner
+   confirmed), team only in NL (owner confirmed), photos by email, campaign pages with Meta Pixel, no cookies on our own pages. New **terms of use**
+   page `/terms` (website terms only, owner's choice; the work itself is governed by the accepted quote). Footer: "Terms of use" + "Cookie settings"
+   (reopens the banner when `gtmId` is set, else links to privacy §8). Banner now loads Tag Manager only after "Accept". robots.txt no longer
+   blocks the legal pages (they carry noindex instead).
+   **Open:** contractor must load the Meta Pixel on the quiz pages only after consent (policy says "we are adjusting these pages");
+   data processing agreements with the hosting provider / marketing partner; Telegram has no EU data agreement (consider limiting what the
+   notification contains); have a privacy professional review the texts.
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),

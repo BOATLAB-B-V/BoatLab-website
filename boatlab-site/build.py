@@ -40,7 +40,9 @@ PAGES = [
     ("facility", "facility", ["ph-facility", "lift", "facility", "cta"]),
     ("contact",  "contact",  ["ph-contact", "booking", "contact"]),
     ("privacy",  "privacy",  ["privacy"]),
+    ("terms",    "terms",    ["terms"]),
 ]
+LEGAL_PAGES = ("privacy", "terms")   # noindex, left out of the sitemap
 SERVICE_PAGES = ["antifouling", "polishing", "osmosis", "storage", "refit"]
 SERVICE_PHOTO = {"antifouling": ("af-bow-after.jpg", "af.p3"), "polishing": ("done-polish-bow.jpg", "po.p3"),
                  "osmosis": ("osmosis-done.jpg", "os.p3"), "storage": ("aerial-hall.jpg", "sg.p1"), "refit": ("refit-hall.jpg", "re.p1")}
@@ -61,6 +63,7 @@ META = {
   "contact":  ("Get an offer · BoatLab Yacht Services Wanssum · +31 6 11742272",
                "Request a fixed quote for your boat, with photos, or call or WhatsApp +31 6 11742272. Geijsterseweg 10, 5861 BL Wanssum, on the Maas in Limburg."),
   "privacy":  ("Privacy policy · BoatLab", "Privacy policy of Boatlab BV, Wanssum."),
+  "terms":    ("Terms of use · BoatLab", "Terms of use of the BoatLab website, Boatlab BV, Wanssum."),
  },
  "nl": {
   "index":    ("Jachtservice & botenonderhoud Wanssum, Limburg · Gratis hijsen · BoatLab",
@@ -76,6 +79,7 @@ META = {
   "contact":  ("Offerte aanvragen · BoatLab Yacht Services Wanssum · +31 6 11742272",
                "Vraag een vaste offerte aan voor uw boot, met foto's, of bel of WhatsApp +31 6 11742272. Geijsterseweg 10, 5861 BL Wanssum, aan de Maas in Limburg."),
   "privacy":  ("Privacyverklaring · BoatLab", "Privacyverklaring van Boatlab BV, Wanssum."),
+  "terms":    ("Gebruiksvoorwaarden · BoatLab", "Gebruiksvoorwaarden van de BoatLab-website, Boatlab BV, Wanssum."),
  },
  "de": {
   "index":    ("Yacht- & Bootsservice Wanssum (NL), nahe der Grenze · Kranen kostenlos · BoatLab",
@@ -91,6 +95,7 @@ META = {
   "contact":  ("Angebot anfragen · BoatLab Yacht Services Wanssum · +31 6 11742272",
                "Fordern Sie ein festes Angebot für Ihr Boot an, mit Fotos, oder rufen Sie an / WhatsApp +31 6 11742272. Geijsterseweg 10, 5861 BL Wanssum, an der Maas, 20 Minuten von der Grenze."),
   "privacy":  ("Datenschutzerklärung · BoatLab", "Datenschutzerklärung der Boatlab BV, Wanssum."),
+  "terms":    ("Nutzungsbedingungen · BoatLab", "Nutzungsbedingungen der BoatLab-Website, Boatlab BV, Wanssum."),
  },
 }
 NAME = {"en": "BoatLab Yacht Services", "nl": "BoatLab Yacht Services", "de": "BoatLab Yacht Services"}
@@ -134,7 +139,7 @@ def translate(html, data, lang):
         open_tag, tag, key = m.group(1), m.group(2), m.group(3)
         return f"{open_tag}{tr(data, lang, key)}</{tag}>"
     html = re.sub(r'(<(\w+)[^>]*\sdata-i18n-html="([^"]+)"[^>]*>)(.*?)</\2>', raw, html, flags=re.S)
-    # language blocks (privacy page): keep the matching one, drop the others
+    # language blocks (privacy and terms pages): keep the matching one, drop the others
     def block(m):
         return m.group(0) if m.group(1) == lang else ""
     html = re.sub(r'<article lang="(\w+)" data-lang-block="\w+"[^>]*>.*?</article>\s*', block, html, flags=re.S)
@@ -536,7 +541,7 @@ def main():
         # standard pages
         pages = [(name, nav, "\n\n".join("  " + read("sections", s + ".html").strip() for s in sections), META[lang][name][0], META[lang][name][1],
                   ld([jsonld_business(data, lang)] + ([jsonld_website()] if lang == "en" else [])) if name == "index" else "",
-                  name == "privacy") for name, nav, sections in PAGES]
+                  name in LEGAL_PAGES) for name, nav, sections in PAGES]
         # service landing pages
         for sid in SERVICE_PAGES:
             body = service_page_body(data, lang, sid) + "\n\n" + "\n\n".join("  " + read("sections", s + ".html").strip() for s in ("process", "cta"))
@@ -564,7 +569,8 @@ def main():
     sitemap = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
                + "\n".join(entry(l, n) for l, n in urls) + "\n</urlset>\n")
     write(os.path.join(out["dist"], "sitemap.xml"), sitemap)
-    write(os.path.join(out["dist"], "robots.txt"), f"User-agent: *\nAllow: /\nDisallow: /privacy.html\nDisallow: /nl/privacy.html\nDisallow: /de/privacy.html\n\nSitemap: {SITE}sitemap.xml\n")
+    # legal pages carry <meta name="robots" content="noindex">; crawlers must be allowed to read them to see it
+    write(os.path.join(out["dist"], "robots.txt"), f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
     print(f"Built {len(urls)} indexable pages ({len(PAGES)+len(SERVICE_PAGES)} per language × {len(LANGS)} languages) into dist/, inline/ and tilda/" + (" (preview mode)" if PREVIEW else ""))
 
 

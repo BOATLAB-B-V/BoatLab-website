@@ -65,7 +65,7 @@ en:{
  "book.eyebrow":"Get an offer","book.title":"Let's get your boat ready.","book.lede":"Send your request and we'll get back to you personally with a quote and a date.",
  "book.b1":"Free crane lift included with every service","book.b2":"Fixed, transparent quote before we start","book.b3":"Reply in English, Dutch or German",
  "f.name":"Name","f.email":"Email","f.phone":"Phone","f.optional":"(optional)","f.lang":"Preferred language","f.boat":"Boat make & model","f.length":"Length (m)","f.services":"Services","f.date":"Preferred date","f.where":"Where is the boat now?","f.w1":"In the water","f.w2":"On a trailer","f.w3":"In storage elsewhere","f.msg":"Anything else we should know?","f.photos":"Photos of your boat","f.photosHint":"Add up to 5 photos of the hull, deck or the damage. Tap to choose, or drop them here.","f.photosNote":"JPG, PNG or HEIC, max 10 MB each. Photos help us give you an accurate offer.","f.photosErr":"Please add up to 5 photos of max 10 MB each.","f.photosAttach":"Attach your photos to the email as well.","done.photosMail":"Please email your photos, with your name, to","f.remove":"Remove","f.note":"No payment needed. We only use your details to answer this request.","f.submit":"Send request",
- "f.errReq":"Please fill in your name, a valid email and your boat.","f.errSvc":"Choose at least one service.","f.errConsent":"Please confirm that you have read the privacy policy.","f.consent":"I have read the <a class=\"js-privacy\" href=\"privacy.html\">privacy policy</a> and agree that BoatLab uses my details to handle this request.","footer.privacy":"Privacy policy","footer.kvk":"KvK","footer.vat":"VAT","f.errSend":"The request could not be sent. Please email us directly at ",
+ "f.errReq":"Please fill in your name, a valid email and your boat.","f.errSvc":"Choose at least one service.","f.errConsent":"Please confirm that you have read the privacy policy.","f.consent":"I have read the <a class=\"js-privacy\" href=\"privacy.html\">privacy policy</a> and agree that BoatLab uses my details to handle this request.","footer.privacy":"Privacy policy","footer.terms":"Terms of use","footer.cookies":"Cookie settings","footer.kvk":"KvK","footer.vat":"VAT","f.errSend":"The request could not be sent. Please email us directly at ",
  "done.title":"Request sent.","done.text":"Thank you. We'll reply personally within one working day.","done.readyTitle":"Your request is ready.","done.readyText":"Send it to us by email and we'll reply personally with a quote and a date.","done.copy":"Copy request","done.mail":"Open in email","done.new":"New request","done.copied":"Copied",
  "c.eyebrow":"Visit the yard","c.maps":"Open in Google Maps →","c.email":"Email","c.copy":"Copy","c.address":"Address","c.follow":"Follow us","c.watch":"Watch us work","c.phone":"Phone","c.call":"Call us →","c.wa":"Send a message →","c.focus":"In partnership with Focus Marine Center"
 },
@@ -107,7 +107,7 @@ nl:{
  "book.eyebrow":"Offerte aanvragen","book.title":"Samen uw boot klaarmaken.","book.lede":"Stuur uw aanvraag en we nemen persoonlijk contact op met een offerte en een datum.",
  "book.b1":"Gratis hijsen bij elke service","book.b2":"Vaste, transparante offerte vooraf","book.b3":"Antwoord in het Nederlands, Duits of Engels",
  "f.name":"Naam","f.email":"E-mail","f.phone":"Telefoon","f.optional":"(optioneel)","f.lang":"Voorkeurstaal","f.boat":"Merk & type boot","f.length":"Lengte (m)","f.services":"Diensten","f.date":"Gewenste datum","f.where":"Waar ligt de boot nu?","f.w1":"In het water","f.w2":"Op een trailer","f.w3":"Elders in de stalling","f.msg":"Wat moeten we nog meer weten?","f.photos":"Foto's van uw boot","f.photosHint":"Voeg maximaal 5 foto's toe van de romp, het dek of de schade. Tik om te kiezen, of sleep ze hierheen.","f.photosNote":"JPG, PNG of HEIC, max. 10 MB per foto. Met foto's kunnen we een nauwkeurige offerte maken.","f.photosErr":"Voeg maximaal 5 foto's toe van elk max. 10 MB.","f.photosAttach":"Voeg uw foto's ook als bijlage aan de e-mail toe.","done.photosMail":"Mail uw foto's, met uw naam, naar","f.remove":"Verwijderen","f.note":"U betaalt nu niets. We gebruiken uw gegevens alleen om deze aanvraag te beantworden.","f.submit":"Aanvraag versturen",
- "f.errReq":"Vul uw naam, een geldig e-mailadres en uw boot in.","f.errSvc":"Kies minstens één dienst.","f.errConsent":"Bevestig dat u de privacyverklaring heeft gelezen.","f.consent":"Ik heb de <a class=\"js-privacy\" href=\"privacy.html\">privacyverklaring</a> gelezen en ga ermee akkoord dat BoatLab mijn gegevens gebruikt om deze aanvraag af te handelen.","footer.privacy":"Privacyverklaring","footer.kvk":"KvK","footer.vat":"BTW","f.errSend":"De aanvraag kon niet worden verzonden. Mail ons direct via ",
+ "f.errReq":"Vul uw naam, een geldig e-mailadres en uw boot in.","f.errSvc":"Kies minstens één dienst.","f.errConsent":"Bevestig dat u de privacyverklaring heeft gelezen.","f.consent":"Ik heb de <a class=\"js-privacy\" href=\"privacy.html\">privacyverklaring</a> gelezen en ga ermee akkoord dat BoatLab mijn gegevens gebruikt om deze aanvraag af te handelen.","footer.privacy":"Privacyverklaring","footer.terms":"Gebruiksvoorwaarden","footer.cookies":"Cookie-instellingen","footer.kvk":"KvK","footer.vat":"BTW","f.errSend":"De aanvraag kon niet worden verzonden. Mail ons direct via ",
  "done.title":"Aanvraag verstuurd.","done.text":"Bedankt. We reageren persoonlijk binnen één werkdag.","done.readyTitle":"Uw aanvraag staat klaar.","done.readyText":"Stuur hem per e-mail naar ons en we reageren persoonlijk met een offerte en een datum.","done.copy":"Aanvraag kopiëren","done.mail":"Openen in e-mail","done.new":"Nieuwe aanvraag","done.copied":"Gekopieerd",
  "c.eyebrow":"Bezoek de werf","c.maps":"Openen in Google Maps →","c.email":"E-mail","c.copy":"Kopiëren","c.address":"Adres","c.phone":"Telefoon","c.call":"Bel ons →","c.wa":"Stuur een bericht →","c.focus":"Gevestigd in samenwerking met Focus Marine Center","c.follow":"Volg ons","c.watch":"Kijk mee op de werf"
 },
@@ -149,7 +149,7 @@ de:{
  "book.eyebrow":"Angebot anfragen","book.title":"Machen wir Ihr Boot bereit.","book.lede":"Senden Sie Ihre Anfrage und wir melden uns persönlich mit Angebot und Termin.",
  "book.b1":"Kostenloses Kranen bei jedem Service","book.b2":"Fester, transparenter Preis vorab","book.b3":"Antwort auf Deutsch, Niederländisch oder Englisch",
  "f.name":"Name","f.email":"E-Mail","f.phone":"Telefon","f.optional":"(optional)","f.lang":"Bevorzugte Sprache","f.boat":"Bootsmarke & Modell","f.length":"Länge (m)","f.services":"Leistungen","f.date":"Wunschtermin","f.where":"Wo liegt das Boot jetzt?","f.w1":"Im Wasser","f.w2":"Auf einem Trailer","f.w3":"In einem anderen Winterlager","f.msg":"Was sollten wir noch wissen?","f.photos":"Fotos Ihres Bootes","f.photosHint":"Fügen Sie bis zu 5 Fotos von Rumpf, Deck oder Schaden hinzu. Tippen zum Auswählen oder hierher ziehen.","f.photosNote":"JPG, PNG oder HEIC, max. 10 MB pro Foto. Mit Fotos können wir ein genaues Angebot erstellen.","f.photosErr":"Bitte bis zu 5 Fotos mit je max. 10 MB hinzufügen.","f.photosAttach":"Hängen Sie Ihre Fotos bitte auch an die E-Mail an.","done.photosMail":"Bitte senden Sie Ihre Fotos mit Ihrem Namen an","f.remove":"Entfernen","f.note":"Keine Zahlung nötig. Wir nutzen Ihre Daten nur zur Beantwortung dieser Anfrage.","f.submit":"Anfrage senden",
- "f.errReq":"Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und Ihr Boot an.","f.errSvc":"Bitte wählen Sie mindestens eine Leistung.","f.errConsent":"Bitte bestätigen Sie, dass Sie die Datenschutzerklärung gelesen haben.","f.consent":"Ich habe die <a class=\"js-privacy\" href=\"privacy.html\">Datenschutzerklärung</a> gelesen und bin einverstanden, dass BoatLab meine Daten zur Bearbeitung dieser Anfrage verwendet.","footer.privacy":"Datenschutz","footer.kvk":"KvK","footer.vat":"USt-IdNr.","f.errSend":"Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns direkt an ",
+ "f.errReq":"Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und Ihr Boot an.","f.errSvc":"Bitte wählen Sie mindestens eine Leistung.","f.errConsent":"Bitte bestätigen Sie, dass Sie die Datenschutzerklärung gelesen haben.","f.consent":"Ich habe die <a class=\"js-privacy\" href=\"privacy.html\">Datenschutzerklärung</a> gelesen und bin einverstanden, dass BoatLab meine Daten zur Bearbeitung dieser Anfrage verwendet.","footer.privacy":"Datenschutz","footer.terms":"Nutzungsbedingungen","footer.cookies":"Cookie-Einstellungen","footer.kvk":"KvK","footer.vat":"USt-IdNr.","f.errSend":"Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns direkt an ",
  "done.title":"Anfrage gesendet.","done.text":"Vielen Dank. Wir melden uns persönlich innerhalb eines Werktags.","done.readyTitle":"Ihre Anfrage ist bereit.","done.readyText":"Senden Sie sie uns per E-Mail, und wir melden uns persönlich mit Angebot und Termin.","done.copy":"Anfrage kopieren","done.mail":"In E-Mail öffnen","done.new":"Neue Anfrage","done.copied":"Kopiert",
  "c.eyebrow":"Besuchen Sie die Werft","c.maps":"In Google Maps öffnen →","c.email":"E-Mail","c.copy":"Kopieren","c.address":"Adresse","c.phone":"Telefon","c.call":"Rufen Sie uns an →","c.wa":"Nachricht senden →","c.focus":"In Kooperation mit dem Focus Marine Center","c.follow":"Folgen Sie uns","c.watch":"Schauen Sie uns zu"
 }};
@@ -1022,28 +1022,32 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 const track = (event, extra) => dataLayer.push(Object.assign({event}, extra || {}));
 (function(){
+  const banner = $("#consent");
+  // "Cookie settings" in the footer: reopens the banner; without a tag container it simply leads to the cookie section of the privacy policy
+  document.addEventListener("click", e => {
+    const a = e.target.closest(".js-cookie-settings"); if (!a || !CONFIG.gtmId || !banner) return;
+    e.preventDefault(); banner.hidden = false;
+  });
   if (!CONFIG.gtmId) return;
   const KEY = "boatlab-consent";
   let choice = null; try { choice = localStorage.getItem(KEY); } catch(_){}
   gtag("consent", "default", {ad_storage:"denied", ad_user_data:"denied", ad_personalization:"denied", analytics_storage:"denied", wait_for_update: 500});
-  const load = () => {
-    if (window.__gtmLoaded) return; window.__gtmLoaded = true;
+  // Tag Manager is only loaded after "Accept"; "Only necessary" loads nothing from Google
+  const apply = c => {
+    if (c !== "all" || window.__gtmLoaded) return; window.__gtmLoaded = true;
+    gtag("consent", "update", {ad_storage:"granted", ad_user_data:"granted", ad_personalization:"granted", analytics_storage:"granted"});
     dataLayer.push({"gtm.start": Date.now(), event: "gtm.js"});
     const s = document.createElement("script"); s.async = true; s.src = "https://www.googletagmanager.com/gtm.js?id=" + CONFIG.gtmId; document.head.appendChild(s);
   };
-  const apply = c => {
-    const granted = c === "all" ? "granted" : "denied";
-    gtag("consent", "update", {ad_storage:granted, ad_user_data:granted, ad_personalization:granted, analytics_storage:granted});
-    load();
-  };
-  const banner = $("#consent");
-  if (choice){ apply(choice); return; }
+  if (choice) apply(choice); else if (banner) banner.hidden = false;
   if (!banner) return;
-  banner.hidden = false;
   banner.addEventListener("click", e => {
     const b = e.target.closest("button[data-consent]"); if (!b) return;
-    try { localStorage.setItem(KEY, b.dataset.consent); } catch(_){}
-    banner.hidden = true; apply(b.dataset.consent);
+    const before = choice; choice = b.dataset.consent;
+    try { localStorage.setItem(KEY, choice); } catch(_){}
+    banner.hidden = true;
+    if (before === "all" && choice !== "all") location.reload();   // withdrawing consent: reload so the loaded tags are gone
+    else apply(choice);
   });
 })();
 document.addEventListener("click", e => {
