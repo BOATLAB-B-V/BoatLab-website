@@ -138,6 +138,11 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    **Open:** contractor must load the Meta Pixel on the quiz pages only after consent (policy says "we are adjusting these pages");
    data processing agreements with the hosting provider / marketing partner; Telegram has no EU data agreement (consider limiting what the
    notification contains); have a privacy professional review the texts.
+2c. **Microsoft Clarity (8 Nov):** project "Boatlab", ID `zai86m4h1d` in `CONFIG.clarityId` (dashboard: clarity.microsoft.com, owner's Microsoft
+   account). Cookie banner now shows on first visit; Clarity loads only after "Accept" (Consent API v2 granted), "Only necessary" loads nothing,
+   withdrawing via "Cookie settings" calls `clarity("consent", false)` (cookies erased) and reloads. Contact form wrapper has `data-clarity-mask`.
+   `lead_form`, `contact_whatsapp`, `contact_call` are sent as Clarity events. Privacy policy §3/§5/§8 updated (EN/NL/DE). Tested live in Chrome:
+   first visit / only necessary / accept / withdraw all behave correctly. Next for "good analytics": GA4 via Tag Manager (`CONFIG.gtmId`), same banner.
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),
