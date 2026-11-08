@@ -124,8 +124,10 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
 `filip/`, `api/` (lead program), `crm/`, `assets/leads.js`, `.htaccess` (HTTPS + clean URLs `/x` → `x.html`), `.user.ini`, `php.ini`, `cgi-bin/`, `.well-known/`.
 
 **Still to do:**
-1. **Contact form:** `CONFIG.formEndpoint` is empty, so the form only shows a summary + "email us" button. Connect it to the contractor's `/api/leads`
-   (ask him for the format) or a form service.
+1. ~~Contact form~~ done 8 Nov: posts to the contractor's `/api/leads` (`CONFIG.leadsApi`, only on boatlabservice.nl) like the quiz:
+   `source` = `website_en/nl/de`, name, phone, email, all form details in `quizResult`, page_url, utm_*. Leads land in his database, Google Sheet and
+   Telegram group (CRM: crm.boatlabservice.nl). Photos can't go through it: visitors with photos are asked to email them. One test lead was sent
+   with the owner's OK ("TEST BoatLab website", answered 201). Asset links now carry `?v=<hash>` (build.py) so browsers load new CSS/JS after changes.
 2. ~~Main page switch~~ done 8 Nov. **Tell the contractor** the quiz moved to `/antifouling-quiz` (check his ads / links that pointed to `/`).
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console + `sitemap.xml`; Business Profile; Tilda copy can stay as backup or be unpublished.
@@ -359,4 +361,6 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
   answer 200, quiz home + landing + `leads.js` unchanged, photos/fonts/video load, no console errors, 375 px phone width OK. `upload-ftp/` added to `.gitignore`.
   Then, on the owner's go: quiz home copied to `/antifouling-quiz` (verified identical, lead script works), our `index.html` uploaded as `/`
   (verified: 22 photos, no errors, all 15 internal links OK).
+  Contact form connected to `/api/leads` (see "Still to do" 1); tested with one real labelled test lead and an intercepted form submit on `/nl/contact`.
+  Found that browsers kept the old `site.js` from cache; build now adds a version code to the CSS/JS links.
 - **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.

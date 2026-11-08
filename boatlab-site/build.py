@@ -12,7 +12,7 @@ The texts come from src/assets/site.js (dictionaries T, T2, T3, SVC_*, SP), read
 Run:  python3 build.py            (add --preview to show placeholder review cards)
 """
 import html as htmlmod
-import json, os, re, shutil, subprocess, sys
+import hashlib, json, os, re, shutil, subprocess, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
@@ -521,7 +521,8 @@ def main():
             if os.path.isdir(os.path.join(ROOT, folder)):
                 shutil.copytree(os.path.join(ROOT, folder), os.path.join(out[d], folder))
 
-    linked = ('<link rel="stylesheet" href="assets/site.css">', '<script src="assets/site.js"></script>')
+    ver = hashlib.sha1((css + js).encode()).hexdigest()[:8]   # changes with every CSS/JS edit, so browsers fetch the new files
+    linked = (f'<link rel="stylesheet" href="assets/site.css?v={ver}">', f'<script src="assets/site.js?v={ver}"></script>')
     inline = (f"<style>{css}</style>", f"<script>{js}</script>")
     urls, tilda_rows = [], []
     for lang in LANGS:
