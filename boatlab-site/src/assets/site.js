@@ -783,7 +783,10 @@ document.addEventListener("pointerdown", e => {
     const [bf, af] = BA[b.dataset.ba];
     cmp.classList.add("swap");
     setTimeout(() => {
-      const set = (img, src) => { img.srcset = `${src.replace(".jpg","-sm.jpg")} 800w, ${src} 1600w`; img.src = src; };
+      const set = (img, src) => {   // update the WebP <source> too: browsers prefer it over the <img>
+        $$("source", img.closest("picture") || img).forEach(s => { s.srcset = `${src.replace(".jpg","-sm.webp")} 800w, ${src.replace(".jpg",".webp")} 1600w`; });
+        img.srcset = `${src.replace(".jpg","-sm.jpg")} 800w, ${src} 1600w`; img.src = src;
+      };
       set($(".before img", cmp), ROOT+bf); set($(".after img", cmp), ROOT+af);
       range.value = 50; cmp.style.setProperty("--pos","50%");
       cmp.classList.remove("swap");
