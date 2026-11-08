@@ -248,7 +248,7 @@ def jsonld_business(data, lang):
         "logo": SITE + "img/logo-full.png", "image": [SITE + "img/og-image.jpg", SITE + "img/hero-sunset.jpg"],
         "email": data["CONFIG"]["email"], "telephone": "+31611742272",
         "hasMap": data["CONFIG"]["maps"], "priceRange": "€€", "currenciesAccepted": "EUR",
-        "sameAs": [data["CONFIG"]["instagram"], data["CONFIG"]["tiktok"]],
+        "sameAs": [u for u in (data["CONFIG"]["instagram"], data["CONFIG"].get("facebook"), data["CONFIG"]["tiktok"]) if u],
         "foundingDate": "2026-04",
         "address": {"@type": "PostalAddress", "streetAddress": "Geijsterseweg 10", "postalCode": "5861 BL",
                     "addressLocality": "Wanssum", "addressRegion": "Limburg", "addressCountry": "NL"},

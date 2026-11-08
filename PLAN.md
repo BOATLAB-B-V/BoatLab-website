@@ -154,7 +154,9 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    (was the same photo as its gallery) and refit has its own price answer (`priceText` in SP, "depends on the tasks, agreed in advance");
    Results story renamed to "Full underwater coating restoration"; email button next to phone on contact hero, CTA band and service pages.
    **Open from his list:** better primer photo for the antifouling page (current `af-primer.jpg` shows patchy primer; needs a new photo or
-   pro retouch); Facebook link (page URL needed, not found online); before/after polishing photos of a Focus yacht for the Results slider.
+   pro retouch); before/after polishing photos of a Focus yacht for the Results slider.
+   Facebook added 8 Nov: page "BoatLab | Wanssum", `https://www.facebook.com/p/BoatLab-61587361173898/` (`CONFIG.facebook`), in footer,
+   contact section and LocalBusiness `sameAs`.
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),

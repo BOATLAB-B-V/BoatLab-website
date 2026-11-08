@@ -13,6 +13,7 @@ const CONFIG = {
   // Google Analytics 4 measurement id (G-XXXXXXXXXX), loaded directly with gtag.js. Only after "Accept".
   ga4Id: "G-L3E2SR4KRM",
   instagram: "https://www.instagram.com/boatlab.nl/",
+  facebook: "https://www.facebook.com/p/BoatLab-61587361173898/",
   tiktok: "https://www.tiktok.com/@boatlab.nl",
   // Dutch law requires the KvK number (and VAT number) on the website. Shown in the footer once filled in.
   kvk: "42025956",
@@ -876,6 +877,7 @@ $$(".js-email-link").forEach(a => a.href = "mailto:" + CONFIG.email);
 $$(".js-kvk").forEach(e => { e.innerHTML = [CONFIG.kvk && "<br>KvK: " + CONFIG.kvk, CONFIG.vat && "<br>" + t("footer.vat") + ": " + CONFIG.vat].filter(Boolean).join(""); });
 $$(".js-ig").forEach(a => a.href = CONFIG.instagram);
 $$(".js-tt").forEach(a => a.href = CONFIG.tiktok);
+$$(".js-fb").forEach(a => a.href = CONFIG.facebook);
 $$(".js-maps").forEach(a => a.href = CONFIG.maps);
 $$(".js-year").forEach(e => e.textContent = new Date().getFullYear());
 $("#copyEmail")?.addEventListener("click", e => {
