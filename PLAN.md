@@ -142,7 +142,13 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
    account). Cookie banner now shows on first visit; Clarity loads only after "Accept" (Consent API v2 granted), "Only necessary" loads nothing,
    withdrawing via "Cookie settings" calls `clarity("consent", false)` (cookies erased) and reloads. Contact form wrapper has `data-clarity-mask`.
    `lead_form`, `contact_whatsapp`, `contact_call` are sent as Clarity events. Privacy policy §3/§5/§8 updated (EN/NL/DE). Tested live in Chrome:
-   first visit / only necessary / accept / withdraw all behave correctly. Next for "good analytics": GA4 via Tag Manager (`CONFIG.gtmId`), same banner.
+   first visit / only necessary / accept / withdraw all behave correctly.
+2d. **Google Analytics 4 (8 Nov):** property "BOATLAB Analytics" (account BOATLAB B.V.), measurement ID `G-L3E2SR4KRM` in `CONFIG.ga4Id`, loaded
+   directly with gtag.js (no Tag Manager) only after "Accept"; Consent Mode: analytics granted, ad storage stays denied, Google signals and ad
+   personalisation off. Events `lead_form`, `contact_whatsapp`, `contact_call` go to GA4 (and Clarity). Withdrawal sets consent denied, deletes
+   `_ga*` cookies and reloads. Banner text and privacy policy §5/§8 updated (EN/NL/DE; policy says data kept 14 months). Tested live.
+   Owner to do in GA4: Admin → Data retention = 14 months; mark `lead_form` (and `contact_whatsapp`, `contact_call`) as key events once they appear;
+   link Search Console (Admin → Product links). First test hits got HTTP 503 from Google (new property); check Realtime report.
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),

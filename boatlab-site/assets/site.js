@@ -10,6 +10,8 @@ const CONFIG = {
   gtmId: "",
   // Microsoft Clarity project (heatmaps, session recordings). Loaded only after "Accept" in the cookie banner.
   clarityId: "zai86m4h1d",
+  // Google Analytics 4 measurement id (G-XXXXXXXXXX), loaded directly with gtag.js. Only after "Accept".
+  ga4Id: "G-L3E2SR4KRM",
   instagram: "https://www.instagram.com/boatlab.nl/",
   tiktok: "https://www.tiktok.com/@boatlab.nl",
   // Dutch law requires the KvK number (and VAT number) on the website. Shown in the footer once filled in.
@@ -178,7 +180,7 @@ en:{
  "about.pTitle":"In partnership with Focus Marine Center","about.pText":"BoatLab works from the Focus Marine Center site in Wanssum. That gives our customers indoor halls, a harbour quay, a 30-tonne crane and a hydraulic boat mover, right on the Maas.",
  "footer.pages":"Pages","footer.contact":"Contact","footer.follow":"Follow us","footer.tag":"All-round yacht and boat service on the Maas.","footer.services":"Services",
  "bar.call":"Call","bar.wa":"WhatsApp","bar.offer":"Get an offer",
- "cc.text":"With your permission we use analytics cookies (Microsoft Clarity) to see how visitors use our website, so we can improve it. Nothing is loaded until you click Accept.","cc.accept":"Accept","cc.decline":"Only necessary","cc.more":"Privacy policy",
+ "cc.text":"With your permission we use analytics cookies (Google Analytics and Microsoft Clarity) to see how visitors find and use our website, so we can improve it. Nothing is loaded until you click Accept.","cc.accept":"Accept","cc.decline":"Only necessary","cc.more":"Privacy policy",
  "sp.faq":"Frequently asked questions","sp.how":"How we do it","sp.readmore":"Read more about this service","sp.related":"Other services","sp.all":"All services","sp.offer":"Get an offer for","sp.price":"What does it cost?","sp.priceText":"The price depends on the length and condition of your boat. You always get a fixed quote before we start, and the crane lift is included.","sp.ctaTitle":"Ready to get started?","sp.ctaText":"Send a few photos of your boat and we'll reply personally with a quote and a date."
 },
 nl:{
@@ -195,7 +197,7 @@ nl:{
  "about.pTitle":"In samenwerking met Focus Marine Center","about.pText":"BoatLab werkt vanaf het terrein van Focus Marine Center in Wanssum. Zo hebben onze klanten de beschikking over binnenhallen, een havenkade, een 30-tons kraan en een hydraulische botentransporter, direct aan de Maas.",
  "footer.pages":"Pagina's","footer.contact":"Contact","footer.follow":"Volg ons","footer.tag":"Allround jacht- en botenservice aan de Maas.","footer.services":"Diensten",
  "bar.call":"Bellen","bar.wa":"WhatsApp","bar.offer":"Offerte",
- "cc.text":"Met uw toestemming gebruiken we analytische cookies (Microsoft Clarity) om te zien hoe bezoekers onze website gebruiken, zodat we die kunnen verbeteren. Er wordt niets geladen voordat u op Akkoord klikt.","cc.accept":"Akkoord","cc.decline":"Alleen noodzakelijk","cc.more":"Privacyverklaring",
+ "cc.text":"Met uw toestemming gebruiken we analytische cookies (Google Analytics en Microsoft Clarity) om te zien hoe bezoekers onze website vinden en gebruiken, zodat we die kunnen verbeteren. Er wordt niets geladen voordat u op Akkoord klikt.","cc.accept":"Akkoord","cc.decline":"Alleen noodzakelijk","cc.more":"Privacyverklaring",
  "sp.faq":"Veelgestelde vragen","sp.how":"Zo doen we het","sp.readmore":"Lees meer over deze dienst","sp.related":"Andere diensten","sp.all":"Alle diensten","sp.offer":"Offerte aanvragen voor","sp.price":"Wat kost het?","sp.priceText":"De prijs hangt af van de lengte en de staat van uw boot. U krijgt altijd een vaste offerte voordat we beginnen, en het hijsen is inbegrepen.","sp.ctaTitle":"Klaar om te beginnen?","sp.ctaText":"Stuur een paar foto's van uw boot en we reageren persoonlijk met een offerte en een datum."
 },
 de:{
@@ -212,7 +214,7 @@ de:{
  "about.pTitle":"In Kooperation mit dem Focus Marine Center","about.pText":"BoatLab arbeitet auf dem Gelände des Focus Marine Center in Wanssum. Unsere Kunden profitieren so von Hallen, einem Hafenkai, einem 30-Tonnen-Kran und einem hydraulischen Bootstransporter, direkt an der Maas.",
  "footer.pages":"Seiten","footer.contact":"Kontakt","footer.follow":"Folgen","footer.tag":"Rundum-Service für Yachten und Boote an der Maas.","footer.services":"Leistungen",
  "bar.call":"Anrufen","bar.wa":"WhatsApp","bar.offer":"Angebot",
- "cc.text":"Mit Ihrer Erlaubnis verwenden wir Analyse-Cookies (Microsoft Clarity), um zu sehen, wie Besucher unsere Website nutzen, damit wir sie verbessern können. Vor Ihrem Klick auf Akzeptieren wird nichts geladen.","cc.accept":"Akzeptieren","cc.decline":"Nur notwendige","cc.more":"Datenschutzerklärung",
+ "cc.text":"Mit Ihrer Erlaubnis verwenden wir Analyse-Cookies (Google Analytics und Microsoft Clarity), um zu sehen, wie Besucher unsere Website finden und nutzen, damit wir sie verbessern können. Vor Ihrem Klick auf Akzeptieren wird nichts geladen.","cc.accept":"Akzeptieren","cc.decline":"Nur notwendige","cc.more":"Datenschutzerklärung",
  "sp.faq":"Häufige Fragen","sp.how":"So machen wir es","sp.readmore":"Mehr über diese Leistung","sp.related":"Weitere Leistungen","sp.all":"Alle Leistungen","sp.offer":"Angebot anfragen für","sp.price":"Was kostet es?","sp.priceText":"Der Preis hängt von Länge und Zustand Ihres Bootes ab. Sie erhalten immer ein festes Angebot, bevor wir beginnen, und das Kranen ist inklusive.","sp.ctaTitle":"Bereit loszulegen?","sp.ctaText":"Schicken Sie uns ein paar Fotos Ihres Bootes, und wir melden uns persönlich mit Angebot und Termin."
 }};
 for (const l in T2) Object.assign(T[l], T2[l]);
@@ -1022,13 +1024,15 @@ if (window.BL_TILDA) document.addEventListener("click", e => { const a = e.targe
 /* ---------- measurement: Google Tag Manager (Consent Mode v2) and Microsoft Clarity, only after "Accept" ---------- */
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
-const track = (event, extra) => {
-  dataLayer.push(Object.assign({event}, extra || {}));
-  if (window.__measuring && window.clarity) clarity("event", event);   // lead_form, contact_whatsapp, contact_call as Clarity events
+const track = (event, extra) => {   // lead_form, contact_whatsapp, contact_call
+  if (CONFIG.gtmId) dataLayer.push(Object.assign({event}, extra || {}));
+  if (!window.__measuring) return;
+  if (CONFIG.ga4Id) gtag("event", event, extra || {});
+  if (window.clarity) clarity("event", event);
 };
 (function(){
   const banner = $("#consent");
-  const measuring = CONFIG.gtmId || CONFIG.clarityId;
+  const measuring = CONFIG.gtmId || CONFIG.clarityId || CONFIG.ga4Id;
   // "Cookie settings" in the footer: reopens the banner; without any measurement it simply leads to the cookie section of the privacy policy
   document.addEventListener("click", e => {
     const a = e.target.closest(".js-cookie-settings"); if (!a || !measuring || !banner) return;
@@ -1047,6 +1051,12 @@ const track = (event, extra) => {
       dataLayer.push({"gtm.start": Date.now(), event: "gtm.js"});
       script("https://www.googletagmanager.com/gtm.js?id=" + CONFIG.gtmId);
     }
+    if (CONFIG.ga4Id){   // analytics only: advertising storage stays denied (no ads tracking, no Google signals)
+      gtag("consent", "update", {analytics_storage: "granted"});
+      gtag("js", new Date());
+      gtag("config", CONFIG.ga4Id, {allow_google_signals: false, allow_ad_personalization_signals: false});
+      script("https://www.googletagmanager.com/gtag/js?id=" + CONFIG.ga4Id);
+    }
     if (CONFIG.clarityId){
       window.clarity = window.clarity || function(){ (window.clarity.q = window.clarity.q || []).push(arguments); };
       clarity("consentv2", {ad_Storage: "granted", analytics_Storage: "granted"});
@@ -1060,8 +1070,12 @@ const track = (event, extra) => {
     const before = choice; choice = b.dataset.consent;
     try { localStorage.setItem(KEY, choice); } catch(_){}
     banner.hidden = true;
-    if (before === "all" && choice !== "all"){   // withdrawing consent: Clarity erases its cookies, then reload so the loaded tags are gone
+    if (before === "all" && choice !== "all"){   // withdrawing consent: erase the analytics cookies, then reload so the loaded tags are gone
+      gtag("consent", "update", {analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied"});   // stops GA rewriting its cookies
       if (window.clarity) clarity("consent", false);
+      document.cookie.split(";").map(c => c.trim().split("=")[0]).filter(n => /^_ga/.test(n)).forEach(n => {
+        [location.hostname, "." + location.hostname.replace(/^www\./, "")].forEach(d => { document.cookie = `${n}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${d}`; });
+      });
       setTimeout(() => location.reload(), 300);
     }
     else apply(choice);
