@@ -3,7 +3,7 @@
 Running log of what is done, what is next, and open questions. Update it at the end of every work session.
 Technical details (pages, project layout, how to build) are in `README.md`.
 
-_Last updated: 31 Oct 2026 (waiting for server login from the marketing contractor; see "Next session: start here")_
+_Last updated: 8 Nov 2026 (new pages live on boatlabservice.nl; home page switch and contact form still open; see "Next session: start here")_
 
 ## Where things stand
 
@@ -109,15 +109,30 @@ Report: https://claude.ai/artifact/9pUW5FMtJe9bpG48tWsxGV. Main findings, in pri
 8. Ads plan: brand campaign now; antifouling Feb–May; winter storage Sep–Nov; NL + DE, 40 km + NRW border; €15–25/day per language to start.
 9. Winter & dry storage added as the 15th service with its own page (30 Oct), worded as "on the quay, or indoors when space allows". Owner to confirm the offer and wording.
 
-## Next session: start here (handover 31 Oct 2026)
+## Next session: start here (updated 8 Nov 2026)
 
-**Where we are:** the new site is finished and checked; a copy runs in Tilda (preview only). The real domain points to a separate server
-(193.111.63.15) run by the **marketing contractor** who built the quiz pages and `/api/leads`. The owner sent him a message (Russian, "ty")
-asking for upload access and where the leads from `/api/leads` go. **Waiting for his answer / login details.**
+**LIVE since 8 Nov 2026:** all new pages are on boatlabservice.nl (`/services`, `/results`, `/about`, `/facility`, `/contact`, `/privacy`,
+`/antifouling`, `/polishing`, `/osmosis`, `/storage`, `/refit`, `/nl/…`, `/de/…`), next to the contractor's quiz pages. `/` is still the antifouling quiz.
+
+**How to upload (this PC):** WinSCP saved site **"Boatlab"** (FTP + explicit TLS, host `boatlabservice.nl` port 21, "force IP for passive mode" on;
+password saved by the owner, Claude never types it). The FTP root is the web root. Rebuild, then refresh the upload folder and send it:
+`cd boatlab-site && python build.py`, copy `dist/` to `upload-ftp/` without `index.html`, `_headers`, `_redirects`, then
+`"C:\Program Files (x86)\WinSCP\WinSCP.com" /command "option batch abort" "option confirm off" "open Boatlab" "put -transfer=binary upload-ftp\* /" "exit"`
+and check with `synchronize remote -preview -criteria=size upload-ftp /`. (`ftp.boatlabservice.nl` from the contractor's message does not exist in DNS.)
+Server contents (contractor's, never touch): `index.html` (quiz), `antifolingcng.html`, `shblon-test.html`, `antifoulling/`, `painting/`, `success/`,
+`filip/`, `api/` (lead program), `crm/`, `assets/leads.js`, `.htaccess` (HTTPS + clean URLs `/x` → `x.html`), `.user.ini`, `php.ini`, `cgi-bin/`, `.well-known/`.
+
+**Still to do:**
+1. **Contact form:** `CONFIG.formEndpoint` is empty, so the form only shows a summary + "email us" button. Connect it to the contractor's `/api/leads`
+   (ask him for the format) or a form service.
+2. **Main page switch** (owner says go): copy the quiz `index.html` to its own address first (e.g. `/antifouling-quiz.html`) so ads keep a working page,
+   tell the contractor, then upload our `dist/index.html` as `/`.
+3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
+4. Google Search Console + `sitemap.xml`; Business Profile; Tilda copy can stay as backup or be unpublished.
 
 **Owner's decision:** once the new site is live on that server, the main page `/` switches from the antifouling quiz to our home page.
 
-**Steps when the login arrives:**
+**Original steps (31 Oct; 1-5 done 8 Nov):**
 1. Owner logs in to the server's control panel in Chrome (or the contractor sets up FTP/SSH for this computer). Claude never types passwords.
 2. Look first (read-only): web root, where the quiz pages and `/api/leads` live, existing `assets/` (keep `leads.js`).
 3. `cd boatlab-site && python build.py` (on this PC: `python`, not `python3`; git = GitHub Desktop's git, see session log).
@@ -338,4 +353,8 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
 - **31 Oct 2026 (hosting)**: Looked up and checked the Intention account read-only: domain + DNS at Intention, the paid Intention hosting package is empty,
   the domain points to a separate server run by the marketing contractor (quiz pages + `/api/leads`). Owner asked him for login details
   (message drafted in Russian). Owner decided: our home page replaces the antifouling quiz on `/` once the site is live. Handover written above.
+- **8 Nov 2026 (go-live on the real server)**: Contractor sent FTP details. `ftp.boatlabservice.nl` doesn't exist, so WinSCP uses `boatlabservice.nl`;
+  passive mode needed "force IP" (server advertises another address). Owner installed WinSCP and saved the login. Looked first (read-only: root listing,
+  `.htaccess`, `assets/`), then uploaded 268 files (43 MB) without `index.html`; size check says all files complete. Checked live: all 33 new addresses
+  answer 200, quiz home + landing + `leads.js` unchanged, photos/fonts/video load, no console errors, 375 px phone width OK. `upload-ftp/` added to `.gitignore`.
 - **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.

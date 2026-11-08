@@ -3,6 +3,7 @@ boatlab-site/dist/
 boatlab-site/inline/
 boatlab-site/tilda/
 boatlab-site/preview/
+boatlab-site/upload-ftp/
 
 # System files
 .DS_Store
