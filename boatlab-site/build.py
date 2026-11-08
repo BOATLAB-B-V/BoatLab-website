@@ -261,6 +261,12 @@ def jsonld_business(data, lang):
     return d
 
 
+def jsonld_website():
+    """Site name for Google results ("BoatLab" instead of the domain); belongs on the domain's home page only."""
+    return {"@context": "https://schema.org", "@type": "WebSite", "name": "BoatLab",
+            "alternateName": ["BoatLab Yacht Services", "boatlabservice.nl"], "url": SITE}
+
+
 def jsonld_service(data, lang, sid):
     sp = data["SP"][lang][sid]
     url = f"{SITE}{FOLDER[lang]}{sid}.html"
@@ -377,7 +383,8 @@ def page_html(data, lang, name, nav_id, body, title, desc, css, js, extra_ld="",
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{url}">
 {alts}
-<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96.png">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta name="theme-color" content="#0b1726">
 {extra_ld}
@@ -528,7 +535,8 @@ def main():
     for lang in LANGS:
         # standard pages
         pages = [(name, nav, "\n\n".join("  " + read("sections", s + ".html").strip() for s in sections), META[lang][name][0], META[lang][name][1],
-                  ld(jsonld_business(data, lang)) if name == "index" else "", name == "privacy") for name, nav, sections in PAGES]
+                  ld([jsonld_business(data, lang)] + ([jsonld_website()] if lang == "en" else [])) if name == "index" else "",
+                  name == "privacy") for name, nav, sections in PAGES]
         # service landing pages
         for sid in SERVICE_PAGES:
             body = service_page_body(data, lang, sid) + "\n\n" + "\n\n".join("  " + read("sections", s + ".html").strip() for s in ("process", "cta"))

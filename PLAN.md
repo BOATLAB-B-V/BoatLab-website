@@ -132,7 +132,9 @@ Server contents (contractor's, never touch): `antifouling-quiz.html` (former qui
 3. Contractor should change the FTP password (it was pasted into a chat on 8 Nov).
 4. Google Search Console: verification file `google616d1ee719025615.html` uploaded to the web root on 8 Nov (**never delete it**);
    **done 8 Nov:** owner verified (URL-prefix property `https://boatlabservice.nl/`), submitted `sitemap.xml` (one sitemap covers all 33 pages),
-   requested indexing for `/`, `/nl/`, `/de/`. Google still showed the old quiz title for `/`; should update within days. Business Profile; Tilda copy can stay as backup or be unpublished.
+   requested indexing for `/`, `/nl/`, `/de/`. Google still showed the old quiz title for `/`; should update within days.
+   For search results: `WebSite` data with site name "BoatLab" on the root home page, and a 96×96 favicon (`img/favicon-96.png`, Google wants
+   multiples of 48 px). Sitelinks (the page "tree" under the result) are chosen by Google; expect them weeks after the pages are indexed. Business Profile; Tilda copy can stay as backup or be unpublished.
 
 **Owner's decision:** once the new site is live on that server, the main page `/` switches from the antifouling quiz to our home page.
 
