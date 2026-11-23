@@ -313,6 +313,40 @@ the phone or laptop answering questions.
 `pip install -r boatlab-site/requirements.txt && cd boatlab-site && python3 build.py`, output `boatlab-site/dist`; the Tilda project
 then moves to `go.boatlabservice.nl` and `_redirects` keeps the old quiz addresses working. Zero pasting, but DNS changes needed.
 
+## BoatLab Preview: AI before/after on the customer's own boat (decided 23 Nov 2026)
+
+**What it is.** A page where a customer uploads a photo of their boat, ticks the services (polishing, antifouling with colour choice,
+teak, cleaning), enters name and email, and after a short animated wait sees their own boat in the before/after slider as it would
+look after the work, with "Get an offer for this" pre-filled. Product name in all three languages: **BoatLab Preview**, tagline
+"See your boat after the service, before you book". Address `/preview` (+ `/nl/preview`, `/de/preview`).
+Purpose: lead magnet for Instagram, TikTok and ads; the email is asked before the result is shown.
+
+**Two placements, one engine.**
+- Own page `/preview` with the full flow; "Preview" replaces "Plan a visit" in the header (planning a visit stays a tab in the offer
+  form); on phones a card under the home hero instead.
+- Inside *Get an offer*: once a photo is uploaded and polishing/antifouling/teak/cleaning is ticked, a card appears "Want to see the
+  result on your boat? Preview it in 30 seconds"; the slider shows above the submit button, the form stays filled. Never mandatory.
+
+**Scope of services shown.** Only work that is visible from outside: polishing/gloss, antifouling (colour), teak, cleaning.
+Osmosis, engine, refit and interior are left out (no visible change or too vague).
+
+**How it is built.** The customer never leaves the site. Browser resizes the photo and sends it to a small server function (contractor's
+server, or Cloudflare Worker); the function calls the image-editing model with a fixed prompt per service, returns the picture, and
+stores the lead with both pictures through the existing `/api/leads` (or a new endpoint). Waiting animation over the hull with messages
+("removing oxidation", "applying antifouling"); result in the existing before/after slider; download/share button.
+
+**Guard rails.** Label every result "AI impression based on your photo; the real result depends on the hull, confirmed on inspection".
+Captcha (Turnstile) + per-visitor limit against budget abuse. Privacy: consent tick, paragraph in the privacy policy (photos processed by
+a third-party AI service), delete uploaded photos after 30 days. Example photos to guide the upload (side view, whole boat, daylight).
+
+**Steps.**
+1. [ ] Owner sends ~10 typical customer photos (dirty hulls, dull gelcoat, worn teak).
+2. [ ] Claude runs them through 2–3 image-editing models (OpenAI image edit, Google Gemini image editing, Flux Kontext) with the prompts
+       we would use; owner judges the results side by side. Decision: build or not. (half a day)
+3. [ ] Build: page in 3 languages, server function, lead storage, animation, slider, offer-form card, privacy text. (2–4 days)
+4. [ ] Launch: header button, home card, Instagram/TikTok posts and an ad pointing at `/preview`.
+Rough running cost: a few cents to ~20 cents per generated image; generation takes 15–60 s.
+
 ## Landing page for marketing campaigns
 
 A separate page that people reach from ads and campaigns (Instagram, TikTok, Google, flyers), built to turn a visit into a booking or a call.
@@ -410,3 +444,4 @@ A separate page that people reach from ads and campaigns (Instagram, TikTok, Goo
   Contact form connected to `/api/leads` (see "Still to do" 1); tested with one real labelled test lead and an intercepted form submit on `/nl/contact`.
   Found that browsers kept the old `site.js` from cache; build now adds a version code to the CSS/JS links.
 - **30 Oct 2026 (night)**: Owner decided: publish inside Tilda, Claude to drive Chrome. Built the Tilda mode: `tilda/` pages load assets from a CDN (jsDelivr on the GitHub repo), links mapped to Tilda addresses, head snippets, `tilda/PAGES.md` checklist; `boatlab-site/assets/` (generated CSS/JS copy) is now committed for the CDN. Tested in a simulated Tilda page with Playwright: fonts, photos, video, links all fine. Open: make repo public (or assets repo) so the CDN works; owner sets up Claude Desktop + Remote Control.
+- **23 Nov 2026**: Preview artifact refreshed from `main`. Decided with the owner: **BoatLab Preview** (AI before/after on the customer's own boat) as own page `/preview` plus a card inside Get an offer; section written above; first step is the photo test with ~10 customer photos.
